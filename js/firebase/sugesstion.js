@@ -49,25 +49,52 @@ await getDocs(colRef)
     console.log(err.message);
   })
 
+// let now = new Date();
+// console.log(dateToCompare)
 
+let suggestions = []
+
+const suggestionHandler = () => {
   let now = new Date();
+  let dateToCompare = String(now.getMonth()) + String(now.getFullYear())
+  console.log(suggestions.includes(dateToCompare), dateToCompare)
+  if (suggestions.includes(dateToCompare)) {
+    console.log(suggestions, 'in suggestions hast tarikhaii k click shode')
+    result.innerHTML = 'we have no suggestion';
+  } else {
+    console.log('else run shode')
+    suggestions = [...suggestions, dateToCompare]
+    const index = Math.floor(Math.random() * plantOurinfo.length);
+    console.log(index);
+    let plantResult = `Our suggestion is ${plantOurinfo[index].plant_name} you should water the plant ${plantOurinfo[index].water_frequency} and change the soil ${plantOurinfo[index].soil_frequency}.`
+    console.log(plantResult)
+    return result.innerHTML = plantResult;
 
-if(now.getDate() === 30){
-  button.addEventListener('click', () => {
+  }
+  return
+}
 
-  const index = Math.floor(Math.random() * plantOurinfo.length);
-  console.log(index);
-  let plantResult = `Our suggestion is ${plantOurinfo[index].plant_name} you should water the plant ${plantOurinfo[index].water_frequency} and change the soil ${plantOurinfo[index].soil_frequency}.`
- return result.innerHTML = plantResult;
-  
-})
-}
-else{
-  button.addEventListener('click', () => {
-  console.log('we have no suggestion')
-  result.innerHTML = 'we have no suggestion';
-})
-}
+let button = document.querySelector('#button')
+button.addEventListener('click', suggestionHandler)
+
+
+
+// if (now.getDate() === 30) {
+//   button.addEventListener('click', () => {
+
+//     const index = Math.floor(Math.random() * plantOurinfo.length);
+//     console.log(index);
+//     let plantResult = `Our suggestion is ${plantOurinfo[index].plant_name} you should water the plant ${plantOurinfo[index].water_frequency} and change the soil ${plantOurinfo[index].soil_frequency}.`
+//     return result.innerHTML = plantResult;
+
+//   })
+// }
+// else {
+//   button.addEventListener('click', () => {
+//     console.log('we have no suggestion')
+//     result.innerHTML = 'we have no suggestion';
+//   })
+// }
 
 
 //Realtime collection
