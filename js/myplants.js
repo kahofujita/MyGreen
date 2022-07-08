@@ -1,13 +1,15 @@
 
 import {app, db} from './firebase/firebase-config.js'
 
-import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, Timestamp} from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
 
 // import {waterFunc, sunTempFunc, nutriFunc} from './weekly-schedule.js';
 
 
 
 const userId = 10;
+
+const watering = document.querySelector('.watering')
 
 const getPlantinfo = async () => {
 
@@ -16,20 +18,45 @@ const getPlantinfo = async () => {
 const userQuery = query(collection(db, "plant_userinfo"), where("user_info_id", "==", userId))
 
 const userQuerySnapshot = await getDocs(userQuery);
-userQuerySnapshot.forEach((doc) => {
-    // console.log(doc.data().plant_id)
+userQuerySnapshot.forEach((plantuserinfo) => {
+    // console.log(e.data().plant_id)
 
-    const plantIds = doc.data().plant_id
+    const plantIds = plantuserinfo.data().plant_id
+
+    const date = new Date(plantuserinfo.data().water_1*1000)
+
+    console.log(date);
 
     plantIds.forEach( async(plantid, index) => {
     
         const plantQuery = query(collection(db, "plant_ourinfo"), where("plant_id", "==", plantid))
+
+        console.log(plantid)
+
+
+    
+
+        // document.getElementById('watered-today').addEventListener('click', () => {
+        //     console.log('you click me!')
+
+        //     if (document.querySelector("div")) {
+        //         document.querySelector("div").remove()
+        //     }
+
+        //     createElement('div')
+        //     div.innerHTML = "....";
+        // })
+
+
+
+
+        
     
         const plantQuerySnapshot = await getDocs(plantQuery);
-        plantQuerySnapshot.forEach((doc) => {
+        plantQuerySnapshot.forEach((plantourinfo) => {
 
             // Display plant image
-            const plantName = doc.data().plant_name
+            const plantName = plantourinfo.data().plant_name
         
             const div = document.createElement('div')
             // div.classList.add('swiper-slide')
@@ -50,12 +77,49 @@ userQuerySnapshot.forEach((doc) => {
 
             console.log(plantName)
 
+
+            // Weekly schedule
+            
+                console.log(index)
+
+                if ( index == 0) {
+                    console.log('0きてるよ！')
+                    
+                    const button = document.createElement('button')
+                    button.classList.add('watered-today')
+                
+                    button.innerHTML = 'Watered today'
+                    button.addEventListener('click', async() => {
+                        console.log(plantid)
+
+                        const currentDate = new Date().getTime()
+                        console.log(currentDate)
+
+
+
+                        const doctoUpdate = doc(db, "plant_userinfo", plantuserinfo.id);
+
+                        await updateDoc(doctoUpdate, {
+                            [`water_${plantid}`]: Timestamp.fromDate(new Date())
+                        });
+
+
+                    })
+                
+                    watering.appendChild(button)
+                    
+                }
+            
+
+
+
+
             // Click plant image
             img.addEventListener('click', () => {
                 console.log(index)
 
                 // watering
-                const waterFrequent = doc.data().water_frequency
+                const waterFrequent = plantourinfo.data().water_frequency
 
                 console.log(waterFrequent)
 
@@ -66,13 +130,13 @@ userQuerySnapshot.forEach((doc) => {
                 const divWater = document.createElement("div")
                 divWater.classList.add('water-frequency')
                 
-                const watering = document.querySelector('.watering')
+                // const watering = document.querySelector('.watering')
                 watering.appendChild(divWater)
 
                 divWater.innerHTML = waterFrequent;
 
                 // sunlight and temperature
-                const sunTemp = doc.data().sunlight_temperature_frequency
+                const sunTemp = plantourinfo.data().sunlight_temperature_frequency
 
                 console.log(sunTemp)
 
@@ -89,7 +153,7 @@ userQuerySnapshot.forEach((doc) => {
                 divSunTemp.innerHTML = sunTemp;
 
                 // nutritions
-                const soilFrequent = doc.data().soil_frequency
+                const soilFrequent = plantourinfo.data().soil_frequency
 
                 console.log(soilFrequent)
 
@@ -105,7 +169,69 @@ userQuerySnapshot.forEach((doc) => {
                 
                 divSoil.innerHTML = soilFrequent;
 
+
+                // Waterd today
+                if (document.querySelector(".watered-today")) {
+                    document.querySelector(".watered-today").remove()
+                }
+        
+                const button = document.createElement('button')
+                button.classList.add('watered-today')
+                
+                button.innerHTML = 'Watered today'
+                button.addEventListener('click', async() => {
+                    console.log(plantid)
+
+                    const currentDate = new Date().getTime()
+                    console.log(currentDate)
+
+
+
+                    const doctoUpdate = doc(db, "plant_userinfo", plantuserinfo.id);
+
+                    await updateDoc(doctoUpdate, {
+                        [`water_${plantid}`]: Timestamp.fromDate(new Date())
+                        });
+                })
+
+
+                
+                watering.appendChild(button)
+
             })
+
+
+            // watering calculation
+            // clicking watered today button
+
+            // document.getElementById('watered-today').addEventListener('click', () => {
+            //     console.log('you click me!')
+
+            //     const date = new Date();
+
+
+            //     // const nextDate
+            //     const nextDate = date.getDate() + 7
+            //     console.log(nextDate)
+
+            //     // console.log(today.getDate())
+
+            //     const countdown = nextDate - date.getDate()
+            //     // console.log(countdown)
+
+                
+
+                
+
+
+
+            // })
+
+            // calendar
+
+            // const dateControl = document.querySelector('input[type="date"]')
+            // console.log(dateControl.value)
+
 
 
 
