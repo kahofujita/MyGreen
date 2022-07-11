@@ -42,12 +42,18 @@
             </div>
         </fieldset>
 
-        <label for="usernameMyAccount">Username: </label>
-        <input type="text" name="usernameMyAccount" id="usernameMyAccount">
-        <label for="emailMyAccount">Email: </label>
-        <input type="email" name="emailMyAccount" id="emailMyAccount">
-        <label for="passwordMyAccount">Password: </label>
-        <input type="password" name="passwordMyAccount" id="passowordMyAccount" placeholder="Enter your new password..." autocomplete="off">
+        <label for="currentUsername">Your username: </label>
+        <input type="text" name="currentUsername" id="currentUsername" disabled>
+        <label for="newUsername">New username: </label>
+        <input type="text" name="newUsername" id="newUsername">
+        <label for="currentEmail">Your email: </label>
+        <input type="email" name="currentEmail" id="currentEmail">
+        <label for="newEmail">New email: </label>
+        <input type="email" name="newEmail" id="newEmail">
+        <label for="passwordMyAccount">Your current password: </label>
+        <input type="password" name="currentPassword" id="currentPassword" placeholder="Enter your password...">
+        <label for="passwordMyAccount">New password: </label>
+        <input type="password" name="newPassword" id="newPassword" placeholder="Enter a new password...">
         <a href="#">Cancel</a>
         <button type="submit">Save</button>
     </form>

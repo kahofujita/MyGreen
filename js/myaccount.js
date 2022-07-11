@@ -18,7 +18,8 @@ import {
     signOut,
     onAuthStateChanged,
     updateEmail,
-    updatePassword
+    updatePassword,
+    signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
 
 const userId = sessionStorage.getItem('userID');
@@ -43,28 +44,63 @@ logoutButton.addEventListener('click', () => {
         })
 });
 
+// MY ACCOUNT
+
+// FILLING THE FORM WITH CURRENT INFORMATION
 const docRef = doc(db, "user_info", userId);
 const docSnap = await getDoc(docRef);
 const user = auth.currentUser;
 
-const usernameMyAccount = document.getElementById('usernameMyAccount');
-const emailMyAccount = document.getElementById('emailMyAccount');
+const currentUsername = document.getElementById('currentUsername');
+const currentEmail = document.getElementById('currentEmail');
 
-let usernameCurrent = docSnap.data().username;
-usernameMyAccount.value = usernameCurrent;
+let currentUsernameFirebase = docSnap.data().username;
+currentUsername.value = currentUsernameFirebase;
 
-let emailCurrent = docSnap.data().email;
-emailMyAccount.value = emailCurrent;
+let currentEmailFirebase = docSnap.data().email;
+currentEmail.value = currentEmailFirebase;
 
 const changeInfoUser = document.querySelector('.changeInfoMyAccount')
 
 changeInfoUser.addEventListener('submit', (e) => {
     e.preventDefault()
-    
-    const newPassword = document.getElementById('passowordMyAccount').value;
-    
-    updateEmail(auth.currentUser, emailMyAccount.value)
-    updatePassword(user, newPassword);
+
+    const newEmail = document.getElementById('newEmail').value;
+    // const newUsername = document.getElementById('newUsername').value;
+
+    const currentPassword = document.getElementById('currentPassword').value;
+    const newPassword = document.getElementById('newPassword').value;
+
+
+
+    signInWithEmailAndPassword(auth, currentEmail.value, currentPassword)
+        .then((cred) => {
+            // console.log('user logged in', cred.user)
+            sessionStorage.setItem('userID', cred.user.uid);
+        })
+        .catch((err) => {
+            console.log(err.message)
+        })
+
+    updateEmail(auth.currentUser, newEmail)
+        .then(() => {
+            console.log('email working')
+        })
+
+    signInWithEmailAndPassword(auth, currentEmail.value, currentPassword)
+        .then((cred) => {
+            // console.log('user logged in', cred.user)
+            sessionStorage.setItem('userID', cred.user.uid);
+        })
+        .catch((err) => {
+            console.log(err.message)
+        })
+
+    updatePassword(auth.currentUser, newPassword)
+        .then(() => {
+            console.log('password working')
+        })
+
 
     // let newAvatar = "";
     // const radiosAvatar = document.querySelectorAll('.avatarRadio');

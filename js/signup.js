@@ -1,6 +1,7 @@
 import {
     db
 } from "./firebase/firebase-config.js";
+
 import {
     auth
 } from "./firebase/firebase-config.js";
