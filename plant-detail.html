@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>personal Journal Page</title>
-    <script src ="./js/personal_journal.js" type="module" defer></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/plant-datail.css">
+    <script src="./js/plant-detail.js" type="module" defer ></script>
     <script src="js/logout.js" type="module" defer></script>
 </head>
 <body>
@@ -28,35 +29,20 @@
 
         <button type="button" class="logout">Logout</button>
     </header>
-    
-    <h1>Personal Journal</h1>
+
     <main>
-        <!-- user info avatar and name -->
-        <div class="user-info">
-            <img src="" alt="useravatar" id="avatar">
-            <p id="username"></p>
-            <p id="postNbr"></p>
+        <div class="plant-image-wrapper"></div>
+        
+        <div class="desc-wrapper">
+            <div class="frequency-list"></div>
+            <div class="section-wrapper">
+                <div class="detail-section">Details</div>
+                <div class="indoor-section">Plant care(Indoor)</div>
+                <div class="outdoor-section">Plant care(Outdoor)</div>
+            </div>
+            <div class="description"></div>
         </div>
-        <a href="camera.html">Add a Post</a>
-        
-        
-        <!-- display of all posts -->
-        <div id="post" class = "pages">
-           
-
-
-            
-        </div>
-        
-        <!-- display single post after click img -->
-       <div id="result" class = "page">
-         
-
-         
-
-        </div>   
-         <a  id="btn" class="item" href="#post" >BACK TO your Journal Page</a>  
-      
     </main>
+    
 </body>
 </html>
