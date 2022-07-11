@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture your plant</title>
+    <script src="camera.js" type="module" defer></script>
+
+</head>
+<body>
+    <main>
+        <!-- <div id="menu" >
+            
+        </div> -->
+        <div class="page" id="picture" >
+              <a class="item" href="#profile" >Write Journal</a>
+            <p>Please take a picture of your plant</p>
+           
+            <div>
+                <button id="start" class="item">Camera On</button>
+                <!-- <input type="file" accept="image/*" capture="camera"> -->
+                <button type="button" id="btn-toggle">Change Camera angle</button>
+                <button id="snap" class="item">Snap Photo</button>
+                <!-- <button id="stop" class="item">Stop Camera</button> -->
+            </div>
+              <br />
+              <!-- <video id="video" width="480" height="480" autoplay></video> -->
+              <video id="video" width="320" height="240" autoplay></video> 
+              <br />
+              <!-- <canvas id="canvas" width="480" height="480"></canvas> -->
+               <canvas id="canvas" width="320" height="240"></canvas> 
+    
+        </div>
+        
+        
+
+
+        <div class="page" id="profile" >     
+                <div id="card"> 
+                    <a class="item" href="#picture" >Upload Picture</a>
+                    <input id="target" type="file" />  
+                    <div id="front" class="face">
+                        <form id="form1">
+                            <label>Picture </label>
+                            <input type="url" id="image" size="40"  required/>
+
+                            <label>Date </label>
+                            <input type="date" id="date" required />
+
+                            <label>caption</label>
+                            <input type="text" id="caption" required />
+            
+                            <label>Journal</label>
+                            <textarea type="text" id="journal"></textarea>
+            
+                        
+                            <span></span>
+                            <input type="submit" class="submit" >
+                        </form>
+                    </div>    
+                </div>
+               
+                <div id="back" class="face"  >
+                </div>
+            </div>        
+            </div>
+            
+        </div>
+        
+    </main>
+
+</body>
+</html>
