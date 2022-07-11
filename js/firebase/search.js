@@ -57,7 +57,7 @@ inputSearch.addEventListener('input', (e) => {//try change it will search all of
     timer = setTimeout(() => {
       plantOurinfo.map(plant => {
         if (reg(e.target.value, plant.plant_name)) {
-          document.querySelector('.result').innerHTML = `The name is ${plant.plant_name} and the water frequency is ${plcy} the soil frequency is ${plant.soil_frequency}`;
+          document.querySelector('.result').innerHTML = `The name is ${plant.plant_name} and the water frequency is ${plant.water_frequency} the soil frequency is ${plant.soil_frequency}`;
           console.log(plant);
         }
       })
