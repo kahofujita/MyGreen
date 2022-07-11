@@ -1,5 +1,5 @@
 
-import {app, db} from './firebase/firebase-config.js'
+import {db} from './firebase/firebase-config.js'
 
 import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
 
