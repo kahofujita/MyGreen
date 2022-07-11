@@ -1,11 +1,10 @@
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
-// import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+
 
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
-import { getFirestore, collection, getDocs, query, onSnapshot } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+import { getFirestore, collection, getDocs, query, onSnapshot, where } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,16 +22,21 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
 //init services
 const db = getFirestore(app);
 
+
 //collection Ref
 const colRef = collection(db, 'plant_ourinfo');
+const userRef = collection(db, 'user_info');
+
+
+const userId = sessionStorage.getItem('userID');
 
 //queries
-const q = query(colRef);
+const userQuery = query(userRef, where('user_info_id','==', userId));
 
 //get collection data
 let plantOurinfo = [];
@@ -49,67 +53,51 @@ await getDocs(colRef)
     console.log(err.message);
   })
 
-// let now = new Date();
-// console.log(dateToCompare)
+   //compare the month and date to avoid show new suggestion in same month
+   let suggestions = [];
 
-let suggestions = []
+   const suggestionHandler = () => {
+     let now = new Date();
+     let dateToCompare = String(now.getMonth()) + String(now.getFullYear())
+     console.log(suggestions.includes(dateToCompare), dateToCompare)
+     if (suggestions.includes(dateToCompare) && q) {
+       // console.log(suggestions, 'the suggestions')
+       result.innerHTML = 'we have no suggestion';
+     } else {
+       console.log('else run shode')
+       suggestions = [...suggestions, dateToCompare]
+       suggestions.push();
+       const index = Math.floor(Math.random() * plantOurinfo.length);
+       console.log(index);
+       let plantResult = `Our suggestion is ${plantOurinfo[index].plant_name} you should water the plant ${plantOurinfo[index].water_frequency} and change the soil ${plantOurinfo[index].soil_frequency}.`
+       console.log(plantResult)
+       return result.innerHTML = plantResult;
+   
+     }
+     return
+   }
 
-const suggestionHandler = () => {
-  let now = new Date();
-  let dateToCompare = String(now.getMonth()) + String(now.getFullYear())
-  console.log(suggestions.includes(dateToCompare), dateToCompare)
-  if (suggestions.includes(dateToCompare)) {
-    console.log(suggestions, 'in suggestions hast tarikhaii k click shode')
-    result.innerHTML = 'we have no suggestion';
+// const getUserinfo = async () => {
+//  //
+//   const userQuerySnapshot = await getDocs(userQuery);
+//   userQuerySnapshot.forEach((doc) => {
+
+//     suggestionHandler();
+//   })
+
+//   userQuerySnapshot();
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+
+onAuthStateChanged(auth, (userQuery) => {
+  if (userQuery) {
+    // User is signed in
+    const uid = user.uid;
+    console.log(uid);
+   
   } else {
-    console.log('else run shode')
-    suggestions = [...suggestions, dateToCompare]
-    const index = Math.floor(Math.random() * plantOurinfo.length);
-    console.log(index);
-    let plantResult = `Our suggestion is ${plantOurinfo[index].plant_name} you should water the plant ${plantOurinfo[index].water_frequency} and change the soil ${plantOurinfo[index].soil_frequency}.`
-    console.log(plantResult)
-    return result.innerHTML = plantResult;
-
+    // User is signed out
+  
   }
-  return
-}
-
-let button = document.querySelector('#button')
-button.addEventListener('click', suggestionHandler)
-
-
-
-// if (now.getDate() === 30) {
-//   button.addEventListener('click', () => {
-
-//     const index = Math.floor(Math.random() * plantOurinfo.length);
-//     console.log(index);
-//     let plantResult = `Our suggestion is ${plantOurinfo[index].plant_name} you should water the plant ${plantOurinfo[index].water_frequency} and change the soil ${plantOurinfo[index].soil_frequency}.`
-//     return result.innerHTML = plantResult;
-
-//   })
-// }
-// else {
-//   button.addEventListener('click', () => {
-//     console.log('we have no suggestion')
-//     result.innerHTML = 'we have no suggestion';
-//   })
-// }
-
-
-//Realtime collection
-// getDocs(colref)
-// .then((snapshot)=> {
-//   let plantSuggest = [];
-//   snapshot.docs.forEach((doc) => {
-//     plantSuggest.push({...doc.data,id:doc.id})
-//   })
-//   console.log(plantSuggest);
-// })
-
-
-
-
-
-
-
+});
