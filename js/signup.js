@@ -163,6 +163,6 @@ addPlantForm.addEventListener('submit', (e) => {
         })
         .then(() => {
             alert("Signup Finished");
-            window.location.assign("./myaccount.html");
+            window.location.assign("./homepage.html");
         })
 })

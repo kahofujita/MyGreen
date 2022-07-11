@@ -16,7 +16,7 @@ loginForm.addEventListener('submit', (e) => {
     .then((cred) => {
         // console.log('user logged in', cred.user)
         sessionStorage.setItem('userID', cred.user.uid);
-        window.location.assign("./myaccount.html");
+        window.location.assign("./homepage.html");
     })
     .catch((err) => {
         console.log(err.message)
