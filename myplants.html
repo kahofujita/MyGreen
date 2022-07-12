@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/myplants.css">
     <!-- <script src="./js/weekly-schedule.js" type="module" defer ></script> -->
     <script src="./js/myplants.js" type="module" defer ></script>
     <!-- <script src="./js/carousel.js" type="module" defer ></script> -->
@@ -21,6 +21,7 @@
                 <li><a href="public_journal.html">Journal</a></li>
                 <li><a href="personal_journal.html">My journal</a></li>
                 <li><a href="sugesstion.html">Plant pick</a></li>
+                <li><a href="plant-detail.html">Plant details</a></li>
                 <li><a href="myaccount.html">My account</a></li>
                 <li><a href="camera.html">Camera</a></li>
 
@@ -35,7 +36,7 @@
     
 
     <section class="myplant">
-        <h1>My Plants</h1>
+        <h2>My Plants</h2>
 
         <!-- Slider main container -->
     <!-- <div class="swiper">
@@ -70,19 +71,22 @@
     </section>
 
     <section class="weekly-schedule">
-        <h1>Weekly Schedule</h1>
+        <h2>Weekly Schedule</h2>
 
-        <div class="watering">
-            <p>Watering</p>
-            <div class="water-frequency"></div>
-
-            <input type="date" class="calendar" required />
-        </div>
-        <div class="sunlight-temp">
-            <p>Sunlight and Temperature</p>
-        </div>
-        <div class="nutritions">
-            <p>Nutritions</p>
+        <div class="weekly-schedule-wrapper">
+            <div class="watering">
+                <div class="weekly-schedule-section">Watering</div>
+                <div>Last Watered: </div>
+                <input type="date" class="watering-calendar" required />
+            </div>
+            <div class="sunlight-temp">
+                <div class="weekly-schedule-section">Sunlight and Temperature</div>
+            </div>
+            <div class="nutritions">
+                <div class="weekly-schedule-section">Nutritions</div>
+                <div>Last Nutritionized: </div>
+                <input type="date" class="nutritionizing-calendar" required />
+            </div>
         </div>
     </section>
     

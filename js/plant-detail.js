@@ -1,11 +1,12 @@
 
-import {db} from './firebase/firebase-config.js'
+import {db, auth} from './firebase/firebase-config.js'
+import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
-import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+const userId = sessionStorage.getItem('userID')
+console.log(userId)
 
-
-let plantId = 3;
-const imgWapper = document.querySelector('.plant-image-wrapper')
+let plantName = 'Monstera'; //ここだけvariableにする必要がある！どうやって取ってくる？
+const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
 const frequentList = document.querySelector('.frequency-list')
 const detailSec = document.querySelector('.detail-section')
 const indoorSec = document.querySelector('.indoor-section')
@@ -15,45 +16,46 @@ const description = document.querySelector('.description')
 
 const getPlantinfo = async () => {
 
-    // Get plant ID info
-    const plantQuery = query(collection(db, "plant_ourinfo"), where("plant_id", "==", plantId))
-    
+    // Query "plant_ourinfo"
+    const plantQuery = query(collection(db, "plant_ourinfo"), where("plant_name", "==", plantName))
     const plantQuerySnapshot = await getDocs(plantQuery);
     plantQuerySnapshot.forEach((doc) => {
-        // console.log(doc.data().plant_id)
 
-        const plantName = doc.data().plant_name
-        const indoorInfo = doc.data().indoor_location
-        const outdoorInfo = doc.data().ourdoor_location
+        const plantIds = doc.data().plant_id
+        console.log(plantIds)
+        // const plantName = doc.data().plant_name
+        // const indoorInfo = doc.data().indoor_location
+        // const outdoorInfo = doc.data().ourdoor_location
         const detailInfo = doc.data().details
 
         // const {indoor_location: indoor, plant_name: plantName} = doc.data()
 
         console.log(plantName)
-        console.log(indoorInfo)
-        console.log(outdoorInfo)
+        // console.log(indoorInfo)
+        // console.log(outdoorInfo)
 
 
-        // Display plant image
+        // Display Plant Image
         const img = document.createElement('img')
-        img.src = `./plant_img/${plantName}.jpg`
+        img.src = `./images/plant_img/${plantName}.jpg`
         img.alt = plantName
+        imgNameWapper.appendChild(img)
 
-        imgWapper.appendChild(img)
-
-        // Diplay plant name
+        // Diplay Plant Name
         const plantNamediv = document.createElement('div')
         plantNamediv.classList.add('plant-name')
-        imgWapper.appendChild(plantNamediv)
+        imgNameWapper.appendChild(plantNamediv)
         plantNamediv.innerHTML = plantName
 
-        // Indoor
+        
+        // Frequency List
+        // For Indoor 
         const indoorDiv = document.createElement('div')
         indoorDiv.classList.add('indoor')
         frequentList.appendChild(indoorDiv)
         indoorDiv.innerHTML = `<div>${indoorInfo.sunlight_temperature_frequency}</div><div>${indoorInfo.water_frequency}</div><div>${indoorInfo.soil_frequency}</div>`
 
-        // Outdoor
+        // For Outdoor
         const outdoorDiv = document.createElement('div')
         outdoorDiv.classList.add('outdoor')
         frequentList.appendChild(outdoorDiv)

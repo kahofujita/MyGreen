@@ -5,6 +5,11 @@ main {
     gap: 4rem;
 }
 
+img {
+    max-width: 50%;
+    height: auto;
+}
+
 .desc-wrapper {
     display: flex;
     flex-flow: column nowrap;
