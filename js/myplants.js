@@ -1,16 +1,17 @@
 
 import {db, auth} from './firebase/firebase-config.js'
 
-import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, arrayUnion} from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, arrayUnion} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
 
-
-
-const userId = 10;
+const userId = sessionStorage.getItem('userID')
+console.log(userId)
 
 const watering = document.querySelector('.watering')
 const sunlightTemp = document.querySelector('.sunlight-temp')
 const nutritions = document.querySelector('.nutritions')
+
+const dateControl = document.querySelector('.calendar')
 
 const getPlantinfo = async () => {
 
@@ -48,87 +49,49 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
             div.classList.add('plant-image')
 
             const img = document.createElement('img')
-
             img.setAttribute('id', 'myplant');
-            
-            img.src = `./plant_img/${plantName}.jpg`
+            img.src = `./images/plant_img/${plantName}.jpg`
             img.alt = plantName
-            
             div.appendChild(img)
 
             const myplantWrapper = document.querySelector('.myplant-wrapper')
-
             myplantWrapper.appendChild(div)
 
-            // console.log(plantName)
 
 
             // Weekly schedule in loaded page
-            // console.log(index)
-
             if ( index == 0) {
-                // console.log('0きてるよ！')
                     
                 const button = document.createElement('button')
                 button.classList.add('watered-today')
                 button.innerHTML = 'Watered today'
                 watering.appendChild(button)
 
-                // Update last watering date
-                button.addEventListener('click', async() => {
-                    // console.log(plantid)
 
-                    const updateDate = new Date();
-                    const updateDateString = getFormattedDate(updateDate)
-                    console.log(updateDateString)
-
-                    const doctoUpdate = doc(db, "plant_userinfo", doc_plantuserinfo.id);
-
-                    await updateDoc(doctoUpdate, {
-                        "watering_date": updateDateString
-                    });
-                })
-
-                function getFormattedDate(date) {
-                    var year = date.getFullYear();
-                  
-                    var month = (1 + date.getMonth()).toString();
-                    month = month.length > 1 ? month : '0' + month;
-                  
-                    var day = date.getDate().toString();
-                    day = day.length > 1 ? day : '0' + day;
-                    
-                    return month + '/' + day + '/' + year;
-                  }
-                
                 // Calculate dates
 
-                // const lastWateringTimestamp = doc_plantuserinfo.data().water_1
-                // console.log(lastWateringTimestamp)
-
-                // const lastWateringDate = new Date(lastWateringTimestamp)    
-                // console.log(lastWateringDate)
-
-                // const dd1 = lastWateringDate.getDate()
-                // const mm1 = lastWateringDate.getMonth()
-                // const yyyy1 = lastWateringDate.getFullYear()
-
-                // const lastWateringString = mm1 + '/' + dd1 + '/' + yyyy1
-                // console.log(lastWateringString)
-
-                // Calculate difference
-
-                // const lastWateringDateString = doc_plantuserinfo.data().water_1
-                // console.log(lastWateringDateString)
-
-
-                const wateringMap = `water_${plantid}`
+                // Get last watering date from firebase
+                const wateringMap = `plant_${plantid}`
                 console.log(wateringMap)
-
-
-                const lastWateringDateString = doc_plantuserinfo.data().watering_date.wateringMap
+                const lastWateringDateString = doc_plantuserinfo.data().watering_date[wateringMap]
                 console.log(lastWateringDateString)
 
+                // Get calendar value
+                const lastWateringDate = new Date(lastWateringDateString)
+                const calendarValue = lastWateringDate.toISOString().split('T')[0]
+                console.log(calendarValue)
+
+                // Display the date in calendar
+                
+
+
+                // const calendarDate = new Date(calendarValue)
+                // const changeCalendarValue = calendarDate.toISOString().split('T')[0]
+                // console.log(changeCalendarValue)
+
+
+
+                // get the dat of today
                 const today = new Date()
                 const todayString = getFormattedDate(today)
                 console.log(todayString)
@@ -144,7 +107,6 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                 const dateDifference = doc_plantourinfo.data().water_frequency - days
                 console.log(dateDifference)
 
-
                 // if condition
                 if ( dateDifference > 0) {
                     console.log(dateDifference + ' days to go')
@@ -152,8 +114,63 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                     console.log('Water today!')
                 } else if ( dateDifference < 0 ) {
                     console.log(-dateDifference + ' days late')
-                }        
+                }
+
+                // Update last watering date
+                button.addEventListener('click', async() => {
+
+
+                    if (button.classList.contains("update")) {
+                        console.log('update')
+
+                        
+
+
+
+
+                    } 
+
+
+
+
+                    // console.log(plantid)
+
+                    // // Update watering date to today
+                    // const updateDate = new Date();
+                    // const updateDateString = getFormattedDate(updateDate)
+                    // console.log(updateDateString)
+
+                    // const doctoUpdate = doc(db, "plant_userinfo", doc_plantuserinfo.id);
+
+                    // await updateDoc(doctoUpdate, {
+                    //     "watering_date": updateDateString
+                    // });
+                })
+
+                function getFormattedDate(date) {
+                    var year = date.getFullYear();
+                  
+                    var month = (1 + date.getMonth()).toString();
+                    month = month.length > 1 ? month : '0' + month;
+                  
+                    var day = date.getDate().toString();
+                    day = day.length > 1 ? day : '0' + day;
+                    
+                    return month + '/' + day + '/' + year;
+                  }
+
+                
+                
+
+                // Click calendar
+                dateControl.addEventListener('change', () => {
+                    button.innerHTML = 'Update'
+                    button.setAttribute('class', 'update')
+                })
             }
+
+
+            
             
 
 
