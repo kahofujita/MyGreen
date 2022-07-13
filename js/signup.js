@@ -38,6 +38,7 @@ getDocs(colPlantOurInfo)
                 ...doc.data(),
                 id: doc.id
             })
+            console.log(plantOurInfo[2])
         })
 
         for (let plant of plantOurInfo) {
