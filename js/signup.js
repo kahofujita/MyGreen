@@ -145,7 +145,7 @@ addPlantBtn.addEventListener('click', () => {
 
     // Object inside array
     const plant = {
-        plantName: plantName,
+        plant_name: plantName,
         nickname: nickname,
         location: location,
         watering_date: '',
