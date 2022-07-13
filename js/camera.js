@@ -25,6 +25,7 @@ class Note {
             this.#date = date;
         } else {
             console.error("invalid Date is provided: "+date);
+            // alart("You can not input feature date");
         }
     }
 
@@ -40,6 +41,9 @@ class Note {
 ////Get Personal ID /////
 let userId = sessionStorage.getItem('userID');
 console.log(sessionStorage.getItem('userID'));
+
+
+
 
 
 
@@ -77,22 +81,6 @@ form1.addEventListener("submit", function (event) {
     })
 
 })
-
-
-
-//ADD DATA into Firebase
-// Add a new document with a generated id.
-// const res = await db.collection('journal').add({
-//   journal_date:form1.date.value,  
-//         caption:form1.caption.value,
-//         care_instruction:form1.journal.value,
-//         picture_img_name: form1.image.value
-// });
-
-// console.log('Added document with ID: ', res.id);
-
-
-
 
 function renderDogAsHTML( note ) {
     if ((!note instanceof Note)) { 
@@ -145,6 +133,7 @@ context.scale(0.5, 0.5);
 
 
 document.getElementById("start").addEventListener("click", function () {
+  
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   
     navigator.mediaDevices.getUserMedia({ video: true }).then( (stream) => {
@@ -155,7 +144,7 @@ document.getElementById("start").addEventListener("click", function () {
   } else {
     console.log("media devices not available in this browser");
   }
-
+  videoFlame.style.display = "block";
 });
 
 ////Change camera front & back
@@ -174,6 +163,8 @@ document.getElementById("start").addEventListener("click", function () {
   //   let facingMode = null;
   // facingMode = (is_front)?  "user":{ exact: "environment" };
   // }
+const videoFlame = document.getElementById("video");
+const cameraOnBtn = document.getElementById("start");
 
 //////SNAP PICTURE////////
 document.getElementById("snap").addEventListener("click",  () => {
@@ -184,6 +175,9 @@ document.getElementById("snap").addEventListener("click",  () => {
   //stop camera automatically
   const tracks = video.srcObject.getTracks();
   tracks.forEach(track => track.stop());
+
+  videoFlame.style.display = "none";
+  cameraOnBtn.innerText = "Take a picture again";
 
 });
 

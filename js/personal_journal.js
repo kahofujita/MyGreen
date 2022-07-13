@@ -42,17 +42,18 @@ console.log(personalArray);
 ///アバターとusernameがGetできていない//
 //db.collectionを使うと 一列目でエラーが出る
 //GET AVATAR AND USERNAME //
-// const avaname = db.collection('user_info').doc(yourUserId);
+
+// const avaname = (user_id,document)=>{
+//   const ava = collection(db,user_id);
+//   return getDocs(ava,document);
+// }
 
 
-
-
-// const avaname = await getDocs(collection(db, "user_info",doc,"yourUserId"));
-// const yourAvaname = await avaname.get();
-// let TEMP = doc.data().username; 
-// console.log(yourAvaname);
-// console.log(avaname);
-// console.log(TEMP);
+// const ava = query(collection( db,"user_info".username ));
+// const avaname = await getDocs(ava);
+// avaname.forEach((doc) => {
+//       console.log(doc.data().username);
+// })
 
 
 //POST NUMBER //

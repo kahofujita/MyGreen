@@ -2,7 +2,7 @@ import { db, auth} from './firebase/firebase-config.js'
 
 import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
-
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
 
 
 //GET USER DB avatar and username(今は使わない)
@@ -37,6 +37,7 @@ journal.forEach((doc) => {
 //   journalPost = doc.data()
 //   console.log(orderBy="$journal_id")
 // });
+
 //MONTH & YEAR//
 const day = new Date();
 
@@ -84,6 +85,13 @@ for(let i = 0; journalArray.length > i; i++ ){
       const divClass = article.setAttribute('id', i );
       infoArea.appendChild(article);
      
+      ///ADDING AVATAR TO EACH JOURNAL
+      // const avat = document.createElement("img");
+      // avat.setAttribute('id', 'avatar');
+      // // avat.src = "avatar.js,";
+      // console.log(avat);
+      // avat.innerText;
+      // article.appendChild(avat);
       
 
 
@@ -97,6 +105,10 @@ for(let i = 0; journalArray.length > i; i++ ){
     // temp-index = "indexjournal _single.html"
     // temp-index = temp-index + i;
     
+
+
+
+
     click_tag.href = "#single_page";
     console.log(click_tag);
     const aaa = click_tag.setAttribute('class', 'single');
@@ -105,7 +117,11 @@ for(let i = 0; journalArray.length > i; i++ ){
 
    
       article.appendChild(click_tag);
-    
+
+      
+
+
+
       const picture = document.createElement("img");
       
       // imageReference.getDownloadURL().then(url => { 
@@ -113,11 +129,16 @@ for(let i = 0; journalArray.length > i; i++ ){
       // }); 
       // const imgtags = idtag + picture 
       
+      
+     
+
+      
+
+
       picture.src = journalArray[i].picture_img_name;
       picture.innerText;
     click_tag.appendChild(picture);
       
-
 
       const cap = document.createElement("caption");
       cap.innerText = journalArray[i].caption;
@@ -198,7 +219,3 @@ backBtn.addEventListener('click', (event)=>{
   pageId.style.display = "block";
 
 })
-
- ////両方ともelseに引っかかっているから、それぞれのページのdiv.pageの名前を変える
-//  。一つがblockになったら 　一つがnoneになるように変える・
-  
