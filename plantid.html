@@ -1,19 +1,27 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>plant identification</title>
 </head>
+<body>
+  
+</body>
+</html>
 
 <body>
   <form>
     <input type="file" multiple />
     <button type="button">OK</button>
   </form>
+  <h2 class="common-name-title"></h2>
+  <div class="common-name"></div>
+  <h2 class="scientific-name-title"></h2>
   <div class="plant-name"></div>
   <div class="plant-picture"></div>
-  <div class="common-name"></div>
-  <div class="image-url"></div>
+
 <script type="text/javascript">
 
 document.querySelector('button').onclick = function sendIdentification() {
@@ -64,9 +72,11 @@ document.querySelector('button').onclick = function sendIdentification() {
         let arr = data.suggestions;
         for(let i = 0; i < arr.length ; i++ ){
           // console.log(data.suggestions[i].plant_name);
+          document.querySelector('.scientific-name-title').innerHTML = "Scientific Name:";
           document.querySelector('.plant-name').innerHTML += data.suggestions[i].plant_name;
-
+          
           for(let q = 0; q < data.suggestions[i].plant_details.common_names.length; q++){
+        document.querySelector('.common-name-title').innerHTML = "Common Name:";
         document.querySelector('.common-name').innerHTML += data.suggestions[i].plant_details.common_names[q];
         }
        

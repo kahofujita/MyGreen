@@ -1,7 +1,7 @@
 
-import {app, db} from './firebase/firebase-config.js'
+import {app, db} from 'firebase/firebase-config.js'
 
-import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
 
 const getPlantinfo = async () => { 
