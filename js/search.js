@@ -1,7 +1,6 @@
 
 // Import the functions you need from the SDKs you need
-import { db, auth } from './js/firebase/firebase-config.js';
-import { getFirestore, collection, query, where, getDocs, } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
+import { db, auth, onAuthStateChanged, collection, query, where, getDocs } from './firebase/firebase-config.js';
 
 //collection Ref
 const colRef = collection(db, 'plant_ourinfo');
@@ -38,7 +37,7 @@ inputSearch.addEventListener('input', (e) => {//try change it will search all of
     timer = setTimeout(() => {
       plantOurinfo.map(plant => {
         if (reg(e.target.value, plant.plant_name)) {
-          document.querySelector('.result').innerHTML = `The name is ${plant.plant_name} and the water frequency is ${plcy} the soil frequency is ${plant.soil_frequency}`;
+          document.querySelector('.result').innerHTML += `The name is ${plant.plant_name} and the water frequency is ${plant.water_frequency} the soil frequency is ${plant.soil_frequency}</br>`;
           console.log(plant);
         }
       })
@@ -50,7 +49,10 @@ inputSearch.addEventListener('input', (e) => {//try change it will search all of
       plantOurinfo.map(plant => {
         if (reg(e.target.value, plant.plant_name)) {
           document.querySelector('.result').innerHTML = `The name is ${plant.plant_name} and the water frequency is ${plant.water_frequency} the soil frequency is ${plant.soil_frequency}`;
-          console.log(plant);
+          // console.log(plant);
+          // let ul = document.querySelector('.result');
+          // let li = document.createElement('option');
+
         
         }
       })
