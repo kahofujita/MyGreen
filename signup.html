@@ -51,21 +51,48 @@
 
             <fieldset id="avatarSignup" required>
                 <legend>Select an Avatar:</legend>
-
+                
                 <div>
-                    <input type="radio" id="option1" name="avatar" value="option1" class="avatarRadio" checked>
-                    <label for="option1">Option1</label>
+                    <input type="radio" id="option1" name="avatar" value="option1" class="avatarRadio">
+                    <label for="option1">Option 1</label>
                 </div>
-
                 <div>
                     <input type="radio" id="option2" name="avatar" value="option2" class="avatarRadio">
-                    <label for="option2">Option2</label>
+                    <label for="option2">Option 2</label>
                 </div>
-
                 <div>
                     <input type="radio" id="option3" name="avatar" value="option3" class="avatarRadio">
-                    <label for="option3">Option3</label>
+                    <label for="option3">Option 3</label>
                 </div>
+                <div>
+                    <input type="radio" id="option4" name="avatar" value="option4" class="avatarRadio">
+                    <label for="option4">Option 4</label>
+                </div>
+                <div>
+                    <input type="radio" id="option5" name="avatar" value="option5" class="avatarRadio">
+                    <label for="option5">Option 5</label>
+                </div>
+                <div>
+                    <input type="radio" id="option6" name="avatar" value="option6" class="avatarRadio">
+                    <label for="option6">Option 6</label>
+                </div>
+                <div>
+                    <input type="radio" id="option7" name="avatar" value="option7" class="avatarRadio">
+                    <label for="option7">Option 7</label>
+                </div>
+                <div>
+                    <input type="radio" id="option8" name="avatar" value="option8" class="avatarRadio">
+                    <label for="option8">Option 8</label>
+                </div>
+                <div>
+                    <input type="radio" id="option9" name="avatar" value="option9" class="avatarRadio">
+                    <label for="option9">Option 9</label>
+                </div>
+                <div>
+                    <input type="radio" id="option10" name="avatar" value="option10" class="avatarRadio">
+                    <label for="option10">Option 10</label>
+                </div>
+                
             </fieldset>
 
             <button type="submit" class="createButton">Create Your Account</button>
@@ -80,7 +107,7 @@
             <h3>Page 4 - Plant Information</h3>
 
             <label for="plantName">Plant Name:</label>
-            <select name="plantName" id="plantName">
+            <select id="plantName">
                 <option value="Test" disabled selected hidden>Select an option...</option>
             </select>
 
@@ -88,6 +115,28 @@
             <input type="text" name="nickname" id="nickname">
 
             <fieldset>
+                <legend>Choose the location of your plant:</legend>
+
+                <div>
+                    <input type="radio" id="outdoor" name="locationPlant" value="outdoor" class="locatationRadio" checked>
+                    <label for="outdoor">Outdoor</label>
+                </div>
+                <div>
+                    <input type="radio" id="indoor" name="locationPlant" value="indoor" class="locatationRadio">
+                    <label for="indoor">Indoor</label>
+                </div>
+            </fieldset>
+
+            <button type="button" id="addPlantButton" class="addPlantButton">Add Plant</button>
+            <button type="submit" id="finishButton" class="finishButton">Finish Signup</button>
+            <button type="button" class="skipButton">Skip</button>
+        </div>
+    </form>
+</body>
+
+</html>
+
+            <!-- <fieldset>
                 <legend>Choose the size of your plant:</legend>
 
                 <div>
@@ -108,28 +157,4 @@
                     <label for="largeSize">51+</label>
                     <label for="largeSize">20+</label>
                 </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Choose the location of your plant:</legend>
-
-                <div>
-                    <input type="radio" id="outdoor" name="locationPlant" value="outdoor" class="locatationRadio" checked>
-                    <label for="outdoor">Outdoor</label>
-                </div>
-                <div>
-                    <input type="radio" id="indoor" name="locationPlant" value="indoor" class="locatationRadio">
-                    <label for="indoor">Indoor</label>
-                </div>
-            </fieldset>
-
-            <button type="button" id="addPlantButton" class="addPlantButton">Add Plant</button>
-            <button type="submit" id="finishButton" class="finishButton">Finish Signup</button>
-            <button type="button" class="skipButton">Skip</button>
-        </div>
-    </form>
-
-    <!-- COPY HERE TO THE GIT FILE -->
-</body>
-
-</html>
+            </fieldset> -->

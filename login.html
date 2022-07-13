@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/login.js" type="module" defer></script>
     <title>My Green - Login</title>
+    <link rel="manifest" href="./webappconfig/app.webmanifest">
 </head>
-
 <body>
     <header></header>
     <main>
@@ -24,5 +24,17 @@
         <a href="signup.html">Create your account</a>
     </main>
     <footer></footer>
+    <script>
+        if ('serviceWorker' in navigator) { //if browser supports Service worker
+            // assuming sw.js is our service worker file in the same directory
+            navigator.serviceWorker.register('./webappconfig/sw.js')
+                .then(function (reg) {
+                    console.log(`Service Worker Registration`);
+                })
+                .catch(function (error) {
+                    console.log(`Service Worker Error (${error})`);
+                });
+        }
+    </script>
 </body>
 </html>

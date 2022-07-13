@@ -19,6 +19,10 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
 
+if (sessionStorage.getItem('userID') !== null) {
+    window.location.assign("./homepage.html");
+}
+
 // collection ref
 const colUserInfo = collection(db, 'user_info')
 const colPlantUserInfo = collection(db, 'plant_userinfo')
@@ -40,7 +44,9 @@ getDocs(colPlantOurInfo)
             const plantNameDrop = document.getElementById('plantName');
             const option = document.createElement('option');
 
-            option.setAttribute('value', plant['plant_id']);
+            // console.log(plant['id'])
+            option.setAttribute('value', plant['id']);
+            // option.setAttribute('name', plant['plant_name']);
             option.innerText = plant['plant_name'];
 
             plantNameDrop.appendChild(option);
@@ -99,6 +105,7 @@ signupForm.addEventListener('submit', (e) => {
             })
             .catch((err) => {
                 console.log(err.message)
+                alert('Email already in use')
             })
     } else {
         alert("Passwords Don't Match");
@@ -107,28 +114,16 @@ signupForm.addEventListener('submit', (e) => {
 
 // ADDING A NEW PLANT
 
-const plantNameArr = [];
-const nicknameArr = [];
-const sizeArr = [];
-const locationArr = [];
-
 const addPlantBtn = document.getElementById('addPlantButton');
 const addPlantForm = document.querySelector('.addpPLantForm');
+
+const plantsList = [];
 
 addPlantBtn.addEventListener('click', () => {
 
     // Declaring variables
-    const plantName = document.getElementById('plantName').value
-
-    const nickname = document.getElementById('nickname').value
-
-    let size = "";
-    const radiosSize = document.querySelectorAll('.sizeRadio');
-    for (let radio of radiosSize) {
-        if (radio.checked) {
-            size = radio.value;
-        }
-    }
+    const plantNameDrop = document.getElementById('plantName');
+    const nickname = document.getElementById('nickname').value;
 
     let location = "";
     const radiosLocation = document.querySelectorAll('.locatationRadio');
@@ -138,15 +133,30 @@ addPlantBtn.addEventListener('click', () => {
         }
     }
 
-    plantNameArr.push(plantName);
-    nicknameArr.push(nickname);
-    sizeArr.push(size);
-    locationArr.push(location);
+    let plant_id = "";
+    let plantName = "";
 
-    console.log(plantNameArr)
-    console.log(nicknameArr)
-    console.log(sizeArr)
-    console.log(locationArr)
+    for (let plant of plantOurInfo) {
+        if (plant.id === plantNameDrop.value) {
+            plant_id = plant['plant_id']
+            plantName = plant['plant_name']
+        }
+    }
+
+    // Object inside array
+    const plant = {
+        plantName: plantName,
+        nickname: nickname,
+        location: location,
+        watering_date: '',
+        nutritionizing_date: '',
+        plant_id: plant_id
+    }
+
+    plantsList.push(plant);
+
+    // print every time you add to the array
+    console.log(plantsList)
 
     addPlantForm.reset()
 })
@@ -154,15 +164,52 @@ addPlantBtn.addEventListener('click', () => {
 addPlantForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    addDoc(colPlantUserInfo, {
-            plantName: plantNameArr,
-            nickname: nicknameArr,
-            size: sizeArr,
-            location: locationArr,
-            user_id: auth.currentUser.uid
-        })
-        .then(() => {
-            alert("Signup Finished");
-            window.location.assign("./homepage.html");
-        })
+    const userId = sessionStorage.getItem('userID');
+    
+    setDoc(doc(db, "plant_userinfo", userId), {
+        plantsList: plantsList
+    })
+
+    alert("Signup Finished");
+    window.location.assign("./homepage.html");
 })
+
+    // const plantTemplate = {
+    //     location: "",
+    //     watering_date : "",
+    //     nutritionizing_date : "",
+    //     plantName: "",
+    //     nickName: "",
+    //     plant_id: ""
+    // }
+
+
+// plantNameArr.push(plantName);
+// nicknameArr.push(nickname);
+// locationArr.push(location);
+
+// console.log(plantNameArr)
+// console.log(nicknameArr)
+// // console.log(sizeArr)
+// console.log(locationArr)
+
+// plantName: plantNameArr,
+// nickname: nicknameArr,
+// location: locationArr,
+// nutritionizing_date: "",
+// watering_date: "",
+// user_id: auth.currentUser.uid
+
+// sizeArr.push(size);
+// let size = "";
+// const radiosSize = document.querySelectorAll('.sizeRadio');
+// for (let radio of radiosSize) {
+//     if (radio.checked) {
+//         size = radio.value;
+//     }
+// }
+
+// const plantNameArr = [];
+// const nicknameArr = [];
+// const sizeArr = [];
+// const locationArr = [];

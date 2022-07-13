@@ -39,70 +39,62 @@ currentUsername.value = currentUsernameFirebase;
 
 let currentEmailFirebase = docSnap.data().email;
 currentEmail.value = currentEmailFirebase;
+let newEmail = document.getElementById('newEmail');
+newEmail.value = currentEmailFirebase;
 
 const changeInfoUser = document.querySelector('.changeInfoMyAccount')
 
 changeInfoUser.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    const newEmail = document.getElementById('newEmail').value;
-    // const newUsername = document.getElementById('newUsername').value;
+    const currentEmailValue = document.getElementById('currentEmail').value;
+    newEmail = document.getElementById('newEmail').value;
 
     const currentPassword = document.getElementById('currentPassword').value;
     const newPassword = document.getElementById('newPassword').value;
 
-
-
-    signInWithEmailAndPassword(auth, currentEmail.value, currentPassword)
+    signInWithEmailAndPassword(auth, currentEmailValue, currentPassword)
         .then((cred) => {
-            // console.log('user logged in', cred.user)
-            sessionStorage.setItem('userID', cred.user.uid);
-        })
-        .catch((err) => {
-            console.log(err.message)
-        })
+            updateEmail(auth.currentUser, newEmail)
+                .then(() => {
+                    console.log('Im email 1')
+                    signInWithEmailAndPassword(auth, newEmail, currentPassword)
+                        .then((cred) => {
+                            updatePassword(auth.currentUser, newPassword)
+                            console.log('Im password 2')
 
-    updateEmail(auth.currentUser, newEmail)
-        .then(() => {
-            console.log('email working')
-        })
-
-    signInWithEmailAndPassword(auth, currentEmail.value, currentPassword)
-        .then((cred) => {
-            // console.log('user logged in', cred.user)
-            sessionStorage.setItem('userID', cred.user.uid);
-        })
-        .catch((err) => {
-            console.log(err.message)
+                        })
+                })
         })
 
-    updatePassword(auth.currentUser, newPassword)
-        .then(() => {
-            console.log('password working')
-        })
+    let newAvatar = "";
+    const radiosAvatar = document.querySelectorAll('.avatarRadio');
+    for (let radio of radiosAvatar) {
+        if (radio.checked) {
+            newAvatar = radio.value;
+        }
+    };
+
+    let username = "";
+    const newUsername = document.getElementById('newUsername').value;
+    if (currentUsername.value === newUsername || newUsername === null) {
+        username = currentUsername.value
+    } else {
+        username = newUsername
+    }
 
 
-    // let newAvatar = "";
-    // const radiosAvatar = document.querySelectorAll('.avatarRadio');
-    // for (let radio of radiosAvatar) {
-    //     if (radio.checked) {
-    //         newAvatar = radio.value;
-    //     }
-    // };
-
-    // updateDoc(docRef, {
-    //     email: newEmail,
-    //     username: newUsername,
-    //     // avatar_img_name: newAvatar
-    // });
+    updateDoc(docRef, {
+        email: newEmail,
+        username: username,
+        avatar_img_name: newAvatar
+    });
 })
 
+const changeEmailButton = document.getElementById('changeEmailButton');
+const changeEmailField = document.querySelector('.NewEmailDiv');
 
-// console.log(auth.currentUser.uid)
-
-// onAuthStateChanged(auth, (user) => {
-//     const uid = user;
-//     console.log(user.email)
-//     user.email = 'newemail@gmail.com';
-//     console.log(user.email)
-// })
+changeEmailButton.addEventListener('click', () => {
+    changeEmailField.classList.toggle('appear');
+    changeEmailButton.innerHTML = 'Remove field';
+})

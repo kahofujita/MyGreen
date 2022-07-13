@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>My Green - My Account</title>
     <script src="./js/myaccount.js" type="module" defer></script>
     <script src="js/logout.js" type="module" defer></script>
+    <link rel="stylesheet" href="css/myaccount.css">
 </head>
 
 <header>
@@ -37,8 +39,8 @@
 
     <div class="avatarDisplayMyAccount">
         <a href="">
-        <img src="" alt="">
-        <div class="editButton">Insert edit icon here</div>
+            <img src="" alt="">
+            <div class="editButton">Insert edit icon here</div>
         </a>
     </div>
 
@@ -68,9 +70,12 @@
         <label for="newUsername">New username: </label>
         <input type="text" name="newUsername" id="newUsername">
         <label for="currentEmail">Your email: </label>
-        <input type="email" name="currentEmail" id="currentEmail">
-        <label for="newEmail">New email: </label>
-        <input type="email" name="newEmail" id="newEmail">
+        <input type="email" name="currentEmail" id="currentEmail" disabled>
+        <div class="NewEmailDiv" id="NewEmailDiv">
+            <label for="newEmail">New email: </label>
+            <input type="email" name="newEmail" id="newEmail" class="newEmailField">
+        </div>
+        <button type="button" id="changeEmailButton">Change email</button>
         <label for="passwordMyAccount">Your current password: </label>
         <input type="password" name="currentPassword" id="currentPassword" placeholder="Enter your password...">
         <label for="passwordMyAccount">New password: </label>
@@ -80,4 +85,5 @@
     </form>
 
 </body>
+
 </html>
