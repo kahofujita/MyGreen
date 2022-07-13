@@ -5,7 +5,7 @@ import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://ww
 const userId = sessionStorage.getItem('userID')
 console.log(userId)
 
-const urlParams = new URLSearchParams(window.location.search);
+// const urlParams = new URLSearchParams("http://plant-datails.html?name=${plant.plant_name")
 let plantName = 'Monstera'; 
 
 const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
