@@ -170,8 +170,34 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                         }
                         })
                         // Change the button from 'Updated' to 'Watered today'
-                        button.innerHTML = 'Watered today'
+                        // button.innerHTML = 'Watered today';
+                        // button.disabled = true
                         // 'Do you want to register Watered today? みたいなポップアップ必要？
+
+                        // Calculate the difference between two days
+                        let day1 = new Date(calendarValueString);
+                        let day2 = new Date(todayString);
+
+                        let difference= Math.abs(day2-day1);
+                        let days = parseInt(difference/(1000 * 3600 * 24))
+
+                        const dateDifference = doc_plantourinfo.data().water_frequency - days
+
+                        // Change the button value
+                        // Button Condition
+                        if ( dateDifference > 0) {
+                            button.innerHTML = dateDifference + ' days to go'
+                            button.disabled = true;
+                        } else if ( dateDifference == 0 ) {
+                            console.log('Water today!')
+                            button.innerHTML = 'Water today!'
+
+                            // このあと、watered today!が出たあとwatered todayのボタンが押せなくなるよ
+                        } else if ( dateDifference < 0 ) {
+                            console.log(-dateDifference + ' days late')
+                            button.innerHTML = -dateDifference + ' days late'
+                        }
+                        
 
                     } else {
                         // Update a date to today
@@ -181,9 +207,25 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                             ...wateringDatetoUpdate, [wateringMap]: todayString
                         }
                         })
+
                         // Set calendar value to Today
                         dateControlForWatering.setAttribute('value', todayString)
                         // 'Do you want to update last watering date? みたいなポップアップ必要？
+
+                        // Display Next Watering Date in Button Value
+                        const nextWateringDate = doc_plantourinfo.data().water_frequency
+                        // let day1 = new Date(calendarValueString);
+                        // let day2 = new Date(todayString);
+
+                        // let difference= Math.abs(day2-day1);
+                        // let days = parseInt(difference/(1000 * 3600 * 24))
+
+                        // const dateDifference = doc_plantourinfo.data().water_frequency - days
+
+                        // Change the button value
+                        // Button Condition
+                        button.innerHTML = nextWateringDate + ' days to go'
+                        button.disabled = true;
                     }
                 })
 
@@ -245,7 +287,7 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                 let daysForNutritionizing = parseInt(differenceForNutritionizing/(1000 * 3600 * 24))
                 console.log(daysForNutritionizing)
 
-                const dateDifferenceForNutritionizing = doc_plantourinfo.data().soil_frequency - days
+                const dateDifferenceForNutritionizing = doc_plantourinfo.data().soil_frequency - daysForNutritionizing
                 console.log(dateDifferenceForNutritionizing)
                 
 
@@ -276,19 +318,29 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                         // Change the button from 'Updated' to 'Nutritionize today'
                         // buttonNutritions.innerHTML = 'Nutritionize today!'
 
+                        // Calculate the difference between two days
+                        let day3 = new Date(calendarValueString);
+                        let day4 = new Date(todayString);
+
+                        let differenceForNutritionizing = Math.abs(day4-day3);
+                        let daysForNutritionizing = parseInt(differenceForNutritionizing/(1000 * 3600 * 24))
+                        console.log(daysForNutritionizing)
+
+                        const dateDifferenceForNutritionizing = doc_plantourinfo.data().soil_frequency - daysForNutritionizing
+                        console.log(dateDifferenceForNutritionizing)
+
                         // Button Condition
                         if ( dateDifferenceForNutritionizing > 0) {
-                            console.log(dateDifferenceForNutritionizing + ' days to go')
                             buttonNutritions.innerHTML = dateDifferenceForNutritionizing + ' days to go'
                             buttonNutritions.disabled = true;
                         } else if ( dateDifferenceForNutritionizing == 0 ) {
-                            console.log('Nutritionize today!')
-                            buttonNutritions.innerHTML = 'Nutritionize today'
+                            buttonNutritions.innerHTML = 'Nutritionize today!'
                         } else if ( dateDifferenceForNutritionizing < 0 ) {
                             console.log(-dateDifferenceForNutritionizing + ' days late')
                             buttonNutritions.innerHTML = -dateDifferenceForNutritionizing + ' days late'
                         }
                         // 'Do you want to register Watered today? みたいなポップアップ必要？
+                        
 
                     } else {
                         // Update a date to today
@@ -301,8 +353,18 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                         // Set calendar value to Today
                         dateControlForNutritionizing.setAttribute('value', todayString)
                         // 'Do you want to update last watering date? みたいなポップアップ必要？
+
+                        // Display Next Watering Date in Button Value
+                        const nextNutritionizingDate = doc_plantourinfo.data().water_frequency
+
+                        // Change the button value
+                        // Button Condition
+                        buttonNutritions.innerHTML = nextNutritionizingDate + ' days to go'
+                        buttonNutritions.disabled = true;
                     }
                 })
+
+                
 
 
                 // Button Condition
@@ -350,6 +412,11 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
 
             
             
+
+
+
+
+
 
 
             // Click Plant Image
@@ -421,8 +488,34 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                         }
                         })
                         // Change the button from 'Updated' to 'Watered today'
-                        button.innerHTML = 'Watered today'
+                        // button.innerHTML = 'Watered today';
+                        // button.disabled = true
                         // 'Do you want to register Watered today? みたいなポップアップ必要？
+
+                        // Calculate the difference between two days
+                        let day1 = new Date(calendarValueString);
+                        let day2 = new Date(todayString);
+
+                        let difference= Math.abs(day2-day1);
+                        let days = parseInt(difference/(1000 * 3600 * 24))
+
+                        const dateDifference = doc_plantourinfo.data().water_frequency - days
+
+                        // Change the button value
+                        // Button Condition
+                        if ( dateDifference > 0) {
+                            button.innerHTML = dateDifference + ' days to go'
+                            button.disabled = true;
+                        } else if ( dateDifference == 0 ) {
+                            console.log('Water today!')
+                            button.innerHTML = 'Water today!'
+
+                            // このあと、watered today!が出たあとwatered todayのボタンが押せなくなるよ
+                        } else if ( dateDifference < 0 ) {
+                            console.log(-dateDifference + ' days late')
+                            button.innerHTML = -dateDifference + ' days late'
+                        }
+                        
 
                     } else {
                         // Update a date to today
@@ -432,9 +525,25 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                             ...wateringDatetoUpdate, [wateringMap]: todayString
                         }
                         })
+
                         // Set calendar value to Today
                         dateControlForWatering.setAttribute('value', todayString)
                         // 'Do you want to update last watering date? みたいなポップアップ必要？
+
+                        // Display Next Watering Date in Button Value
+                        const nextWateringDate = doc_plantourinfo.data().water_frequency
+                        // let day1 = new Date(calendarValueString);
+                        // let day2 = new Date(todayString);
+
+                        // let difference= Math.abs(day2-day1);
+                        // let days = parseInt(difference/(1000 * 3600 * 24))
+
+                        // const dateDifference = doc_plantourinfo.data().water_frequency - days
+
+                        // Change the button value
+                        // Button Condition
+                        button.innerHTML = nextWateringDate + ' days to go'
+                        button.disabled = true;
                     }
                 })
 
@@ -531,19 +640,29 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                         // Change the button from 'Updated' to 'Nutritionize today'
                         // buttonNutritions.innerHTML = 'Nutritionize today!'
 
+                        // Calculate the difference between two days
+                        let day3 = new Date(calendarValueString);
+                        let day4 = new Date(todayString);
+
+                        let differenceForNutritionizing = Math.abs(day4-day3);
+                        let daysForNutritionizing = parseInt(differenceForNutritionizing/(1000 * 3600 * 24))
+                        console.log(daysForNutritionizing)
+
+                        const dateDifferenceForNutritionizing = doc_plantourinfo.data().soil_frequency - daysForNutritionizing
+                        console.log(dateDifferenceForNutritionizing)
+
                         // Button Condition
                         if ( dateDifferenceForNutritionizing > 0) {
-                            console.log(dateDifferenceForNutritionizing + ' days to go')
                             buttonNutritions.innerHTML = dateDifferenceForNutritionizing + ' days to go'
                             buttonNutritions.disabled = true;
                         } else if ( dateDifferenceForNutritionizing == 0 ) {
-                            console.log('Nutritionize today!')
-                            buttonNutritions.innerHTML = 'Nutritionize today'
+                            buttonNutritions.innerHTML = 'Nutritionize today!'
                         } else if ( dateDifferenceForNutritionizing < 0 ) {
                             console.log(-dateDifferenceForNutritionizing + ' days late')
                             buttonNutritions.innerHTML = -dateDifferenceForNutritionizing + ' days late'
                         }
                         // 'Do you want to register Watered today? みたいなポップアップ必要？
+                        
 
                     } else {
                         // Update a date to today
@@ -556,9 +675,16 @@ userQuerySnapshot.forEach((doc_plantuserinfo) => {
                         // Set calendar value to Today
                         dateControlForNutritionizing.setAttribute('value', todayString)
                         // 'Do you want to update last watering date? みたいなポップアップ必要？
+
+                        // Display Next Watering Date in Button Value
+                        const nextNutritionizingDate = doc_plantourinfo.data().water_frequency
+
+                        // Change the button value
+                        // Button Condition
+                        buttonNutritions.innerHTML = nextNutritionizingDate + ' days to go'
+                        buttonNutritions.disabled = true;
                     }
                 })
-
 
                 // Button Condition
                 if ( dateDifferenceForNutritionizing > 0) {

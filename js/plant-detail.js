@@ -5,7 +5,9 @@ import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://ww
 const userId = sessionStorage.getItem('userID')
 console.log(userId)
 
-let plantName = 'Monstera'; //ここだけvariableにする必要がある！どうやって取ってくる？
+const urlParams = new URLSearchParams(window.location.search);
+let plantName = 'Monstera'; 
+
 const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
 const frequentList = document.querySelector('.frequency-list')
 const detailSec = document.querySelector('.detail-section')
