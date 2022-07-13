@@ -13,7 +13,7 @@
   } */
 
   .plant-image img {
-    max-width: 50%;
+    max-width: 200px;
     height: auto;
   }
 
@@ -21,12 +21,12 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
-  /* .plant-image img:focus {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  } */
+.weekly-schedule-wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
 
-
-
-  p {
-    font-weight: bold;
-  }
+.weekly-schedule-section {
+  font-weight: bold;
+}
