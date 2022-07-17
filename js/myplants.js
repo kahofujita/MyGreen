@@ -1,10 +1,14 @@
 
+console.log('aiiiiiiiii')
+
+
 import {db, auth} from './firebase/firebase-config.js'
 
 import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, arrayUnion} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
 
 const userId = sessionStorage.getItem('userID')
+// const userId = '1pRVCbXoNvWY3Oegu7KKMMmJeQX2';
 console.log(userId)
 
 const watering = document.querySelector('.watering')
