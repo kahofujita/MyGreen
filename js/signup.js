@@ -215,5 +215,5 @@ addPlantForm.addEventListener('submit', (e) => {
     })
 
     alert("Signup Finished");
-    window.location.assign("./homepage.html");
+    window.location.assign("./index.html");
 })
