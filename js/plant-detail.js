@@ -6,7 +6,7 @@ const userId = sessionStorage.getItem('userID')
 console.log(userId)
 
 // const urlParams = new URLSearchParams("http://plant-datails.html?name=${plant.plant_name")
-let plantName = 'Monstera'; 
+let plantName = 'Snake plant';
 
 const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
 const frequentList = document.querySelector('.frequency-list')
@@ -68,7 +68,7 @@ const getPlantinfo = async () => {
         const indoorSunFrequent = doc_indoor.data().sunlight_frequency
         const indoorWaterFrequent = doc_indoor.data().water_frequency_string
         const indoorSoilFrequent = doc_indoor.data().soil_frequency_string
-        const indoorSunTempRequirement = doc_indoor.data().sunlight_temperature_requirement
+        const indoorSunTempRequirement = doc_indoor.data().sunlight_requirement
         const indoorWaterRequirement = doc_indoor.data().water_requirement
         const indoorSoilRequirement = doc_indoor.data().soil_requirement
         
@@ -113,7 +113,7 @@ const getPlantinfo = async () => {
             const outdoorSunFrequent = doc_outdoor.data().sunlight_frequency
             const outdoorWaterFrequent = doc_outdoor.data().water_frequency_string
             const outdoorSoilFrequent = doc_outdoor.data().soil_frequency_string
-            const outdoorSunTempRequirement = doc_outdoor.data().sunlight_temperature_requirement
+            const outdoorSunTempRequirement = doc_outdoor.data().sunlight_requirement
             const outdoorWaterRequirement = doc_outdoor.data().water_requirement
             const outdoorSoilRequirement = doc_outdoor.data().soil_requirement
 
@@ -189,10 +189,15 @@ const getPlantinfo = async () => {
                 // Display Outdoor Requirement Table
                 description.innerHTML = ""
                 description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table>`
+
+                // Warning for Outdoor Plants
+                if ( doc_outdoor.data().details == "Due to temperature conditions, this plant is not suitable for outdoor areas." ) {
+                    // Display Outdoor Requirement Table
+                    description.innerHTML = ""
+                    description.innerHTML = doc_outdoor.data().details
+                }
     
             })
-
-
 
         })
 
