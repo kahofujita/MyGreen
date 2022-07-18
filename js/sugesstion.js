@@ -46,27 +46,28 @@ lastSuggestion = !localStorage.getItem('lastSuggestion')
 
 
 
+
 const suggestionHandler = () => {
   let now = new Date();
   let dateToCompare = String(now.getMonth()) + String(now.getFullYear())
+  let result = document.querySelector('#suggestionLink');
   
   if (lastSuggestion.date) {
-
     result.innerHTML = `Our <span style="color: orange;">last</span> suggestion is: ${lastSuggestion.plant}`;
   } else {
 
     lastSuggestion.date = dateToCompare;
     const index = Math.floor(Math.random() * plantOurinfo.length);
     console.log(index);
-    let plantResult = `The name of plant is ${plantOurinfo[index].plant_name}. The water frequency is ${plantOurinfo[index].water_frequency} and the soil frequency is ${plantOurinfo[index].soil_frequency} `;
-    // document.querySelector("#suggestionLink").href = "http://plant-datails.html?name=${plant.plant_name}";
-    lastSuggestion.plant = plantResult;
+  
+    result.href = "http://plant-datails.html?name=${plant.plant_name}";
+    lastSuggestion.plant = `${plantOurinfo[index].plant_name}`;
   
 
     console.log(lastSuggestion)
 
     localStorage.setItem('lastSuggestion', JSON.stringify(lastSuggestion))
-     result.innerHTML = `Our <span style="color: cyan;">new</span> suggestion is: ${plantResult}`;
+     result.innerHTML = `Our <span style="color: cyan;">new</span> suggestion is: ${lastSuggestion.plant}.`;
     //  suggestionLink.innerHTML = ` the details are here:${link}`;
 
   }
