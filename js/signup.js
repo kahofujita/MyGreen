@@ -11,13 +11,16 @@ import {
     getDocs,
     doc,
     setDoc,
-    addDoc
+    query,
+    where
 } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
 import {
     createUserWithEmailAndPassword,
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
+
+// If the user already logged in move him to homepage
 
 if (sessionStorage.getItem('userID') !== null) {
     window.location.assign("./homepage.html");
@@ -29,26 +32,31 @@ const colPlantUserInfo = collection(db, 'plant_userinfo')
 const colPlantOurInfo = collection(db, 'plant_ourinfo')
 
 // Populating the Plant Names inside the form
-let plantOurInfo = [];
+const plantOurInfo = [];
+const plantNameArr = [];
 
-getDocs(colPlantOurInfo)
+await getDocs(colPlantOurInfo)
     .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
             plantOurInfo.push({
                 ...doc.data(),
                 id: doc.id
             })
-            console.log(plantOurInfo[2])
         })
 
+        // Getting the name of the plants
         for (let plant of plantOurInfo) {
+            plantNameArr.push(plant['plant_name']);
+        }
+
+        // Removing duplicated names
+        let plantNameUnique = [...new Set(plantNameArr)];
+
+        for (let plant of plantNameUnique) {
             const plantNameDrop = document.getElementById('plantName');
             const option = document.createElement('option');
-
-            // console.log(plant['id'])
-            option.setAttribute('value', plant['id']);
-            // option.setAttribute('name', plant['plant_name']);
-            option.innerText = plant['plant_name'];
+            option.innerText = plant;
+            option.value = plant;
 
             plantNameDrop.appendChild(option);
         }
@@ -57,12 +65,38 @@ getDocs(colPlantOurInfo)
         console.log(err.message)
     })
 
+const outdoorPlantsArr = [];
+const indoorPlantsArr = [];
+
+// Populating Array of Outdoor Plants
+
+const outdoorQuery = query(collection(db, "plant_ourinfo"), where("location", "==", "outdoor"));
+
+const querySnapshotOutdoor = await getDocs(outdoorQuery);
+
+querySnapshotOutdoor.forEach((doc) => {
+    outdoorPlantsArr.push(doc.data());
+});
+
+// Populating Array of Indoor Plants
+
+const indoorQuery = query(collection(db, "plant_ourinfo"), where("location", "==", "indoor"));
+
+const querySnapshotIndoor = await getDocs(indoorQuery);
+
+querySnapshotIndoor.forEach((doc) => {
+    indoorPlantsArr.push(doc.data());
+});
+
+// Signup the user
+
 const signupForm = document.querySelector('.signup')
 
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    // variables
+    // Variables of the signup form
+
     // Page 1
     const email = document.getElementById('emailSignup').value
     const password = document.getElementById('passwordSignup').value
@@ -82,7 +116,7 @@ signupForm.addEventListener('submit', (e) => {
         }
     }
 
-    // Authentication
+    // Creating user on authentication and user_info on Firebase
 
     if (password.length < 6) {
         alert("Password must be at least 6 characters.");
@@ -137,10 +171,19 @@ addPlantBtn.addEventListener('click', () => {
     let plant_id = "";
     let plantName = "";
 
-    for (let plant of plantOurInfo) {
-        if (plant.id === plantNameDrop.value) {
-            plant_id = plant['plant_id']
-            plantName = plant['plant_name']
+    if (location === "outdoor") {
+        for (let plant of outdoorPlantsArr) {
+            if (plant['plant_name'] === plantNameDrop.value) {
+                plant_id = plant['plant_id']
+                plantName = plant['plant_name']
+            }
+        }
+    } else if (location === "indoor") {
+        for (let plant of indoorPlantsArr) {
+            if (plant['plant_name'] === plantNameDrop.value) {
+                plant_id = plant['plant_id']
+                plantName = plant['plant_name']
+            }
         }
     }
 
@@ -166,7 +209,7 @@ addPlantForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const userId = sessionStorage.getItem('userID');
-    
+
     setDoc(doc(db, "plant_userinfo", userId), {
         plantsList: plantsList
     })
@@ -174,43 +217,3 @@ addPlantForm.addEventListener('submit', (e) => {
     alert("Signup Finished");
     window.location.assign("./homepage.html");
 })
-
-    // const plantTemplate = {
-    //     location: "",
-    //     watering_date : "",
-    //     nutritionizing_date : "",
-    //     plantName: "",
-    //     nickName: "",
-    //     plant_id: ""
-    // }
-
-
-// plantNameArr.push(plantName);
-// nicknameArr.push(nickname);
-// locationArr.push(location);
-
-// console.log(plantNameArr)
-// console.log(nicknameArr)
-// // console.log(sizeArr)
-// console.log(locationArr)
-
-// plantName: plantNameArr,
-// nickname: nicknameArr,
-// location: locationArr,
-// nutritionizing_date: "",
-// watering_date: "",
-// user_id: auth.currentUser.uid
-
-// sizeArr.push(size);
-// let size = "";
-// const radiosSize = document.querySelectorAll('.sizeRadio');
-// for (let radio of radiosSize) {
-//     if (radio.checked) {
-//         size = radio.value;
-//     }
-// }
-
-// const plantNameArr = [];
-// const nicknameArr = [];
-// const sizeArr = [];
-// const locationArr = [];

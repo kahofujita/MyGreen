@@ -29,19 +29,31 @@ const userId = sessionStorage.getItem('userID');
 // FILLING THE FORM WITH CURRENT INFORMATION
 const docRef = doc(db, "user_info", userId);
 const docSnap = await getDoc(docRef);
-const user = auth.currentUser;
 
+const imgCurrentAvatar = document.getElementById('currentAvatar');
 const currentUsername = document.getElementById('currentUsername');
 const currentEmail = document.getElementById('currentEmail');
 
+// Current Avatar
+const currentAvatarFirebase = docSnap.data().avatar_img_name;
+
+// Removing letters
+const currentAvatar = currentAvatarFirebase.match(/(\d+)/)[0];
+
+// Displaying img
+imgCurrentAvatar.setAttribute('src', `./avatar/${currentAvatar}.png`)
+
+// Current Username
 let currentUsernameFirebase = docSnap.data().username;
 currentUsername.value = currentUsernameFirebase;
 
+// Current Email and New Email Preset for Validation
 let currentEmailFirebase = docSnap.data().email;
 currentEmail.value = currentEmailFirebase;
 let newEmail = document.getElementById('newEmail');
 newEmail.value = currentEmailFirebase;
 
+// Changing the info of the user (avatar, username, email, password)
 const changeInfoUser = document.querySelector('.changeInfoMyAccount')
 
 changeInfoUser.addEventListener('submit', (e) => {
@@ -53,25 +65,13 @@ changeInfoUser.addEventListener('submit', (e) => {
     const currentPassword = document.getElementById('currentPassword').value;
     const newPassword = document.getElementById('newPassword').value;
 
-    signInWithEmailAndPassword(auth, currentEmailValue, currentPassword)
-        .then((cred) => {
-            updateEmail(auth.currentUser, newEmail)
-                .then(() => {
-                    console.log('Im email 1')
-                    signInWithEmailAndPassword(auth, newEmail, currentPassword)
-                        .then((cred) => {
-                            updatePassword(auth.currentUser, newPassword)
-                            console.log('Im password 2')
-
-                        })
-                })
-        })
-
     let newAvatar = "";
     const radiosAvatar = document.querySelectorAll('.avatarRadio');
     for (let radio of radiosAvatar) {
         if (radio.checked) {
             newAvatar = radio.value;
+        } else if (!radio.checked) {
+            newAvatar = currentAvatarFirebase;
         }
     };
 
@@ -89,6 +89,22 @@ changeInfoUser.addEventListener('submit', (e) => {
         username: username,
         avatar_img_name: newAvatar
     });
+
+    signInWithEmailAndPassword(auth, currentEmailValue, currentPassword)
+        .then((cred) => {
+            updateEmail(auth.currentUser, newEmail)
+                .then(() => {
+                    console.log('Im email 1')
+                    signInWithEmailAndPassword(auth, newEmail, currentPassword)
+                        .then((cred) => {
+                            console.log('Im password 2')
+                            updatePassword(auth.currentUser, newPassword)
+                            .then(() => {
+                                window.location.reload()
+                            })
+                        })
+                })
+        })
 })
 
 const changeEmailButton = document.getElementById('changeEmailButton');
