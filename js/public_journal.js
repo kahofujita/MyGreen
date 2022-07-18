@@ -4,24 +4,15 @@ import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://ww
 
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
 
+// import avatars from 'avatar';
 
-//GET USER DB avatar and username(今は使わない)
-// const getUserInfo = await getDocs(collection(db, "user_info"));
-// getUserInfo.forEach((doc) => {
-  
-//   console.log(doc.data());
-// });
 const journalArray = [];
 //Get JOURNAL DB
 const journal = await getDocs(collection(db, "journal"));
 let journalPost;
-journal.forEach((doc) => {
-  
-  // const journalPost = doc.data()
+journal.forEach((doc) => { 
   journalArray.push(doc.data());
-  // console.log(journalPost);
-
-
+ 
   // =======
   // journalArray.push(doc.data().caption);
   // console.log(doc)
@@ -65,79 +56,69 @@ if (journalArray.length <= 1){
 
 
 
-console.log(journalArray);
 let i = 0;
 function Nbrs(){
   const Nbr = journalArray.indexOf(journalArray[i]);
 }
-// console.log(journalArray[i].caption);
 
-// const Nbr = journalArray.indexOf(journalArray[i]);
-//Display each Journal
+//GET JOURNAL IDs
+const jId = [];
+const querySnapshot = await getDocs(collection(db, 'journal'));
+querySnapshot.forEach((doc) => {
+  jId.push(doc.id);  
+})
+console.log(jId);
+
+  // const idtag = article.setAttribute('id', doc.id);
+//OnClick action for Journal ID
+
+// let fd = 
+// function reply_click(clicked_id)
+// {
+//     aconsole.log(clicked_id);
+// }
+// let ac = function addComment(this.id){
+//   lconsole.log(clicked_id);
+// } 
+
+//DISPLAY ALL JOURNAL
 for(let i = 0; journalArray.length > i; i++ ){
    
   const Nbr = journalArray.indexOf(journalArray[i]);
 
-
+  
       const infoArea = document.getElementById("post");          
       const article = document.createElement("div");
       const divTag = article.classList.add("journal");
-      const divClass = article.setAttribute('id', i );
+      
+      
+      // const divClass = article.setAttribute('id', jId[i] );
       infoArea.appendChild(article);
      
-      ///ADDING AVATAR TO EACH JOURNAL
-      // const avat = document.createElement("img");
-      // avat.setAttribute('id', 'avatar');
-      // // avat.src = "avatar.js,";
-      // console.log(avat);
-      // avat.innerText;
-      // article.appendChild(avat);
+      // /ADDING AVATAR TO EACH JOURNAL ここがうまくいかないsrcが生成されない
+      const avat = document.createElement("img");
+      avat.setAttribute('id', 'avatar');
+      // avatars (avat) ;
+      console.log(avat);
+      avat.innerText;
+      article.appendChild(avat);
       
 
-
-      // }
-      const click_tag = document.createElement("a");
-      // const Nbr = journalArray.indexOf(journalArray[i]);
-    //  const imgTag = click_tag.setAttribute('id', 'click-single-page' + Nbr);
-    //  const imgTag = click_tag.setAttribute('class', 'click-single-page');
+      // const click_tag = `<a href="#single_page" class = "article"  id = "${jId[i]}" onclick = "addComment(this.id)"></a>`;
     
-    
-    // temp-index = "indexjournal _single.html"
-    // temp-index = temp-index + i;
-    
-
-
-
-
+    const click_tag = document.createElement("a");  
     click_tag.href = "#single_page";
-    console.log(click_tag);
-    const aaa = click_tag.setAttribute('class', 'single');
-    // const imgTag = click_tag.setAttribute('id', i );
-    const imgTag = click_tag.setAttribute('id', 'oya' );
-
-   
+      const ok = click_tag.setAttribute('id', jId[i]);
+       click_tag.setAttribute('class', 'article');
+    //  click_tag.setAttribute("onClick", 'reply_click(this.id)');
       article.appendChild(click_tag);
-
-      
-
-
-
-      const picture = document.createElement("img");
-      
-      // imageReference.getDownloadURL().then(url => { 
-      //   targetImg.src = url; 
-      // }); 
-      // const imgtags = idtag + picture 
-      
-      
      
-
       
-
-
+      const picture = document.createElement("img");
       picture.src = journalArray[i].picture_img_name;
       picture.innerText;
-    click_tag.appendChild(picture);
+      click_tag.appendChild(picture);
+     
       
 
       const cap = document.createElement("caption");
@@ -155,67 +136,204 @@ for(let i = 0; journalArray.length > i; i++ ){
     
     
     }
-    
-    
-    
-   
-    const Nbr = journalArray.indexOf(journalArray[i]);
-    console.log(Nbr);
-  //  const e = document.querySelector("#click-single-page" + Nbr);
+ 
    const hidePage = document.getElementById("result");
 
-  //  const a = document.querySelectorAll("a");
-  //  console.log(a);
-  
-  // RESULT PAGE HIDE //////
-  const resultPage = document.getElementById('result');
-  resultPage.style.display = "none";
+    // RESULT PAGE HIDE WHEN WHOLE PAGE OPEN//////
+    const resultPage = document.getElementById('result');
+    resultPage.style.display = "none";
 
-  const backBtn = document.getElementById('btn');
-  backBtn.style.display = "none";
+    const comment = document.getElementById('comment');
+    comment.style.display = "none";  
+
+    const backBtn = document.getElementById('btn');
+    backBtn.style.display = "none";
 
 
 
-    ///Mobe to Single Page EventListener /////
-  console.log(result);
-  const atag = document.getElementsByClassName('single'); 
-  console.log(atag);
-  [...atag].forEach(single_page => {
+    ///Move to Single Page EventListener /////
+    console.log(result);
+    const atag = document.getElementsByClassName('article'); 
+    console.log(atag);
+    let b = [...atag].forEach(single_page => {
     single_page.addEventListener('click', (e)=>{
-      result.innerText = ' hello';
-     
-     console.log(single_page.parentElement);
-     const nikki = single_page.parentElement;
-  
-    const nikkis = nikki.innerHTML;
+      
+      console.log(single_page.parentElement);
+      const nikki = single_page.parentElement;
+      const nikkis = nikki.innerHTML;
  
     result.innerHTML = nikkis;
 
-   //////CHANGE PAGE //////
-    
-    navigateToPage();
-    
+    //The ID You Clicked NOW! = Journal ID
+      const active = document.activeElement;
+     const yourId = active.id; 
+      console.log(yourId);
+      // console.log(active.id);
+ 
+      //////CHANGE PAGE //////     
+      navigateToPage();
+  
     })
   })
+  let yourId;
+  console.log(yourId);
+  // function getCmtBtn(){
+  //   const submit_btn =document.querySelector('.items');
+  // console.log(submit_btn);
+  // }
+  
+  // const input_area = document.getElementById('input_area');
+  // input_area.innerHTML = `<input type="text" id="write_cmt" placeholder="add a comment"><button id="submit" class="items" >Post</button>`; 
+  
+  
+
+  // const active = document.getElementById(b);
+  // console.log(active);
 
   window.addEventListener("hashchange", navigateToPage);
   
   const pageId = document.getElementById("post");
   const allPages = document.querySelectorAll("div.page");
   
-  console.log(allPages);
+  console.log(pageId);
   
   function navigateToPage(event) {
    
     pageId.style.display = "none";
     resultPage.style.display = "block";
+    comment.style.display = "block";
     backBtn.style.display = "block";
-    console.log(pageId);
+    // console.log(pageId);
     
 }
-backBtn.addEventListener('click', (event)=>{
+  backBtn.addEventListener('click', (event)=>{
   resultPage.style.display = "none";
+  comment.style.display = "none";
   backBtn.style.display = "none";
   pageId.style.display = "block";
 
 })
+
+//COMMENT ======================================// 
+const comments = document.getElementById('comment');
+
+//GET COMMENT DB
+const cmtArray = [];
+
+const cmt = await getDocs(collection(db, "comment"));
+cmt.forEach((doc) => {
+
+  
+
+  cmtArray.push(doc.data());
+});
+console.log(cmtArray);
+
+//CHECK IF THIS COMMENT IS FOR THIS ARTICLE
+// for(let i = 0; cmtArray.length > 0; i ++){
+//   if(cmtArray[i].journal_No == );
+// }
+
+
+//Display Comments & Username
+function displayCmt(){
+  const cmt_display = document.getElementById("cmt_display");  
+  
+    const who_write =  document.createElement("p");
+    who_write.innerText = cmtArray[i].username;
+    cmt_display.appendChild(who_write);
+
+    const yourcmt =  document.createElement("p");
+    yourcmt.innerText = cmtArray[i].comment;
+    cmt_display.appendChild(yourcmt);
+};
+
+  
+  
+  
+  for (let i = 0; cmtArray.length > i; i++){
+
+    if(yourId == cmtArray[i].journal_id){
+      displayCmt();
+    }else{
+
+    }
+    // const cmt_display = document.getElementById("cmt_display");  
+  
+    // const who_write =  document.createElement("p");
+    // who_write.innerText = cmtArray[i].username;
+    // cmt_display.appendChild(who_write);
+
+    // const yourcmt =  document.createElement("p");
+    // yourcmt.innerText = cmtArray[i].comment;
+    // cmt_display.appendChild(yourcmt);
+
+    // displayCmt();
+  }
+
+
+
+
+
+
+////Get USERNAME FROM LOGIN ID///// commentの記入者を特定
+let userId = sessionStorage.getItem('userID');
+console.log(sessionStorage.getItem('userID'));
+
+const un = doc(db, "user_info", userId);
+const uninfo =  await getDoc(un);
+let yourname = uninfo.data().username;
+console.log(yourname);
+
+
+
+
+//SUBMIT COMMENT ======================
+// const submit_btn =document.querySelector('.items');
+
+// getCmtBtn();
+const cmtarea =document.getElementById('write_cmt');
+const submitBtn = document.getElementById('submiting');
+console.log(submitBtn);
+submitBtn.addEventListener('click', (e) =>{
+
+
+  //ADD COMMENT INTO DB
+  const commentdb = collection(db, 'comment');
+  addDoc(commentdb, {
+      comment:cmtarea.value,
+      user_info_id:userId,
+      username:yourname,
+      journal_id:yourId
+  })
+
+//ADD NEW COMMENT INTO COMMENT FIELD
+displayCmt();
+cmtarea.innerHTML = "";
+
+})
+  
+ 
+
+
+
+  
+
+
+// const click_tag = document.createElement("a");
+
+//     click_tag.href = "#single_page";
+//     console.log(click_tag);
+//     const aaa = click_tag.setAttribute('class', 'single');
+//     // const imgTag = click_tag.setAttribute('id', i );
+//     const imgTag = click_tag.setAttribute('id', 'oya' );
+
+
+
+
+
+//how to get document 
+// const docRef = doc(db, "journal", "Um2tjbRjsK917w1tjSYJ");
+
+// const docSnap = await getDoc(docRef);
+// console.log(docSnap.data().caption);
