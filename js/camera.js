@@ -42,9 +42,48 @@ class Note {
 let userId = sessionStorage.getItem('userID');
 console.log(sessionStorage.getItem('userID'));
 
+//GET USER NAME
+const userName = document.getElementById('username');
+
+// 
+
+let usernameArray = [];
+const un = await getDocs(collection(db, "user_info"));
+
+un.forEach((doc) => {
+ usernameArray.push(doc.data());
+});
+
+console.log(usernameArray); 
+let j = 0;
+const username = usernameArray[j].avatar_img_name;
+for(let j = 0; usernameArray.length > j; j++){
+
+  if (usernameArray[j].user_id == userId){ 
+        userName.innerText = usernameArray[j].username;
+  }else{
+  };
+}
+// const asd = db.collection('journal').doc.get();
+// const db = getFirestore();
+// const docRef = doc(db,"journal" );
+// console.log(asd);
+// const jCollection = query(collection(db, "journal"),where ("caption"));
+// const jId = await getDocs (jCollection);
+// const jIds = await getDocs(jId);
+// const db = firebase.firestore();
+
+const docRef = doc(db, "journal", "Um2tjbRjsK917w1tjSYJ");
+
+const docSnap = await getDoc(docRef);
+console.log(docSnap.data().caption);
 
 
-
+// db.collection("journal").get().then((querySnapshot) => {
+//   querySnapshot.forEach((doc) => {
+//       console.log(doc.id, " => ", doc.data());
+//   });
+// });
 
 
 
@@ -75,10 +114,12 @@ form1.addEventListener("submit", function (event) {
             caption:form1.caption.value,
             care_instruction:form1.journal.value,
             picture_img_name: form1.image.value,
+            // journal_id:jId,
 
             user_id:userId
             
     })
+    
 
 })
 

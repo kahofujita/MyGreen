@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal Main page</title>
-    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous' referrerpolicy='no-referrer' /><script src="public_journal.js" type="module" defer></script> -->
+     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous' referrerpolicy='no-referrer' /><script src="public_journal.js" type="module" defer></script> 
+    <script src="./js/avatar.js" type="module" defer></script>
     <script src="./js/public_journal.js" type="module" defer></script>
     <script src="js/logout.js" type="module" defer></script>
-    <script src="./js/avatar.js" type="module" defer></script>
+    
 </head>
 <body>
 
@@ -29,7 +30,7 @@
         <label for="submit">Search</label>
 
         <button type="button" class="logout">Logout</button>
-    </header>
+    </header> -->
     <main>
        
        <h1>Public Journal</h1>
@@ -49,14 +50,33 @@
         </div>
         
                 <!-- display for user's single post after click img -->
-       <div id="result" class = "page">
-         
+        <div id="result" class = "page">
+            <img src="" alt="useravatar" id="avatar">
+            <p id="username">username</p>
 
-         
+          
 
-    </div>   
+          
+        </div>
+        <div id="comment">
+            <p>Comment</p>
+            <div id="cmt_display">
+
+            </div>
+            
+            
+            <div id="input_area">
+
+
+            </div>
+            <input type="text" id="write_cmt" placeholder="add a comment">
+            <button id="submiting" class="item">Post</button>    
+        </div> 
          <a  id="btn" class="item" href="#post" >BACK TO journal Page</a>  
-      
+        
+         <script src="./js/avatar.js" type="module" defer></script>
+         <script src="./js/public_journal.js" type="module" defer></script>
+         <script src="js/logout.js" type="module" defer></script> 
     </main>
    
 </body>

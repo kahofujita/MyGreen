@@ -1,15 +1,8 @@
 import { db, auth} from './firebase/firebase-config.js'
-
 import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
-
-
-
 ////Get Personal ID /////
 let userId = sessionStorage.getItem('userID');
 console.log(sessionStorage.getItem('userID'));
-
-
-
 //GET AVATAR IMG ///
 let ava = document.getElementById("avatar")
 let avaArray = [];
@@ -17,19 +10,18 @@ const avatar = await getDocs(collection(db, "user_info"));
 let avaname;
 avatar.forEach((doc) => {
 //  let myId = doc.data().user_id;
-
 //全部が入ったarray
  avaArray.push(doc.data());
 //  console.log(doc.data());
-//  console.log(avaArray); 
+//  console.log(avaArray);
 });
 // console.log(doc.data());
-console.log(avaArray); 
+console.log(avaArray);
 let i = 0;
 const avatarNbr = avaArray[i].avatar_img_name;
 for(let i = 0; avaArray.length > i; i++){
 //   console.log(avatarNbr);
-  if (avaArray[i].user_id == userId){ 
+  if (avaArray[i].user_id == userId){
 console.log(avaArray[i].avatar_img_name);
           switch(true){
             case(avatarNbr === "option1"):
@@ -58,6 +50,4 @@ console.log(avaArray[i].avatar_img_name);
     }else{
         ava.innerHTML = `No avatar`;
     }
-
 }
-

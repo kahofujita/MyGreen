@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,10 +28,11 @@
         <label for="submit">Search</label>
 
         <button type="button" class="logout">Logout</button>
-    </header>
+    </header> -->
     
-    <h1>Personal Journal</h1>
+    <!-- <h1>Personal Journal</h1> -->
     <main>
+        <h1>Personal Journal</h1>
         <!-- user info avatar and name -->
         <div class="user-info">
             <img src="" alt="useravatar" id="avatar">
@@ -51,13 +52,32 @@
         
         <!-- display single post after click img -->
        <div id="result" class = "page">
-         
+        <!-- <img src="" alt="useravatar" id="avatar">
+        <p id="username"></p> -->
 
          
 
         </div>   
         
-      
+        <div id="comment">
+            <p>Comment</p>
+            <div id="cmt_display">
+
+            </div>
+            
+            
+            <div id="input_area">
+
+
+            </div>
+            <input type="text" id="write_cmt" placeholder="add a comment">
+            <button id="submiting" class="item">Post</button>    
+        </div> 
+        
+        <a  id="btn" class="item" href="#post" >BACK TO journal Page</a>
+    <script src ="./js/personal_journal.js" type="module" defer></script>
+    <script src="js/logout.js" type="module" defer></script>
+    <script src="./js/avatar.js" type="module" defer></script>  
     </main>
 </body>
 </html>
