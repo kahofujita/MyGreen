@@ -5,7 +5,10 @@ import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://ww
 const userId = sessionStorage.getItem('userID')
 console.log(userId)
 
-// const urlParams = new URLSearchParams("http://plant-datails.html?name=${plant.plant_name")
+// document.querySelector("#suggestionLink").href = "http://plant-datails.html?name=${plant.plant_name}";
+
+const urlParams = new URLSearchParams("http://plant-datail.html?name=${plant.plant_name}")
+
 let plantName = 'Snake plant';
 
 const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
@@ -195,6 +198,7 @@ const getPlantinfo = async () => {
                     // Display Outdoor Requirement Table
                     description.innerHTML = ""
                     description.innerHTML = doc_outdoor.data().details
+                    description.style.setProperty('color', 'red');
                 }
     
             })
