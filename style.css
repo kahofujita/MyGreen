@@ -1,6 +1,7 @@
 /* VARIABLES ================ */
 /* MIXINS =================== */
 /* ACCESSIBILITY ============ */
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Urbanist:wght@400;600&display=swap");
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -11,14 +12,47 @@
   width: 1px;
 }
 
-/* LAYOUT ============= ===== */
-/* MEDIA =============== ==== */
+/* LAYOUT ================== */
+/* MEDIA =================== */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* RESET ============== ===== */
+/* TYPOGRAPHY ============== */
+body {
+  font-family: "Urbanist", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Righteous", cursive;
+}
+
+h1 {
+  font-size: 48pt;
+}
+
+h2 {
+  font-size: 36pt;
+}
+
+h3 {
+  font-size: 27pt;
+}
+
+h4 {
+  font-size: 18pt;
+}
+
+h5 {
+  font-size: 15pt;
+}
+
+h6 {
+  font-size: 12pt;
+}
+
+/* RESET =================== */
 /* Box sizing rules */
 *,
 *::before,
