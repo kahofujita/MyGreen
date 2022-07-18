@@ -59,7 +59,7 @@ const suggestionHandler = () => {
     const index = Math.floor(Math.random() * plantOurinfo.length);
     console.log(index);
     let plantResult = `The name of plant is ${plantOurinfo[index].plant_name}. The water frequency is ${plantOurinfo[index].water_frequency} and the soil frequency is ${plantOurinfo[index].soil_frequency} `;
-    // document.querySelector("#suggestionLink").href = "http://plant-datails.html?name=${plant.plant_name}";
+    document.querySelector("#suggestionLink").href = "http://plant-datail.html?name=${plant.plant_name}";
     lastSuggestion.plant = plantResult;
   
 

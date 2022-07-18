@@ -9,7 +9,7 @@ console.log(userId)
 
 const urlParams = new URLSearchParams("http://plant-datail.html?name=${plant.plant_name}")
 
-let plantName = 'Snake plant';
+let plantName = 'plant.plant_name';
 
 const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
 const frequentList = document.querySelector('.frequency-list')
