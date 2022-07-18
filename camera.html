@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@
     <title>Capture your plant</title>
     <script src="./js/camera.js" type="module" defer></script>
     <script src="./js/avatar.js" type="module" defer></script>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -28,73 +29,77 @@
             <label for="submit">Search</label>
     
             <button type="button" class="logout">Logout</button>
-        </header>
+        </header> -->
         
         
         <main>
 
-      
-        <div class="page" id="picture" >
-              <a class="item" href="#profile" >Back to Journal</a>
-            <p>Please take a picture of your plant</p>
-           
-
-            <div>
-                <button id="start" class="item">Camera On</button>
-                <!-- <input type="file" accept="image/*" capture="camera"> -->
-                <button type="button" id="btn-toggle">Change Camera angle</button>
-                <button id="snap" class="item">Snap Photo</button>
-                <!-- <button id="stop" class="item">Stop Camera</button> -->
-            </div>
-              <br />
-              <!-- <video id="video" width="480" height="480" autoplay></video> -->
-              <video id="video" width="320" height="240" autoplay></video> 
-              <br />
-              <!-- <canvas id="canvas" width="480" height="480"></canvas> -->
-               <canvas id="canvas" width="320" height="240"></canvas> 
-    
-        </div>
-        
-        
-
-
-        <div class="page" id="profile" >     
-                <div id="card"> 
-                    <img id="avatar">
+            <div class="main-wrapper">
+          
+                <div class="page" id="picture" >
+                      <a class="item" href="#profile" >Back to Journal</a>
+                    <p>Please take a picture of your plant</p>
+                
+                    <div class="shot-button">
+                        <button id="start" class="item">Camera On</button>
+                        <!-- <input type="file" accept="image/*" capture="camera"> -->
+                        <!-- <button type="button" id="btn-toggle">Change Camera angle</button> -->
+                        <button id="snap" class="item">Snap Photo</button>
+                        <!-- <button id="stop" class="item">Stop Camera</button> -->
+                    </div>
+                      <br />
+                      <!-- <video id="video" width="480" height="480" autoplay></video> -->
+                      <video id="video" width="320" height="240" autoplay></video>
+                      <br />
+                      <!-- <canvas id="canvas" width="480" height="480"></canvas> -->
+                       <canvas id="canvas" width="320" height="240"></canvas>
+                </div>
+            
+            
+                <div class="page" id="profile" >
+                        <div id="card">
+                            <img id="avatar">
+                            <!-- <p id="username"></p> -->
                         
+                            <div class="pic_area">
+                            <!-- <p>picture</p> -->
+                                <a class="item" href="#picture" >Take a Picture</a>
+                                <input id="target" type="file" />
+                            </div>
+                            <div id="front" class="face">
+                                <form id="form1">
+                                
+                                   <input type="url" id="image" size="40" required />
+                                   <!-- <label>Date </label>
+                                   <input type="date" id="date" required /> -->
+                                
+                                   <div class="input-area">
+                                       <p id="username"></p>
+                                       <label class="caption-header">Type Your Caption Here</label>
+                                       <input type="text" id="caption" required />
+                                
+                                       <input type="date" id="date" required />
+                                       <label class="border">Add Care Instreuctions</label>
+                                       <textarea type="text" id="journal"></textarea>
+                                   </div>
+                               
+                                   <span></span>
+                                   <input type="submit" class="submit" >
+                                </form>
+                            </div>
+                        </div>
                     
-                    <p>picture</p>
-                    <a class="item" href="#picture" >Take a Picture</a>
-                    <input id="target" type="file" />  
-                    <div id="front" class="face">
-                        <form id="form1">
-                            
-                            <input type="url" id="image" size="40" required />
-
-                            <label>Date </label>
-                            <input type="date" id="date" required />
-
-                            <label>caption</label>
-                            <input type="text" id="caption" required />
-            
-                            <label>Journal</label>
-                            <textarea type="text" id="journal"></textarea>
-            
-                        
-                            <span></span>
-                            <input type="submit" class="submit" >
-                        </form>
-                    </div>    
+                        <div id="back" class="face">
+                        </div>
+                    </div>
+                    </div>
                 </div>
-               
-                <div id="back" class="face"  >
-                </div>
-            </div>        
-            </div>
             
-        </div>
-        
-    </main>
+            </div><!--  end of main-wrapper -->
+            <script src="./js/camera.js" type="module" defer></script>
+            <script src="./js/avatar.js" type="module" defer></script>
+            <link rel="stylesheet" href="style.css">
+        </main>
 
-</body>
-</html>
+<!-- </body>
+</html> -->
