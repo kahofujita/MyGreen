@@ -13,6 +13,68 @@
 }
 
 /* LAYOUT ================== */
+.login-body {
+  background-color: #FAFAFA;
+}
+
+.login-main {
+  max-width: 338px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-main h2 {
+  font-size: 32px;
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+}
+.login-main .login {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+.login-main input, .login-main label {
+  display: block;
+}
+.login-main input {
+  border-radius: 8px;
+  border: solid 2px #83C992;
+  max-width: 338px;
+  height: 56px;
+  padding: 24px 16px;
+}
+.login-main .email-div, .login-main .password-div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  gap: 12px;
+}
+.login-main .signup-link {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.login-main .signup-link a {
+  color: #2B2B2B;
+}
+.login-main .loginButton {
+  width: 126px;
+  height: 44px;
+  border-radius: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  background-color: #B21F51;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+body {
+  background-color: #F5F5F5;
+}
+
 /* MEDIA =================== */
 img {
   max-width: 100%;

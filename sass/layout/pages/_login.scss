@@ -1,0 +1,67 @@
+.login-body {
+    background-color: $color-body-light;
+}
+
+.login-main {
+
+    max-width: 338px;
+    margin-left: auto;
+    margin-right: auto;
+
+    h2 {
+        font-size: 32px;
+        text-align: center;
+        margin: 2rem 0 1rem 0;
+    }
+
+    .login {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+    }
+
+    input, label {
+        display: block;
+    }
+
+    input {
+        border-radius: 8px;
+        border: solid 2px $color-green1;
+        max-width: 338px;
+        height: 56px;
+        padding: 24px 16px;
+    }
+
+    .email-div, .password-div {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        gap: 12px;
+    }
+
+    .signup-link {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        a {
+            color: $color-body-dark;
+        }
+    }
+
+    .loginButton {
+        width: 126px;
+        height: 44px;
+        border-radius: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        background-color: $color-red2;
+        color: #FFFFFF;
+        cursor: pointer;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+}
+
