@@ -21,28 +21,36 @@
   max-width: 338px;
   margin-left: auto;
   margin-right: auto;
+  display: grid;
+  padding-top: 2rem;
 }
 .login-main h2 {
   font-size: 32px;
   text-align: center;
-  margin: 2rem 0 1rem 0;
+  margin-bottom: 1rem;
 }
 .login-main .login {
   display: flex;
   flex-flow: column nowrap;
   gap: 2rem;
 }
-.login-main input, .login-main label {
+.login-main form {
+  max-width: 448px;
+}
+.login-main input,
+.login-main label {
   display: block;
+  font-size: 16px;
 }
 .login-main input {
   border-radius: 8px;
   border: solid 2px #83C992;
-  max-width: 338px;
+  width: 100%;
   height: 56px;
   padding: 24px 16px;
 }
-.login-main .email-div, .login-main .password-div {
+.login-main .email-div,
+.login-main .password-div {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
@@ -69,6 +77,33 @@
   cursor: pointer;
   font-size: 14px;
   text-transform: uppercase;
+}
+.login-main .login-graphic {
+  display: none;
+}
+@media screen and (min-width: 800px) {
+  .login-main {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1100px;
+    padding: 4rem 5% 0 5%;
+  }
+  .login-main .login-graphic {
+    display: block;
+    max-width: 300px;
+    height: auto;
+    padding-top: 3rem;
+  }
+  .login-main label {
+    font-size: 24px;
+  }
+  .login-main h2 {
+    font-size: 40px;
+  }
+  .login-main .loginButton {
+    font-size: 16px;
+    width: 197px;
+    height: 44px;
+  }
 }
 
 body {
