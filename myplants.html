@@ -1,6 +1,6 @@
 
 
-    <main>
+    <main class="myplants">
         <section class="myplant">
             <h2>My Plants</h2>
             <!-- Slider main container -->
@@ -29,24 +29,27 @@
         <button id="addplant">Add a plant</button>
         </section>
         <section class="weekly-schedule">
-            <h2>Weekly Schedule</h2>
+            <h2>Plant Schedule</h2>
             <div class="weekly-schedule-wrapper">
                 <div class="watering">
+                    <div class="myplants-icons"><i class="fa-solid fa-droplet"></i></div>
                     <div class="weekly-schedule-section">Watering</div>
                     <div>Last Watered: </div>
                     <input type="date" class="watering-calendar" required />
                 </div>
                 <div class="sunlight-temp">
+                    <div class="myplants-icons"><img src="images/icons_login_myplants/sun-myplant.png" alt=""></div>
                     <div class="weekly-schedule-section">Sunlight and Temperature</div>
                 </div>
                 <div class="nutritions">
+                    <div class="myplants-icons"><img src="images/icons_login_myplants/nutrition-myplant.png" alt=""></div>
                     <div class="weekly-schedule-section">Nutritions</div>
                     <div>Last Nutritionized: </div>
                     <input type="date" class="nutritionizing-calendar" required />
                 </div>
             </div>
         </section>
-        <link rel="stylesheet" href="./css/myplants.css">
+        <!-- <link rel="stylesheet" href="style.css"> -->
         <!-- <script src="./js/weekly-schedule.js" type="module" defer ></script> -->
         <script src="./js/myplants.js" type="module" defer ></script>
     </main>
