@@ -25,8 +25,18 @@
   border-radius: 20px 0px 0px 20px;
   padding: 0.3rem;
 }
+<<<<<<< Updated upstream
 
 .search-icon {
+=======
+.login-main h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.login-main .login {
+>>>>>>> Stashed changes
   display: flex;
   background: #EFD35E;
   border: 1px solid #EFD35E;
@@ -39,6 +49,7 @@
 .search-icon a {
   color: black;
 }
+<<<<<<< Updated upstream
 
 main {
   margin: 2rem;
@@ -70,6 +81,19 @@ img {
   left: 0;
   background-color: rgba(71, 61, 61, 0.4784313725);
   width: 100%;
+=======
+.login-main input,
+.login-main label {
+  display: block;
+  font-size: 1rem;
+}
+.login-main input {
+  border-radius: 8px;
+  border: solid 2px #83C992;
+  max-width: 100%;
+  height: 56px;
+  padding: 1.5rem 1rem;
+>>>>>>> Stashed changes
 }
 
 .see-more-wrapper span {
@@ -171,9 +195,22 @@ img {
   .slideshow-container-mobile {
     display: none;
   }
+<<<<<<< Updated upstream
   .slide-of-desktop img {
     width: 100%;
     height: 200px;
+=======
+  .login-main label {
+    font-size: 1.5rem;
+  }
+  .login-main h2 {
+    font-size: 2.5rem;
+  }
+  .login-main .loginButton {
+    font-size: 1rem;
+    width: 197px;
+    height: 44px;
+>>>>>>> Stashed changes
   }
 }
 .result {
@@ -181,6 +218,7 @@ img {
   font-size: 2rem;
 }
 
+<<<<<<< Updated upstream
 h2 {
   font-size: 40px;
   text-align: center;
@@ -271,6 +309,426 @@ img {
 
 .file-choose-container label {
   text-align: center;
+=======
+.myaccount-page h2 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+.myaccount-page .avatarDisplayMyAccount button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.myaccount-page .avatarDisplayMyAccount button #currentAvatar {
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.454);
+}
+.myaccount-page .avatarDisplayMyAccount button .editButton {
+  background-color: #F1D644;
+  color: white;
+  border-radius: 50%;
+  height: 33px;
+  width: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0.25rem;
+}
+.myaccount-page #avatarMyAccountLabel {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.myaccount-page #avatarMyAccount {
+  border: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.myaccount-page #avatarMyAccount label img {
+  border-radius: 50%;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.myaccount-page #avatarMyAccount input:checked + label img {
+  border: 4px solid #B21F51;
+  border-radius: 50%;
+}
+.myaccount-page #avatarMyAccount div {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.myaccount-page #avatarMyAccount div input,
+.myaccount-page #avatarMyAccount div label {
+  grid-column: 1;
+  grid-row: 1;
+}
+.myaccount-page #avatarMyAccount button {
+  display: block;
+  grid-row: 5;
+  grid-column: 1/-1;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  color: white;
+  background-color: #83C992;
+  border: none;
+  border-radius: 15px;
+  width: 126px;
+  height: 44px;
+  cursor: pointer;
+}
+.myaccount-page .form-wrapper .field-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 338px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+.myaccount-page .form-wrapper .field-wrapper input {
+  padding: 12px 24px;
+  border: 2px solid #83C992;
+  border-radius: 8px;
+}
+.myaccount-page .form-wrapper .buttons-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.myaccount-page .form-wrapper .buttons-wrapper button {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  border: none;
+  background-color: #83C992;
+  color: white;
+  border-radius: 15px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+.myaccount-page .save-cancel-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 338px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+.myaccount-page .save-cancel-wrapper button {
+  text-transform: uppercase;
+  color: white;
+  background-color: #B21F51;
+  border: none;
+  border-radius: 15px;
+  width: 126px;
+  height: 44px;
+  cursor: pointer;
+}
+.myaccount-page .save-cancel-wrapper a {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #B21F51;
+  font-weight: bold;
+}
+.myaccount-page .form-wrapper,
+.myaccount-page .change-avatar-wrapper {
+  transition: all 0.5s ease-in-out;
+}
+.myaccount-page .show {
+  transform: translateX(0);
+}
+.myaccount-page .right {
+  transform: translateX(-100%);
+}
+.myaccount-page .form-wrapper .new-hide {
+  display: none;
+}
+.myaccount-page .form-wrapper .new-block {
+  display: block;
+}
+
+.changeInfoMyAccount {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 2rem;
+}
+.changeInfoMyAccount .change-avatar-wrapper {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+}
+.changeInfoMyAccount .form-wrapper {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+}
+
+@media screen and (min-width: 800px) {
+  .myaccount-page h2 {
+    font-size: 2.5rem;
+  }
+  .myaccount-page #avatarMyAccount {
+    max-width: 500px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .myaccount-page #avatarMyAccount label {
+    border: none;
+  }
+  .myaccount-page .form-wrapper .field-wrapper {
+    max-width: 450px;
+  }
+}
+.signup-page h2 {
+  font-size: 2rem;
+}
+.signup-page .sub-headers-pages {
+  font-size: 1.25rem;
+}
+.signup-page h2,
+.signup-page .sub-headers-pages {
+  text-align: center;
+}
+.signup-page .signup-field-form,
+.signup-page .login-back,
+.signup-page .login-next-back,
+.signup-page fieldset {
+  max-width: 338px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.signup-page .signup-page1-wrapper, .signup-page .signup-page2-wrapper, .signup-page .signup-page3-wrapper, .signup-page .addpPLantForm {
+  padding: 2rem 0;
+}
+.signup-page .signup-page3 fieldset {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}
+.signup-page .signup-field-form {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 2rem;
+}
+.signup-page label,
+.signup-page input,
+.signup-page select,
+.signup-page option {
+  font-size: 1rem;
+}
+.signup-page input[type=text],
+.signup-page input[type=email],
+.signup-page input[type=password],
+.signup-page select,
+.signup-page option {
+  padding: 1rem 1.5rem;
+  border: 2px solid #83C992;
+  border-radius: 8px;
+}
+.signup-page .login-back {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin-top: 2rem;
+}
+.signup-page .login-back a {
+  color: #2B2B2B;
+}
+.signup-page .nextButton,
+.signup-page .finishButton {
+  background-color: #B21F51;
+  text-transform: uppercase;
+  color: #FAFAFA;
+  border: none;
+  width: 7.875rem;
+  height: 2.75rem;
+  border-radius: 44px;
+  cursor: pointer;
+}
+.signup-page .backButton {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #B21F51;
+  cursor: pointer;
+}
+.signup-page #next-button1 {
+  margin-top: 2rem;
+}
+.signup-page .login-next-back {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.signup-page .signup-page1 .nextButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.signup-page .addPlantButton {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.signup-page .signup-page3 fieldset {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: none;
+  gap: 1rem;
+}
+.signup-page .signup-page3 fieldset div {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.signup-page .signup-page3 fieldset div input,
+.signup-page .signup-page3 fieldset div label {
+  grid-column: 1;
+  grid-row: 1;
+}
+.signup-page .signup-page4 fieldset {
+  border: 2px solid #83C992;
+  border-radius: 8px;
+  width: 338px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.signup-page .signup-page4 select {
+  color: gray;
+}
+.signup-page .signup-page4 #addPlantButton {
+  width: 12rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  border: none;
+  background-color: #83C992;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+.signup-page .signup-page4 .login-next-skip {
+  max-width: 338px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.signup-page .signup-page4 .skipButton {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  color: #A9A9A9;
+  cursor: pointer;
+}
+.signup-page .cactus-image-signup {
+  display: none;
+}
+
+.signup-body {
+  overflow-x: hidden;
+}
+
+.signup-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.signup-page .signup,
+.signup-page .addPlantForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column: 1;
+  grid-row: 1;
+}
+.signup-page .signup-page1-wrapper {
+  transform: translateX(-100%);
+  transition: all 0.5s;
+  grid-column: 1;
+  grid-row: 1;
+}
+.signup-page .signup-page2-wrapper,
+.signup-page .signup-page3-wrapper,
+.signup-page .addpPLantForm {
+  transform: translateX(100%);
+  transition: all 0.5s;
+  grid-column: 1;
+  grid-row: 1;
+}
+.signup-page .left {
+  transform: translateX(-100%);
+  display: block;
+}
+.signup-page .show {
+  transform: translateX(0);
+  display: block;
+}
+.signup-page .right {
+  transform: translateX(100%);
+  display: block;
+}
+
+#avatarSignup label img {
+  border-radius: 50%;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+#avatarSignup input:checked + label img {
+  border: 4px solid #B21F51;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 800px) {
+  .signup-page .signup-page1-wrapper, .signup-page .signup-page2-wrapper, .signup-page .signup-page3-wrapper, .signup-page .addpPLantForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 20%;
+  }
+  .signup-page .cactus-image-signup {
+    display: block;
+    padding-top: 6rem;
+  }
+}
+body {
+  background-color: #FAFAFA;
+>>>>>>> Stashed changes
 }
 
 /* MEDIA =================== */

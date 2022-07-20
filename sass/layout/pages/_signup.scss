@@ -1,0 +1,282 @@
+.signup-page {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .sub-headers-pages {
+        font-size: 1.25rem;
+    }
+
+    h2,
+    .sub-headers-pages {
+        text-align: center;
+    }
+
+
+    .signup-field-form,
+    .login-back,
+    .login-next-back,
+    fieldset {
+        max-width: 338px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .signup-page1-wrapper, .signup-page2-wrapper, .signup-page3-wrapper, .addpPLantForm {
+        padding: 2rem 0;
+    }
+
+    .signup-page3 {
+        fieldset {
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2rem;
+        }
+    }
+
+
+    .signup-field-form {
+        display: flex;
+        flex-flow: column nowrap;
+        margin-top: 2rem;
+    }
+
+    label,
+    input,
+    select,
+    option {
+        font-size: 1rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    option {
+        padding: 1rem 1.5rem;
+        border: 2px solid $color-green1;
+        border-radius: 8px;
+    }
+
+    .login-back {
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        flex-flow: column nowrap;
+        margin-top: 2rem;
+
+        a {
+            color: $color-body-dark;
+        }
+    }
+
+    .nextButton,
+    .finishButton {
+        background-color: $color-red2;
+        text-transform: uppercase;
+        color: $color-body-light;
+        border: none;
+        width: 7.875rem;
+        height: 2.75rem;
+        border-radius: 44px;
+        cursor: pointer;
+    }
+
+    .backButton {
+        background: none;
+        border: none;
+        font-size: .875rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: underline;
+        color: $color-red2;
+        cursor: pointer;
+    }
+
+    #next-button1 {
+        margin-top: 2rem;
+    }
+
+    .login-next-back {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin-top: 2rem;
+        // align-items: center;
+    }
+
+    .signup-page1 {
+        .nextButton {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .addPlantButton {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .signup-page3 {
+        fieldset {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: none;
+            gap: 1rem;
+
+            div {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+
+                input,
+                label {
+                    grid-column: 1;
+                    grid-row: 1;
+                }
+            }
+        }
+    }
+
+    .signup-page4 {
+        fieldset {
+            border: 2px solid $color-green1;
+            border-radius: 8px;
+            width: 338px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+
+        select {
+            color: gray;
+        }
+
+        #addPlantButton {
+            width: 12rem;
+            height: 2.75rem;
+            border-radius: 2.75rem;
+            border: none;
+            background-color: $color-green1;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: .875rem;
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+
+        .login-next-skip {
+            max-width: 338px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skipButton {
+            background: none;
+            border: none;
+            text-transform: uppercase;
+            text-decoration: underline;
+            font-size: .875rem;
+            color: $color-icon-text;
+            cursor: pointer;
+        }
+    }
+
+    .cactus-image-signup {
+        display: none;
+    }
+}
+
+// WORKING ON GRID TO DISPLAY AND MAKE IT DISSAPEAR
+
+.signup-body {
+    overflow-x: hidden;
+}
+
+.signup-page {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    .signup,
+    .addPlantForm {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .signup-page1-wrapper {
+        transform: translateX(-100%);
+        transition: all .5s;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .signup-page2-wrapper,
+    .signup-page3-wrapper,
+    .addpPLantForm {
+        transform: translateX(100%);
+        transition: all .5s;
+        grid-column: 1;
+        grid-row: 1;
+        // display: none;
+    }
+
+    .left {
+        transform: translateX(-100%);
+        display: block;
+    }
+
+    .show {
+        transform: translateX(0);
+        display: block;
+    }
+
+    .right {
+        transform: translateX(100%);
+        display: block;
+    }
+}
+
+#avatarSignup label img {
+    // border: 2px solid black;
+    border-radius: 50%;
+    transition: all .15s ease-in-out;
+    cursor: pointer;
+}
+
+#avatarSignup input:checked+label img {
+    border: 4px solid $color-red2;
+    border-radius: 50%;
+}
+
+@media screen and (min-width: $media-query-break) {
+    .signup-page {
+
+        .signup-page1-wrapper, .signup-page2-wrapper, .signup-page3-wrapper, .addpPLantForm {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 2rem 20%;
+        }
+
+        .cactus-image-signup {
+            display: block;
+            padding-top: 6rem;
+        }
+    }
+}
