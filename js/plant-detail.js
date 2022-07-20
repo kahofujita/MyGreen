@@ -7,9 +7,9 @@ console.log(userId)
 
 // document.querySelector("#suggestionLink").href = "http://plant-datails.html?name=${plant.plant_name}";
 
-const urlParams = new URLSearchParams("http://plant-datail.html?name=${plant.plant_name}")
+// const urlParams = new URLSearchParams("http://plant-datail.html?name=${plant.plant_name}")
 
-let plantName = 'plant.plant_name';
+let plantName = 'Snake plant';
 
 const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
 const frequentList = document.querySelector('.frequency-list')
@@ -21,7 +21,7 @@ const description = document.querySelector('.description')
 
 // Display Plant Image
 const img = document.createElement('img')
-img.src = `./images/plant_img/${plantName}.jpg`
+img.src = `./images/plant_img/${plantName}.png`
 img.alt = plantName
 imgNameWapper.appendChild(img)
 

@@ -63,6 +63,8 @@ main.myplants {
         gap: 10px;
         width: 350px;
         height: 250px;
+        margin-right: 10rem;
+        margin-left: 10rem;
     }
 
     .myplants-icons i {
@@ -128,5 +130,41 @@ main.myplants {
         background: rgba(131, 201, 146, 0.5);
     }
 
+
+
+    @media screen and (min-width: 800px) {
+
+        .weekly-schedule-wrapper {
+            display: flex;
+            flex-flow: row nowrap;
+            border: 5px solid #DD1C50;
+            border-radius: 50px;
+            padding: 3rem;
+            max-width: 1000px;
+            margin: auto;
+            gap: 0;
+        }
+
+        .weekly-schedule-wrapper > div {
+            border: unset;
+            margin: 0;
+        }
+
+        .sunlight-temp {
+            padding-bottom: 7rem;
+        }
+
+        .weekly-schedule-section + div {
+            flex-basis: 100%;
+        }
+
+        button.watered-today,
+        button.nutritionize-today {
+            margin-top: 1rem;
+        }
+
+
+        
+    }
 
 }

@@ -1,0 +1,11 @@
+
+main.plant-detail {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

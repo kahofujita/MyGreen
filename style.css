@@ -64,6 +64,8 @@ main.myplants .weekly-schedule-wrapper > div {
   gap: 10px;
   width: 350px;
   height: 250px;
+  margin-right: 10rem;
+  margin-left: 10rem;
 }
 main.myplants .myplants-icons i {
   font-size: 60px;
@@ -117,6 +119,41 @@ main.myplants button.watered-today:disabled {
 }
 main.myplants button.nutritionize-today:disabled {
   background: rgba(131, 201, 146, 0.5);
+}
+@media screen and (min-width: 800px) {
+  main.myplants .weekly-schedule-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    border: 5px solid #DD1C50;
+    border-radius: 50px;
+    padding: 3rem;
+    max-width: 1000px;
+    margin: auto;
+    gap: 0;
+  }
+  main.myplants .weekly-schedule-wrapper > div {
+    border: unset;
+    margin: 0;
+  }
+  main.myplants .sunlight-temp {
+    padding-bottom: 7rem;
+  }
+  main.myplants .weekly-schedule-section + div {
+    flex-basis: 100%;
+  }
+  main.myplants button.watered-today,
+main.myplants button.nutritionize-today {
+    margin-top: 1rem;
+  }
+}
+
+main.plant-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main.plant-detail img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* MEDIA =================== */
