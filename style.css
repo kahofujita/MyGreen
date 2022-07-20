@@ -147,13 +147,55 @@ main.myplants button.nutritionize-today {
   }
 }
 
-main.plant-detail {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-main.plant-detail img {
-  max-width: 100%;
+main.plant-detail .plant-image-name-wrapper img {
+  border: #83C992 4px solid;
+  max-width: 60%;
   height: auto;
+  border-radius: 20px;
+  margin: auto;
+}
+main.plant-detail .plant-image-name-wrapper .plant-name {
+  font-size: 4rem;
+  color: #DD1C50;
+  font-weight: 400;
+  font-family: "Righteous", cursive;
+  text-align: center;
+}
+main.plant-detail .indoor,
+main.plant-detail .outdoor {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+main.plant-detail .indoor-frequent,
+main.plant-detail .outdoor-frequent {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+}
+main.plant-detail .frequent-wrapper {
+  border: #DD1C50 2px solid;
+  border-radius: 20px;
+  width: 15rem;
+  height: 15rem;
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 1.6rem;
+}
+main.plant-detail .frequent-wrapper div:nth-of-type(1) {
+  font-weight: 700;
+}
+main.plant-detail .section-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #BCBCBC;
+}
+main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-detail th {
+  border: 1px solid #BCBCBC;
+  border-collapse: collapse;
 }
 
 /* MEDIA =================== */
