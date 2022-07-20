@@ -1,15 +1,15 @@
 
-import {db, auth} from './firebase/firebase-config.js'
-import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
+import { db, auth } from './firebase/firebase-config.js'
+import { collection, addDoc, doc, getDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
 const userId = sessionStorage.getItem('userID')
 console.log(userId)
 
 // document.querySelector("#suggestionLink").href = "http://plant-datails.html?name=${plant.plant_name}";
+let queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 
-const urlParams = new URLSearchParams("http://plant-datail.html?name=${plant.plant_name}")
-
-let plantName = 'plant.plant_name';
+let plantName = urlParams.get("name");
 
 const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
 const frequentList = document.querySelector('.frequency-list')
@@ -49,7 +49,8 @@ const getPlantinfo = async () => {
     // Query "plant_ourinfo" for INDOOR location =================
     const indoorQuery = query(collection(db, "plant_ourinfo"), where("plant_name", "==", plantName), where("location", "==", 'indoor'))
     const indoorQuerySnapshot = await getDocs(indoorQuery);
-    indoorQuerySnapshot.forEach( async(doc_indoor) => {
+    console.log(indoorQuerySnapshot);
+    indoorQuerySnapshot.forEach(async (doc_indoor) => {
 
         // // Display Plant Image
         // const img = document.createElement('img')
@@ -74,7 +75,7 @@ const getPlantinfo = async () => {
         const indoorSunTempRequirement = doc_indoor.data().sunlight_requirement
         const indoorWaterRequirement = doc_indoor.data().water_requirement
         const indoorSoilRequirement = doc_indoor.data().soil_requirement
-        
+
         console.log(indoorSunFrequent)
         console.log(indoorWaterFrequent)
         console.log(indoorSoilFrequent)
@@ -110,6 +111,7 @@ const getPlantinfo = async () => {
         // Query "plant_ourinfo" for OUTDOOR location ==============
         const outdoorQuery = query(collection(db, "plant_ourinfo"), where("plant_name", "==", plantName), where("location", "==", 'outdoor'))
         const outdoorQuerySnapshot = await getDocs(outdoorQuery);
+        console.log(outdoorQuerySnapshot);
         outdoorQuerySnapshot.forEach((doc_outdoor) => {
 
             // Get Outdoor Info from firebase
@@ -138,7 +140,7 @@ const getPlantinfo = async () => {
                 indoorDiv.classList.add('indoor')
                 frequentList.appendChild(indoorDiv)
                 indoorDiv.innerHTML = `<div>${indoorSunFrequent}</div><div>${indoorWaterFrequent}</div><div>${indoorSoilFrequent}</div>`
-    
+
                 // Remove Outdoor Frequency
                 if (document.querySelector(".outdoor")) {
                     document.querySelector(".outdoor").remove()
@@ -147,7 +149,7 @@ const getPlantinfo = async () => {
                 outdoorDiv.classList.add('outdoor')
                 frequentList.appendChild(outdoorDiv)
                 outdoorDiv.innerHTML = `<div>${outdoorSunFrequent}</div><div>${outdoorWaterFrequent}</div><div>${outdoorSoilFrequent}</div>`
-    
+
                 // Details
                 description.innerHTML = ""
                 description.innerHTML = detailInfo
@@ -179,7 +181,7 @@ const getPlantinfo = async () => {
                 if (document.querySelector(".indoor")) {
                     document.querySelector(".indoor").remove()
                 }
-    
+
                 // Display only Outdoor Frequency
                 if (document.querySelector(".outdoor")) {
                     document.querySelector(".outdoor").remove()
@@ -188,26 +190,26 @@ const getPlantinfo = async () => {
                 outdoorDiv.classList.add('outdoor')
                 frequentList.appendChild(outdoorDiv)
                 outdoorDiv.innerHTML = `<div>${outdoorSunFrequent}</div><div>${outdoorWaterFrequent}</div><div>${outdoorSoilFrequent}</div>`
-                
+
                 // Display Outdoor Requirement Table
                 description.innerHTML = ""
                 description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table>`
 
                 // Warning for Outdoor Plants
-                if ( doc_outdoor.data().details == "Due to temperature conditions, this plant is not suitable for outdoor areas." ) {
+                if (doc_outdoor.data().details == "Due to temperature conditions, this plant is not suitable for outdoor areas.") {
                     // Display Outdoor Requirement Table
                     description.innerHTML = ""
                     description.innerHTML = doc_outdoor.data().details
                     description.style.setProperty('color', 'red');
                 }
-    
+
             })
 
         })
 
 
 
-        
+
 
         // const outdoorInfo = doc.data().ourdoor_location
 
@@ -230,7 +232,7 @@ const getPlantinfo = async () => {
         // imgNameWapper.appendChild(plantNamediv)
         // plantNamediv.innerHTML = plantName
 
-        
+
 
         // Detail Section 🌟🌟===============================
 
@@ -246,7 +248,7 @@ const getPlantinfo = async () => {
         // outdoorDiv.classList.add('outdoor')
         // frequentList.appendChild(outdoorDiv)
         // outdoorDiv.innerHTML = `<div>${outdoorInfo.sunlight_temperature_frequency}</div><div>${outdoorInfo.water_frequency}</div><div>${outdoorInfo.soil_frequency}</div>`
-        
+
         // description.innerHTML = detailInfo
 
         // Click each section 
@@ -311,7 +313,7 @@ const getPlantinfo = async () => {
         //     outdoorDiv.classList.add('outdoor')
         //     frequentList.appendChild(outdoorDiv)
         //     outdoorDiv.innerHTML = `<div>${outdoorInfo.sunlight_temperature_frequency}</div><div>${outdoorInfo.water_frequency}</div><div>${outdoorInfo.soil_frequency}</div>`
-            
+
         //     // Outdoor table
         //     description.innerHTML = ""
         //     description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${outdoorInfo.sunlight_temperature_requirement}</td><td>${outdoorInfo.water_requirement}</td><td>${outdoorInfo.soil_requirement}</td></tr></table>`
@@ -320,6 +322,6 @@ const getPlantinfo = async () => {
 
     })
 
-    }
-    
-    getPlantinfo()
+}
+
+getPlantinfo()

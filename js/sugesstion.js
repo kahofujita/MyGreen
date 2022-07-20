@@ -48,31 +48,46 @@ lastSuggestion = !localStorage.getItem('lastSuggestion')
 
 
 const suggestionHandler = () => {
+
   let now = new Date();
   let dateToCompare = String(now.getMonth()) + String(now.getFullYear())
-  let result = document.querySelector('#suggestionLink');
-  
+  let result = document.querySelector('.suggestion-link');
+
   if (lastSuggestion.date) {
     result.innerHTML = `Our <span style="color: orange;">last</span> suggestion is: ${lastSuggestion.plant}`;
+     result.style = `color: black;
+     text-align: center;
+     display: block;
+     font-size: 1.5rem;`
+    let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    result.href = link;
+
   } else {
 
     lastSuggestion.date = dateToCompare;
     const index = Math.floor(Math.random() * plantOurinfo.length);
     console.log(index);
-  
-    result.href = "http://plant-datails.html?name=${plant.plant_name}";
-    lastSuggestion.plant = `${plantOurinfo[index].plant_name}`;
-  
 
-    console.log(lastSuggestion)
+
+
+    lastSuggestion.plant = `${plantOurinfo[index].plant_name}`;
+
+    let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    result.href = link;
 
     localStorage.setItem('lastSuggestion', JSON.stringify(lastSuggestion))
-     result.innerHTML = `Our <span style="color: cyan;">new</span> suggestion is: ${lastSuggestion.plant}.`;
+    result.innerHTML = `Our <span style="color: cyan;">new</span> suggestion is: ${lastSuggestion.plant}.`;
     //  suggestionLink.innerHTML = ` the details are here:${link}`;
 
   }
   return
 }
+const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
+// Display Plant Image
+const img = document.createElement('img')
+img.src = `./images/plant_img/${lastSuggestion.plant}.jpg`
+img.alt = lastSuggestion.plant
+imgNameWapper.appendChild(img)
 
 // document.querySelector('#suggestion-btn').addEventListener('click', suggestionHandler);
 suggestionHandler();
