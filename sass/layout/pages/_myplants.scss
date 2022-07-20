@@ -9,7 +9,8 @@ main.myplants {
     section.myplant {
         display: flex;
         justify-content: center;
-        flex-flow: row wrap;
+        flex-flow: column nowrap;
+        align-items: center;
         gap: 30px;
         margin-bottom: 5rem;
     }
@@ -20,11 +21,22 @@ main.myplants {
 
     .myplant-wrapper {
         flex-basis: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: 1rem;
+        border: solid 4px $color-green1;
+        border-radius: 50px;
+        width: 1000px;
+        margin: auto;
+        padding: 3rem;
+        height: 1000px;
+
     }
 
-    section.myplant img {
-        max-width: 50%;
-        height: auto;
+    .plant-image img {
+        border: 1px solid transparent;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
 
     #addplant {
@@ -51,7 +63,6 @@ main.myplants {
     }
 
     .weekly-schedule-wrapper > div {
-        background: #FFFFFF;
         border: 5px solid #DD1C50;
         border-radius: 20px;
         display: flex;
