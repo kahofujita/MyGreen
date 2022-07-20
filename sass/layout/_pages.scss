@@ -1,11 +1,17 @@
 // GABRIEL
 
-@import "./pages/login";
+@import "pages/login";
 @import "./pages/myaccount";
 @import "./pages/signup";
 
 // ROJIN
 
 // KAHO
+@import "./pages/myplants";
+@import "./pages/plant-detail";
 
 // KEIKO
+
+body {
+    background-color: #F5F5F5;
+}

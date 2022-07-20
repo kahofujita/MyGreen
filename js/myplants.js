@@ -46,7 +46,7 @@ plantsList.forEach( async(e, index)=>{
 
             const img = document.createElement('img')
             img.setAttribute('id', 'myplant');
-            img.src = `./images/plant_img/${plantName}.jpg`
+            img.src = `./images/plant_img/${plantName}.png`
             img.alt = plantName
             div.appendChild(img)
 

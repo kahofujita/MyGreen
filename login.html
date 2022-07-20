@@ -10,19 +10,33 @@
     <link rel="manifest" href="./webappconfig/app.webmanifest">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="login-body">
     <header></header>
-    <main>
-        <h2>Login Page</h2>
-        <form class="login">
-            <label for="emailLogin">Email:</label>
-            <input type="email" name="emailLogin" id="emailLogin" required>
-            <label for="passwordLogin">Password:</label>
-            <input type="password" name="passwordlLogin" id="passwordLogin" required>
-            <button type="submit">Login</button>
-        </form>
-        <p>You don't have an account?</p>
-        <a href="signup.html">Create your account</a>
+    <main class="login-main">
+        <img src="images/graphics-pages/login-cactus.png" alt="A Cactus smiling" class="login-graphic">
+        <div class="login-wrapper">
+            <h2>Log in</h2>
+            <form class="login">
+                <div class="email-div">
+                    <label for="emailLogin">Email</label>
+                    <input type="email" name="emailLogin" id="emailLogin" placeholder="Enter Your Email Address"
+                        required>
+                </div>
+                <div class="password-div">
+                    <label for="passwordLogin">Password</label>
+                    <input type="password" name="passwordlLogin" id="passwordLogin" placeholder="Enter Your Password"
+                        required>
+                </div>
+
+                <div class="signup-link">
+                    <p>Don't have an account?</p>
+                    <a href="signup.html">Create now</a>
+                </div>
+
+                <button type="submit" class="loginButton">Login</button>
+            </form>
+        </div>
     </main>
     <footer></footer>
     <script>
@@ -38,4 +52,5 @@
         }
     </script>
 </body>
+
 </html>
