@@ -301,8 +301,358 @@ main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-
   border-collapse: collapse;
 }
 
-body {
-  background-color: #F5F5F5;
+main {
+  background-color: #FAFAFA;
+  padding-top: 5rem;
+  position: relative;
+}
+
+.main-wrapper {
+  background-color: white;
+  width: 75%;
+  margin: auto;
+}
+
+#avatar {
+  width: 15%;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgb(200, 200, 200);
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+
+#back {
+  background-color: #99C6A2;
+}
+
+#caption,
+#date,
+label {
+  display: block;
+}
+
+.pic_area {
+  text-align: center;
+  height: 200px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+#image {
+  width: 98%;
+}
+
+.border,
+#username {
+  border-top: 1px solid #2B2B2B;
+}
+
+.border {
+  padding-top: 0.5rem;
+  color: #A9A9A9;
+  padding-left: 2%;
+}
+
+.caption-header {
+  color: #A9A9A9;
+}
+
+input {
+  margin: 1rem 0;
+}
+
+#date {
+  background-color: #D5E6D9;
+  font-family: "Cavest", cursive;
+  font-size: 20px;
+  height: 30px;
+  border: 1px solid;
+  margin-left: 2%;
+}
+
+.input-area {
+  text-align: left;
+  background-color: #D5E6D9;
+  border-top: 1px solid #2B2B2B;
+}
+
+p#username {
+  font-weight: bold;
+  font-size: 25px;
+  color: #2B2B2B;
+  padding-left: 2%;
+}
+
+#journal, #caption {
+  font-family: "Cavest", cursive;
+  font-size: 19px;
+  background-color: #D5E6D9;
+  width: 98%;
+  margin-left: 2%;
+  border: none;
+}
+
+#journal {
+  height: 100px;
+}
+
+.caption-header {
+  padding-left: 2%;
+}
+
+/* Camera page BUTTONS ===============*/
+.submit {
+  background-color: #B21F51;
+  border-radius: 15px;
+  color: #FAFAFA;
+  border: none;
+  font-size: 10px;
+  padding: 0.5rem 1rem;
+  width: 50%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.submit:hover {
+  background-color: white;
+  border: 2px solid #B21F51;
+  color: #2B2B2B;
+  padding: 6px 1rem;
+  font-weight: 200;
+}
+
+a.item {
+  text-decoration: none;
+  background-color: #A7C6AD;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+a.item:hover {
+  background-color: white;
+  border: 2px solid #A7C6AD;
+  color: #2B2B2B;
+  padding: 6px 1rem;
+  font-weight: 200;
+}
+
+#target {
+  width: 98%;
+  padding: 0 20%;
+}
+
+/* TAKE A PHOTO PAGE =====*/
+#picture.page {
+  padding: 1rem;
+}
+
+#video, #canvas {
+  width: 98%;
+  margin: 0;
+}
+
+.shot-button {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.item + p {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+#start,
+#snap {
+  background-color: white;
+  border: 1px solid #A7C6AD;
+  color: #2B2B2B;
+  padding: 0.5rem 1rem;
+  font-weight: 200;
+  border-radius: 15px;
+  font-size: 10px;
+  width: 123px;
+}
+
+#snap {
+  width: 123.39px;
+}
+
+#start:hover,
+#snap:hover {
+  background-color: #A7C6AD;
+  color: white;
+  padding: 6px 1rem;
+}
+
+a.item {
+  width: 32%;
+  display: block;
+  margin: 1rem auto 2rem auto;
+  text-align: center;
+}
+
+.personaljournal-main {
+  padding: 5rem 3rem;
+}
+.personaljournal-main #avatar {
+  width: 15%;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgb(200, 200, 200);
+  margin-right: auto;
+  margin-left: auto;
+}
+.personaljournal-main .user-info {
+  text-align: center;
+  margin-right: 1rem;
+}
+.personaljournal-main #postNbr {
+  margin-bottom: 13px;
+  font-size: 18px;
+}
+.personaljournal-main .add-post-button {
+  display: flex;
+  justify-content: center;
+}
+.personaljournal-main .add-post-button #go-camera {
+  text-decoration: none;
+  background-color: #B21F51;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 10px;
+}
+.personaljournal-main #post.pages {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-gap: 2rem;
+}
+.personaljournal-main .journal img {
+  border-radius: 15px;
+}
+.personaljournal-main p:nth-of-type(1),
+.personaljournal-main p:nth-of-type(2),
+.personaljournal-main p:nth-of-type(3) {
+  font-size: 13px;
+  text-align: center;
+}
+.personaljournal-main #submiting {
+  background-color: #B21F51;
+  color: white;
+  border-radius: 15%;
+  border: none;
+}
+.personaljournal-main #write_cmt {
+  background-color: #DADADA;
+  border-radius: 5px;
+  border: none;
+  padding-left: 3px;
+}
+.personaljournal-main #result {
+  background-color: #D5E6D9;
+  margin-top: 5rem;
+  max-width: 319.5px;
+  min-width: 240px;
+  margin: auto;
+}
+.personaljournal-main p.inst {
+  padding: 5%;
+  text-align: left;
+}
+.personaljournal-main #comment {
+  background-color: #D5E6D9;
+  margin: auto;
+  padding: 2%;
+  max-width: 319.5px;
+  min-width: 240px;
+}
+.personaljournal-main #comment .cmt-header {
+  border-top: 1px solid #2B2B2B;
+  color: #A9A9A9;
+  text-align: left;
+}
+.personaljournal-main #comment .cmts {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  text-align-last: left;
+  border-top: 1px solid #A9A9A9;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.personaljournal-main #comment .cmts p:nth-of-type(2) {
+  grid-column: 2/3;
+}
+.personaljournal-main #comment .cmts:nth-of-type(1) {
+  border: none;
+}
+.personaljournal-main .item {
+  text-align: center;
+  margin-top: 5px;
+}
+.personaljournal-main #write_cmt {
+  width: 80%;
+}
+@media screen and (min-width: 800px) {
+  .personaljournal-main {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    position: relative;
+  }
+  .personaljournal-main #post.pages {
+    margin-top: 0;
+  }
+  .personaljournal-main .user-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    max-width: 357px;
+  }
+  .personaljournal-main .uname-pnbr,
+.personaljournal-main #postNbr {
+    text-align: left;
+  }
+  .personaljournal-main #username {
+    font-size: 40px;
+  }
+  .personaljournal-main .add-post-button {
+    grid-column: 1/-1;
+    height: 32px;
+    justify-items: center;
+  }
+  .personaljournal-main #go-camera {
+    width: 150px;
+    margin-top: 5px;
+  }
+  .personaljournal-main #avatar {
+    width: 93px;
+    margin-right: 1rem;
+  }
+  .personaljournal-main #btn {
+    position: absolute;
+    bottom: 3rem;
+    left: 10%;
+  }
+  .personaljournal-main #comment {
+    position: absolute;
+    right: 17.6%;
+    top: 83%;
+    width: 319.5px;
+    min-width: 240px;
+    margin-right: 3.3rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .personaljournal-main {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
 
 /* MEDIA =================== */

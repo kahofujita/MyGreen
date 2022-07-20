@@ -12,6 +12,6 @@
 
 // KEIKO
 
-body {
-    background-color: #F5F5F5;
-}
+@import "./pages/camera";
+@import "./pages/my-journal";
+@import "./pages/public-journal";
