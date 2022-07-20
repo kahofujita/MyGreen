@@ -1,0 +1,291 @@
+.camera-main{
+
+
+    background-color: $color-body-light;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    position: relative;
+
+.main-wrapper{
+    background-color: white;
+    width: 75%;
+    margin: auto; 
+}
+// #avatar{
+//     width:15%;
+//     border-radius: 50%;
+//     box-shadow: 1px 1px 1px rgb(200, 200, 200);
+//     position: absolute;
+//     top: 50px;
+//     left: 20px;
+// }
+#avatar{
+    @include avatar();
+    position: absolute;
+    top: 35px;
+    left: 6%;
+}
+#back{
+    background-color: $color-green2;
+}
+#caption,
+#date,
+label{
+    display: block;
+}
+.imgicon>i{
+    color: $color-yellow1;
+    font-size: 50px;
+    font-weight: 800;
+    font-family: "Font Awesome 5 Free";
+
+}
+.pic_area{
+    text-align: center;
+    height:400px;
+    display: flex;
+    flex-flow:  column wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+#image{
+    width: 98%;
+    border: none;
+    font-size: 10px;
+}
+.border,
+#username{
+    border-top: 1px solid $color-body-dark;
+    
+}
+.border{
+    padding-top: .5rem;
+    color: $color-icon-text;
+    padding-left: 2%;
+}
+.caption-header{
+    color: $color-icon-text;
+}
+input{
+    margin: 1rem 0;
+}
+#date{
+    background-color:$color-green4;
+    font-family: $font-journal;
+    font-size: 20px;
+    height: 30px;
+    border: 1px solid;
+    margin-left: 2%;
+}
+.input-area{
+    text-align: left;
+    background-color: $color-green4;
+    border-top: 1px solid $color-body-dark;
+}
+p#username{
+    font-weight: bold;
+    font-size: 25px;
+    color: $color-body-dark;
+    padding-left: 2%;
+}
+#journal,#caption{
+    font-family: $font-journal;
+    font-size: 19px;
+    background-color:$color-green4;
+    width: 98%;
+    margin-left: 2%;
+    border: none;
+}
+#journal{
+    height: 100px;
+}
+.caption-header{
+    padding-left: 2%;
+}
+/* Camera page BUTTONS ===============*/
+.submit{
+    background-color: $color-red2;
+    border-radius: 15px;
+    color: $color-body-light;
+    border: none;
+    font-size: 10px;
+    padding: .5rem 1rem;
+    width: 50%; 
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+.submit:hover{
+    background-color: white;
+    border: 2px solid $color-red2;
+    color:  $color-body-dark;
+    padding: 6px 1rem;
+    font-weight: 200;
+}
+//take a pic butoon
+a.item{
+    text-decoration: none;
+    background-color: $color-green3;
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 15px;
+    font-size: 10px;
+}
+a.item:hover{
+    background-color: white;
+    border: 2px solid $color-green3;
+    color:  $color-body-dark;
+    padding: 6px 1rem;
+    font-weight: 200;
+}
+//choose file button
+#target{
+    width: 98%;
+    padding: 0 20% ;   
+    display: flex;
+    flex-flow: column wrap;
+}
+input#file-upload-button{
+    background-color: $color-green3;
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 15px;
+    font-size: 10px;
+}
+
+
+/* TAKE A PHOTO PAGE =====*/
+#picture.page{
+    padding: 1rem;
+}
+#video,#canvas{
+    width: 98%;
+    margin: 0 auto;
+    max-width: 322px;
+}
+#canvas{
+    display: block;
+}
+.shot-button{
+    text-align: center;
+    margin-top: 10px;
+}
+.item+p{
+    text-align: center;
+    margin-top: .5rem;
+}
+#start,
+#snap{
+    background-color: white;
+    border: 1px solid $color-green3;
+    color:  $color-body-dark;
+    padding: .5rem 1rem;
+    font-weight: 200;
+    border-radius: 15px;
+    font-size: 10px;
+    width: 123px;
+}
+#snap{
+    width: 123.39px;
+}
+#start:hover,
+#snap:hover{
+    background-color: $color-green3;
+    color: white;
+    padding: 6px 1rem;
+}
+a.item{
+    width: 32%; 
+    display: block;
+    margin: 1rem auto 2rem auto;
+    text-align: center;
+   
+}
+
+/* SUBMIT SCREEN */
+#back{
+display: grid;
+flex-flow: column wrap;
+background-color: $color-green4;
+
+#final-img img{
+    width: 100%;
+}
+// position: relative;
+}
+#final-img{
+    order: -1;
+}
+.titles{
+    color:$color-icon-text ;
+}
+.dates{
+    font-size: 10px;
+    text-align: right;
+}
+.results{
+    padding: 2%;
+    max-width:90%;
+
+}
+
+@media screen and (min-width:800px){
+    #card{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        
+        .pic_area{
+            grid-column: 1 / 2;
+            height: 100%;
+        }
+        .face{
+           grid-column: 2 / 3;
+        }
+    }
+    #avatar{
+        width:100px;
+        left: 8%;
+    }
+    #form1{
+        position: relative;
+    }
+    #image{
+        position: absolute;
+        bottom:5%;
+        right: 100%;    
+        margin-bottom: .5rem;
+    }
+    .submit{
+        position: absolute;
+        bottom: -10%;
+        right: 25%;
+    }
+    #front{
+        background-color: $color-green4;   
+    }
+    #journal  {
+        height: 388px;
+        width: 98%;
+    }
+    #username{
+        border-top: none;
+    }
+
+    ///TAKE a PICTURE PAGE
+    a.item{
+        max-width: 248px;
+    }
+    #back{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+//Submit area
+
+
+}

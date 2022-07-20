@@ -8,6 +8,7 @@
     <script src ="./js/personal_journal.js" type="module" defer></script>
     <script src="js/logout.js" type="module" defer></script>
     <script src="./js/avatar.js" type="module" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -30,15 +31,19 @@
         <button type="button" class="logout">Logout</button>
     </header>
     
-    <h1>Personal Journal</h1>
-    <main>
+   
+    <main class="personaljournal-main">
+        <!-- <h1>Personal Journal</h1> -->
         <!-- user info avatar and name -->
         <div class="user-info">
             <img src="" alt="useravatar" id="avatar">
-            <p id="username"></p>
-            <p id="postNbr"></p>
+            <div class="uname-pnbr">
+                <h2 id="username"></h2>
+                <p id="postNbr"></p>
+            </div>
+            <div class="add-post-button"><a href="camera.html" id="go-camera">ADD A POST</a></div>
         </div>
-        <a href="camera.html">Add a Post</a>
+        <!-- <div class="add-post-button"><a href="camera.html" id="go-camera">ADD A POST</a></div> -->
         
         
         <!-- display of all posts -->
@@ -51,13 +56,33 @@
         
         <!-- display single post after click img -->
        <div id="result" class = "page">
-         
+        <!-- <img src="" alt="useravatar" id="avatar">
+        <p id="username"></p> -->
 
          
 
         </div>   
         
-      
+        <div id="comment">
+            <p class="cmt-header">Comments</p>
+            <div id="cmt_display">
+
+            </div>
+            
+            
+            <div id="input_area">
+                <input type="text" id="write_cmt" placeholder="add a comment">
+            <button id="submiting" class="item">Post</button>    
+
+            </div>
+            <!-- <input type="text" id="write_cmt" placeholder="add a comment">
+            <button id="submiting" class="item">Post</button>     -->
+        </div> 
+        
+        <a  id="btn" class="item" href="#post" >BACK TO journal Page</a>
+    <!-- <script src ="./js/personal_journal.js" type="module" defer></script>
+    <script src="js/logout.js" type="module" defer></script>
+    <script src="./js/avatar.js" type="module" defer></script>   -->
     </main>
 </body>
 </html>

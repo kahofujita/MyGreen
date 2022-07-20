@@ -1,0 +1,705 @@
+/* VARIABLES ================ */
+/* MIXINS =================== */
+/* ACCESSIBILITY ============ */
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Caveat:wght@400;700&family=Urbanist:wght@400;600&display=swap");
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* LAYOUT ================== */
+.camera-main {
+  background-color: #FAFAFA;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  /* Camera page BUTTONS ===============*/
+  /* TAKE A PHOTO PAGE =====*/
+  /* SUBMIT SCREEN */
+}
+.camera-main .main-wrapper {
+  background-color: white;
+  width: 75%;
+  margin: auto;
+}
+.camera-main #avatar {
+  width: 15%;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgb(200, 200, 200);
+  position: absolute;
+  top: 35px;
+  left: 6%;
+}
+.camera-main #back {
+  background-color: #99C6A2;
+}
+.camera-main #caption,
+.camera-main #date,
+.camera-main label {
+  display: block;
+}
+.camera-main .imgicon > i {
+  color: #F1D644;
+  font-size: 50px;
+  font-weight: 800;
+  font-family: "Font Awesome 5 Free";
+}
+.camera-main .pic_area {
+  text-align: center;
+  height: 400px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.camera-main #image {
+  width: 98%;
+  border: none;
+  font-size: 10px;
+}
+.camera-main .border,
+.camera-main #username {
+  border-top: 1px solid #2B2B2B;
+}
+.camera-main .border {
+  padding-top: 0.5rem;
+  color: #A9A9A9;
+  padding-left: 2%;
+}
+.camera-main .caption-header {
+  color: #A9A9A9;
+}
+.camera-main input {
+  margin: 1rem 0;
+}
+.camera-main #date {
+  background-color: #D5E6D9;
+  font-family: "Caveat", cursive;
+  font-size: 20px;
+  height: 30px;
+  border: 1px solid;
+  margin-left: 2%;
+}
+.camera-main .input-area {
+  text-align: left;
+  background-color: #D5E6D9;
+  border-top: 1px solid #2B2B2B;
+}
+.camera-main p#username {
+  font-weight: bold;
+  font-size: 25px;
+  color: #2B2B2B;
+  padding-left: 2%;
+}
+.camera-main #journal, .camera-main #caption {
+  font-family: "Caveat", cursive;
+  font-size: 19px;
+  background-color: #D5E6D9;
+  width: 98%;
+  margin-left: 2%;
+  border: none;
+}
+.camera-main #journal {
+  height: 100px;
+}
+.camera-main .caption-header {
+  padding-left: 2%;
+}
+.camera-main .submit {
+  background-color: #B21F51;
+  border-radius: 15px;
+  color: #FAFAFA;
+  border: none;
+  font-size: 10px;
+  padding: 0.5rem 1rem;
+  width: 50%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.camera-main .submit:hover {
+  background-color: white;
+  border: 2px solid #B21F51;
+  color: #2B2B2B;
+  padding: 6px 1rem;
+  font-weight: 200;
+}
+.camera-main a.item {
+  text-decoration: none;
+  background-color: #A7C6AD;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 10px;
+}
+.camera-main a.item:hover {
+  background-color: white;
+  border: 2px solid #A7C6AD;
+  color: #2B2B2B;
+  padding: 6px 1rem;
+  font-weight: 200;
+}
+.camera-main #target {
+  width: 98%;
+  padding: 0 20%;
+  display: flex;
+  flex-flow: column wrap;
+}
+.camera-main input#file-upload-button {
+  background-color: #A7C6AD;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 10px;
+}
+.camera-main #picture.page {
+  padding: 1rem;
+}
+.camera-main #video, .camera-main #canvas {
+  width: 98%;
+  margin: 0 auto;
+  max-width: 322px;
+}
+.camera-main #canvas {
+  display: block;
+}
+.camera-main .shot-button {
+  text-align: center;
+  margin-top: 10px;
+}
+.camera-main .item + p {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.camera-main #start,
+.camera-main #snap {
+  background-color: white;
+  border: 1px solid #A7C6AD;
+  color: #2B2B2B;
+  padding: 0.5rem 1rem;
+  font-weight: 200;
+  border-radius: 15px;
+  font-size: 10px;
+  width: 123px;
+}
+.camera-main #snap {
+  width: 123.39px;
+}
+.camera-main #start:hover,
+.camera-main #snap:hover {
+  background-color: #A7C6AD;
+  color: white;
+  padding: 6px 1rem;
+}
+.camera-main a.item {
+  width: 32%;
+  display: block;
+  margin: 1rem auto 2rem auto;
+  text-align: center;
+}
+.camera-main #back {
+  display: grid;
+  flex-flow: column wrap;
+  background-color: #D5E6D9;
+}
+.camera-main #back #final-img img {
+  width: 100%;
+}
+.camera-main #final-img {
+  order: -1;
+}
+.camera-main .titles {
+  color: #A9A9A9;
+}
+.camera-main .dates {
+  font-size: 10px;
+  text-align: right;
+}
+.camera-main .results {
+  padding: 2%;
+  max-width: 90%;
+}
+@media screen and (min-width: 800px) {
+  .camera-main #card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .camera-main #card .pic_area {
+    grid-column: 1/2;
+    height: 100%;
+  }
+  .camera-main #card .face {
+    grid-column: 2/3;
+  }
+  .camera-main #avatar {
+    width: 100px;
+    left: 8%;
+  }
+  .camera-main #form1 {
+    position: relative;
+  }
+  .camera-main #image {
+    position: absolute;
+    bottom: 5%;
+    right: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .camera-main .submit {
+    position: absolute;
+    bottom: -10%;
+    right: 25%;
+  }
+  .camera-main #front {
+    background-color: #D5E6D9;
+  }
+  .camera-main #journal {
+    height: 388px;
+    width: 98%;
+  }
+  .camera-main #username {
+    border-top: none;
+  }
+  .camera-main a.item {
+    max-width: 248px;
+  }
+  .camera-main #back {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.personaljournal-main {
+  padding: 5rem 3rem;
+}
+.personaljournal-main #avatar {
+  width: 15%;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgb(200, 200, 200);
+  margin-right: auto;
+  margin-left: auto;
+}
+.personaljournal-main .user-info {
+  text-align: center;
+  margin-right: 1rem;
+}
+.personaljournal-main #postNbr {
+  margin-bottom: 13px;
+  font-size: 18px;
+}
+.personaljournal-main .add-post-button {
+  display: flex;
+  justify-content: center;
+}
+.personaljournal-main .add-post-button #go-camera {
+  text-decoration: none;
+  background-color: #B21F51;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 10px;
+}
+.personaljournal-main #post.pages {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-gap: 2rem;
+}
+.personaljournal-main .journal img {
+  border-radius: 15px;
+}
+.personaljournal-main p:nth-of-type(1),
+.personaljournal-main p:nth-of-type(2),
+.personaljournal-main p:nth-of-type(3) {
+  font-size: 13px;
+  text-align: center;
+}
+.personaljournal-main #submiting {
+  background-color: #B21F51;
+  color: white;
+  border-radius: 15%;
+  border: none;
+}
+.personaljournal-main #write_cmt {
+  background-color: #DADADA;
+  border-radius: 5px;
+  border: none;
+  padding-left: 3px;
+}
+.personaljournal-main #result {
+  background-color: #D5E6D9;
+  margin-top: 5rem;
+  max-width: 319.5px;
+  min-width: 240px;
+  margin: auto;
+}
+.personaljournal-main p.inst {
+  padding: 5%;
+  text-align: left;
+}
+.personaljournal-main #comment {
+  background-color: #D5E6D9;
+  margin: auto;
+  padding: 2%;
+  max-width: 319.5px;
+  min-width: 240px;
+}
+.personaljournal-main #comment .cmt-header {
+  border-top: 1px solid #2B2B2B;
+  color: #A9A9A9;
+  text-align: left;
+}
+.personaljournal-main #comment .cmts {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  text-align-last: left;
+  border-top: 1px solid #A9A9A9;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.personaljournal-main #comment .cmts p:nth-of-type(2) {
+  grid-column: 2/3;
+}
+.personaljournal-main #comment .cmts:nth-of-type(1) {
+  border: none;
+}
+.personaljournal-main .item {
+  text-align: center;
+  margin-top: 5px;
+}
+.personaljournal-main #write_cmt {
+  width: 80%;
+}
+@media screen and (min-width: 800px) {
+  .personaljournal-main {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    position: relative;
+  }
+  .personaljournal-main #post.pages {
+    margin-top: 0;
+  }
+  .personaljournal-main .user-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    max-width: 357px;
+  }
+  .personaljournal-main .uname-pnbr,
+.personaljournal-main #postNbr {
+    text-align: left;
+  }
+  .personaljournal-main #username {
+    font-size: 40px;
+  }
+  .personaljournal-main .add-post-button {
+    grid-column: 1/-1;
+    height: 32px;
+    justify-items: center;
+  }
+  .personaljournal-main #go-camera {
+    width: 150px;
+    margin-top: 5px;
+  }
+  .personaljournal-main #avatar {
+    width: 93px;
+    margin-right: 1rem;
+  }
+  .personaljournal-main #btn {
+    position: absolute;
+    bottom: 3rem;
+    left: 10%;
+  }
+  .personaljournal-main #comment {
+    position: absolute;
+    right: 17.6%;
+    top: 83%;
+    width: 319.5px;
+    min-width: 240px;
+    margin-right: 3.3rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .personaljournal-main {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+.publicjournal-main {
+  padding: 5rem 3rem;
+}
+.publicjournal-main #avatar {
+  width: 15%;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgb(200, 200, 200);
+  margin-right: auto;
+  margin-left: auto;
+}
+.publicjournal-main .user-info {
+  text-align: center;
+  margin-right: 1rem;
+}
+.publicjournal-main #postNbr {
+  margin-bottom: 13px;
+  font-size: 18px;
+}
+.publicjournal-main .add-post-button {
+  display: flex;
+  justify-content: center;
+}
+.publicjournal-main .add-post-button #go-camera {
+  text-decoration: none;
+  background-color: #B21F51;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 10px;
+}
+.publicjournal-main #post.pages {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-gap: 2rem;
+}
+.publicjournal-main .journal img {
+  border-radius: 15px;
+}
+.publicjournal-main p:nth-of-type(1),
+.publicjournal-main p:nth-of-type(2),
+.publicjournal-main p:nth-of-type(3) {
+  font-size: 13px;
+  text-align: center;
+}
+.publicjournal-main #submiting {
+  background-color: #B21F51;
+  color: white;
+  border-radius: 15%;
+  border: none;
+}
+.publicjournal-main #write_cmt {
+  background-color: #DADADA;
+  border-radius: 5px;
+  border: none;
+  padding-left: 3px;
+}
+.publicjournal-main #result {
+  background-color: #D5E6D9;
+  margin-top: 5rem;
+  max-width: 319.5px;
+  min-width: 240px;
+  margin: auto;
+}
+.publicjournal-main p.inst {
+  padding: 5%;
+  text-align: left;
+}
+.publicjournal-main #comment {
+  background-color: #D5E6D9;
+  margin: auto;
+  padding: 2%;
+  max-width: 319.5px;
+  min-width: 240px;
+}
+.publicjournal-main #comment .cmt-header {
+  border-top: 1px solid #2B2B2B;
+  color: #A9A9A9;
+  text-align: left;
+}
+.publicjournal-main #comment .cmts {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  text-align-last: left;
+  border-top: 1px solid #A9A9A9;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.publicjournal-main #comment .cmts p:nth-of-type(2) {
+  grid-column: 2/3;
+}
+.publicjournal-main #comment .cmts:nth-of-type(1) {
+  border: none;
+}
+.publicjournal-main .item {
+  text-align: center;
+  margin-top: 5px;
+}
+.publicjournal-main #write_cmt {
+  width: 80%;
+}
+@media screen and (min-width: 800px) {
+  .publicjournal-main {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    position: relative;
+  }
+  .publicjournal-main #post.pages {
+    margin-top: 0;
+  }
+  .publicjournal-main .user-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    max-width: 357px;
+  }
+  .publicjournal-main .uname-pnbr,
+.publicjournal-main #postNbr {
+    text-align: left;
+  }
+  .publicjournal-main #username {
+    font-size: 40px;
+  }
+  .publicjournal-main .add-post-button {
+    grid-column: 1/-1;
+    height: 32px;
+    justify-items: center;
+  }
+  .publicjournal-main #go-camera {
+    width: 150px;
+    margin-top: 5px;
+  }
+  .publicjournal-main #avatar {
+    width: 93px;
+    margin-right: 1rem;
+  }
+  .publicjournal-main #btn {
+    position: absolute;
+    bottom: 3rem;
+    left: 10%;
+  }
+  .publicjournal-main #comment {
+    position: absolute;
+    right: 17.6%;
+    top: 83%;
+    width: 319.5px;
+    min-width: 240px;
+    margin-right: 3.5rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .publicjournal-main {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+/* MEDIA =================== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* TYPOGRAPHY ============== */
+body {
+  font-family: "Urbanist", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Righteous", cursive;
+}
+
+h1 {
+  font-size: 48pt;
+}
+
+h2 {
+  font-size: 36pt;
+}
+
+h3 {
+  font-size: 27pt;
+}
+
+h4 {
+  font-size: 18pt;
+}
+
+h5 {
+  font-size: 15pt;
+}
+
+h6 {
+  font-size: 12pt;
+}
+
+/* RESET =================== */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

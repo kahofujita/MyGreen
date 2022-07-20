@@ -6,12 +6,13 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.
 class Note {
     #date;
 
-    constructor( date, caption, journal, imageURL) {
-
-        this.date = date;
-        this.caption = caption;
-        this.journal = journal;
+    constructor( imageURL,caption,date , journal, ) {
+        
         this.imageURL = imageURL;
+        this.caption = caption;
+        this.date = date;
+        this.journal = journal;
+        
     }
 
     get date() {
@@ -30,10 +31,10 @@ class Note {
     }
 
     toString() {
-        return `Date: ${this.date}, 
-                Caption: ${this.caption}, 
-                journal: ${this.journal},  
-                Image URL: ${this.imageURL}`;
+        return ` Image URL: ${this.imageURL},
+                Caption: ${this.caption},
+                Date: ${this.date},  
+                journal: ${this.journal},`;
     }
 
 }
@@ -42,9 +43,48 @@ class Note {
 let userId = sessionStorage.getItem('userID');
 console.log(sessionStorage.getItem('userID'));
 
+//GET USER NAME
+const userName = document.getElementById('username');
+
+// 
+
+let usernameArray = [];
+const un = await getDocs(collection(db, "user_info"));
+
+un.forEach((doc) => {
+ usernameArray.push(doc.data());
+});
+
+console.log(usernameArray); 
+let j = 0;
+const username = usernameArray[j].avatar_img_name;
+for(let j = 0; usernameArray.length > j; j++){
+
+  if (usernameArray[j].user_id == userId){ 
+        userName.innerText = usernameArray[j].username;
+  }else{
+  };
+}
+// const asd = db.collection('journal').doc.get();
+// const db = getFirestore();
+// const docRef = doc(db,"journal" );
+// console.log(asd);
+// const jCollection = query(collection(db, "journal"),where ("caption"));
+// const jId = await getDocs (jCollection);
+// const jIds = await getDocs(jId);
+// const db = firebase.firestore();
+
+const docRef = doc(db, "journal", "Um2tjbRjsK917w1tjSYJ");
+
+const docSnap = await getDoc(docRef);
+// console.log(docSnap.data().caption);
 
 
-
+// db.collection("journal").get().then((querySnapshot) => {
+//   querySnapshot.forEach((doc) => {
+//       console.log(doc.id, " => ", doc.data());
+//   });
+// });
 
 
 
@@ -59,26 +99,32 @@ form1.addEventListener("submit", function (event) {
     const imageInput = form1.querySelector("#image");
 
 
-    const note = new Note( dateInput.value, captionInput.value,
-                            journalInput.value, imageInput.value );
+    const note = new Note( imageInput.value, captionInput.value, dateInput.value,
+                            journalInput.value  );
     console.info(note.toString());   
 
     const back = document.getElementById("back");
     back.innerHTML = renderDogAsHTML(note);
 
-    
+    const card = document.getElementById("card");
+    card.style.display = "none";
+
+      
     //ADD DATA into Firebase
     
     const colUserInfo = collection(db, 'journal');
     addDoc(colUserInfo, {
-      journal_date:form1.date.value,  
-            caption:form1.caption.value,
-            care_instruction:form1.journal.value,
             picture_img_name: form1.image.value,
+            caption:form1.caption.value,
+            journal_date:form1.date.value,  
+            care_instruction:form1.journal.value,
+            
+            // journal_id:jId,
 
             user_id:userId
             
     })
+    
 
 })
 
@@ -86,20 +132,22 @@ function renderDogAsHTML( note ) {
     if ((!note instanceof Note)) { 
         return "<div>Not a Valid Dog Object</div>";
     }
-    let htmlBlock = `<div>
-            <p>Date: ${note.date} </p>        
-            <p>Caption: ${note.caption} </p>
-            <p>journal: ${note.journal} </p>
-            </div>
-            <hr>`;
+    let htmlBlock = `<div class="results">
+            <p class="titles">Caption</p>
+            <p>${note.caption} </p>
+            <p class="dates">${note.date} </p>        
+            <p class="titles">Care Instructions</p>
+            <p>${note.journal} </p>
+            </div>`;
             console.log(htmlBlock);
   
     if (note.imageURL){
-        htmlBlock += `<div><img src="${note.imageURL}" width="400" ></div>`;
+        htmlBlock += `<div id="final-img"><img src="${note.imageURL}" width="400" ></div>`;
     } else {
         htmlBlock += `<div>No Image Provided</div>`;
     }
     return htmlBlock;
+   
 }
 
 ///Change page  ////////
@@ -177,7 +225,7 @@ document.getElementById("snap").addEventListener("click",  () => {
   tracks.forEach(track => track.stop());
 
   videoFlame.style.display = "none";
-  cameraOnBtn.innerText = "Take a picture again";
+  cameraOnBtn.innerText = "Snap Again";
 
 });
 
