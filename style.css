@@ -106,6 +106,191 @@
   }
 }
 
+main.myplants h2 {
+  text-align: center;
+  font-size: 34px;
+}
+main.myplants section.myplant {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 30px;
+  margin-bottom: 5rem;
+}
+main.myplants .myplant h2 {
+  flex-basis: 100%;
+}
+main.myplants .myplant-wrapper {
+  flex-basis: 100%;
+}
+main.myplants section.myplant img {
+  max-width: 50%;
+  height: auto;
+}
+main.myplants #addplant {
+  background-color: #B21F51;
+  color: #ffffff;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 15px;
+  width: 197px;
+  height: 44px;
+  font-size: 14px;
+}
+main.myplants .weekly-schedule-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+main.myplants .weekly-schedule-wrapper > div {
+  background: #FFFFFF;
+  border: 5px solid #DD1C50;
+  border-radius: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  width: 350px;
+  height: 250px;
+  margin-right: 10rem;
+  margin-left: 10rem;
+}
+main.myplants .myplants-icons i {
+  font-size: 60px;
+}
+main.myplants .myplants-icons img {
+  width: 70px;
+  height: auto;
+}
+main.myplants .weekly-schedule-section {
+  font-size: 21px;
+  flex-basis: 100%;
+}
+main.myplants .weekly-schedule-section + div {
+  font-size: 21px;
+  font-weight: 700;
+}
+main.myplants .weekly-schedule-section .watering {
+  flex-basis: 40%;
+  text-align: right;
+}
+main.myplants .weekly-schedule-section + div + input {
+  font-size: 14px;
+  border-radius: 5px;
+  width: 151px;
+  height: 29px;
+  border: 2px solid #83C992;
+  background-color: #FAFAFA;
+}
+main.myplants button.watered-today {
+  background-color: #B21F51;
+  color: #ffffff;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 15px;
+  width: 197px;
+  height: 44px;
+  font-size: 14px;
+}
+main.myplants button.nutritionize-today {
+  background-color: #83C992;
+  color: #ffffff;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 15px;
+  width: 197px;
+  height: 44px;
+  font-size: 14px;
+}
+main.myplants button.watered-today:disabled {
+  background: rgba(178, 31, 81, 0.5);
+}
+main.myplants button.nutritionize-today:disabled {
+  background: rgba(131, 201, 146, 0.5);
+}
+@media screen and (min-width: 800px) {
+  main.myplants .weekly-schedule-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    border: 5px solid #DD1C50;
+    border-radius: 50px;
+    padding: 3rem;
+    max-width: 1000px;
+    margin: auto;
+    gap: 0;
+  }
+  main.myplants .weekly-schedule-wrapper > div {
+    border: unset;
+    margin: 0;
+  }
+  main.myplants .sunlight-temp {
+    padding-bottom: 7rem;
+  }
+  main.myplants .weekly-schedule-section + div {
+    flex-basis: 100%;
+  }
+  main.myplants button.watered-today,
+main.myplants button.nutritionize-today {
+    margin-top: 1rem;
+  }
+}
+
+main.plant-detail .plant-image-name-wrapper img {
+  border: #83C992 4px solid;
+  max-width: 60%;
+  height: auto;
+  border-radius: 20px;
+  margin: auto;
+}
+main.plant-detail .plant-image-name-wrapper .plant-name {
+  font-size: 4rem;
+  color: #DD1C50;
+  font-weight: 400;
+  font-family: "Righteous", cursive;
+  text-align: center;
+}
+main.plant-detail .indoor,
+main.plant-detail .outdoor {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+main.plant-detail .indoor-frequent,
+main.plant-detail .outdoor-frequent {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+}
+main.plant-detail .frequent-wrapper {
+  border: #DD1C50 2px solid;
+  border-radius: 20px;
+  width: 15rem;
+  height: 15rem;
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 1.6rem;
+}
+main.plant-detail .frequent-wrapper div:nth-of-type(1) {
+  font-weight: 700;
+}
+main.plant-detail .section-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #BCBCBC;
+}
+main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-detail th {
+  border: 1px solid #BCBCBC;
+  border-collapse: collapse;
+}
+
 body {
   background-color: #F5F5F5;
 }

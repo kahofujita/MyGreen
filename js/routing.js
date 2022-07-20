@@ -1,13 +1,14 @@
 'use strict';
 
 class Page {
-  constructor(name, htmlName, jsName) {
+  constructor(name, htmlName, jsName, title) {
     this.name = name;
     this.htmlName = htmlName;
     // if jsName is not given use the html name + '.js'
     this.jsName = jsName
       ? jsName
       : htmlName.substring(0, htmlName.lastIndexOf('.')) + '.js';
+    this.title = title ? title : this.name.slice(1, this.name.length)
   }
 }
 
@@ -50,6 +51,7 @@ class Router {
       script.setAttribute('type', 'module');
     //   script.setAttribute('defer');
       Router.rootElem.appendChild(script);
+      document.title = page.title;
     } catch (error) {
       console.error(error);
     }

@@ -1,0 +1,64 @@
+
+main.plant-detail {
+
+    .plant-image-name-wrapper img {
+        border: $color-green1 4px solid;
+        max-width: 60%;
+        height: auto;
+        border-radius: 20px;
+        margin: auto;
+    }
+
+    .plant-image-name-wrapper .plant-name {
+        font-size: 4rem;
+        color: $color-red1;
+        font-weight: 400;
+        font-family: $font-headers;
+        text-align: center;
+    }
+
+    .indoor,
+    .outdoor {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .indoor-frequent,
+    .outdoor-frequent {
+        flex-basis: 100%;
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .frequent-wrapper {
+        border: $color-red1 2px solid;
+        border-radius: 20px;
+        width: 15rem;
+        height: 15rem;
+        text-align: center;
+        padding-top: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .frequent-wrapper div:nth-of-type(1) {
+        font-weight: 700;
+    }
+
+    .section-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        font-size: 1.6rem;
+        border-bottom: 1px solid #BCBCBC;
+    }
+
+    table, tr, td, th {
+        border: 1px solid #BCBCBC;
+        border-collapse: collapse;
+    }
+
+    
+
+}
