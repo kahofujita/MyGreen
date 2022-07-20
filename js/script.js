@@ -10,5 +10,6 @@ Router.init('mainArea', [
   new Page('#sugesstion', 'sugesstion.html', '', 'My Green - Plant pick'),
   new Page('#myaccount', 'myaccount.html', '', 'My Green - My Account'),
   new Page('#search', 'search.html', '', 'My Green - Search'),
-  new Page('#plant-detail', 'plant-detail.html', '', 'My Green - Plant detail')
+  new Page('#plant-detail', 'plant-detail.html', '', 'My Green - Plant detail'),
+  new Page('#plantid', 'plantid.html', '', 'My Green - Plant Identifier')
 ]);
