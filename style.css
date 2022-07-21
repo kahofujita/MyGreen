@@ -336,7 +336,7 @@ main.myplants button.nutritionize-today {
 }
 
 main.plant-detail .main-plant-detail-wrapper {
-  padding: 3rem;
+  padding: 1rem;
 }
 main.plant-detail .main-plant-detail-wrapper > div {
   padding-bottom: 3rem;
@@ -377,8 +377,8 @@ main.plant-detail .outdoor-frequent {
 main.plant-detail .frequent-wrapper {
   border: #DD1C50 2px solid;
   border-radius: 20px;
-  width: 8.8rem;
-  height: 8.5rem;
+  width: 9rem;
+  height: 8rem;
   text-align: center;
   padding: 1rem 0.5rem;
   font-size: 1.2rem;

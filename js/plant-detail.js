@@ -17,6 +17,9 @@ const indoorSec = document.querySelector('.indoor-section')
 const outdoorSec = document.querySelector('.outdoor-section')
 const description = document.querySelector('.description')
 
+// Create a media condition that targets viewports at least 800px wide
+const mediaQuery = window.matchMedia('(min-width: 800px)')
+
 
 // Display Plant Image
 const img = document.createElement('img')
@@ -97,9 +100,15 @@ const getPlantinfo = async () => {
                 document.querySelector(".outdoor").remove()
             }
 
+            // if (mediaQuery.matches) {
+            //     description.innerHTML = ""
+            //     description.innerHTML = `<table><tr><th>Sunlight</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Fertilizer</th></tr><tr><td>${indoorSoilRequirement}</td></tr></table>`
+            // }
+
             // Display Indoor Requirement Table
             description.innerHTML = ""
             description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${indoorSunTempRequirement}</td><td>${indoorWaterRequirement}</td><td>${indoorSoilRequirement}</td></tr></table>`
+
         })
 
 
