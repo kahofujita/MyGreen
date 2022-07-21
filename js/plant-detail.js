@@ -5,11 +5,10 @@ import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://ww
 const userId = sessionStorage.getItem('userID')
 console.log(userId)
 
-// document.querySelector("#suggestionLink").href = "http://plant-datails.html?name=${plant.plant_name}";
+let queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 
-// const urlParams = new URLSearchParams("http://plant-datail.html?name=${plant.plant_name}")
-
-let plantName = 'Snake plant';
+let plantName = urlParams.get("name");
 
 const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
 const frequentList = document.querySelector('.frequency-list')
