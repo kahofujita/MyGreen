@@ -54,6 +54,9 @@ const suggestionHandler = () => {
   
   if (lastSuggestion.date) {
     result.innerHTML = `Our <span style="color: orange;">last</span> suggestion is: ${lastSuggestion.plant}`;
+
+    let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    result.href = link;
   } else {
 
     lastSuggestion.date = dateToCompare;
@@ -62,6 +65,9 @@ const suggestionHandler = () => {
   
     result.href = "http://plant-datails.html?name=${plant.plant_name}";
     lastSuggestion.plant = `${plantOurinfo[index].plant_name}`;
+
+    let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    result.href = link;
   
 
     console.log(lastSuggestion)
@@ -76,6 +82,8 @@ const suggestionHandler = () => {
 
 // document.querySelector('#suggestion-btn').addEventListener('click', suggestionHandler);
 suggestionHandler();
+
+
 
 
 

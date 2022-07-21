@@ -335,55 +335,85 @@ main.myplants button.nutritionize-today {
   }
 }
 
+main.plant-detail .main-plant-detail-wrapper {
+  padding: 3rem;
+}
+main.plant-detail .main-plant-detail-wrapper > div {
+  padding-bottom: 3rem;
+}
 main.plant-detail .plant-image-name-wrapper img {
   border: #83C992 4px solid;
-  max-width: 60%;
+  width: 15rem;
   height: auto;
   border-radius: 20px;
   margin: auto;
 }
 main.plant-detail .plant-image-name-wrapper .plant-name {
-  font-size: 4rem;
+  font-size: 2rem;
   color: #DD1C50;
   font-weight: 400;
   font-family: "Righteous", cursive;
   text-align: center;
+}
+main.plant-detail .desc-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
 }
 main.plant-detail .indoor,
 main.plant-detail .outdoor {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
+  padding-bottom: 3rem;
 }
 main.plant-detail .indoor-frequent,
 main.plant-detail .outdoor-frequent {
   flex-basis: 100%;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 main.plant-detail .frequent-wrapper {
   border: #DD1C50 2px solid;
   border-radius: 20px;
-  width: 15rem;
-  height: 15rem;
+  width: 8.8rem;
+  height: 8.5rem;
   text-align: center;
-  padding-top: 2rem;
-  font-size: 1.6rem;
+  padding: 1rem 0.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
 }
 main.plant-detail .frequent-wrapper div:nth-of-type(1) {
   font-weight: 700;
 }
 main.plant-detail .section-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  font-size: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.4rem;
   border-bottom: 1px solid #BCBCBC;
+  text-align: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+main.plant-detail .description {
+  font-size: 1.2rem;
+  padding: 0 1rem;
 }
 main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-detail th {
   border: 1px solid #BCBCBC;
   border-collapse: collapse;
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+main.plant-detail th {
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-align: left;
 }
 
 main {
