@@ -106,16 +106,19 @@
   }
 }
 
+main.myplants {
+  padding: 1rem;
+}
 main.myplants h2 {
   text-align: center;
-  font-size: 34px;
+  font-size: 2.1rem;
 }
 main.myplants section.myplant {
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 30px;
+  gap: 1.8rem;
   margin-bottom: 5rem;
 }
 main.myplants .myplant h2 {
@@ -124,29 +127,49 @@ main.myplants .myplant h2 {
 main.myplants .myplant-wrapper {
   flex-basis: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
   border: solid 4px #83C992;
   border-radius: 50px;
-  width: 1000px;
-  margin: auto;
-  padding: 3rem;
-  height: 1000px;
+  width: 90%;
+  padding: 2rem;
 }
 main.myplants .plant-image img {
   border: 1px solid transparent;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+main.myplants .plant-image img:hover {
+  border: 3px solid #83C992;
+}
+main.myplants .button-image {
+  display: none;
 }
 main.myplants #addplant {
-  background-color: #B21F51;
-  color: #ffffff;
   border: none;
   text-transform: uppercase;
-  border-radius: 15px;
-  width: 197px;
-  height: 44px;
+  background-color: transparent;
   font-size: 14px;
+  cursor: pointer;
+}
+main.myplants #addplant a {
+  background-color: #B21F51;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 18px 70px;
+  border-radius: 15px;
+}
+main.myplants #addplant a:hover {
+  background-color: #DD1C50;
+}
+main.myplants #addplant a:focus {
+  background-color: #7B163C;
+}
+main.myplants .weekly-schedule {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.8rem;
 }
 main.myplants .weekly-schedule-wrapper {
   display: flex;
@@ -155,7 +178,9 @@ main.myplants .weekly-schedule-wrapper {
   justify-content: center;
   gap: 3rem;
 }
-main.myplants .weekly-schedule-wrapper > div {
+main.myplants .watering,
+main.myplants .sunlight-temp,
+main.myplants .nutritions {
   border: 5px solid #DD1C50;
   border-radius: 20px;
   display: flex;
@@ -164,36 +189,41 @@ main.myplants .weekly-schedule-wrapper > div {
   text-align: center;
   align-items: center;
   align-content: center;
-  gap: 10px;
-  width: 350px;
-  height: 250px;
-  margin-right: 10rem;
-  margin-left: 10rem;
+  gap: 0.5rem;
+  width: 23rem;
+  height: 17rem;
+  margin: auto;
+}
+main.myplants .icon-section-wrapper {
+  flex-basis: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 main.myplants .myplants-icons i {
-  font-size: 60px;
+  font-size: 4rem;
 }
 main.myplants .myplants-icons img {
-  width: 70px;
+  width: 4.5rem;
   height: auto;
 }
 main.myplants .weekly-schedule-section {
-  font-size: 21px;
+  font-size: 1.3rem;
   flex-basis: 100%;
 }
-main.myplants .weekly-schedule-section + div {
-  font-size: 21px;
+main.myplants .icon-section-wrapper + div {
+  font-size: 1.3rem;
   font-weight: 700;
 }
 main.myplants .weekly-schedule-section .watering {
   flex-basis: 40%;
   text-align: right;
 }
-main.myplants .weekly-schedule-section + div + input {
-  font-size: 14px;
+main.myplants .weekly-schedule-wrapper input {
+  font-size: 0.9rem;
   border-radius: 5px;
-  width: 151px;
-  height: 29px;
+  width: 9.5rem;
+  height: 1.8rem;
   border: 2px solid #83C992;
   background-color: #FAFAFA;
 }
@@ -203,9 +233,13 @@ main.myplants button.watered-today {
   border: none;
   text-transform: uppercase;
   border-radius: 15px;
-  width: 197px;
-  height: 44px;
-  font-size: 14px;
+  width: 12rem;
+  height: 2.7rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+main.myplants button.watered-today:hover {
+  background-color: #DD1C50;
 }
 main.myplants button.nutritionize-today {
   background-color: #83C992;
@@ -213,35 +247,86 @@ main.myplants button.nutritionize-today {
   border: none;
   text-transform: uppercase;
   border-radius: 15px;
-  width: 197px;
-  height: 44px;
-  font-size: 14px;
+  width: 12rem;
+  height: 2.7rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+main.myplants button.nutritionize-today:hover {
+  background-color: #EFD35E;
 }
 main.myplants button.watered-today:disabled {
   background: rgba(178, 31, 81, 0.5);
+  cursor: unset;
 }
 main.myplants button.nutritionize-today:disabled {
   background: rgba(131, 201, 146, 0.5);
+  cursor: unset;
 }
 @media screen and (min-width: 800px) {
-  main.myplants .weekly-schedule-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    border: 5px solid #DD1C50;
-    border-radius: 50px;
-    padding: 3rem;
-    max-width: 1000px;
+  main.myplants .main-myplants-wrapper {
+    max-width: 1100px;
     margin: auto;
+  }
+  main.myplants h2 {
+    font-size: 2.3rem;
+  }
+  main.myplants .myplant-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+  }
+  main.myplants .button-image {
+    display: block;
+    order: 4;
+    border-radius: 50%;
+    font-size: 1.5rem;
+  }
+  main.myplants .button-image a {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #EFEFEF;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  main.myplants .button-image:hover {
+    border: 3px solid #83C992;
+  }
+  main.myplants #addplant {
+    display: none;
+  }
+  main.myplants .watering,
+main.myplants .sunlight-temp,
+main.myplants .nutritions {
+    border: unset;
+    width: unset;
     gap: 0;
   }
-  main.myplants .weekly-schedule-wrapper > div {
-    border: unset;
+  main.myplants .icon-section-wrapper {
+    margin-bottom: 1rem;
+  }
+  main.myplants .weekly-schedule-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    border: 5px solid #DD1C50;
+    border-radius: 50px;
+    padding: 2rem;
+    width: 100%;
+    margin: auto;
+    gap: 0;
+    height: 25rem;
+  }
+  main.myplants .weekly-schedule-wrapper input {
     margin: 0;
+    margin-bottom: 1rem;
   }
   main.myplants .sunlight-temp {
     padding-bottom: 7rem;
   }
-  main.myplants .weekly-schedule-section + div {
+  main.myplants .icon-section-wrapper + div {
     flex-basis: 100%;
   }
   main.myplants button.watered-today,

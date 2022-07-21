@@ -1,4 +1,3 @@
-
 import {db, auth} from './firebase/firebase-config.js'
 
 import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, arrayUnion} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
@@ -13,6 +12,7 @@ const sunlightTemp = document.querySelector('.sunlight-temp')
 const nutritions = document.querySelector('.nutritions')
 const dateControlForWatering = document.querySelector('.watering-calendar')
 const dateControlForNutritionizing = document.querySelector('.nutritionizing-calendar')
+const wateringWrapper = document.querySelector('.watering-wrapper')
 
 
 
@@ -395,6 +395,11 @@ plantsList.forEach( async(e, index)=>{
                 divSunlight.innerHTML = sunlightFrequency;
 
 
+
+
+                
+
+
             }
 
 
@@ -718,6 +723,12 @@ plantsList.forEach( async(e, index)=>{
                 divSunlight.classList.add('sunlight-frequency')
                 sunlightTemp.appendChild(divSunlight)
                 divSunlight.innerHTML = sunlightFrequency;
+
+
+                wateringWrapper.style.opacity = 0;
+                setTimeout(() => {
+                    wateringWrapper.style.opacity = 1;
+                }, 500);
 
             })
  
