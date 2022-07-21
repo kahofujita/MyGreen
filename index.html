@@ -8,6 +8,8 @@
     <title>MyGreen Home</title>
 
     <script src="js/logout.js" type="module" defer></script>
+    <script src="./js/search.js" type="module" defer></script>
+
 
     <!-- <script src="js/homepage.js" defer></script> -->
     <script src="https://kit.fontawesome.com/7afe4db292.js" crossorigin="anonymous"></script>
@@ -26,6 +28,7 @@
     <header class="header">
         <div class="logo-toolbar-wrapper">
             <!-- anything shell header related goes here. e.g. top menu -->
+            <!-- Navigation of Mobile View -->
             <div class="toolbar-mobile">
                 <div class="header-site-logo-mobile">
                     <img src="Logos_MyGreen/Logo_Black.png" alt="The black logo of the app">
@@ -46,7 +49,7 @@
                 </div>
             </div>
 
-
+            <!-- Navigation of Desktop View -->
             <div class="toolbar-desktop">
                 <div class="header-site-logo-desktop">
                     <img src="Logos_MyGreen/Logo_ColorFull.png" alt="The colorfull logo of the app">
@@ -69,10 +72,23 @@
         </div>
 
         <div class="search-wrapper">
-            <a href="" class="search-link"><input type="text" value="Type..." class="search-input"></a>
-            <div class="search-icon"><a href='search.html' aria-label='search icon'><i aria-hidden='true' class='fa-solid fa-search' title='search button'></i></a></div>
+            <input type="text" value="Type..." class="search-input search-click" >
+            <div class="search-icon search-click" aria-label='search icon'><i aria-hidden='true' class='fa-solid fa-search' title='search button'></i></div>
         </div>
+        <!-- Serach Result Part -->
+        <div class="searchbar-page">
+            
+            <div class="search-wrapper">
+            <a href='index.html' aria-label='back button' class="back-button"><i aria-hidden='true' class='fa-solid fa-circle-left' title='back button'></i></a>
+                <input type="text" class="search-input" id="search-input">
+                <div class="search-icon" aria-label='search icon'><i aria-hidden='true' class='fa-solid fa-search' title='search button'></i></div>
+            </div>
+            
+              <ul class="result">
+                
+              </ul>
 
+        </div>
     </header>
     <!-------------------------------->
     <div id="mainArea">
@@ -110,6 +126,7 @@
                 © 2022 All Rights Reserved
             </div>
         </div>
+       
 
     </footer>
 

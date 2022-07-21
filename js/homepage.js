@@ -9,10 +9,15 @@ menuButton.addEventListener('click', function () {
 
 // SEARCH BAR
 
-const search = document.querySelector('.search-input');
+const search = document.querySelector('.search-click');
+const searchPage = document.querySelector('.searchbar-page');
+const backButton = document.querySelector('.back-button');
 
-search.addEventListener('focus', () => {
-document.querySelector('.search-link').href = 'search.html';
+search.addEventListener('input', () => {
+searchPage.classList.add('show-search');
+})
+backButton.addEventListener('click', () => {
+searchPage.classList.remove('show-search');
 })
 
 // SLIDESHOW

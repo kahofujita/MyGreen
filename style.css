@@ -40,10 +40,6 @@
   color: black;
 }
 
-main {
-  margin: 2rem;
-}
-
 .mySlides {
   display: none;
   position: relative;
@@ -478,6 +474,34 @@ select {
 
 .search-icon a {
   color: black;
+}
+
+.searchbar-page {
+  background-color: #fff;
+  width: 100%;
+  transform: translateY(-100%);
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s;
+  min-height: 100%;
+  height: max-content;
+  margin-top: 0;
+}
+
+.show-search {
+  transform: translateY(0);
+}
+
+.searchbar-page .search-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.back-button {
+  color: #2B2B2B;
+  margin-right: 2rem;
 }
 
 .footer {
