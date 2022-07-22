@@ -21,7 +21,7 @@ const description = document.querySelector('.description')
 
 // Display Plant Image
 const img = document.createElement('img')
-img.src = `./images/plant_img/${plantName}.jpg`
+img.src = `./images/plant_img/${plantName}.png`
 img.alt = plantName
 imgNameWapper.appendChild(img)
 

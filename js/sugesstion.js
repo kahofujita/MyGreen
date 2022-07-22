@@ -55,10 +55,10 @@ const suggestionHandler = () => {
 
   if (lastSuggestion.date) {
     result.innerHTML = `Our <span style="color: orange;">last</span> suggestion is: ${lastSuggestion.plant}`;
-     result.style = `color: black;
-     text-align: center;
-     display: block;
-     font-size: 1.5rem;`
+    //  result.style = `color: black;
+    //  text-align: center;
+    //  display: block;
+    //  font-size: 1.5rem;`
     let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
     result.href = link;
 
@@ -85,7 +85,7 @@ const suggestionHandler = () => {
 const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
 // Display Plant Image
 const img = document.createElement('img')
-img.src = `./images/plant_img/${lastSuggestion.plant}.jpg`
+img.src = `./images/plant_img/${lastSuggestion.plant}.png`
 img.alt = lastSuggestion.plant
 imgNameWapper.appendChild(img)
 

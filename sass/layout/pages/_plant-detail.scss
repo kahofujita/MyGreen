@@ -1,0 +1,99 @@
+
+main.plant-detail {
+
+    .main-plant-detail-wrapper {
+        padding: 1rem;
+    }
+
+    .main-plant-detail-wrapper > div {
+        padding-bottom: 3rem;
+    }
+
+    .plant-image-name-wrapper img {
+        border: $color-green1 4px solid;
+        width: 15rem;
+        height: auto;
+        border-radius: 20px;
+        margin: auto;
+    }
+
+    .plant-image-name-wrapper .plant-name {
+        font-size: 2rem;
+        color: $color-red1;
+        font-weight: 400;
+        font-family: $font-headers;
+        text-align: center;
+    }
+
+    .desc-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+    }
+
+    .indoor,
+    .outdoor {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding-bottom: 3rem;
+    }
+
+    .indoor-frequent,
+    .outdoor-frequent {
+        flex-basis: 100%;
+        text-align: center;
+        font-size: 1.4rem;
+    }
+
+    .frequent-wrapper {
+        border: $color-red1 2px solid;
+        border-radius: 20px;
+        width: 9rem;
+        height: 8rem;
+        text-align: center;
+        padding: 1rem .5rem;
+        font-size: 1.2rem;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: .5rem;
+    }
+
+    .frequent-wrapper div:nth-of-type(1) {
+        font-weight: 700;
+    }
+
+    .section-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        align-items: center;
+        gap: 2rem;
+        font-size: 1.4rem;
+        border-bottom: 1px solid #BCBCBC;
+        text-align: center;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+    }
+
+    table, tr, td, th {
+        border: 1px solid #BCBCBC;
+        border-collapse: collapse;
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    th {
+        font-size: 1.4rem;
+        font-weight: normal;
+        text-align: left;
+    }
+
+    
+
+}

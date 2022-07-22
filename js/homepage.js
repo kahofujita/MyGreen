@@ -13,7 +13,7 @@ const search = document.querySelector('.search-click');
 const searchPage = document.querySelector('.searchbar-page');
 const backButton = document.querySelector('.back-button');
 
-search.addEventListener('input', () => {
+search.addEventListener('focus', () => {
 searchPage.classList.add('show-search');
 })
 backButton.addEventListener('click', () => {
