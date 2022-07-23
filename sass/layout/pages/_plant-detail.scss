@@ -101,15 +101,18 @@ main.plant-detail {
     @media screen and (min-width: 800px) {
 
         .main-plant-detail-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            // display: grid;
+            // grid-template-columns: 1fr 1.5fr;
+            display: flex;
+            flex-flow: row nowrap;
             justify-content: center;
             align-items: center;
-            grid-gap: 3rem;
-            padding: 2rem;
+            grid-gap: 1rem;
+            padding: 1rem;
         }
 
         .plant-image-name-wrapper {
+            flex-basis: 40%;
             display: grid;
         }
 
@@ -124,29 +127,33 @@ main.plant-detail {
 
         .section-wrapper {
             margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
         }
 
         .indoor,
         .outdoor {
             flex-flow: row nowrap;
             align-items: center;
-            justify-content: space-around;
+            // justify-content: space-around;
+            padding-bottom: 1rem;
         }
 
         .indoor-frequent,
         .outdoor-frequent {
-            flex-basis: 75px;
+            flex-basis: 100px;
         }
 
         .frequent-wrapper {
             border: $color-red1 4px solid;
-            width: 8.5rem;
-            height: 7.5rem;
+            // width: 8.5rem;
+            // height: 7.5rem;
+            flex-basis: 110px;
         }
 
         .desc-wrapper {
-            gap: 1rem;
+            gap: 2rem;
             padding: 0;
+            max-width: 400px;
         }
 
         table tr:nth-of-type(2) td {

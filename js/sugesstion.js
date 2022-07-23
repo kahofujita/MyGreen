@@ -4,6 +4,9 @@
 // Import the functions you need from the SDKs you need
 import { db, auth, onAuthStateChanged, collection, query, where, getDocs } from './firebase/firebase-config.js';
 
+export function init () {
+  console.log(" initializing about.js module:" + new Date());
+
 //collection Ref
 const colRef = collection(db, 'plant_ourinfo');
 const userRef = collection(db, 'user_info');
@@ -16,7 +19,7 @@ const userRef = collection(db, 'user_info');
 
 //get collection data
 let plantOurinfo = [];
-await getDocs(colRef)
+getDocs(colRef)
   .then((snapshot) => {
     console.log(snapshot.docs);
 
@@ -85,5 +88,5 @@ suggestionHandler();
 
 
 
-
+}
 

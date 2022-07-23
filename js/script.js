@@ -2,14 +2,14 @@
 import { Router, Page } from './routing.js'
 
 
-let queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
+// let queryString = window.location.search;
+// const urlParams = new URLSearchParams(queryString);
 
-console.log(urlParams)
+// console.log(urlParams)
 
-let plantName = urlParams.get("name");
+// let plantName = urlParams.get("name");
 
-console.log(plantName)
+// console.log(plantName)
 
 //setting up the Router with pages
 Router.init('mainArea', [
