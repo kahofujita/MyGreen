@@ -1,6 +1,6 @@
 'use strict';
 
-class Page {
+export class Page {
   constructor(name, htmlName, jsName, title) {
     this.name = name;
     this.htmlName = htmlName;
@@ -12,7 +12,7 @@ class Page {
   }
 }
 
-class Router {
+export class Router {
   static init(mainAreaId, pages) {
     Router.pages = pages;
     Router.rootElem = document.getElementById(mainAreaId);
@@ -46,15 +46,22 @@ class Router {
       const response = await fetch(page.htmlName);
       const txt = await response.text();
       Router.rootElem.innerHTML = txt;
-      //append JS part to run.
-      const script = document.createElement('script');
-      console.log('dddddd', page.jsName)
-      script.setAttribute('src', `./js/${page.jsName}`);
-      script.setAttribute('type', 'module');
-      script.setAttribute('defer', 'defer');
-      Router.rootElem.appendChild(script);
-      // document.body.appendChild(script);
-      document.title = page.title;
+      //import the JS module
+      const module = await import('./' + page.jsName);
+      console.log('imported module :' + page.jsName);
+      //and invoke its init method of module if exists
+      if (module.init) {
+          module.init();
+      }
+      // //append JS part to run.
+      // const script = document.createElement('script');
+      // console.log('dddddd', page.jsName)
+      // script.setAttribute('src', `./js/${page.jsName}`);
+      // script.setAttribute('type', 'module');
+      // script.setAttribute('defer', 'defer');
+      // Router.rootElem.appendChild(script);
+      // // document.body.appendChild(script);
+      // document.title = page.title;
     } catch (error) {
       console.error(error);
     }

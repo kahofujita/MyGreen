@@ -6,6 +6,10 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.
 
 // import avatars from 'avatar';
 
+export async function init () {
+  console.log(" initializing about.js module:" + new Date());
+
+
 const journalArray = [];
 //Get JOURNAL DB
 const journal = await getDocs(collection(db, "journal"));
@@ -312,6 +316,9 @@ displayCmt();
 cmtarea.innerHTML = "";
 
 })
+
+
+}
   
  
 

@@ -44,17 +44,17 @@ main.plant-detail {
     .outdoor-frequent {
         flex-basis: 100%;
         text-align: center;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .frequent-wrapper {
         border: $color-red1 2px solid;
         border-radius: 20px;
-        width: 9rem;
-        height: 8rem;
+        width: 8rem;
+        height: 7.5rem;
         text-align: center;
         padding: 1rem .5rem;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         display: flex;
         flex-flow: column nowrap;
         gap: .5rem;
@@ -69,29 +69,94 @@ main.plant-detail {
         grid-template-columns: repeat(3,1fr);
         align-items: center;
         gap: 2rem;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         border-bottom: 1px solid #BCBCBC;
         text-align: center;
         padding-bottom: 1rem;
         margin-bottom: 1rem;
     }
 
+    .section-wrapper div {
+        cursor: pointer;
+    }
+
     .description {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         padding: 0 1rem;
     }
 
     table, tr, td, th {
         border: 1px solid #BCBCBC;
         border-collapse: collapse;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         padding: 1rem;
     }
 
     th {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight: normal;
         text-align: left;
+    }
+
+    @media screen and (min-width: 800px) {
+
+        .main-plant-detail-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            justify-content: center;
+            align-items: center;
+            grid-gap: 3rem;
+            padding: 2rem;
+        }
+
+        .plant-image-name-wrapper {
+            display: grid;
+        }
+
+        .plant-image-name-wrapper img {
+            width: 100%;
+            order: 1;
+        }
+
+        .plant-image-name-wrapper .plant-name {
+            font-size: 2.3rem;
+        }
+
+        .section-wrapper {
+            margin-bottom: 2rem;
+        }
+
+        .indoor,
+        .outdoor {
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .indoor-frequent,
+        .outdoor-frequent {
+            flex-basis: 75px;
+        }
+
+        .frequent-wrapper {
+            border: $color-red1 4px solid;
+            width: 8.5rem;
+            height: 7.5rem;
+        }
+
+        .desc-wrapper {
+            gap: 1rem;
+            padding: 0;
+        }
+
+        table tr:nth-of-type(2) td {
+            vertical-align: top;
+        }
+
+        .main-plant-detail-wrapper > div {
+            padding: 0;
+        }
+        
     }
 
     

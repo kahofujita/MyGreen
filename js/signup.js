@@ -22,6 +22,11 @@ import {
 
 // If the user already logged in move him to homepage
 
+export function init () {
+    console.log(" initializing about.js module:" + new Date());
+}
+
+
 if (sessionStorage.getItem('userID') !== null) {
     window.location.assign("./homepage.html");
 }

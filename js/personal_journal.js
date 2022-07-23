@@ -1,8 +1,11 @@
 
-console.log('bbbbbbbbbbb')
 import { db, auth} from './firebase/firebase-config.js'
 import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
+
+export async function init () {
+  console.log(" initializing about.js module:" + new Date());
+
 const journalArray = [];
 const personalArray = [];
 let  yourId;
@@ -202,4 +205,4 @@ submitBtn.addEventListener('click', (e) =>{
   })
 
 
-
+}

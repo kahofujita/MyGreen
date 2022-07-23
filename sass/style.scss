@@ -8,7 +8,9 @@
 @import "./accessibility/accessibility";
 
 /* LAYOUT ================== */
-@import "./layout/header-footer";
+// @import "./layout/header-footer";
+@import "./header-footer/header-footer";
+
 @import "layout/pages";
 
 /* MEDIA =================== */

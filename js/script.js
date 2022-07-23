@@ -1,4 +1,15 @@
-'use strict';
+// 'use strict';
+import { Router, Page } from './routing.js'
+
+
+let queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+console.log(urlParams)
+
+let plantName = urlParams.get("name");
+
+console.log(plantName)
 
 //setting up the Router with pages
 Router.init('mainArea', [

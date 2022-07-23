@@ -21,6 +21,9 @@ import {
     signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
 
+export async function init () {
+    console.log(" initializing about.js module:" + new Date());
+
 const userId = sessionStorage.getItem('userID');
 
 
@@ -114,3 +117,5 @@ changeEmailButton.addEventListener('click', () => {
     changeEmailField.classList.toggle('appear');
     changeEmailButton.innerHTML = 'Remove field';
 })
+
+}

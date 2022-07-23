@@ -2,6 +2,9 @@
 import {db, auth} from './firebase/firebase-config.js'
 import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
+export function init () {
+    console.log(" initializing about.js module:" + new Date());
+
 const userId = sessionStorage.getItem('userID')
 console.log(userId)
 
@@ -16,6 +19,9 @@ const detailSec = document.querySelector('.detail-section')
 const indoorSec = document.querySelector('.indoor-section')
 const outdoorSec = document.querySelector('.outdoor-section')
 const description = document.querySelector('.description')
+const detailSection = document.querySelector('.detail-section')
+const indoorSection = document.querySelector('.indoor-section')
+const outdoorSection = document.querySelector('.outdoor-section')
 
 // Create a media condition that targets viewports at least 800px wide
 const mediaQuery = window.matchMedia('(min-width: 800px)')
@@ -106,6 +112,11 @@ const getPlantinfo = async () => {
             // }
 
             // Display Indoor Requirement Table
+
+            indoorSection.setAttribute('style', 'font-weight:700;')
+            outdoorSection.setAttribute('style', 'unset;')
+            detailSection.setAttribute('style', 'unset;')
+        
             description.innerHTML = ""
             description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${indoorSunTempRequirement}</td><td>${indoorWaterRequirement}</td><td>${indoorSoilRequirement}</td></tr></table>`
 
@@ -157,6 +168,9 @@ const getPlantinfo = async () => {
                 outdoorDiv.innerHTML = `<div class="outdoor-frequent">Outdoor</div><div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div>`
     
                 // Details
+                detailSection.setAttribute('style', 'font-weight:700;')
+                indoorSection.setAttribute('style', 'unset;')
+                outdoorSection.setAttribute('style', 'unset;')
                 description.innerHTML = ""
                 description.innerHTML = detailInfo
             })
@@ -174,6 +188,9 @@ const getPlantinfo = async () => {
             outdoorDiv.innerHTML = `<div class="outdoor-frequent">Outdoor</div><div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div>`
 
             // Detail description
+            detailSection.setAttribute('style', 'font-weight:700;')
+            outdoorSection.setAttribute('style', 'unset;')
+            indoorSection.setAttribute('style', 'unset;')
             description.innerHTML = detailInfo
 
 
@@ -198,6 +215,9 @@ const getPlantinfo = async () => {
                 outdoorDiv.innerHTML = `<div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div>`
                 
                 // Display Outdoor Requirement Table
+                outdoorSection.setAttribute('style', 'font-weight:700;')
+                indoorSection.setAttribute('style', 'unset;')
+                detailSection.setAttribute('style', 'unset;')
                 description.innerHTML = ""
                 description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table>`
 
@@ -331,3 +351,5 @@ const getPlantinfo = async () => {
     }
     
     getPlantinfo()
+
+}

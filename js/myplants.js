@@ -1,22 +1,34 @@
-import {db, auth} from './firebase/firebase-config.js'
+import {db, auth} from './firebase/firebase-config.js';
 
 import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, arrayUnion} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
-
-// const userId = sessionStorage.getItem('userID')
-const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
-console.log(userId)
-
-const watering = document.querySelector('.watering')
-const sunlightTemp = document.querySelector('.sunlight-temp')
-const nutritions = document.querySelector('.nutritions')
-const dateControlForWatering = document.querySelector('.watering-calendar')
-const dateControlForNutritionizing = document.querySelector('.nutritionizing-calendar')
-const wateringWrapper = document.querySelector('.watering-wrapper')
-
-
-
-const getPlantinfo = async () => {
+export function init () {
+    console.log(" initializing about.js module:" + new Date());
+    // const btn1 = document.getElementById("btn1");
+    // const text1 = document.getElementById("text1");
+    // btn1.addEventListener('click', (event) => {
+    //     const message = `test in about page ${Date.now()}`;
+    //     console.log(`%c ${message}`, 'color:black;background:yellow');
+    //     text1.innerText = message;
+    // });
+    
+    
+    
+    
+    // const userId = sessionStorage.getItem('userID')
+    const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
+    console.log(userId)
+    
+    
+    const watering = document.querySelector('.watering')
+    const sunlightTemp = document.querySelector('.sunlight-temp')
+    const nutritions = document.querySelector('.nutritions')
+    const dateControlForWatering = document.querySelector('.watering-calendar')
+    const dateControlForNutritionizing = document.querySelector('.nutritionizing-calendar')
+    const wateringWrapper = document.querySelector('.watering-wrapper')
+    
+    const getPlantinfo = async () => {
+        
 
 // Query "plant_userinfo"
 // const userQuery = query(collection(db, "plant_userinfo"), where("user_info_id", "==", userId))
@@ -725,10 +737,10 @@ plantsList.forEach( async(e, index)=>{
                 divSunlight.innerHTML = sunlightFrequency;
 
 
-                wateringWrapper.style.opacity = 0;
-                setTimeout(() => {
-                    wateringWrapper.style.opacity = 1;
-                }, 500);
+                // wateringWrapper.style.opacity = 0;
+                // setTimeout(() => {
+                //     wateringWrapper.style.opacity = 1;
+                // }, 500);
 
             })
  
@@ -740,3 +752,5 @@ plantsList.forEach( async(e, index)=>{
 }
 
 getPlantinfo()
+
+}
