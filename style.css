@@ -602,6 +602,12 @@ main.plant-detail .outdoor-frequent {
   text-align: center;
   font-size: 1.3rem;
 }
+main.plant-detail .frequent {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
 main.plant-detail .frequent-wrapper {
   border: #DD1C50 2px solid;
   border-radius: 20px;
@@ -634,6 +640,9 @@ main.plant-detail .section-wrapper div {
 main.plant-detail .description {
   font-size: 1.1rem;
   padding: 0 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
 }
 main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-detail th {
   border: 1px solid #BCBCBC;
@@ -644,15 +653,18 @@ main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-
 main.plant-detail th {
   font-size: 1.2rem;
   font-weight: normal;
-  text-align: left;
+}
+main.plant-detail tbody tr:nth-of-type(2) {
+  height: 9rem;
+  vertical-align: top;
 }
 @media screen and (min-width: 800px) {
   main.plant-detail .main-plant-detail-wrapper {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    grid-gap: 1rem;
+    gap: 2rem;
     padding: 1rem;
   }
   main.plant-detail .plant-image-name-wrapper {
@@ -663,12 +675,10 @@ main.plant-detail th {
     width: 100%;
     order: 1;
   }
-  main.plant-detail .plant-image-name-wrapper .plant-name {
-    font-size: 2.3rem;
-  }
   main.plant-detail .section-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding-bottom: 0.5rem;
+    gap: 0;
   }
   main.plant-detail .indoor,
 main.plant-detail .outdoor {
@@ -679,21 +689,101 @@ main.plant-detail .outdoor {
   main.plant-detail .indoor-frequent,
 main.plant-detail .outdoor-frequent {
     flex-basis: 100px;
+    font-size: 1.1rem;
   }
   main.plant-detail .frequent-wrapper {
     border: #DD1C50 4px solid;
-    flex-basis: 110px;
+    flex-basis: 130px;
+    line-height: 1.2;
+    padding: 0.8rem 0.5rem;
   }
   main.plant-detail .desc-wrapper {
     gap: 2rem;
     padding: 0;
-    max-width: 400px;
+    max-width: 500px;
+  }
+  main.plant-detail .detail-section {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  main.plant-detail .indoor-section,
+main.plant-detail .outdoor-section {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
   main.plant-detail table tr:nth-of-type(2) td {
     vertical-align: top;
   }
   main.plant-detail .main-plant-detail-wrapper > div {
     padding: 0;
+  }
+  main.plant-detail table {
+    border: unset;
+    border-collapse: collapse;
+  }
+  main.plant-detail th {
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+  main.plant-detail tr {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    border: unset;
+  }
+  main.plant-detail tbody tr:nth-of-type(2) {
+    height: 35rem;
+  }
+}
+@media screen and (min-width: 1040px) {
+  main.plant-detail .main-plant-detail-wrapper {
+    gap: 4rem;
+    padding: 3rem;
+  }
+  main.plant-detail .plant-image-name-wrapper .plant-name {
+    font-size: 2.2rem;
+  }
+  main.plant-detail .desc-wrapper {
+    max-width: unset;
+    flex-basis: 65%;
+    gap: 3rem;
+    max-width: 700px;
+  }
+  main.plant-detail .indoor,
+main.plant-detail .outdoor {
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+  main.plant-detail .indoor-frequent,
+main.plant-detail .outdoor-frequent {
+    flex-basis: 70px;
+    font-size: 1.2rem;
+  }
+  main.plant-detail .frequent-wrapper {
+    flex-basis: 140px;
+    height: 8rem;
+    line-height: 1.5;
+    font-size: 1.2rem;
+  }
+  main.plant-detail .frequent {
+    justify-content: space-between;
+  }
+  main.plant-detail .section-wrapper {
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+  }
+  main.plant-detail .indoor-section,
+main.plant-detail .outdoor-section {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  main.plant-detail .description {
+    font-size: 1.2rem;
+  }
+  main.plant-detail tbody tr:nth-of-type(2) {
+    height: 25rem;
   }
 }
 

@@ -115,7 +115,21 @@ const getPlantinfo = async () => {
             detailSection.setAttribute('style', 'unset;')
         
             description.innerHTML = ""
-            description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${indoorSunTempRequirement}</td><td>${indoorWaterRequirement}</td><td>${indoorSoilRequirement}</td></tr></table>`
+
+            function myMediaQuery(mediaQuery) {
+                if (mediaQuery.matches) {
+                    // If media query matches
+                    description.innerHTML = `<table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${indoorSunTempRequirement}</td><td>${indoorWaterRequirement}</td><td>${indoorSoilRequirement}</td></tr></table>`
+
+                    // Add underline
+                    indoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                } else {    
+                    description.innerHTML = `<table><tr><th>Sunlight & Temperature</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${indoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${indoorSoilRequirement}</td></tr></table>`
+                }
+            }
+
+            myMediaQuery(mediaQuery)
+
 
         })
 
@@ -153,7 +167,7 @@ const getPlantinfo = async () => {
                 const indoorDiv = document.createElement('div')
                 indoorDiv.classList.add('indoor')
                 frequentList.appendChild(indoorDiv)
-                indoorDiv.innerHTML = `<div class="indoor-frequent">Indoor</div><div class="frequent-wrapper"><div>Sunlight</div><div>${indoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${indoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${indoorSoilFrequent}</div></div>`
+                indoorDiv.innerHTML = `<div class="indoor-frequent">Indoor</div><div class="frequent"><div class="frequent-wrapper"><div>Sunlight</div><div>${indoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${indoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${indoorSoilFrequent}</div></div></div>`
     
                 // Remove Outdoor Frequency
                 if (document.querySelector(".outdoor")) {
@@ -162,7 +176,7 @@ const getPlantinfo = async () => {
                 const outdoorDiv = document.createElement('div')
                 outdoorDiv.classList.add('outdoor')
                 frequentList.appendChild(outdoorDiv)
-                outdoorDiv.innerHTML = `<div class="outdoor-frequent">Outdoor</div><div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div>`
+                outdoorDiv.innerHTML = `<div class="outdoor-frequent">Outdoor</div><div class="frequent"><div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div></div>`
     
                 // Details
                 detailSection.setAttribute('style', 'font-weight:700;')
@@ -170,25 +184,43 @@ const getPlantinfo = async () => {
                 outdoorSection.setAttribute('style', 'unset;')
                 description.innerHTML = ""
                 description.innerHTML = detailInfo
+
+                function myMediaQuery(mediaQuery) {
+                    if (mediaQuery.matches) {
+                        // Add underline
+                        detailSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                    }
+                }
+    
+                myMediaQuery(mediaQuery)
             })
 
             // Indoor Frequency 
             const indoorDiv = document.createElement('div')
             indoorDiv.classList.add('indoor')
             frequentList.appendChild(indoorDiv)
-            indoorDiv.innerHTML = `<div class="indoor-frequent">Indoor</div><div class="frequent-wrapper"><div>Sunlight</div><div>${indoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${indoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${indoorSoilFrequent}</div></div>`
+            indoorDiv.innerHTML = `<div class="indoor-frequent">Indoor</div><div class="frequent"><div class="frequent-wrapper"><div>Sunlight</div><div>${indoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${indoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${indoorSoilFrequent}</div></div></div>`
 
             // Outdoor Frequency
             const outdoorDiv = document.createElement('div')
             outdoorDiv.classList.add('outdoor')
             frequentList.appendChild(outdoorDiv)
-            outdoorDiv.innerHTML = `<div class="outdoor-frequent">Outdoor</div><div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div>`
+            outdoorDiv.innerHTML = `<div class="outdoor-frequent">Outdoor</div><div class="frequent"><div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div></div>`
 
             // Detail description
             detailSection.setAttribute('style', 'font-weight:700;')
             outdoorSection.setAttribute('style', 'unset;')
             indoorSection.setAttribute('style', 'unset;')
             description.innerHTML = detailInfo
+
+            function myMediaQuery(mediaQuery) {
+                if (mediaQuery.matches) {
+                    // Add underline
+                    detailSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                }
+            }
+
+            myMediaQuery(mediaQuery)
 
 
 
@@ -216,7 +248,21 @@ const getPlantinfo = async () => {
                 indoorSection.setAttribute('style', 'unset;')
                 detailSection.setAttribute('style', 'unset;')
                 description.innerHTML = ""
-                description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table>`
+
+                function myMediaQuery(mediaQuery) {
+                    if (mediaQuery.matches) {
+                        // If media query matches
+                        description.innerHTML = `<table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table>`
+
+                        // Add underline
+                        outdoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                    } else {    
+                        description.innerHTML = `<table><tr><th>Sunlight & Temperature</th></tr><tr><td>${outdoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${outdoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSoilRequirement}</td></tr></table>`
+                    }
+                }
+
+                myMediaQuery(mediaQuery)
+                
 
                 // Warning for Outdoor Plants
                 // if ( doc_outdoor.data().details == "Due to temperature conditions, this plant is not suitable for outdoor areas." ) {
