@@ -406,12 +406,6 @@ plantsList.forEach( async(e, index)=>{
                 sunlightTemp.appendChild(divSunlight)
                 divSunlight.innerHTML = sunlightFrequency;
 
-
-
-
-                
-
-
             }
 
 
@@ -423,7 +417,11 @@ plantsList.forEach( async(e, index)=>{
 
             // Click Plant Image
             img.addEventListener('click', () => {
-                console.log(index)
+                // console.log(index)
+
+                // Add Plant image border
+                img.setAttribute('style', 'border: unset;')
+                img.setAttribute('style', 'border: 3px solid #83C992;')
 
 
                 // 上のindex == 0のコードとほとんど同じだけど、他にやり方ある？？

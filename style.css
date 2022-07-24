@@ -389,10 +389,14 @@ main.myplants #addplant a {
   border-radius: 15px;
 }
 main.myplants #addplant a:hover {
-  background-color: #DD1C50;
+  background-color: white;
+  color: black;
+  border: #B21F51 3px solid;
 }
 main.myplants #addplant a:focus {
-  background-color: #7B163C;
+  background-color: #B21F51;
+  color: white;
+  border: white 3px solid;
 }
 main.myplants .weekly-schedule {
   display: flex;
@@ -467,7 +471,14 @@ main.myplants button.watered-today {
   cursor: pointer;
 }
 main.myplants button.watered-today:hover {
-  background-color: #DD1C50;
+  background-color: white;
+  color: black;
+  border: #B21F51 3px solid;
+}
+main.myplants button.watered-today:focus {
+  background-color: #B21F51;
+  color: white;
+  border: white 3px solid;
 }
 main.myplants button.nutritionize-today {
   background-color: #83C992;
@@ -481,7 +492,14 @@ main.myplants button.nutritionize-today {
   cursor: pointer;
 }
 main.myplants button.nutritionize-today:hover {
-  background-color: #EFD35E;
+  background-color: white;
+  color: black;
+  border: #83C992 3px solid;
+}
+main.myplants button.nutritionize-today:focus {
+  background-color: #83C992;
+  color: white;
+  border: white 3px solid;
 }
 main.myplants button.watered-today:disabled {
   background: rgba(178, 31, 81, 0.5);
