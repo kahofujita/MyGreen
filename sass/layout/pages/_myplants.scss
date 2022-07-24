@@ -39,6 +39,10 @@ main.myplants {
         cursor: pointer;
     }
 
+    img.green-border {
+        border: 3px solid #83C992;
+    }
+
     .plant-image img:hover {
         border: 3px solid $color-green1;
     }
@@ -165,18 +169,24 @@ main.myplants {
         height: 2.7rem;
         font-size: .9rem;
         cursor: pointer;
-    }
 
-    button.watered-today:hover {
-        background-color: white;
-        color: black;
-        border: $color-red2 3px solid;
-    }
+        &:disabled {
+            background: rgba(178, 31, 81, 0.5);
+            cursor: unset;
+        }
 
-    button.watered-today:focus {
-        background-color: $color-red2;
-        color: white;
-        border: white 3px solid;
+        &:not([disabled]) {
+            &:hover {
+                background-color: white;
+                color: black;
+                border: $color-red2 3px solid;
+            }
+            &:focus {
+                background-color: $color-red2;
+                color: white;
+                border: white 3px solid;
+            }
+        }
     }
 
     button.nutritionize-today {
@@ -189,28 +199,23 @@ main.myplants {
         height: 2.7rem;
         font-size: .9rem;
         cursor: pointer;
-    }
 
-    button.nutritionize-today:hover {
-        background-color: white;
-        color: black;
-        border: $color-green1 3px solid;
-    }
-
-    button.nutritionize-today:focus {
-        background-color: $color-green1;
-        color: white;
-        border: white 3px solid;
-    }
-
-    button.watered-today:disabled {
-        background: rgba(178, 31, 81, 0.5);
-        cursor: unset;
-    }
-
-    button.nutritionize-today:disabled {
-        background: rgba(131, 201, 146, 0.5);
-        cursor: unset;
+        &:disabled {
+            background: rgba(131, 201, 146, 0.5);
+            cursor: unset;
+        }
+        &:not([disabled]) {
+            &:hover {
+                background-color: white;
+                color: black;
+                border: $color-green1 3px solid;
+            }
+            &:focus {
+                background-color: $color-green1;
+                color: white;
+                border: white 3px solid;
+            }
+        }
     }
 
 

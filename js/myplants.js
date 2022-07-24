@@ -185,6 +185,7 @@ plantsList.forEach( async(e, index)=>{
 
                     } else {
                         // Update a date to today
+                        console.log('elseが走ってる！', todayString)
                         const plantsListCopy = [...plantsList]
                         plantsListCopy[index].watering_date = todayString
                         const doctoUpdate = doc(db, "plant_userinfo", userId)
@@ -196,7 +197,9 @@ plantsList.forEach( async(e, index)=>{
                         }
 
                         // Set calendar value to Today
-                        dateControlForWatering.setAttribute('value', todayString)
+                        // dateControlForWatering.setAttribute('value', todayString)
+                        dateControlForWatering.value = todayString
+                        console.log(dateControlForWatering.value)
                         // 'Do you want to update last watering date? みたいなポップアップ必要？
 
                         // Display Next Watering Date in Button Value
@@ -425,8 +428,20 @@ plantsList.forEach( async(e, index)=>{
                 // console.log(index)
 
                 // Add Plant image border
-                img.setAttribute('style', 'border: unset;')
-                img.setAttribute('style', 'border: 3px solid #83C992;')
+                const greenBorder = document.querySelector('.green-border')
+
+                if ( greenBorder ) {
+                    console.log('ボーダーあり！')
+                    greenBorder.classList.remove('green-border')
+                } 
+                img.classList.add('green-border')
+
+
+
+
+                // img.setAttribute('style', 'border: unset;')
+                // img.classList.add('green-border')
+                // img.setAttribute('style', 'border: 3px solid #83C992;')
 
 
                 // 上のindex == 0のコードとほとんど同じだけど、他にやり方ある？？

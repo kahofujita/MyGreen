@@ -95,6 +95,16 @@ main.plant-detail {
         gap: 2rem;
     }
 
+    .mobile-view {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+    }
+
+    .desktop-view {
+        display: none;
+    }
+
     table, tr, td, th {
         border: 1px solid #BCBCBC;
         border-collapse: collapse;
@@ -181,6 +191,14 @@ main.plant-detail {
         .outdoor-section {
             margin-left: 2rem;
             margin-right: 2rem;
+        }
+
+        .mobile-view {
+            display: none;
+        }
+    
+        .desktop-view {
+            display: block;
         }
 
         table tr:nth-of-type(2) td {

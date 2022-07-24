@@ -37,7 +37,6 @@ imgNameWapper.appendChild(plantNamediv)
 plantNamediv.innerHTML = plantName
 
 
-
 const getPlantinfo = async () => {
 
     // // Query "plant_ourinfo" for DETAIS section =================
@@ -116,23 +115,23 @@ const getPlantinfo = async () => {
         
             description.innerHTML = ""
 
-            function myMediaQuery(mediaQuery) {
-                if (mediaQuery.matches) {
+            // function myMediaQuery(mediaQuery) {
+            //     if (mediaQuery.matches) {
                     // If media query matches
-                    description.innerHTML = `<table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${indoorSunTempRequirement}</td><td>${indoorWaterRequirement}</td><td>${indoorSoilRequirement}</td></tr></table>`
+                    description.innerHTML = `<div class="desktop-view"><table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${indoorSunTempRequirement}</td><td>${indoorWaterRequirement}</td><td>${indoorSoilRequirement}</td></tr></table></div>`
 
                     // Add underline
-                    indoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
-                } else {    
-                    description.innerHTML = `<table><tr><th>Sunlight & Temperature</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${indoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${indoorSoilRequirement}</td></tr></table>`
-                }
-            }
+                //     indoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                // } else {    
+                    description.innerHTML += `<div class="mobile-view"><table><tr><th>Sunlight & Temperature</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${indoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${indoorSoilRequirement}</td></tr></table></div>`
+            //     }
+            // }
 
-            myMediaQuery(mediaQuery)
+            // myMediaQuery(mediaQuery)
 
-
+            
+            
         })
-
 
 
 
@@ -249,19 +248,19 @@ const getPlantinfo = async () => {
                 detailSection.setAttribute('style', 'unset;')
                 description.innerHTML = ""
 
-                function myMediaQuery(mediaQuery) {
-                    if (mediaQuery.matches) {
+                // function myMediaQuery(mediaQuery) {
+                //     if (mediaQuery.matches) {
                         // If media query matches
-                        description.innerHTML = `<table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table>`
+                        description.innerHTML = `<div class="desktop-view"><table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table></div>`
 
                         // Add underline
-                        outdoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
-                    } else {    
-                        description.innerHTML = `<table><tr><th>Sunlight & Temperature</th></tr><tr><td>${outdoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${outdoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSoilRequirement}</td></tr></table>`
-                    }
-                }
+                    //     outdoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                    // } else {    
+                        description.innerHTML += `<div class="mobile-view"><table><tr><th>Sunlight & Temperature</th></tr><tr><td>${outdoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${outdoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSoilRequirement}</td></tr></table></div>`
+                //     }
+                // }
 
-                myMediaQuery(mediaQuery)
+                // myMediaQuery(mediaQuery)
                 
 
                 // Warning for Outdoor Plants

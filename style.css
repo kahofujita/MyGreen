@@ -368,6 +368,9 @@ main.myplants .plant-image img {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
 }
+main.myplants img.green-border {
+  border: 3px solid #83C992;
+}
 main.myplants .plant-image img:hover {
   border: 3px solid #83C992;
 }
@@ -470,12 +473,16 @@ main.myplants button.watered-today {
   font-size: 0.9rem;
   cursor: pointer;
 }
-main.myplants button.watered-today:hover {
+main.myplants button.watered-today:disabled {
+  background: rgba(178, 31, 81, 0.5);
+  cursor: unset;
+}
+main.myplants button.watered-today:not([disabled]):hover {
   background-color: white;
   color: black;
   border: #B21F51 3px solid;
 }
-main.myplants button.watered-today:focus {
+main.myplants button.watered-today:not([disabled]):focus {
   background-color: #B21F51;
   color: white;
   border: white 3px solid;
@@ -491,23 +498,19 @@ main.myplants button.nutritionize-today {
   font-size: 0.9rem;
   cursor: pointer;
 }
-main.myplants button.nutritionize-today:hover {
+main.myplants button.nutritionize-today:disabled {
+  background: rgba(131, 201, 146, 0.5);
+  cursor: unset;
+}
+main.myplants button.nutritionize-today:not([disabled]):hover {
   background-color: white;
   color: black;
   border: #83C992 3px solid;
 }
-main.myplants button.nutritionize-today:focus {
+main.myplants button.nutritionize-today:not([disabled]):focus {
   background-color: #83C992;
   color: white;
   border: white 3px solid;
-}
-main.myplants button.watered-today:disabled {
-  background: rgba(178, 31, 81, 0.5);
-  cursor: unset;
-}
-main.myplants button.nutritionize-today:disabled {
-  background: rgba(131, 201, 146, 0.5);
-  cursor: unset;
 }
 @media screen and (min-width: 800px) {
   main.myplants .main-myplants-wrapper {
@@ -662,6 +665,14 @@ main.plant-detail .description {
   flex-flow: column nowrap;
   gap: 2rem;
 }
+main.plant-detail .mobile-view {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+main.plant-detail .desktop-view {
+  display: none;
+}
 main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-detail th {
   border: 1px solid #BCBCBC;
   border-collapse: collapse;
@@ -728,6 +739,12 @@ main.plant-detail .outdoor-frequent {
 main.plant-detail .outdoor-section {
     margin-left: 2rem;
     margin-right: 2rem;
+  }
+  main.plant-detail .mobile-view {
+    display: none;
+  }
+  main.plant-detail .desktop-view {
+    display: block;
   }
   main.plant-detail table tr:nth-of-type(2) td {
     vertical-align: top;
