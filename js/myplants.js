@@ -15,8 +15,8 @@ export function init () {
     
     
     
-    // const userId = sessionStorage.getItem('userID')
-    const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
+    const userId = sessionStorage.getItem('userID')
+    // const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
     console.log(userId)
     
     
@@ -26,6 +26,7 @@ export function init () {
     const dateControlForWatering = document.querySelector('.watering-calendar')
     const dateControlForNutritionizing = document.querySelector('.nutritionizing-calendar')
     const wateringWrapper = document.querySelector('.watering-wrapper')
+    const buttonHover = 'button:hover{background-color: unset;}'
     
     const getPlantinfo = async () => {
         
@@ -206,6 +207,10 @@ plantsList.forEach( async(e, index)=>{
                         // Button Condition
                         button.innerHTML = nextWateringDate + ' days to go'
                         button.disabled = true;
+                        
+                        // if (button.disabled = true) {
+                        //     button.styleSheet.cssText = buttonHover
+                        // }
                     }
                 })
 
