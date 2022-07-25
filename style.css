@@ -1,10 +1,11 @@
 /* Error: expected "{".
  *    ,
- * 16 | @import "./pages/camera";
- *    |                         ^
+ * 23 |                 width: 200px;
+ *    |                             ^
  *    '
- *   layout/_pages.scss 16:25  @import
- *   style.scss 14:9           root stylesheet */
+ *   layout/pages/_myaccount.scss 23:29  @import
+ *   layout/_pages.scss 4:9              @import
+ *   style.scss 14:9                     root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +15,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 16 \2502  @import "./pages/camera";\a    \2502                          ^\a    \2575 \a   layout/_pages.scss 16:25  @import\a   style.scss 14:9           root stylesheet';
+  content: 'Error: expected "{".\a    \2577 \a 23 \2502                  width: 200px;\a    \2502                              ^\a    \2575 \a   layout/pages/_myaccount.scss 23:29  @import\a   layout/_pages.scss 4:9              @import\a   style.scss 14:9                     root stylesheet';
 }
