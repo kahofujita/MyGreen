@@ -7,6 +7,7 @@ menuButton.addEventListener('click', function () {
   menu.classList.toggle('show-menu');
 })
 
+
 // SEARCH BAR
 
 const search = document.querySelector('.search-click');

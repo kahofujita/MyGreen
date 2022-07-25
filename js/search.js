@@ -50,18 +50,21 @@ inputSearch.addEventListener('input', (e) => {//try change it will search all of
         if (reg(e.target.value, plant.plant_name)) {
           let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${plant.plant_name.replace(/ /g, "%20")}`;
           document.querySelector('.result').innerHTML += `<li>${plant.plant_name}(${plant.location}).<a href="${link}">the details</a></li>`;
+         
        
 console.log(link);
+
     
         
         }
       })
+      
     }, 500)
 
+    
   }
-
 });
 
-
+inputSearch.value = "";
 
 

@@ -8,5 +8,6 @@ Router.init('mainArea', [
   new Page('#public_journal', 'public_journal.html'),
   new Page('#personal_journal', 'personal_journal.html'),
   new Page('#sugesstion', 'sugesstion.html'),
-  new Page('#myaccount', 'myaccount.html')
+  new Page('#myaccount', 'myaccount.html'),
+  new Page('#plantid', 'plantid.html')
 ]);
