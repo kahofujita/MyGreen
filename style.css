@@ -1,19 +1,1439 @@
-/* Error: expected "{".
- *    ,
- * 23 |                 width: 200px;
- *    |                             ^
- *    '
- *   layout/pages/_myaccount.scss 23:29  @import
- *   layout/_pages.scss 4:9              @import
- *   style.scss 14:9                     root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 23 \2502                  width: 200px;\a    \2502                              ^\a    \2575 \a   layout/pages/_myaccount.scss 23:29  @import\a   layout/_pages.scss 4:9              @import\a   style.scss 14:9                     root stylesheet';
+/* VARIABLES ================ */
+/* MIXINS =================== */
+/* ACCESSIBILITY ============ */
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Urbanist:wght@400;600&display=swap");
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
+
+/* LAYOUT ================== */
+.header .logo-toolbar-wrapper,
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header a,
+.footer a {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.header ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.toolbar-mobile {
+  background-color: #83C992;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.toolbar-desktop {
+  display: none;
+}
+
+.header .logo-toolbar-wrapper {
+  width: 100%;
+  flex-flow: row nowrap;
+}
+
+.menu-mobile {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  transform: translateX(100%);
+  z-index: 50;
+  position: fixed;
+  left: 0;
+  transition: transform 0.5s;
+  height: 65%;
+  margin-top: 50rem;
+  flex-basis: 100%;
+}
+
+.show-menu {
+  transform: translateX(0);
+}
+
+.menu-button i {
+  font-size: 1.7rem;
+}
+
+.menu-mobile a {
+  color: #FAFAFA;
+  margin: 1rem;
+  border-bottom: 1px solid #FAFAFA;
+  display: block;
+}
+
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.search-input {
+  background: #FEFDFE;
+  border: 1px solid #EFD35E;
+  border-radius: 20px 0px 0px 20px;
+  padding: 0.3rem;
+}
+
+.search-icon {
+  display: flex;
+  background: #EFD35E;
+  border: 1px solid #EFD35E;
+  border-radius: 0px 20px 20px 0px;
+  flex-basis: 10%;
+  padding: 0.2rem;
+  justify-content: center;
+}
+
+.search-icon a {
+  color: black;
+}
+
+.searchbar-page {
+  background-color: #fff;
+  width: 100%;
+  transform: translateY(-100%);
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s;
+  min-height: 100%;
+  height: max-content;
+  margin-top: 0;
+}
+
+.show-search {
+  transform: translateY(0);
+}
+
+.searchbar-page .search-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.back-button {
+  color: #2B2B2B;
+  margin-right: 2rem;
+}
+
+ul.result {
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+ul.result li {
+  border: 1px solid #83C992;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  border-radius: 20px;
+}
+
+ul.result a {
+  color: black;
+  font-size: 1.2rem;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+.footer {
+  flex-flow: column wrap;
+  background-color: #83C992;
+  padding: 1rem;
+}
+
+.connection-wrapper {
+  display: flex;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+  width: 90%;
+  justify-content: center;
+}
+
+/* .connection-wrapper a:link, */
+.connection-wrapper a:active {
+  border-bottom: 4px solid #FAFAFA;
+}
+
+.connection-wrapper a {
+  color: #FAFAFA;
+  margin: 1rem;
+  font-family: "Righteous", cursive;
+  font-size: 1.3rem;
+}
+
+.footer ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 90px;
+}
+
+.footer li {
+  list-style-type: none;
+  margin: 0.3rem;
+}
+
+.footer li a {
+  list-style-type: none;
+  color: black;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
+}
+
+.footer li span {
+  font-size: 0.8rem;
+}
+
+.socialmedia-copyright-wrapper {
+  display: grid;
+  justify-items: center;
+}
+
+.icon {
+  padding: 0.4rem;
+  background-color: #FAFAFA;
+  border-radius: 50%;
+  border: 4px solid #EFD35E;
+  height: 56px;
+  width: 56px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 800px) {
+  .toolbar-mobile {
+    display: none;
+  }
+  .toolbar-desktop {
+    display: flex;
+    flex-flow: column wrap;
+    flex-basis: 100%;
+    align-items: center;
+  }
+  .menu-desktop {
+    background-color: #83C992;
+    width: 100%;
+  }
+  .menu-desktop ul {
+    display: flex;
+    flex-flow: row nowrap;
+    color: #FAFAFA;
+    justify-content: space-around;
+  }
+  .header-site-logo-desktop img {
+    height: 130px;
+    width: auto;
+  }
+  .menu-desktop ul a {
+    color: #FAFAFA;
+  }
+  .header .logo-toolbar-wrapper {
+    padding: 0;
+  }
+  .footer {
+    flex-flow: row nowrap;
+  }
+  .connection-wrapper {
+    border-bottom: none;
+  }
+  .socialmedia-copyright-wrapper {
+    justify-content: space-around;
+  }
+}
+.login-body {
+  background-color: #FAFAFA;
+}
+
+.login-main {
+  max-width: 338px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  padding-top: 2rem;
+  margin-top: 0;
+  margin-bottom: 5rem;
+}
+.login-main h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.login-main .login {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+.login-main form {
+  max-width: 448px;
+}
+.login-main input,
+.login-main label {
+  display: block;
+  font-size: 1rem;
+}
+.login-main input {
+  border-radius: 8px;
+  border: solid 2px #83C992;
+  max-width: 100%;
+  height: 56px;
+  padding: 1.5rem 1rem;
+}
+.login-main .email-div,
+.login-main .password-div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  gap: 12px;
+}
+.login-main .signup-link {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.login-main .signup-link a {
+  color: #2B2B2B;
+}
+.login-main .loginButton {
+  width: 126px;
+  height: 44px;
+  border-radius: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  background-color: #B21F51;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.login-main .login-graphic {
+  display: none;
+}
+@media screen and (min-width: 800px) {
+  .login-main {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1100px;
+    padding: 4rem 5% 0 5%;
+  }
+  .login-main .login-graphic {
+    display: block;
+    max-width: 300px;
+    height: auto;
+    padding-top: 3rem;
+  }
+  .login-main label {
+    font-size: 1.5rem;
+  }
+  .login-main h2 {
+    font-size: 2.5rem;
+  }
+  .login-main .loginButton {
+    font-size: 1rem;
+    width: 197px;
+    height: 44px;
+  }
+}
+
+.login-body footer {
+  margin-top: 2rem;
+}
+
+.myaccount-page h2 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+.myaccount-page .avatarDisplayMyAccount button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.myaccount-page .avatarDisplayMyAccount button #currentAvatar {
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.454);
+  width: 200px;
+  height: 200px;
+}
+.myaccount-page .avatarDisplayMyAccount button .editButton {
+  background-color: #F1D644;
+  color: white;
+  border-radius: 50%;
+  height: 33px;
+  width: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0.25rem;
+}
+.myaccount-page #avatarMyAccountLabel {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.myaccount-page #avatarMyAccount {
+  border: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.myaccount-page #avatarMyAccount label img {
+  border-radius: 50%;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.myaccount-page #avatarMyAccount input:checked + label img {
+  border: 4px solid #B21F51;
+  border-radius: 50%;
+}
+.myaccount-page #avatarMyAccount div {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.myaccount-page #avatarMyAccount div input,
+.myaccount-page #avatarMyAccount div label {
+  grid-column: 1;
+  grid-row: 1;
+}
+.myaccount-page #avatarMyAccount button {
+  display: block;
+  grid-row: 5;
+  grid-column: 1/-1;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  color: white;
+  background-color: #83C992;
+  border: none;
+  border-radius: 15px;
+  width: 126px;
+  height: 44px;
+  cursor: pointer;
+}
+.myaccount-page .form-wrapper .field-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 338px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+.myaccount-page .form-wrapper .field-wrapper input {
+  padding: 12px 24px;
+  border: 2px solid #83C992;
+  border-radius: 8px;
+}
+.myaccount-page .form-wrapper .buttons-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.myaccount-page .form-wrapper .buttons-wrapper button {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  border: none;
+  background-color: #83C992;
+  color: white;
+  border-radius: 15px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+.myaccount-page .save-cancel-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 338px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+.myaccount-page .save-cancel-wrapper button {
+  text-transform: uppercase;
+  color: white;
+  background-color: #B21F51;
+  border: none;
+  border-radius: 15px;
+  width: 126px;
+  height: 44px;
+  cursor: pointer;
+}
+.myaccount-page .save-cancel-wrapper a {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #B21F51;
+  font-weight: bold;
+}
+.myaccount-page .form-wrapper,
+.myaccount-page .change-avatar-wrapper {
+  transition: all 0.5s ease-in-out;
+}
+.myaccount-page .show {
+  transform: translateX(0);
+}
+.myaccount-page .right {
+  transform: translateX(-100%);
+}
+.myaccount-page .form-wrapper .new-hide {
+  display: none;
+}
+.myaccount-page .form-wrapper .new-block {
+  display: block;
+}
+
+.changeInfoMyAccount {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 2rem;
+}
+.changeInfoMyAccount .change-avatar-wrapper {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+}
+.changeInfoMyAccount .form-wrapper {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+}
+
+@media screen and (min-width: 800px) {
+  .myaccount-page h2 {
+    font-size: 2.5rem;
+  }
+  .myaccount-page #avatarMyAccount {
+    max-width: 500px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .myaccount-page #avatarMyAccount label {
+    border: none;
+  }
+  .myaccount-page .form-wrapper .field-wrapper {
+    max-width: 450px;
+  }
+}
+.signup-page h2 {
+  font-size: 2rem;
+}
+.signup-page .sub-headers-pages {
+  font-size: 1.25rem;
+}
+.signup-page h2,
+.signup-page .sub-headers-pages {
+  text-align: center;
+}
+.signup-page .signup-field-form,
+.signup-page .login-back,
+.signup-page .login-next-back,
+.signup-page fieldset {
+  max-width: 338px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.signup-page .signup-page1-wrapper, .signup-page .signup-page2-wrapper, .signup-page .signup-page3-wrapper, .signup-page .addpPLantForm {
+  padding: 2rem 0;
+}
+.signup-page .signup-page3 fieldset {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}
+.signup-page .signup-field-form {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 2rem;
+}
+.signup-page label,
+.signup-page input,
+.signup-page select,
+.signup-page option {
+  font-size: 1rem;
+}
+.signup-page input[type=text],
+.signup-page input[type=email],
+.signup-page input[type=password],
+.signup-page select,
+.signup-page option {
+  padding: 1rem 1.5rem;
+  border: 2px solid #83C992;
+  border-radius: 8px;
+}
+.signup-page .login-back {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin-top: 2rem;
+}
+.signup-page .login-back a {
+  color: #2B2B2B;
+}
+.signup-page .nextButton,
+.signup-page .finishButton {
+  background-color: #B21F51;
+  text-transform: uppercase;
+  color: #FAFAFA;
+  border: none;
+  width: 7.875rem;
+  height: 2.75rem;
+  border-radius: 44px;
+  cursor: pointer;
+}
+.signup-page .backButton {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #B21F51;
+  cursor: pointer;
+}
+.signup-page #next-button1 {
+  margin-top: 2rem;
+}
+.signup-page .login-next-back {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.signup-page .signup-page1 .nextButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.signup-page .addPlantButton {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.signup-page .signup-page3 fieldset {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: none;
+  gap: 1rem;
+}
+.signup-page .signup-page3 fieldset div {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.signup-page .signup-page3 fieldset div input,
+.signup-page .signup-page3 fieldset div label {
+  grid-column: 1;
+  grid-row: 1;
+}
+.signup-page .signup-page4 fieldset {
+  border: 2px solid #83C992;
+  border-radius: 8px;
+  width: 338px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.signup-page .signup-page4 select {
+  color: gray;
+}
+.signup-page .signup-page4 #addPlantButton {
+  width: 12rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  border: none;
+  background-color: #83C992;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+.signup-page .signup-page4 .login-next-skip {
+  max-width: 338px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.signup-page .signup-page4 .skipButton {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  color: #A9A9A9;
+  cursor: pointer;
+}
+.signup-page .cactus-image-signup {
+  display: none;
+}
+.signup-page .feedbackUser {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.signup-body {
+  overflow-x: hidden;
+}
+
+.signup-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.signup-page .signup,
+.signup-page .addPlantForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column: 1;
+  grid-row: 1;
+}
+.signup-page .signup-page1-wrapper {
+  transform: translateX(-100%);
+  transition: all 0.5s;
+  grid-column: 1;
+  grid-row: 1;
+}
+.signup-page .signup-page2-wrapper,
+.signup-page .signup-page3-wrapper,
+.signup-page .addpPLantForm {
+  transform: translateX(100%);
+  transition: all 0.5s;
+  grid-column: 1;
+  grid-row: 1;
+}
+.signup-page .left {
+  transform: translateX(-100%);
+  display: block;
+}
+.signup-page .show {
+  transform: translateX(0);
+  display: block;
+}
+.signup-page .right {
+  transform: translateX(100%);
+  display: block;
+}
+
+#avatarSignup label img {
+  border-radius: 50%;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+#avatarSignup input:checked + label img {
+  border: 4px solid #B21F51;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 800px) {
+  .signup-page .signup-page1-wrapper, .signup-page .signup-page2-wrapper, .signup-page .signup-page3-wrapper, .signup-page .addpPLantForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 10%;
+  }
+  .signup-page .cactus-image-signup {
+    display: block;
+    padding-bottom: 8rem;
+    width: 300px;
+    height: auto;
+  }
+}
+.addplant-main .cactus-image-addPlant {
+  display: none;
+}
+.addplant-main h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+.addplant-main .signup-field-form,
+.addplant-main .login-next-skip {
+  max-width: 338px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.addplant-main .signup-field-form {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 2rem;
+}
+.addplant-main .signup-field-form #location-fieldset {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+.addplant-main label,
+.addplant-main input,
+.addplant-main select,
+.addplant-main option {
+  font-size: 1rem;
+}
+.addplant-main input[type=text],
+.addplant-main select,
+.addplant-main option {
+  padding: 1rem 1.5rem;
+  border: 2px solid #83C992;
+  border-radius: 8px;
+}
+.addplant-main select {
+  color: gray;
+}
+.addplant-main fieldset {
+  border: 2px solid #83C992;
+  border-radius: 8px;
+  width: 338px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.addplant-main .addPlantButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 12rem;
+  height: 2.75rem;
+  border-radius: 2.75rem;
+  border: none;
+  background-color: #83C992;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+.addplant-main .finishButton {
+  background-color: #B21F51;
+  text-transform: uppercase;
+  color: #FAFAFA;
+  border: none;
+  width: 7.875rem;
+  height: 2.75rem;
+  border-radius: 44px;
+  cursor: pointer;
+}
+.addplant-main .backButton {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #B21F51;
+  cursor: pointer;
+}
+.addplant-main .login-next-skip {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.addplant-main .addpPlantForm {
+  padding: 2rem 0;
+}
+.addplant-main .feedbackUser {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .addplant-main .addpPlantForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 10%;
+  }
+  .addplant-main .cactus-image-addPlant {
+    display: block;
+    padding-bottom: 8rem;
+    width: 300px;
+    height: auto;
+  }
+}
+.main-navigators {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.main-single-navigator {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+}
+
+.main-single-navigator img {
+  display: block;
+  margin: auto;
+}
+
+.main-single-navigator a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.25;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 800px) {
+  .main-navigators {
+    flex-flow: row nowrap;
+  }
+}
+.main-suggestion {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+
+.main-suggestion h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.pictures-wrapper {
+  width: 100%;
+  margin: auto;
+}
+
+.pictures-wrapper .text-wrapper {
+  background-color: #B21F51;
+  height: 2.75rem;
+  width: 45%;
+  border-radius: 15px;
+  padding: 0.4rem;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.suggestion-link {
+  color: #FAFAFA;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.pointer-image {
+  margin: auto;
+}
+
+.plant-image-wrapper img {
+  width: 15rem;
+  height: 14rem;
+  border: 2px solid #83C992;
+  border-radius: 20px;
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 800px) {
+  .main-suggestion {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    padding: 0.4rem;
+  }
+  .header-suggestion-container {
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+    margin-bottom: 2rem;
+  }
+  .plant-image-wrapper {
+    grid-column: 1/2;
+    grid-row: 1/-1;
+  }
+  .pictures-wrapper .text-wrapper {
+    width: 70%;
+    margin-top: 0;
+  }
+  .main-suggestion h2 {
+    margin-top: 0;
+    margin-bottom: 4rem;
+  }
+  .plant-image-wrapper img {
+    height: 495px;
+    width: 530px;
+  }
+}
+.header-plant-id {
+  text-align: center;
+}
+
+.moon-cactus-image {
+  display: none;
+}
+
+.camera-container {
+  margin: 2.75rem;
+}
+
+.camera-container p {
+  text-align: center;
+}
+
+.icon-camera-container {
+  background-color: #83C992;
+  border-radius: 50%;
+  Width: 80px;
+  Height: 80px;
+  margin: auto;
+  position: relative;
+}
+
+.icon-camera-container:hover {
+  border: 1px solid #F1D644;
+}
+
+.icon-camera-container i {
+  position: absolute;
+  width: 2rem;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -16px;
+  font-size: 2rem;
+}
+
+.show-camera {
+  display: none;
+  grid-column: 1/-1;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  order: 10;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-file-input {
+  opacity: 0;
+  Width: 80px;
+  Height: 80px;
+}
+
+.input-icon-container {
+  border-radius: 50%;
+  background-color: #99C6A2;
+  margin: auto;
+}
+
+.custom-file-input::before {
+  margin-right: 0;
+}
+
+.input-icon-container:hover {
+  border: 1px solid #F1D644;
+}
+
+.plant-id-button {
+  font-size: 14px;
+  background-color: #B21F51;
+  color: #FAFAFA;
+  text-align: center;
+  border-radius: 15px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 700px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  width: 126px;
+  height: 44px;
+  margin: auto;
+  margin-top: 1rem;
+  border: none;
+  margin-top: 2.75rem;
+  margin-bottom: 4.75rem;
+}
+
+.plant-id-main form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.file-choose-container {
+  margin: auto;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.file-choose-container label {
+  text-align: center;
+}
+
+.input-icon-container {
+  position: relative;
+}
+
+.input-icon-container i {
+  position: absolute;
+  width: 2rem;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -16px;
+  font-size: 2rem;
+}
+
+.result-message {
+  display: grid;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 1.375rem;
+}
+
+.common-name-wrapper,
+.scientific-name-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.3rem;
+  align-items: center;
+  margin-bottom: 1.375rem;
+}
+
+.names-wrapper {
+  display: grid;
+  justify-content: center;
+}
+
+.plant-picture {
+  display: block;
+  width: 255px;
+  height: auto;
+  margin-top: 2.5rem;
+  margin-bottom: 2.25rem;
+  margin: auto;
+}
+
+.plant-picture img {
+  border: 4px solid #83C992;
+  border-radius: 20px;
+  margin: 2.3rem 0;
+}
+
+@media screen and (min-width: 800px) {
+  .header-plant-id {
+    font-weight: 400;
+  }
+  .moon-cactus-image {
+    display: block;
+    width: 302px;
+    height: auto;
+    grid-column: 1/2;
+  }
+  .plant-id-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 0;
+    height: 40vh;
+    padding: 0.7rem;
+  }
+  .uploading-picture-form {
+    grid-column: 2/3;
+  }
+  .moon-cactus-image {
+    grid-row: 1/3;
+    align-self: center;
+    justify-self: center;
+  }
+  .taking-picture-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+  }
+  .file-choose-container {
+    margin-left: 3rem;
+    margin-right: 0;
+  }
+  .custom-file-input,
+.icon-camera-container {
+    Width: 100px;
+    Height: 100px;
+  }
+  .plant-id-button {
+    width: 197PX;
+  }
+  .plant-picture {
+    grid-column: 1/2;
+    grid-row: 1/4;
+    align-self: center;
+    justify-self: center;
+  }
+  .header-plant-id,
+.names-wrapper,
+.result-message {
+    grid-column: 2/-1;
+  }
+  .result-message {
+    margin-bottom: 2.5rem;
+  }
+}
+main.plant-detail .main-plant-detail-wrapper {
+  padding: 1rem;
+}
+main.plant-detail .main-plant-detail-wrapper > div {
+  padding-bottom: 3rem;
+}
+main.plant-detail .plant-image-name-wrapper img {
+  border: #83C992 4px solid;
+  width: 15rem;
+  height: auto;
+  border-radius: 20px;
+  margin: auto;
+}
+main.plant-detail .plant-image-name-wrapper .plant-name {
+  font-size: 2rem;
+  color: #DD1C50;
+  font-weight: 400;
+  font-family: "Righteous", cursive;
+  text-align: center;
+}
+main.plant-detail .desc-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+main.plant-detail .indoor,
+main.plant-detail .outdoor {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+main.plant-detail .indoor-frequent,
+main.plant-detail .outdoor-frequent {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 1.4rem;
+}
+main.plant-detail .frequent-wrapper {
+  border: #DD1C50 2px solid;
+  border-radius: 20px;
+  width: 9rem;
+  height: 8rem;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+main.plant-detail .frequent-wrapper div:nth-of-type(1) {
+  font-weight: 700;
+}
+main.plant-detail .section-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #BCBCBC;
+  text-align: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+main.plant-detail .description {
+  font-size: 1.2rem;
+  padding: 0 1rem;
+}
+main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-detail th {
+  border: 1px solid #BCBCBC;
+  border-collapse: collapse;
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+main.plant-detail th {
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+/* MEDIA =================== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* TYPOGRAPHY ============== */
+body {
+  font-family: "Urbanist", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Righteous", cursive;
+}
+
+h1 {
+  font-size: 48pt;
+}
+
+h2 {
+  font-size: 36pt;
+}
+
+h3 {
+  font-size: 27pt;
+}
+
+h4 {
+  font-size: 18pt;
+}
+
+h5 {
+  font-size: 15pt;
+}
+
+h6 {
+  font-size: 12pt;
+}
+
+/* RESET =================== */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
