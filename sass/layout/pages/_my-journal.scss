@@ -1,14 +1,33 @@
 .personaljournal-main{
     // background-color: $color-body-light;
     @include paddingJournal();
+    background-color: $color-body-light;
+    grid-gap: 1rem;
+    position: relative;
+    
     #avatar{
-        @include avatar();
+        width:80px;
+        min-width:80px;
+        border-radius: 50%;
+        box-shadow: 1px 1px 1px rgb(200, 200, 200);
         margin-right: auto;
         margin-left: auto;
+        
     }
+       
+    
     .user-info{
         text-align: center;
         margin-right: 1rem;
+       
+       @media screen and (min-width:800px){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      grid-template-rows: 100px 50px;
+      align-items: center;
+      
+       }
+       
     }
     #postNbr{
         margin-bottom: 13px;
@@ -17,38 +36,84 @@
     .add-post-button{
         display: flex;
         justify-content: center;
+       
+        @media screen and (min-width:800px){
+            grid-column: 1 / -1;
+            grid-row: 2 / 3;
+            // height: 35px;
+            display: flex;
+            align-items: center;
+            
+        }
+
+
+
         #go-camera{
             @include button($c:$color-red2, $fc:white);
-        }
+          width: 150px;
+            
      }
+    }
     #post.pages{
         margin-top: 2rem;
         display: grid;
+       
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr) );
         grid-gap: 2rem;
+
+        @media screen and (min-width:800px){
+            margin-top: 0;
+        }
+
     }
     .journal img{
         border-radius: 15px;
-        // width:120px;
-        // height: 120px;
     }
-    //ARTICLES INTO
+    
+    
+    //ARTICLES INTO 
     @include journalBox();
-//Single Page For Joruanl
+
+
+    #commenty{
+        display: none;
+    }
+    
 #submiting{
     background-color: $color-red2;
     color: white;
     border-radius: 15%;
     border: none;
+    padding: 4px 3px;
+    width: 3rem;
+    border:2px solid $color-red2 ;
+}
+#submiting:hover{
+    background-color:$color-body-light;
+    color: $color-body-dark;
+    border:2px solid $color-red2 ;
+}
+
+#input_area{
+    background-color: $color-green4;
+    padding: 2% 0 0 0;
+    display: flex;
+    justify-content: space-between;
 }
 #write_cmt{
     background-color: #DADADA;
     border-radius: 5px;
     border: none;
-    // font-size: 12px;
     padding-left: 3px;
+    flex-grow: 1;
+    padding-right: 1px;
+    color: $color-body-dark;
 }
 //COMMENT AREA
+.result_box.result_box_single{
+    background-color: $color-green4;
+}
+
 #result{
     background-color:$color-green4;
     margin-top: 5rem;
@@ -56,14 +121,29 @@
     min-width:240px;
     margin: auto;
 }
-p.inst{
+#inst_title,
+    #cap_title
+    {
+        display: none;
+    }
+.inst{
+     display: none;
+}
+.cap{
+    display: none;
+}
+.inst_single{
+    display: block;
     padding: 5%;
     text-align: left;
+}
+.cap_single{
+    display: block;
 }
 #comment{
     background-color:$color-green4;
     // width: 75%;
-    margin: auto;
+    margin: auto; 
     padding: 2%;
     max-width:319.5px;
     min-width:240px;
@@ -86,6 +166,7 @@ p.inst{
     .cmts:nth-of-type(1){
         border: none;
     }
+    
 }
 .item{
     text-align: center;
@@ -94,56 +175,177 @@ p.inst{
 #write_cmt{
     width: 80%;
 }
-@media screen and (min-width:800px){
-    display: grid;
-    grid-template-columns: 30% 1fr;
-    position: relative;
-    #post.pages{
-        margin-top: 0;
-    }
-    .user-info{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 100px 100px;
-      max-width: 357px;
-    }
-    .uname-pnbr,
-    #postNbr{
-        text-align: left;
-    }
-    #username{
-        font-size: 40px;
-    }
-    .add-post-button{
-        grid-column: 1 / -1;
-        height:32px ;
-        justify-items: center;
-      }
-      #go-camera{
-        width: 150px;
-        margin-top: 5px;
-      }
-      #avatar{
-        width: 93px;
-        margin-right: 1rem;
-      }
-      #btn{
-        position: absolute;
-        bottom: 3rem;
-        left: 10%;
-      }
-      #comment{
-        position: absolute;
-        right: 17.6%;
-        top: 83%;
-        width:319.5px;
-         min-width:240px;
-         margin-right: 3.3rem;
-      }
+
+
+
+////SINGLE PAGE
+.personaljournal-main.personaljournalmain-single{
+
+position: relative;
 }
-@media screen and (min-width:1200px){
-    margin-left: 10%;
-    margin-right: 10%;
+.user-info.user-info-single{
+    display: flex;
+    justify-content: flex-end;
 }
+#avatar.ava_single{
+position: absolute;
+left: 5%;
+top:5%;
+}
+#username.username_single{
+    display: none;
+}
+.single.img_single{
+    width: 100%;
+   img{
+    width: 100%;
+   } 
 }
 
+#meta.meta_single{
+    padding: 2%;
+}
+#inst_title.insttitle_single,
+#cap_title.captitle_single{
+    display: block;
+    font-size: 18px;
+    color: $color-icon-text;
+}
+#cap_title.captitle_single{
+    text-align-last: left;
+}
+#inst_title.insttitle_single{
+    border-top: 1px solid $color-body-dark;
+ }
+#dates.dates_single{
+    text-align: right;
+}
+.inst.inst_single{
+    display: block;
+    padding:  1% 5%;
+    text-align: left; 
+    font-size: 18px;
+}
+.cap.cap_single{
+    display: block;
+    text-align: left;
+    padding:  1% 5%;
+    font-size: 18px;
+}
+#commenty.comment_single{
+    display: block;
+    border-top: 1px solid $color-body-dark;
+    // margin-top: 10px;
+    padding: 2%;
+}
+#commenty.comment_single>p:nth-of-type(1){
+    color: $color-icon-text;
+    text-align: left;
+    font-size: 18px;
+}   
+.cmts{
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    grid-template-rows: 1fr;
+    padding: 5px;
+    border-bottom: 1px solid $color-icon-text;
+    width: 100%;
+    
+}
+.cmts p:nth-of-type(1){
+    font-weight: bold;
+    font-size: 15px;
+}
+.cmts p:nth-of-type(2){
+    text-align: left;
+}
+
+#write_cmt{
+    width: 80%;
+}
+@media screen and (min-width:800px){
+    ///MULTIPLE PAGE
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    position: relative;   
+    
+    
+    .user-info{
+       grid-template: 1 / -1;
+       grid-column: 1 / 2;
+    }
+     
+     ////SINGLE PAGE
+     .personaljournal-main.personaljournalmain-single{
+       grid-gap: 0;
+     }
+     .user-info.user-info-single{
+            grid-column: 1 / -1;
+            grid-row: 1 / 2;
+            display: flex;
+            margin: 0;
+    }
+    #username.username_single{
+        display: block;
+        font-size: 35px;
+    }
+    #avatar.ava_single{
+        left: 2%;
+        top:15%;
+    }
+    main.personaljournalmain-single{ 
+              display: grid;
+              grid-template-columns:1fr 1fr;
+              grid-template-rows: 210px 1fr;
+              position: relative;
+    }
+    .user-info.user-info-single{
+            grid-column: 1 / -1;
+            grid-row: 1 / 2;
+            display: flex;
+        }
+    .result_area_single{
+            grid-column: 1 / -1;
+            grid-row: 2 / 3;
+    }
+    
+    .result_box.result_box_single{
+      
+            //GRD FOR PIC AND COMMENTS
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: .5fr .5fr;
+        }
+    .single.img_single{
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+    }
+    #meta.meta_single{
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+    #commenty.comment_single{          
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+       
+    }
+    #cmt_display{
+        display: flex;
+        flex-flow: row wrap;
+        // align-items: baseline;
+        // flex-grow: 0;
+    }
+  
+  
+ 
+   
+    
+ }
+}
+.personaljournalmain-single{
+    display: block;
+}
