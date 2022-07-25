@@ -271,12 +271,14 @@
         .signup-page1-wrapper, .signup-page2-wrapper, .signup-page3-wrapper, .addpPLantForm {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            padding: 2rem 20%;
+            padding: 2rem 10%;
         }
 
         .cactus-image-signup {
             display: block;
-            padding-top: 6rem;
+            padding-bottom: 8rem;
+            width: 300px;
+            height: auto;
         }
     }
 }

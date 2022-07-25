@@ -9,6 +9,8 @@
     margin-right: auto;
     display: grid;
     padding-top: 2rem;
+    margin-top: 0;
+    margin-bottom: 5rem;
 
     h2 {
         font-size: 2rem;
@@ -105,4 +107,8 @@
             height: 44px;
         }
     }
+}
+
+.login-body footer {
+    margin-top: 2rem;
 }
