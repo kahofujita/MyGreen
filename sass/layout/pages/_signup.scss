@@ -271,14 +271,22 @@
         .signup-page1-wrapper, .signup-page2-wrapper, .signup-page3-wrapper, .addpPLantForm {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
+<<<<<<< Updated upstream
             padding: 2rem 10%;
+=======
+            padding: 2rem 20%;
+>>>>>>> Stashed changes
         }
 
         .cactus-image-signup {
             display: block;
+<<<<<<< Updated upstream
             padding-bottom: 8rem;
             width: 300px;
             height: auto;
+=======
+            padding-top: 6rem;
+>>>>>>> Stashed changes
         }
     }
 }

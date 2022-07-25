@@ -109,10 +109,13 @@
   }
 }
 
+<<<<<<< Updated upstream
 .login-body footer {
   margin-top: 2rem;
 }
 
+=======
+>>>>>>> Stashed changes
 .myaccount-page h2 {
   font-size: 2rem;
   text-align: center;
@@ -131,8 +134,11 @@
 .myaccount-page .avatarDisplayMyAccount button #currentAvatar {
   border-radius: 50%;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.454);
+<<<<<<< Updated upstream
   width: 200px;
   height: 200px;
+=======
+>>>>>>> Stashed changes
 }
 .myaccount-page .avatarDisplayMyAccount button .editButton {
   background-color: #F1D644;
@@ -524,6 +530,7 @@
   .signup-page .signup-page1-wrapper, .signup-page .signup-page2-wrapper, .signup-page .signup-page3-wrapper, .signup-page .addpPLantForm {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+<<<<<<< Updated upstream
     padding: 2rem 10%;
   }
   .signup-page .cactus-image-signup {
@@ -988,6 +995,15 @@ main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-
   border-collapse: collapse;
 }
 
+=======
+    padding: 2rem 20%;
+  }
+  .signup-page .cactus-image-signup {
+    display: block;
+    padding-top: 6rem;
+  }
+}
+>>>>>>> Stashed changes
 body {
   background-color: #FAFAFA;
 }
