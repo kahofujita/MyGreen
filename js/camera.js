@@ -46,7 +46,7 @@ console.log(sessionStorage.getItem('userID'));
 //GET USER NAME
 const userName = document.getElementById('username');
 
-// 
+
 
 let usernameArray = [];
 const un = await getDocs(collection(db, "user_info"));
@@ -65,27 +65,11 @@ for(let j = 0; usernameArray.length > j; j++){
   }else{
   };
 }
-// const asd = db.collection('journal').doc.get();
-// const db = getFirestore();
-// const docRef = doc(db,"journal" );
-// console.log(asd);
-// const jCollection = query(collection(db, "journal"),where ("caption"));
-// const jId = await getDocs (jCollection);
-// const jIds = await getDocs(jId);
-// const db = firebase.firestore();
+
 
 const docRef = doc(db, "journal", "Um2tjbRjsK917w1tjSYJ");
 
 const docSnap = await getDoc(docRef);
-// console.log(docSnap.data().caption);
-
-
-// db.collection("journal").get().then((querySnapshot) => {
-//   querySnapshot.forEach((doc) => {
-//       console.log(doc.id, " => ", doc.data());
-//   });
-// });
-
 
 
 ////SUBMIT //////
@@ -118,14 +102,8 @@ form1.addEventListener("submit", function (event) {
             caption:form1.caption.value,
             journal_date:form1.date.value,  
             care_instruction:form1.journal.value,
-            
-            // journal_id:jId,
-
-            user_id:userId
-            
+            user_id:userId      
     })
-    
-
 })
 
 function renderDogAsHTML( note ) {
@@ -177,6 +155,7 @@ const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 context.scale(0.5, 0.5);
+// context.scale(1, 1);
 
 
 
@@ -229,27 +208,6 @@ document.getElementById("snap").addEventListener("click",  () => {
 
 });
 
-// document.getElementById("stop").addEventListener("click",  ()=> {
-//   const tracks = video.srcObject.getTracks();
-//   tracks.forEach(track => track.stop());
-// });
-
-
-
-// Get a reference to the storage service, which is used to create references in your storage bucket
-// const storage = getStorage();
-
-// // // Create a storage reference from our storage service
-// const storageRef = ref(storage, 'journal');
-
-//     // 'file' comes from the Blob or File API
-// uploadBytes(storageRef, file).then((snapshot) => {
-//   console.log('Uploaded a blob or file!');
-// });
-
-// ///////
-
-
 
 function handleBlob(blob) {
    
@@ -267,20 +225,3 @@ function handleBlob(blob) {
   }
 
 
-//   document.getElementById("menu_toggle").addEventListener("click", menuToggler);
-
-//   function menuToggler() {
-//     document.getElementById("menu").classList.toggle("show_menu");
-// }
-
-// (async () => {
-//   try {
-
-//     const userRef = await db.collection('journal').doc('wjJ0hWsTUcl8gspsqRcM')
-//     await userRef.set({
-//       picture_img_name:'image'.value,
-
-//     })
-
-//   }
-// }
