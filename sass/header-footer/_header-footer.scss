@@ -70,6 +70,8 @@ flex-basis: 100%;
 }
 
 
+
+
 //SEARCH=================================================
 
 .search-wrapper {
@@ -125,6 +127,28 @@ margin-top: 0;
 .back-button {
   color: $color-body-dark;
   margin-right: 2rem;
+}
+
+ul.result {
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+ul.result li {
+  border: 1px solid $color-green1;
+  padding: .3rem;
+  margin: 0.5rem;
+  border-radius: 20px;
+}
+
+ul.result a {
+color: black;
+font-size: 1.2rem;
+border-bottom: 1px solid black;
+cursor: pointer;
 }
 
 
@@ -228,7 +252,7 @@ margin: 0.3rem;
   justify-content: space-around;
 
   }
-
+  
   .header-site-logo-desktop img {
     height: 130px;
     width: auto;

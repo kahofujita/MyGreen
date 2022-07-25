@@ -37,8 +37,8 @@ inputSearch.addEventListener('input', (e) => {//try change it will search all of
     timer = setTimeout(() => {
       plantOurinfo.map(plant => {
         if (reg(e.target.value, plant.plant_name)) {
-          document.querySelector('.result').innerHTML += `The name is ${plant.plant_name} and the water frequency is ${plant.water_frequency} the soil frequency is ${plant.soil_frequency}</br>`;
-          console.log(plant);
+          let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${plant.plant_name.replace(/ /g, "%20")}`;
+          document.querySelector('.result').innerHTML += `<li>${plant.plant_name}(${plant.location}).<a href="${link}">the details</a></li>`;
         }
       })
 
@@ -48,20 +48,23 @@ inputSearch.addEventListener('input', (e) => {//try change it will search all of
     timer = setTimeout(() => {
       plantOurinfo.map(plant => {
         if (reg(e.target.value, plant.plant_name)) {
-          document.querySelector('.result').innerHTML = `The name is ${plant.plant_name} and the water frequency is ${plant.water_frequency} the soil frequency is ${plant.soil_frequency}`;
-          // console.log(plant);
-          // let ul = document.querySelector('.result');
-          // let li = document.createElement('option');
+          let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${plant.plant_name.replace(/ /g, "%20")}`;
+          document.querySelector('.result').innerHTML += `<li>${plant.plant_name}(${plant.location}).<a href="${link}">the details</a></li>`;
+         
+       
+console.log(link);
 
+    
         
         }
       })
+      
     }, 500)
 
+    
   }
-
 });
 
-
+inputSearch.value = "";
 
 

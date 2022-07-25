@@ -13,533 +13,6 @@
 }
 
 /* LAYOUT ================== */
-.login-body {
-  background-color: #FAFAFA;
-}
-
-.login-main {
-  max-width: 338px;
-  margin-left: auto;
-  margin-right: auto;
-  display: grid;
-  padding-top: 2rem;
-  margin-top: 0;
-  margin-bottom: 5rem;
-}
-.login-main h2 {
-  font-size: 2rem;
-  font-weight: normal;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.login-main .login {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 2rem;
-}
-.login-main form {
-  max-width: 448px;
-}
-.login-main input,
-.login-main label {
-  display: block;
-  font-size: 1rem;
-}
-.login-main input {
-  border-radius: 8px;
-  border: solid 2px #83C992;
-  max-width: 100%;
-  height: 56px;
-  padding: 1.5rem 1rem;
-}
-.login-main .email-div,
-.login-main .password-div {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-around;
-  gap: 12px;
-}
-.login-main .signup-link {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
-.login-main .signup-link a {
-  color: #2B2B2B;
-}
-.login-main .loginButton {
-  width: 126px;
-  height: 44px;
-  border-radius: 15px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: none;
-  background-color: #B21F51;
-  color: #FFFFFF;
-  cursor: pointer;
-  font-size: 14px;
-  text-transform: uppercase;
-}
-.login-main .login-graphic {
-  display: none;
-}
-@media screen and (min-width: 800px) {
-  .login-main {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 1100px;
-    padding: 4rem 5% 0 5%;
-  }
-  .login-main .login-graphic {
-    display: block;
-    max-width: 300px;
-    height: auto;
-    padding-top: 3rem;
-  }
-  .login-main label {
-    font-size: 1.5rem;
-  }
-  .login-main h2 {
-    font-size: 2.5rem;
-  }
-  .login-main .loginButton {
-    font-size: 1rem;
-    width: 197px;
-    height: 44px;
-  }
-}
-
-<<<<<<< Updated upstream
-.login-body footer {
-  margin-top: 2rem;
-}
-
-=======
->>>>>>> Stashed changes
-.myaccount-page h2 {
-  font-size: 2rem;
-  text-align: center;
-  font-weight: normal;
-  margin-bottom: 2rem;
-}
-.myaccount-page .avatarDisplayMyAccount button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.myaccount-page .avatarDisplayMyAccount button #currentAvatar {
-  border-radius: 50%;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.454);
-<<<<<<< Updated upstream
-  width: 200px;
-  height: 200px;
-=======
->>>>>>> Stashed changes
-}
-.myaccount-page .avatarDisplayMyAccount button .editButton {
-  background-color: #F1D644;
-  color: white;
-  border-radius: 50%;
-  height: 33px;
-  width: 33px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 0.25rem;
-  right: 0.25rem;
-}
-.myaccount-page #avatarMyAccountLabel {
-  display: block;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-}
-.myaccount-page #avatarMyAccount {
-  border: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.myaccount-page #avatarMyAccount label img {
-  border-radius: 50%;
-  transition: all 0.15s ease-in-out;
-  cursor: pointer;
-}
-.myaccount-page #avatarMyAccount input:checked + label img {
-  border: 4px solid #B21F51;
-  border-radius: 50%;
-}
-.myaccount-page #avatarMyAccount div {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-}
-.myaccount-page #avatarMyAccount div input,
-.myaccount-page #avatarMyAccount div label {
-  grid-column: 1;
-  grid-row: 1;
-}
-.myaccount-page #avatarMyAccount button {
-  display: block;
-  grid-row: 5;
-  grid-column: 1/-1;
-  margin-left: auto;
-  margin-right: auto;
-  text-transform: uppercase;
-  color: white;
-  background-color: #83C992;
-  border: none;
-  border-radius: 15px;
-  width: 126px;
-  height: 44px;
-  cursor: pointer;
-}
-.myaccount-page .form-wrapper .field-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  max-width: 338px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1rem;
-}
-.myaccount-page .form-wrapper .field-wrapper input {
-  padding: 12px 24px;
-  border: 2px solid #83C992;
-  border-radius: 8px;
-}
-.myaccount-page .form-wrapper .buttons-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.myaccount-page .form-wrapper .buttons-wrapper button {
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  border: none;
-  background-color: #83C992;
-  color: white;
-  border-radius: 15px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  cursor: pointer;
-}
-.myaccount-page .save-cancel-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 338px;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
-}
-.myaccount-page .save-cancel-wrapper button {
-  text-transform: uppercase;
-  color: white;
-  background-color: #B21F51;
-  border: none;
-  border-radius: 15px;
-  width: 126px;
-  height: 44px;
-  cursor: pointer;
-}
-.myaccount-page .save-cancel-wrapper a {
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  color: #B21F51;
-  font-weight: bold;
-}
-.myaccount-page .form-wrapper,
-.myaccount-page .change-avatar-wrapper {
-  transition: all 0.5s ease-in-out;
-}
-.myaccount-page .show {
-  transform: translateX(0);
-}
-.myaccount-page .right {
-  transform: translateX(-100%);
-}
-.myaccount-page .form-wrapper .new-hide {
-  display: none;
-}
-.myaccount-page .form-wrapper .new-block {
-  display: block;
-}
-
-.changeInfoMyAccount {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  margin-top: 2rem;
-}
-.changeInfoMyAccount .change-avatar-wrapper {
-  grid-column: 1/-1;
-  grid-row: 1/-1;
-}
-.changeInfoMyAccount .form-wrapper {
-  grid-column: 1/-1;
-  grid-row: 1/-1;
-}
-
-@media screen and (min-width: 800px) {
-  .myaccount-page h2 {
-    font-size: 2.5rem;
-  }
-  .myaccount-page #avatarMyAccount {
-    max-width: 500px;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .myaccount-page #avatarMyAccount label {
-    border: none;
-  }
-  .myaccount-page .form-wrapper .field-wrapper {
-    max-width: 450px;
-  }
-}
-.signup-page h2 {
-  font-size: 2rem;
-}
-.signup-page .sub-headers-pages {
-  font-size: 1.25rem;
-}
-.signup-page h2,
-.signup-page .sub-headers-pages {
-  text-align: center;
-}
-.signup-page .signup-field-form,
-.signup-page .login-back,
-.signup-page .login-next-back,
-.signup-page fieldset {
-  max-width: 338px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.signup-page .signup-page1-wrapper, .signup-page .signup-page2-wrapper, .signup-page .signup-page3-wrapper, .signup-page .addpPLantForm {
-  padding: 2rem 0;
-}
-.signup-page .signup-page3 fieldset {
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem;
-}
-.signup-page .signup-field-form {
-  display: flex;
-  flex-flow: column nowrap;
-  margin-top: 2rem;
-}
-.signup-page label,
-.signup-page input,
-.signup-page select,
-.signup-page option {
-  font-size: 1rem;
-}
-.signup-page input[type=text],
-.signup-page input[type=email],
-.signup-page input[type=password],
-.signup-page select,
-.signup-page option {
-  padding: 1rem 1.5rem;
-  border: 2px solid #83C992;
-  border-radius: 8px;
-}
-.signup-page .login-back {
-  display: flex;
-  align-items: center;
-  flex-flow: column nowrap;
-  margin-top: 2rem;
-}
-.signup-page .login-back a {
-  color: #2B2B2B;
-}
-.signup-page .nextButton,
-.signup-page .finishButton {
-  background-color: #B21F51;
-  text-transform: uppercase;
-  color: #FAFAFA;
-  border: none;
-  width: 7.875rem;
-  height: 2.75rem;
-  border-radius: 44px;
-  cursor: pointer;
-}
-.signup-page .backButton {
-  background: none;
-  border: none;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-decoration: underline;
-  color: #B21F51;
-  cursor: pointer;
-}
-.signup-page #next-button1 {
-  margin-top: 2rem;
-}
-.signup-page .login-next-back {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-.signup-page .signup-page1 .nextButton {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.signup-page .addPlantButton {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-.signup-page .signup-page3 fieldset {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: none;
-  gap: 1rem;
-}
-.signup-page .signup-page3 fieldset div {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-}
-.signup-page .signup-page3 fieldset div input,
-.signup-page .signup-page3 fieldset div label {
-  grid-column: 1;
-  grid-row: 1;
-}
-.signup-page .signup-page4 fieldset {
-  border: 2px solid #83C992;
-  border-radius: 8px;
-  width: 338px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-.signup-page .signup-page4 select {
-  color: gray;
-}
-.signup-page .signup-page4 #addPlantButton {
-  width: 12rem;
-  height: 2.75rem;
-  border-radius: 2.75rem;
-  border: none;
-  background-color: #83C992;
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 0.875rem;
-  margin-top: 2rem;
-  cursor: pointer;
-}
-.signup-page .signup-page4 .login-next-skip {
-  max-width: 338px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-.signup-page .signup-page4 .skipButton {
-  background: none;
-  border: none;
-  text-transform: uppercase;
-  text-decoration: underline;
-  font-size: 0.875rem;
-  color: #A9A9A9;
-  cursor: pointer;
-}
-.signup-page .cactus-image-signup {
-  display: none;
-}
-
-.signup-body {
-  overflow-x: hidden;
-}
-
-.signup-page {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-}
-.signup-page .signup,
-.signup-page .addPlantForm {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-column: 1;
-  grid-row: 1;
-}
-.signup-page .signup-page1-wrapper {
-  transform: translateX(-100%);
-  transition: all 0.5s;
-  grid-column: 1;
-  grid-row: 1;
-}
-.signup-page .signup-page2-wrapper,
-.signup-page .signup-page3-wrapper,
-.signup-page .addpPLantForm {
-  transform: translateX(100%);
-  transition: all 0.5s;
-  grid-column: 1;
-  grid-row: 1;
-}
-.signup-page .left {
-  transform: translateX(-100%);
-  display: block;
-}
-.signup-page .show {
-  transform: translateX(0);
-  display: block;
-}
-.signup-page .right {
-  transform: translateX(100%);
-  display: block;
-}
-
-#avatarSignup label img {
-  border-radius: 50%;
-  transition: all 0.15s ease-in-out;
-  cursor: pointer;
-}
-
-#avatarSignup input:checked + label img {
-  border: 4px solid #B21F51;
-  border-radius: 50%;
-}
-
-@media screen and (min-width: 800px) {
-  .signup-page .signup-page1-wrapper, .signup-page .signup-page2-wrapper, .signup-page .signup-page3-wrapper, .signup-page .addpPLantForm {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-<<<<<<< Updated upstream
-    padding: 2rem 10%;
-  }
-  .signup-page .cactus-image-signup {
-    display: block;
-    padding-bottom: 8rem;
-    width: 300px;
-    height: auto;
-  }
-}
 .search-wrapper {
   display: flex;
   justify-content: center;
@@ -567,118 +40,21 @@
   color: black;
 }
 
-main {
-  margin: 2rem;
+.main-navigators {
+  display: flex;
+  flex-flow: column nowrap;
 }
 
-.mySlides {
-  display: none;
-  position: relative;
-}
-
-img {
-  vertical-align: middle;
-}
-
-/* Slideshow container */
-.slideshow-container-mobile {
-  max-width: 100%;
-  position: relative;
-  margin: auto;
-}
-
-.slideshow-container-desktop {
-  display: none;
-}
-
-.see-more-wrapper {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(71, 61, 61, 0.4784313725);
-  width: 100%;
-}
-
-.see-more-wrapper span {
-  color: #F1D644;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.dots {
-  text-align: center;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .main-single-navigator {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 5rem;
+}
+
+.main-single-navigator img {
+  display: block;
+  margin: auto;
 }
 
 .main-single-navigator a {
@@ -686,44 +62,26 @@ img {
   color: black;
   display: block;
   text-align: center;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25;
+  margin-bottom: 1rem;
 }
 
 @media screen and (min-width: 800px) {
-  .slideshow-container-desktop {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  .slideshow-container-mobile {
-    display: none;
-  }
-  .slide-of-desktop img {
-    width: 100%;
-    height: 200px;
+  .main-navigators {
+    flex-flow: row nowrap;
   }
 }
-.result {
-  margin: 5rem;
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 40px;
-  text-align: center;
-}
-
-img {
-  width: 350px;
-  height: 350px;
-  margin: auto;
-  display: block;
-}
-
 .main-suggestion {
   display: flex;
   flex-flow: column wrap;
   width: 100%;
+}
+
+.main-suggestion h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 6rem;
 }
 
 .pictures-wrapper {
@@ -731,40 +89,147 @@ img {
   margin: auto;
 }
 
+.pictures-wrapper .text-wrapper {
+  background-color: #B21F51;
+  height: 2.75rem;
+  width: 45%;
+  border-radius: 15px;
+  padding: 0.4rem;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.suggestion-link {
+  color: #FAFAFA;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.pointer-image {
+  margin: auto;
+}
+
+.plant-image-wrapper img {
+  width: 15rem;
+  height: 14rem;
+  border: 2px solid #83C992;
+  border-radius: 20px;
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 800px) {
+  .main-suggestion {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    padding: 0.4rem;
+  }
+  .header-suggestion-container {
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+    margin-bottom: 2rem;
+  }
+  .plant-image-wrapper {
+    grid-column: 1/2;
+    grid-row: 1/-1;
+  }
+  .pictures-wrapper .text-wrapper {
+    width: 70%;
+    margin-top: 0;
+  }
+  .main-suggestion h2 {
+    margin-top: 0;
+    margin-bottom: 4rem;
+  }
+  .plant-image-wrapper img {
+    height: 495px;
+    width: 530px;
+  }
+}
+.header-plant-id {
+  text-align: center;
+}
+
+.moon-cactus-image {
+  display: none;
+}
+
+.camera-container {
+  margin: 2.75rem;
+}
+
+.camera-container p {
+  text-align: center;
+}
+
+.icon-camera-container {
+  background-color: #83C992;
+  border-radius: 50%;
+  Width: 80px;
+  Height: 80px;
+  margin: auto;
+  position: relative;
+}
+
+.icon-camera-container:hover {
+  border: 1px solid #F1D644;
+}
+
+.icon-camera-container i {
+  position: absolute;
+  width: 2rem;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -16px;
+  font-size: 2rem;
+}
+
+.show-camera {
+  display: none;
+  grid-column: 1/-1;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  order: 10;
+}
+
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
 }
 
-.custom-file-input::before {
-  content: "image";
-  margin: 0;
-  margin-left: 8rem;
-  border: 1px solid #83C992;
+.custom-file-input {
+  opacity: 0;
+  Width: 80px;
+  Height: 80px;
+}
+
+.input-icon-container {
   border-radius: 50%;
-  padding: 5px 8px;
-  white-space: nowrap;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt;
-  height: 60px;
-  width: 60px;
   background-color: #99C6A2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
 }
 
 .custom-file-input::before {
   margin-right: 0;
 }
 
-.custom-file-input:hover::before {
-  border-color: black;
-}
-
-.custom-file-input:active::before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+.input-icon-container:hover {
+  border: 1px solid #F1D644;
 }
 
 .plant-id-button {
@@ -782,6 +247,9 @@ img {
   height: 44px;
   margin: auto;
   margin-top: 1rem;
+  border: none;
+  margin-top: 2.75rem;
+  margin-bottom: 4.75rem;
 }
 
 .plant-id-main form {
@@ -800,212 +268,197 @@ img {
   text-align: center;
 }
 
-main.myplants h2 {
-  text-align: center;
-  font-size: 34px;
-}
-main.myplants section.myplant {
-  display: flex;
-  justify-content: center;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 5rem;
-}
-main.myplants .myplant h2 {
-  flex-basis: 100%;
-}
-main.myplants .myplant-wrapper {
-  flex-basis: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
-  border: solid 4px #83C992;
-  border-radius: 50px;
-  width: 1000px;
-  margin: auto;
-  padding: 3rem;
-  height: 1000px;
-}
-main.myplants .plant-image img {
-  border: 1px solid transparent;
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-main.myplants #addplant {
-  background-color: #B21F51;
-  color: #ffffff;
-  border: none;
-  text-transform: uppercase;
-  border-radius: 15px;
-  width: 197px;
-  height: 44px;
-  font-size: 14px;
-}
-main.myplants .weekly-schedule-wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-}
-main.myplants .weekly-schedule-wrapper > div {
-  border: 5px solid #DD1C50;
-  border-radius: 20px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  align-content: center;
-  gap: 10px;
-  width: 350px;
-  height: 250px;
-  margin-right: 10rem;
-  margin-left: 10rem;
-}
-main.myplants .myplants-icons i {
-  font-size: 60px;
-}
-main.myplants .myplants-icons img {
-  width: 70px;
-  height: auto;
-}
-main.myplants .weekly-schedule-section {
-  font-size: 21px;
-  flex-basis: 100%;
-}
-main.myplants .weekly-schedule-section + div {
-  font-size: 21px;
-  font-weight: 700;
-}
-main.myplants .weekly-schedule-section .watering {
-  flex-basis: 40%;
-  text-align: right;
-}
-main.myplants .weekly-schedule-section + div + input {
-  font-size: 14px;
-  border-radius: 5px;
-  width: 151px;
-  height: 29px;
-  border: 2px solid #83C992;
-  background-color: #FAFAFA;
-}
-main.myplants button.watered-today {
-  background-color: #B21F51;
-  color: #ffffff;
-  border: none;
-  text-transform: uppercase;
-  border-radius: 15px;
-  width: 197px;
-  height: 44px;
-  font-size: 14px;
-}
-main.myplants button.nutritionize-today {
-  background-color: #83C992;
-  color: #ffffff;
-  border: none;
-  text-transform: uppercase;
-  border-radius: 15px;
-  width: 197px;
-  height: 44px;
-  font-size: 14px;
-}
-main.myplants button.watered-today:disabled {
-  background: rgba(178, 31, 81, 0.5);
-}
-main.myplants button.nutritionize-today:disabled {
-  background: rgba(131, 201, 146, 0.5);
-}
-@media screen and (min-width: 800px) {
-  main.myplants .weekly-schedule-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    border: 5px solid #DD1C50;
-    border-radius: 50px;
-    padding: 3rem;
-    max-width: 1000px;
-    margin: auto;
-    gap: 0;
-  }
-  main.myplants .weekly-schedule-wrapper > div {
-    border: unset;
-    margin: 0;
-  }
-  main.myplants .sunlight-temp {
-    padding-bottom: 7rem;
-  }
-  main.myplants .weekly-schedule-section + div {
-    flex-basis: 100%;
-  }
-  main.myplants button.watered-today,
-main.myplants button.nutritionize-today {
-    margin-top: 1rem;
-  }
+.input-icon-container {
+  position: relative;
 }
 
+.input-icon-container i {
+  position: absolute;
+  width: 2rem;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -16px;
+  font-size: 2rem;
+}
+
+.result-message {
+  display: grid;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 1.375rem;
+}
+
+.common-name-wrapper,
+.scientific-name-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.3rem;
+  align-items: center;
+  margin-bottom: 1.375rem;
+}
+
+.names-wrapper {
+  display: grid;
+  justify-content: center;
+}
+
+.plant-picture {
+  display: block;
+  width: 255px;
+  height: auto;
+  margin-top: 2.5rem;
+  margin-bottom: 2.25rem;
+  margin: auto;
+}
+
+.plant-picture img {
+  border: 4px solid #83C992;
+  border-radius: 20px;
+  margin: 2.3rem 0;
+}
+
+@media screen and (min-width: 800px) {
+  .header-plant-id {
+    font-weight: 400;
+  }
+  .moon-cactus-image {
+    display: block;
+    width: 302px;
+    height: auto;
+    grid-column: 1/2;
+  }
+  .plant-id-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 0;
+    height: 40vh;
+    padding: 0.7rem;
+  }
+  .uploading-picture-form {
+    grid-column: 2/3;
+  }
+  .moon-cactus-image {
+    grid-row: 1/3;
+    align-self: center;
+    justify-self: center;
+  }
+  .taking-picture-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+  }
+  .file-choose-container {
+    margin-left: 3rem;
+    margin-right: 0;
+  }
+  .custom-file-input,
+.icon-camera-container {
+    Width: 100px;
+    Height: 100px;
+  }
+  .plant-id-button {
+    width: 197PX;
+  }
+  .plant-picture {
+    grid-column: 1/2;
+    grid-row: 1/4;
+    align-self: center;
+    justify-self: center;
+  }
+  .header-plant-id,
+.names-wrapper,
+.result-message {
+    grid-column: 2/-1;
+  }
+  .result-message {
+    margin-bottom: 2.5rem;
+  }
+}
+main.plant-detail .main-plant-detail-wrapper {
+  padding: 1rem;
+}
+main.plant-detail .main-plant-detail-wrapper > div {
+  padding-bottom: 3rem;
+}
 main.plant-detail .plant-image-name-wrapper img {
   border: #83C992 4px solid;
-  max-width: 60%;
+  width: 15rem;
   height: auto;
   border-radius: 20px;
   margin: auto;
 }
 main.plant-detail .plant-image-name-wrapper .plant-name {
-  font-size: 4rem;
+  font-size: 2rem;
   color: #DD1C50;
   font-weight: 400;
   font-family: "Righteous", cursive;
   text-align: center;
+}
+main.plant-detail .desc-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
 }
 main.plant-detail .indoor,
 main.plant-detail .outdoor {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
+  padding-bottom: 3rem;
 }
 main.plant-detail .indoor-frequent,
 main.plant-detail .outdoor-frequent {
   flex-basis: 100%;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 main.plant-detail .frequent-wrapper {
   border: #DD1C50 2px solid;
   border-radius: 20px;
-  width: 15rem;
-  height: 15rem;
+  width: 9rem;
+  height: 8rem;
   text-align: center;
-  padding-top: 2rem;
-  font-size: 1.6rem;
+  padding: 1rem 0.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
 }
 main.plant-detail .frequent-wrapper div:nth-of-type(1) {
   font-weight: 700;
 }
 main.plant-detail .section-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  font-size: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.4rem;
   border-bottom: 1px solid #BCBCBC;
+  text-align: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+main.plant-detail .description {
+  font-size: 1.2rem;
+  padding: 0 1rem;
 }
 main.plant-detail table, main.plant-detail tr, main.plant-detail td, main.plant-detail th {
   border: 1px solid #BCBCBC;
   border-collapse: collapse;
+  font-size: 1.2rem;
+  padding: 1rem;
 }
-
-=======
-    padding: 2rem 20%;
-  }
-  .signup-page .cactus-image-signup {
-    display: block;
-    padding-top: 6rem;
-  }
-}
->>>>>>> Stashed changes
-body {
-  background-color: #FAFAFA;
+main.plant-detail th {
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-align: left;
 }
 
 /* MEDIA =================== */
@@ -1213,6 +666,56 @@ select {
 
 .search-icon a {
   color: black;
+}
+
+.searchbar-page {
+  background-color: #fff;
+  width: 100%;
+  transform: translateY(-100%);
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s;
+  min-height: 100%;
+  height: max-content;
+  margin-top: 0;
+}
+
+.show-search {
+  transform: translateY(0);
+}
+
+.searchbar-page .search-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.back-button {
+  color: #2B2B2B;
+  margin-right: 2rem;
+}
+
+ul.result {
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+ul.result li {
+  border: 1px solid #83C992;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  border-radius: 20px;
+}
+
+ul.result a {
+  color: black;
+  font-size: 1.2rem;
+  border-bottom: 1px solid black;
+  cursor: pointer;
 }
 
 .footer {

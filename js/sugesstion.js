@@ -32,11 +32,6 @@ await getDocs(colRef)
 //compare the month and date to avoid show new suggestion in same month
 let lastSuggestion;
 
-// if (!localStorage.getItem('lastSuggestion'))
-//   lastSuggestion = {}
-// else
-//   lastSuggestion = JSON.parse(localStorage.getItem('lastSuggestion'))
-
 
 
 //handling the very first time of application run (edge case)
@@ -54,13 +49,17 @@ const suggestionHandler = () => {
   let result = document.querySelector('.suggestion-link');
 
   if (lastSuggestion.date) {
-    result.innerHTML = `Our <span style="color: orange;">last</span> suggestion is: ${lastSuggestion.plant}`;
-    //  result.style = `color: black;
-    //  text-align: center;
-    //  display: block;
-    //  font-size: 1.5rem;`
+    result.innerHTML = `Our <span style="color: #EFD35E;">last</span> suggestion is: ${lastSuggestion.plant}`;
+ 
     let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
     result.href = link;
+
+    const imgNameWapper = document.querySelector('.plant-image-wrapper')
+    // Display Plant Image
+    const img = document.createElement('img')
+    img.src = `./images/plant_img/${lastSuggestion.plant}.png`
+    img.alt = lastSuggestion.plant
+    imgNameWapper.appendChild(img)
 
   } else {
 
@@ -76,22 +75,20 @@ const suggestionHandler = () => {
     result.href = link;
 
     localStorage.setItem('lastSuggestion', JSON.stringify(lastSuggestion))
-    result.innerHTML = `Our <span style="color: cyan;">new</span> suggestion is: ${lastSuggestion.plant}.`;
-    //  suggestionLink.innerHTML = ` the details are here:${link}`;
+    result.innerHTML = `Our <span style="color: #83C992;">new</span> suggestion is: ${lastSuggestion.plant}.`;
+    const imgNameWapper = document.querySelector('.plant-image-wrapper')
+    // Display Plant Image
+    const img = document.createElement('img')
+    img.src = `./images/plant_img/${lastSuggestion.plant}.png`
+    img.alt = lastSuggestion.plant
+    imgNameWapper.appendChild(img)
 
   }
   return
+ 
 }
-const imgNameWapper = document.querySelector('.plant-image-name-wrapper')
-// Display Plant Image
-const img = document.createElement('img')
-img.src = `./images/plant_img/${lastSuggestion.plant}.png`
-img.alt = lastSuggestion.plant
-imgNameWapper.appendChild(img)
 
-// document.querySelector('#suggestion-btn').addEventListener('click', suggestionHandler);
 suggestionHandler();
-
 
 
 
