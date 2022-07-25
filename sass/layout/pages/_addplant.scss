@@ -1,0 +1,134 @@
+.addplant-main {
+    .cactus-image-addPlant {
+        display: none;
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .signup-field-form,
+    .login-next-skip {
+        max-width: 338px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .signup-field-form {
+        display: flex;
+        flex-flow: column nowrap;
+        margin-top: 2rem;
+    }
+
+    .signup-field-form #location-fieldset {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+    }
+
+    label,
+    input,
+    select,
+    option {
+        font-size: 1rem;
+    }
+
+    input[type="text"],
+    select,
+    option {
+        padding: 1rem 1.5rem;
+        border: 2px solid $color-green1;
+        border-radius: 8px;
+    }
+
+    select {
+        color: gray;
+    }
+
+    fieldset {
+        border: 2px solid $color-green1;
+        border-radius: 8px;
+        width: 338px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+
+    .addPlantButton {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 12rem;
+        height: 2.75rem;
+        border-radius: 2.75rem;
+        border: none;
+        background-color: $color-green1;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: .875rem;
+        margin-top: 2rem;
+        cursor: pointer;
+    }
+
+    .finishButton {
+        background-color: $color-red2;
+        text-transform: uppercase;
+        color: $color-body-light;
+        border: none;
+        width: 7.875rem;
+        height: 2.75rem;
+        border-radius: 44px;
+        cursor: pointer;
+    }
+
+    .backButton {
+        background: none;
+        border: none;
+        font-size: .875rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: underline;
+        color: $color-red2;
+        cursor: pointer;
+    }
+
+    .login-next-skip {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+
+    .addpPlantForm {
+        padding: 2rem 0;
+    }
+
+    .feedbackUser {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
+
+}
+
+@media screen and (min-width: $media-query-break) {
+    .addplant-main {
+
+        .addpPlantForm {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 2rem 10%;
+        }
+
+        .cactus-image-addPlant {
+            display: block;
+            padding-bottom: 8rem;
+            width: 300px;
+            height: auto;
+        }
+    }
+}
