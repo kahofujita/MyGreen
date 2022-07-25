@@ -13,8 +13,7 @@
     margin-bottom: 5rem;
 
     h2 {
-        font-size: 2rem;
-        font-weight: normal;
+        font-size: 32px;
         text-align: center;
         margin-bottom: 1rem;
     }
@@ -32,15 +31,15 @@
     input,
     label {
         display: block;
-        font-size: 1rem;
+        font-size: 16px;
     }
 
     input {
         border-radius: 8px;
         border: solid 2px $color-green1;
-        max-width: 100%;
+        width: 100%;
         height: 56px;
-        padding: 1.5rem 1rem;
+        padding: 24px 16px;
     }
 
     .email-div,
@@ -94,15 +93,15 @@
         }
 
         label {
-            font-size: 1.5rem;
+            font-size: 24px;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 40px;
         }
 
         .loginButton {
-            font-size: 1rem;
+            font-size: 16px;
             width: 197px;
             height: 44px;
         }

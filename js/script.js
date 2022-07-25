@@ -1,4 +1,15 @@
-'use strict';
+// 'use strict';
+import { Router, Page } from './routing.js'
+
+
+// let queryString = window.location.search;
+// const urlParams = new URLSearchParams(queryString);
+
+// console.log(urlParams)
+
+// let plantName = urlParams.get("name");
+
+// console.log(plantName)
 
 //setting up the Router with pages
 Router.init('mainArea', [
@@ -11,5 +22,6 @@ Router.init('mainArea', [
   new Page('#myaccount', 'myaccount.html', '', 'My Green - My Account'),
   new Page('#search', 'search.html', '', 'My Green - Search'),
   new Page('#plant-detail', 'plant-detail.html', '', 'My Green - Plant detail'),
-  new Page('#plantid', 'plantid.html', '', 'My Green - Plant Identifier')
+  new Page('#plantid', 'plantid.html', '', 'My Green - Plant Identifier'),
+  // new Page('#addplant', 'addplant.html', '', 'My Green - Add a Plant')
 ]);

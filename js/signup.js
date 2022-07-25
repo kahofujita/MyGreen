@@ -22,6 +22,11 @@ import {
 
 // If the user already logged in move him to homepage
 
+export function init () {
+    console.log(" initializing about.js module:" + new Date());
+}
+
+
 if (sessionStorage.getItem('userID') !== null) {
     window.location.assign("./homepage.html");
 }
@@ -118,11 +123,11 @@ signupForm.addEventListener('submit', (e) => {
 
     // Creating user on authentication and user_info on Firebase
 
-    if (email === '' || password === '' || confirmPassword === '' || username === '' || fname === '' || lname === '') {
-        alert("Please fill the whole form");
-    } else if (password.length < 6) {
-        alert("Password must be at least 6 characters");
-    } else if (password === confirmPassword) {
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
+    }
+
+    if (password === confirmPassword) {
         createUserWithEmailAndPassword(auth, email, password)
             .then((cred) => {
                 setDoc(doc(db, "user_info", cred.user.uid), {
@@ -134,19 +139,8 @@ signupForm.addEventListener('submit', (e) => {
                     user_id: cred.user.uid
                 })
                 sessionStorage.setItem('userID', cred.user.uid);
-
             }).then(() => {
-
                 signupForm.reset()
-
-                const signupForm3 = document.querySelector('.signup-page3-wrapper');
-                const addPlantForm = document.querySelector('.addpPLantForm');
-
-                signupForm3.classList.remove('show')
-                signupForm3.classList.toggle('left')
-                addPlantForm.classList.remove('right')
-                addPlantForm.classList.toggle('show')
-
                 alert("User Created");
             })
             .catch((err) => {
