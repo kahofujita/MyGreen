@@ -1,0 +1,314 @@
+
+main.myplants {
+
+    padding: 1rem;
+
+    h2 {
+        text-align: center;
+        font-size: 2.1rem;
+    }
+
+    section.myplant {
+        display: flex;
+        justify-content: center;
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 1.8rem;
+        margin-bottom: 5rem;
+    }
+
+    .myplant h2 {
+        flex-basis: 100%;
+    }
+
+    .myplant-wrapper {
+        flex-basis: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 1rem;
+        border: solid 4px $color-green1;
+        border-radius: 50px;
+        width: 90%;
+        padding: 2rem;
+    }
+
+    .plant-image img {
+        border: 1px solid transparent;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        cursor: pointer;
+    }
+
+    img.green-border {
+        border: 3px solid #83C992;
+    }
+
+    .plant-image img:hover {
+        border: 3px solid $color-green1;
+    }
+
+    .button-image {
+        display: none;
+    }
+
+    #addplant {
+        border: none;
+        text-transform: uppercase;
+        background-color: transparent;
+        font-size: 14px;
+        cursor: pointer;
+
+        a {
+            background-color: $color-red2;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px 70px;
+            border-radius: 15px;
+        }
+
+        a:hover {
+            background-color: white;
+            color: black;
+            border: $color-red2 3px solid;
+        }
+        a:focus {
+            background-color: $color-red2;
+            color: white;
+            border: white 3px solid;
+        }
+    }
+
+
+
+    // Plant shcedule section ===============
+
+    .weekly-schedule {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1.8rem;
+    }
+
+    .weekly-schedule-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    .watering,
+    .sunlight-temp,
+    .nutritions {
+        border: 5px solid #DD1C50;
+        border-radius: 20px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        gap: .5rem;
+        width: 23rem;
+        height: 17rem;
+        margin: auto;
+    }
+
+    // .watering-wrapper {
+    //     transition: opacity 2s ease-in-out;
+    //     -moz-transition: opacity 2s ease-in-out;
+    //     -webkit-transition: opacity 2s ease-in-out;
+    // }
+
+    .icon-section-wrapper {
+        flex-basis: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;  
+    }
+
+    .myplants-icons i {
+        font-size: 4rem;
+    }
+
+    .myplants-icons img {
+        width: 4.5rem;
+        height: auto;
+    }
+
+    .weekly-schedule-section {
+        font-size: 1.3rem;
+        flex-basis: 100%;
+    }
+
+    .icon-section-wrapper + div {
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+
+    .weekly-schedule-section .watering {
+        flex-basis: 40%;
+        text-align: right;
+    }
+
+    .weekly-schedule-wrapper input {
+        font-size: .9rem;
+        border-radius: 5px;
+        width: 9.5rem;
+        height: 1.8rem;
+        border: 2px solid $color-green1;
+        background-color: $color-body-light;
+    }
+
+    button.watered-today {
+        background-color: $color-red2;
+        color: #ffffff;
+        border: none;
+        text-transform: uppercase;
+        border-radius: 15px;
+        width: 12rem;
+        height: 2.7rem;
+        font-size: .9rem;
+        cursor: pointer;
+
+        &:disabled {
+            background: rgba(178, 31, 81, 0.5);
+            cursor: unset;
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                background-color: white;
+                color: black;
+                border: $color-red2 3px solid;
+            }
+            &:focus {
+                background-color: $color-red2;
+                color: white;
+                border: white 3px solid;
+            }
+        }
+    }
+
+    button.nutritionize-today {
+        background-color: $color-green1;
+        color: #ffffff;
+        border: none;
+        text-transform: uppercase;
+        border-radius: 15px;
+        width: 12rem;
+        height: 2.7rem;
+        font-size: .9rem;
+        cursor: pointer;
+
+        &:disabled {
+            background: rgba(131, 201, 146, 0.5);
+            cursor: unset;
+        }
+        &:not([disabled]) {
+            &:hover {
+                background-color: white;
+                color: black;
+                border: $color-green1 3px solid;
+            }
+            &:focus {
+                background-color: $color-green1;
+                color: white;
+                border: white 3px solid;
+            }
+        }
+    }
+
+
+
+    // Desktop Screen ==============================-
+    @media screen and (min-width: 800px) {
+
+        .main-myplants-wrapper {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 2.3rem;
+        }
+
+        .myplant-wrapper {
+            grid-template-columns: repeat(4,1fr);
+            width: 100%;
+        }
+
+        .button-image {
+            display: block;
+            order: 4;
+            border-radius: 50%;
+            font-size: 1.5rem;
+        }
+
+        .button-image a {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #EFEFEF;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button-image:hover {
+            border: 3px solid $color-green1;
+        }
+
+        #addplant {
+            display: none;
+        }
+
+        .watering,
+        .sunlight-temp,
+        .nutritions {
+            border: unset;
+            width: unset;
+            gap: 0;
+        }
+
+        .icon-section-wrapper {
+            margin-bottom: 1rem;
+        }
+
+        .weekly-schedule-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 1rem;
+            border: 5px solid #DD1C50;
+            border-radius: 50px;
+            padding: 2rem;
+            width: 100%;
+            margin: auto;
+            gap: 0;
+            height: 25rem;
+        }
+
+
+        .weekly-schedule-wrapper input {
+            margin: 0;
+            margin-bottom: 1rem;
+        }
+
+        .sunlight-temp {
+            padding-bottom: 7rem;
+        }
+
+        .icon-section-wrapper + div {
+            flex-basis: 100%;
+        }
+
+        button.watered-today,
+        button.nutritionize-today {
+            margin-top: 1rem;
+        }
+
+
+        
+    }
+
+}

@@ -1,0 +1,25 @@
+// GABRIEL
+
+@import "pages/login";
+@import "./pages/myaccount";
+@import "./pages/signup";
+@import "./pages/addplant";
+
+// ROJIN
+@import "./pages/search";
+@import "./pages/homepage";
+@import "./pages/suggestion";
+@import "./pages/plant-id";
+
+// KAHO
+@import "./pages/myplants";
+@import "./pages/plant-detail";
+
+// KEIKO
+@import "./pages/camera";
+@import "./pages/my-journal";
+@import "./pages/public-journal";
+
+body {
+    background-color: $color-body-light;
+}
