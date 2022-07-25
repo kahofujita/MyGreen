@@ -22,11 +22,6 @@ import {
 
 // If the user already logged in move him to homepage
 
-export function init () {
-    console.log(" initializing about.js module:" + new Date());
-}
-
-
 if (sessionStorage.getItem('userID') !== null) {
     window.location.assign("./homepage.html");
 }
@@ -152,7 +147,7 @@ signupForm.addEventListener('submit', (e) => {
                 addPlantForm.classList.remove('right')
                 addPlantForm.classList.toggle('show')
 
-                alert("User Created");
+                // alert("User Created");
             })
             .catch((err) => {
                 console.log(err.message)
@@ -217,6 +212,8 @@ addPlantBtn.addEventListener('click', () => {
 
     // print every time you add to the array
     console.log(plantsList)
+    const feedbackUser = document.querySelector('.feedbackUser');
+    feedbackUser.innerHTML = 'New plant added, click on save after finish adding plants.'
 
     addPlantForm.reset()
 })
@@ -230,6 +227,6 @@ addPlantForm.addEventListener('submit', (e) => {
         plantsList: plantsList
     })
 
-    alert("Signup Finished");
+    // alert("Signup Finished");
     window.location.assign("./index.html");
 })

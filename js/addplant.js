@@ -52,37 +52,16 @@ await getDocs(colPlantOurInfo)
         console.log(err.message)
     })
 
-    onSnapshot(doc(db, "plant_userinfo", userId), (doc) => {
-        let plantsUpdate = (doc.data().plantsList)
-        
-        for (let plant of plantsUpdate) {
-            plantUserInfo.push(plant)
-        }
+onSnapshot(doc(db, "plant_userinfo", userId), (doc) => {
+    let plantsUpdate = (doc.data().plantsList)
 
-        console.log(plantUserInfo)
-    })
-        // doc.docs.forEach((doc) => {
-        //     if (doc.id === userId) {
-        //     console.log(doc.id)
-        //     plantUserInfo.push(
-        //         doc.data().plantsList[0]
-        //     )}
-        // })})
+    for (let plant of plantsUpdate) {
+        plantUserInfo.push(plant)
+    }
 
-    // await getDocs(colPlantUserInfo)
-    // .then((snapshot) => {
-    //     snapshot.docs.forEach((doc) => {
-    //         if (doc.id === userId) {
-    //         console.log(doc.id)
-    //         plantUserInfo.push(
-    //             doc.data().plantsList[0]
-    //         )}
-    //     })
-    //     console.log(plantUserInfo)
-    // })
-    // .catch(err => {
-    //     console.log(err.message)
-    // })
+    console.log(plantUserInfo)
+})
+
 
 const outdoorPlantsArr = [];
 const indoorPlantsArr = [];
@@ -109,8 +88,7 @@ querySnapshotIndoor.forEach((doc) => {
 
 const addPlantBtn = document.getElementById('addPlantButton');
 const addPlantForm = document.querySelector('.addpPlantForm');
-
-
+const feedbackUser = document.querySelector('.feedbackUser');
 
 addPlantBtn.addEventListener('click', () => {
 
@@ -159,6 +137,8 @@ addPlantBtn.addEventListener('click', () => {
 
     // print every time you add to the array
     console.log(plantUserInfo)
+
+    feedbackUser.innerHTML = 'New plant added, click on save after finish adding plants.'
 
     addPlantForm.reset()
 })

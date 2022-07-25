@@ -21,9 +21,6 @@ import {
     signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
 
-export async function init () {
-    console.log(" initializing about.js module:" + new Date());
-
 const userId = sessionStorage.getItem('userID');
 
 
@@ -76,7 +73,7 @@ changeInfoUser.addEventListener('submit', (e) => {
     for (let radio of radiosAvatar) {
         if (radio.checked) {
             newAvatar = radio.value;
-        } else if (!radio.checked) {
+        } else if (newAvatar === "") {
             newAvatar = currentAvatarFirebase;
         }
     };
@@ -104,7 +101,7 @@ changeInfoUser.addEventListener('submit', (e) => {
                             console.log('Im password 2')
                             updatePassword(auth.currentUser, newPassword)
                             .then(() => {
-                                // window.location.reload()
+                                window.location.reload()
                             })
                         })
                 })
@@ -171,13 +168,6 @@ changeUsernameButton.addEventListener('click', () => {
 });
 
 changeEmailButton.addEventListener('click', () => {
-<<<<<<< Updated upstream
-    changeEmailField.classList.toggle('appear');
-    changeEmailButton.innerHTML = 'Remove field';
-})
-
-}
-=======
 
     if (newEmailWrapper.classList.contains('new-hide')) {
         newEmailWrapper.classList.remove('new-hide');
@@ -193,4 +183,3 @@ changePasswordButton.addEventListener('click', () => {
         confPasswordLabel.innerText = "Confirm password"
     }
 })
->>>>>>> Stashed changes

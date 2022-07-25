@@ -197,6 +197,12 @@
     .cactus-image-signup {
         display: none;
     }
+
+    .feedbackUser {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
 }
 
 // WORKING ON GRID TO DISPLAY AND MAKE IT DISSAPEAR
@@ -271,22 +277,14 @@
         .signup-page1-wrapper, .signup-page2-wrapper, .signup-page3-wrapper, .addpPLantForm {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-<<<<<<< Updated upstream
             padding: 2rem 10%;
-=======
-            padding: 2rem 20%;
->>>>>>> Stashed changes
         }
 
         .cactus-image-signup {
             display: block;
-<<<<<<< Updated upstream
             padding-bottom: 8rem;
             width: 300px;
             height: auto;
-=======
-            padding-top: 6rem;
->>>>>>> Stashed changes
         }
     }
 }
