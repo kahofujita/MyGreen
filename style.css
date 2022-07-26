@@ -303,6 +303,9 @@
     max-width: 450px;
   }
 }
+.signup-page {
+  padding-bottom: 10rem;
+}
 .signup-page h2 {
   font-size: 2rem;
 }
@@ -533,7 +536,7 @@
   }
   .signup-page .cactus-image-signup {
     display: block;
-    padding-bottom: 8rem;
+    padding-top: 8rem;
     width: 300px;
     height: auto;
   }
@@ -649,6 +652,175 @@
     padding-bottom: 8rem;
     width: 300px;
     height: auto;
+  }
+}
+.about-us-page {
+  padding-top: 2.5rem;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about-us-page h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+.about-us-page p {
+  text-align: center;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+.about-us-page .member .member-image {
+  display: block;
+  margin-top: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about-us-page .member .member-name {
+  margin: 0;
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Righteous", cursive;
+}
+.about-us-page .member .member-position {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.about-us-page .contact-us {
+  width: 245px;
+  height: 44px;
+  margin: 3rem auto;
+}
+.about-us-page .contact-us a {
+  color: #FAFAFA;
+  background-color: #B21F51;
+  border-radius: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 12px 32px;
+  display: block;
+  letter-spacing: 1.25px;
+}
+
+@media screen and (min-width: 800px) {
+  .about-us-page {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-us-page h2 {
+    font-size: 2.2rem;
+  }
+  .about-us-page p {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+  .about-us-page .members-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  .about-us-page .member:nth-of-type(7) {
+    grid-column: 2;
+  }
+}
+.contact-us-page {
+  padding-top: 3rem;
+}
+.contact-us-page img {
+  display: none;
+}
+.contact-us-page h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+.contact-us-page form {
+  max-width: 363px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  gap: 1.5rem;
+}
+.contact-us-page .input-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.contact-us-page label, .contact-us-page input {
+  font-size: 1rem;
+}
+.contact-us-page input, .contact-us-page textarea {
+  padding: 15px 20px;
+  border: solid 2px #83C992;
+  border-radius: 8px;
+}
+.contact-us-page textarea {
+  resize: none;
+  height: 140px;
+}
+.contact-us-page button {
+  width: 126px;
+  height: 44px;
+  border: none;
+  border-radius: 15px;
+  letter-spacing: 1.25px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background-color: #B21F51;
+  color: white;
+  text-transform: uppercase;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.contact-us-page button:hover {
+  background-color: #FAFAFA;
+  border: #DD1C50 2px solid;
+  color: black;
+}
+.contact-us-page button:active {
+  color: #FAFAFA;
+  background-color: #B21F51;
+  border: 3px solid #FAFAFA;
+}
+
+@media screen and (min-width: 800px) {
+  .contact-us-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-us-page h2 {
+    font-size: 2.5rem;
+  }
+  .contact-us-page .title-image-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .contact-us-page .image-wrapper {
+    background-color: #EFEFEF;
+    border-radius: 50%;
+    height: 435px;
+    width: 435px;
+    display: flex;
+    align-items: center;
+    box-shadow: 3px 5px 10px rgb(138, 138, 138);
+  }
+  .contact-us-page img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 232px;
+    height: auto;
+    padding-bottom: 20px;
   }
 }
 .search-wrapper {
