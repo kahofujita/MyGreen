@@ -1,38 +1,5 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capture your plant</title>
-    <script src="./js/camera.js" type="module" defer></script>
-    <script src="./js/avatar.js" type="module" defer></script>
-    <link rel="stylesheet" href="style.css">
 
-</head>
-<body>
-   
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="homepage.html">Home</a></li>
-                    <li><a href="myplants.html">My plants</a></li>
-                    <li><a href="public_journal.html">Journal</a></li>
-                    <li><a href="personal_journal.html">My journal</a></li>
-                    <li><a href="sugesstion.html">Plant pick</a></li>
-                    <li><a href="myaccount.html">My account</a></li>
-                    <li><a href="camera.html">Camera</a></li>
-    
-                </ul>
-            </nav>
-            <input type="text">
-            <label for="submit">Search</label>
-    
-            <button type="button" class="logout">Logout</button>
-        </header> -->
-        
-        
-        <main>
+        <main class="camera-main">
 
             <div class="main-wrapper">
           
@@ -42,36 +9,36 @@
                 
                     <div class="shot-button">
                         <button id="start" class="item">Camera On</button>
-                        <!-- <input type="file" accept="image/*" capture="camera"> -->
-                        <!-- <button type="button" id="btn-toggle">Change Camera angle</button> -->
+                       
                         <button id="snap" class="item">Snap Photo</button>
-                        <!-- <button id="stop" class="item">Stop Camera</button> -->
+                      
                     </div>
                       <br />
-                      <!-- <video id="video" width="480" height="480" autoplay></video> -->
                       <video id="video" width="320" height="240" autoplay></video>
+                      <!-- <video id="video" width="320" height="320" autoplay></video> -->
                       <br />
-                      <!-- <canvas id="canvas" width="480" height="480"></canvas> -->
-                       <canvas id="canvas" width="320" height="240"></canvas>
+                      <canvas id="canvas" width="320" height="240"></canvas>
+                       <!-- <canvas id="canvas" width="320" height="320"></canvas> -->
                 </div>
             
             
                 <div class="page" id="profile" >
                         <div id="card">
                             <img id="avatar">
-                            <!-- <p id="username"></p> -->
+                           
                         
                             <div class="pic_area">
-                            <!-- <p>picture</p> -->
-                                <a class="item" href="#picture" >Take a Picture</a>
-                                <input id="target" type="file" />
+                           
+                            <span class="imgicon"><i class="fa-solid fa-image"></i></span>
+                            <p>Please select</p>
+                            <a class="item" href="#picture" >Take a Picture</a>
+                               
                             </div>
                             <div id="front" class="face">
                                 <form id="form1">
                                 
                                    <input type="url" id="image" size="40" required />
-                                   <!-- <label>Date </label>
-                                   <input type="date" id="date" required /> -->
+                                  
                                 
                                    <div class="input-area">
                                        <p id="username"></p>
@@ -86,20 +53,25 @@
                                    <span></span>
                                    <input type="submit" class="submit" >
                                 </form>
+                               
                             </div>
+                           
                         </div>
                     
                         <div id="back" class="face">
+                            
                         </div>
                     </div>
                     </div>
                 </div>
             
             </div><!--  end of main-wrapper -->
-            <script src="./js/camera.js" type="module" defer></script>
-            <script src="./js/avatar.js" type="module" defer></script>
-            <link rel="stylesheet" href="style.css">
+           <script src="./js/camera.js" type="module" defer></script>
+           <script src="./js/camera.js" type="module" defer></script>
+           <script src="./js/avatar.js" type="module" defer></script>
+           <link rel="stylesheet" href="style.css">
+           <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css' integrity='sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==' crossorigin='anonymous' />
         </main>
 
-<!-- </body>
-</html> -->
+</body>
+</html>

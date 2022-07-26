@@ -1,11 +1,10 @@
 
-import { db, auth } from './firebase/firebase-config.js'
-import { collection, addDoc, doc, getDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
+import {db, auth} from './firebase/firebase-config.js'
+import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
 const userId = sessionStorage.getItem('userID')
 console.log(userId)
 
-// document.querySelector("#suggestionLink").href = "http://plant-datails.html?name=${plant.plant_name}";
 let queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
@@ -17,6 +16,12 @@ const detailSec = document.querySelector('.detail-section')
 const indoorSec = document.querySelector('.indoor-section')
 const outdoorSec = document.querySelector('.outdoor-section')
 const description = document.querySelector('.description')
+const detailSection = document.querySelector('.detail-section')
+const indoorSection = document.querySelector('.indoor-section')
+const outdoorSection = document.querySelector('.outdoor-section')
+
+// Create a media condition that targets viewports at least 800px wide
+const mediaQuery = window.matchMedia('(min-width: 800px)')
 
 
 // Display Plant Image
@@ -30,7 +35,6 @@ const plantNamediv = document.createElement('div')
 plantNamediv.classList.add('plant-name')
 imgNameWapper.appendChild(plantNamediv)
 plantNamediv.innerHTML = plantName
-
 
 
 const getPlantinfo = async () => {
@@ -49,8 +53,7 @@ const getPlantinfo = async () => {
     // Query "plant_ourinfo" for INDOOR location =================
     const indoorQuery = query(collection(db, "plant_ourinfo"), where("plant_name", "==", plantName), where("location", "==", 'indoor'))
     const indoorQuerySnapshot = await getDocs(indoorQuery);
-    console.log(indoorQuerySnapshot);
-    indoorQuerySnapshot.forEach(async (doc_indoor) => {
+    indoorQuerySnapshot.forEach( async(doc_indoor) => {
 
         // // Display Plant Image
         // const img = document.createElement('img')
@@ -75,7 +78,7 @@ const getPlantinfo = async () => {
         const indoorSunTempRequirement = doc_indoor.data().sunlight_requirement
         const indoorWaterRequirement = doc_indoor.data().water_requirement
         const indoorSoilRequirement = doc_indoor.data().soil_requirement
-
+        
         console.log(indoorSunFrequent)
         console.log(indoorWaterFrequent)
         console.log(indoorSoilFrequent)
@@ -92,18 +95,43 @@ const getPlantinfo = async () => {
             const indoorDiv = document.createElement('div')
             indoorDiv.classList.add('indoor')
             frequentList.appendChild(indoorDiv)
-            indoorDiv.innerHTML = `<div>${indoorSunFrequent}</div><div>${indoorWaterFrequent}</div><div>${indoorSoilFrequent}</div>`
+            indoorDiv.innerHTML = `<div class="frequent-wrapper"><div>Sunlight</div><div>${indoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${indoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${indoorSoilFrequent}</div></div>`
 
             // Remove Outdoor Frequency
             if (document.querySelector(".outdoor")) {
                 document.querySelector(".outdoor").remove()
             }
 
-            // Display Indoor Requirement Table
-            description.innerHTML = ""
-            description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${indoorSunTempRequirement}</td><td>${indoorWaterRequirement}</td><td>${indoorSoilRequirement}</td></tr></table>`
-        })
+            // if (mediaQuery.matches) {
+            //     description.innerHTML = ""
+            //     description.innerHTML = `<table><tr><th>Sunlight</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Fertilizer</th></tr><tr><td>${indoorSoilRequirement}</td></tr></table>`
+            // }
 
+            // Display Indoor Requirement Table
+
+            indoorSection.setAttribute('style', 'font-weight:700;')
+            outdoorSection.setAttribute('style', 'unset;')
+            detailSection.setAttribute('style', 'unset;')
+        
+            description.innerHTML = ""
+
+            // function myMediaQuery(mediaQuery) {
+            //     if (mediaQuery.matches) {
+                    // If media query matches
+                    description.innerHTML = `<div class="desktop-view"><table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${indoorSunTempRequirement}</td><td>${indoorWaterRequirement}</td><td>${indoorSoilRequirement}</td></tr></table></div>`
+
+                    // Add underline
+                //     indoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                // } else {    
+                    description.innerHTML += `<div class="mobile-view"><table><tr><th>Sunlight & Temperature</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${indoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${indoorSoilRequirement}</td></tr></table></div>`
+            //     }
+            // }
+
+            // myMediaQuery(mediaQuery)
+
+            
+            
+        })
 
 
 
@@ -111,7 +139,6 @@ const getPlantinfo = async () => {
         // Query "plant_ourinfo" for OUTDOOR location ==============
         const outdoorQuery = query(collection(db, "plant_ourinfo"), where("plant_name", "==", plantName), where("location", "==", 'outdoor'))
         const outdoorQuerySnapshot = await getDocs(outdoorQuery);
-        console.log(outdoorQuerySnapshot);
         outdoorQuerySnapshot.forEach((doc_outdoor) => {
 
             // Get Outdoor Info from firebase
@@ -139,8 +166,8 @@ const getPlantinfo = async () => {
                 const indoorDiv = document.createElement('div')
                 indoorDiv.classList.add('indoor')
                 frequentList.appendChild(indoorDiv)
-                indoorDiv.innerHTML = `<div>${indoorSunFrequent}</div><div>${indoorWaterFrequent}</div><div>${indoorSoilFrequent}</div>`
-
+                indoorDiv.innerHTML = `<div class="indoor-frequent">Indoor</div><div class="frequent"><div class="frequent-wrapper"><div>Sunlight</div><div>${indoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${indoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${indoorSoilFrequent}</div></div></div>`
+    
                 // Remove Outdoor Frequency
                 if (document.querySelector(".outdoor")) {
                     document.querySelector(".outdoor").remove()
@@ -148,27 +175,51 @@ const getPlantinfo = async () => {
                 const outdoorDiv = document.createElement('div')
                 outdoorDiv.classList.add('outdoor')
                 frequentList.appendChild(outdoorDiv)
-                outdoorDiv.innerHTML = `<div>${outdoorSunFrequent}</div><div>${outdoorWaterFrequent}</div><div>${outdoorSoilFrequent}</div>`
-
+                outdoorDiv.innerHTML = `<div class="outdoor-frequent">Outdoor</div><div class="frequent"><div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div></div>`
+    
                 // Details
+                detailSection.setAttribute('style', 'font-weight:700;')
+                indoorSection.setAttribute('style', 'unset;')
+                outdoorSection.setAttribute('style', 'unset;')
                 description.innerHTML = ""
                 description.innerHTML = detailInfo
+
+                function myMediaQuery(mediaQuery) {
+                    if (mediaQuery.matches) {
+                        // Add underline
+                        detailSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                    }
+                }
+    
+                myMediaQuery(mediaQuery)
             })
 
             // Indoor Frequency 
             const indoorDiv = document.createElement('div')
             indoorDiv.classList.add('indoor')
             frequentList.appendChild(indoorDiv)
-            indoorDiv.innerHTML = `<div>${indoorSunFrequent}</div><div>${indoorWaterFrequent}</div><div>${indoorSoilFrequent}</div>`
+            indoorDiv.innerHTML = `<div class="indoor-frequent">Indoor</div><div class="frequent"><div class="frequent-wrapper"><div>Sunlight</div><div>${indoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${indoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${indoorSoilFrequent}</div></div></div>`
 
             // Outdoor Frequency
             const outdoorDiv = document.createElement('div')
             outdoorDiv.classList.add('outdoor')
             frequentList.appendChild(outdoorDiv)
-            outdoorDiv.innerHTML = `<div>${outdoorSunFrequent}</div><div>${outdoorWaterFrequent}</div><div>${outdoorSoilFrequent}</div>`
+            outdoorDiv.innerHTML = `<div class="outdoor-frequent">Outdoor</div><div class="frequent"><div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div></div>`
 
             // Detail description
+            detailSection.setAttribute('style', 'font-weight:700;')
+            outdoorSection.setAttribute('style', 'unset;')
+            indoorSection.setAttribute('style', 'unset;')
             description.innerHTML = detailInfo
+
+            function myMediaQuery(mediaQuery) {
+                if (mediaQuery.matches) {
+                    // Add underline
+                    detailSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                }
+            }
+
+            myMediaQuery(mediaQuery)
 
 
 
@@ -181,7 +232,7 @@ const getPlantinfo = async () => {
                 if (document.querySelector(".indoor")) {
                     document.querySelector(".indoor").remove()
                 }
-
+    
                 // Display only Outdoor Frequency
                 if (document.querySelector(".outdoor")) {
                     document.querySelector(".outdoor").remove()
@@ -189,27 +240,44 @@ const getPlantinfo = async () => {
                 const outdoorDiv = document.createElement('div')
                 outdoorDiv.classList.add('outdoor')
                 frequentList.appendChild(outdoorDiv)
-                outdoorDiv.innerHTML = `<div>${outdoorSunFrequent}</div><div>${outdoorWaterFrequent}</div><div>${outdoorSoilFrequent}</div>`
-
+                outdoorDiv.innerHTML = `<div class="frequent-wrapper"><div>Sunlight</div><div>${outdoorSunFrequent}</div></div><div class="frequent-wrapper"><div>Water</div><div>${outdoorWaterFrequent}</div></div><div class="frequent-wrapper"><div>Fertilizer</div><div>${outdoorSoilFrequent}</div></div>`
+                
                 // Display Outdoor Requirement Table
+                outdoorSection.setAttribute('style', 'font-weight:700;')
+                indoorSection.setAttribute('style', 'unset;')
+                detailSection.setAttribute('style', 'unset;')
                 description.innerHTML = ""
-                description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table>`
+
+                // function myMediaQuery(mediaQuery) {
+                //     if (mediaQuery.matches) {
+                        // If media query matches
+                        description.innerHTML = `<div class="desktop-view"><table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table></div>`
+
+                        // Add underline
+                    //     outdoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                    // } else {    
+                        description.innerHTML += `<div class="mobile-view"><table><tr><th>Sunlight & Temperature</th></tr><tr><td>${outdoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${outdoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSoilRequirement}</td></tr></table></div>`
+                //     }
+                // }
+
+                // myMediaQuery(mediaQuery)
+                
 
                 // Warning for Outdoor Plants
-                if (doc_outdoor.data().details == "Due to temperature conditions, this plant is not suitable for outdoor areas.") {
-                    // Display Outdoor Requirement Table
-                    description.innerHTML = ""
-                    description.innerHTML = doc_outdoor.data().details
-                    description.style.setProperty('color', 'red');
-                }
-
+                // if ( doc_outdoor.data().details == "Due to temperature conditions, this plant is not suitable for outdoor areas." ) {
+                //     // Display Outdoor Requirement Table
+                //     description.innerHTML = ""
+                //     description.innerHTML = doc_outdoor.data().details
+                //     description.style.setProperty('color', 'red');
+                // }
+    
             })
 
         })
 
 
 
-
+        
 
         // const outdoorInfo = doc.data().ourdoor_location
 
@@ -232,7 +300,7 @@ const getPlantinfo = async () => {
         // imgNameWapper.appendChild(plantNamediv)
         // plantNamediv.innerHTML = plantName
 
-
+        
 
         // Detail Section 🌟🌟===============================
 
@@ -248,7 +316,7 @@ const getPlantinfo = async () => {
         // outdoorDiv.classList.add('outdoor')
         // frequentList.appendChild(outdoorDiv)
         // outdoorDiv.innerHTML = `<div>${outdoorInfo.sunlight_temperature_frequency}</div><div>${outdoorInfo.water_frequency}</div><div>${outdoorInfo.soil_frequency}</div>`
-
+        
         // description.innerHTML = detailInfo
 
         // Click each section 
@@ -313,7 +381,7 @@ const getPlantinfo = async () => {
         //     outdoorDiv.classList.add('outdoor')
         //     frequentList.appendChild(outdoorDiv)
         //     outdoorDiv.innerHTML = `<div>${outdoorInfo.sunlight_temperature_frequency}</div><div>${outdoorInfo.water_frequency}</div><div>${outdoorInfo.soil_frequency}</div>`
-
+            
         //     // Outdoor table
         //     description.innerHTML = ""
         //     description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${outdoorInfo.sunlight_temperature_requirement}</td><td>${outdoorInfo.water_requirement}</td><td>${outdoorInfo.soil_requirement}</td></tr></table>`
@@ -322,6 +390,6 @@ const getPlantinfo = async () => {
 
     })
 
-}
-
-getPlantinfo()
+    }
+    
+    getPlantinfo()

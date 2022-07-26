@@ -1,45 +1,16 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>personal Journal Page</title>
-    <script src ="./js/personal_journal.js" type="module" defer></script>
-    <script src="js/logout.js" type="module" defer></script>
-    <script src="./js/avatar.js" type="module" defer></script>
-</head>
-<body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="myplants.html">My plants</a></li>
-                <li><a href="public_journal.html">Journal</a></li>
-                <li><a href="personal_journal.html">My journal</a></li>
-                <li><a href="sugesstion.html">Plant pick</a></li>
-                <li><a href="myaccount.html">My account</a></li>
-                <li><a href="camera.html">Camera</a></li>
-
-            </ul>
-        </nav>
-        <input type="text">
-        <label for="submit">Search</label>
-
-        <button type="button" class="logout">Logout</button>
-    </header> -->
-    
-    <!-- <h1>Personal Journal</h1> -->
-    <main>
-        <h1>Personal Journal</h1>
+    <main class="personaljournal-main">
+        <!-- <h1>Personal Journal</h1> -->
         <!-- user info avatar and name -->
         <div class="user-info">
             <img src="" alt="useravatar" id="avatar">
-            <p id="username"></p>
-            <p id="postNbr"></p>
+            <div class="uname-pnbr">
+                <h2 id="username"></h2>
+                <p id="postNbr"></p>
+            </div>
+            <div class="add-post-button"><a href="camera.html" id="go-camera">ADD A POST</a></div>
         </div>
-        <a href="camera.html">Add a Post</a>
+        <!-- <div class="add-post-button"><a href="camera.html" id="go-camera">ADD A POST</a></div> -->
         
         
         <!-- display of all posts -->
@@ -51,33 +22,31 @@
         </div>
         
         <!-- display single post after click img -->
-       <div id="result" class = "page">
-        <!-- <img src="" alt="useravatar" id="avatar">
-        <p id="username"></p> -->
+        <div id="result_area">
+           <div class="result_box">
+                
+                <!-- <div class="img_result">
 
-         
-
-        </div>   
-        
-        <div id="comment">
-            <p>Comment</p>
-            <div id="cmt_display">
-
-            </div>
-            
-            
-            <div id="input_area">
-
-
-            </div>
-            <input type="text" id="write_cmt" placeholder="add a comment">
-            <button id="submiting" class="item">Post</button>    
-        </div> 
-        
-        <a  id="btn" class="item" href="#post" >BACK TO journal Page</a>
+                </div> -->
+                <!-- <div id="result" class = "page">
+               
+               
+               
+                </div>  ---->
+                 <!-- <div id="comment">
+                    <p class="cmt-header">Comments</p>
+                    <div id="cmt_display">
+                    -->
+            </div> 
+                     
+                    <!-- <div id="input_area">
+                        <input type="text" id="write_cmt" placeholder="add a comment">
+                        <button id="submiting" class="item">Post</button>
+                    </div>end  .input_area div -->
+        </div><!--   end #result_area div end   -->
+        <a  id="btn" class="item" href="#post" >BACK TO MY JOURNAL PAGE</a>
     <script src ="./js/personal_journal.js" type="module" defer></script>
     <script src="js/logout.js" type="module" defer></script>
-    <script src="./js/avatar.js" type="module" defer></script>  
+    <script src="./js/avatar.js" type="module" defer></script>
+    <link rel="stylesheet" href="style.css">
     </main>
-<!-- </body>
-</html> -->

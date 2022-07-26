@@ -76,6 +76,9 @@
 // document.querySelector('.moon-cactus-image').style.display = "none";
 // });
 
+export function init () {
+  console.log(" initializing about.js module:" + new Date());
+
 document.querySelector('.plant-id-button').addEventListener ('click', () => {
  
   document.querySelector('.result-message').innerHTML = `<p>We found it!</p>`;
@@ -118,3 +121,5 @@ click_button.addEventListener('click', function() {
    	console.log(image_data_url);
     
 });
+
+}

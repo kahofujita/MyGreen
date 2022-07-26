@@ -1,17 +1,18 @@
 'use strict';
 
-class Page {
-  constructor(name, htmlName, jsName) {
+export class Page {
+  constructor(name, htmlName, jsName, title) {
     this.name = name;
     this.htmlName = htmlName;
     // if jsName is not given use the html name + '.js'
     this.jsName = jsName
       ? jsName
       : htmlName.substring(0, htmlName.lastIndexOf('.')) + '.js';
+    this.title = title ? title : this.name.slice(1, this.name.length)
   }
 }
 
-class Router {
+export class Router {
   static init(mainAreaId, pages) {
     Router.pages = pages;
     Router.rootElem = document.getElementById(mainAreaId);
@@ -41,15 +42,26 @@ class Router {
 
   static async goToPage(page) {
     try {
+      console.log('cccccccccc')
       const response = await fetch(page.htmlName);
       const txt = await response.text();
       Router.rootElem.innerHTML = txt;
-      //append JS part to run.
-      const script = document.createElement('script');
-      script.setAttribute('src', `./js/${page.jsName}`);
-      script.setAttribute('type', 'module');
-    //   script.setAttribute('defer');
-      Router.rootElem.appendChild(script);
+      //import the JS module
+      const module = await import('./' + page.jsName);
+      console.log('imported module :' + page.jsName);
+      //and invoke its init method of module if exists
+      if (module.init) {
+          module.init();
+      }
+      // //append JS part to run.
+      // const script = document.createElement('script');
+      // console.log('dddddd', page.jsName)
+      // script.setAttribute('src', `./js/${page.jsName}`);
+      // script.setAttribute('type', 'module');
+      // script.setAttribute('defer', 'defer');
+      // Router.rootElem.appendChild(script);
+      // // document.body.appendChild(script);
+      document.title = page.title;
     } catch (error) {
       console.error(error);
     }

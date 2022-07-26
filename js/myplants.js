@@ -1,22 +1,35 @@
-
-import {db, auth} from './firebase/firebase-config.js'
+import {db, auth} from './firebase/firebase-config.js';
 
 import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, arrayUnion} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
-
-// const userId = sessionStorage.getItem('userID')
-const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
-console.log(userId)
-
-const watering = document.querySelector('.watering')
-const sunlightTemp = document.querySelector('.sunlight-temp')
-const nutritions = document.querySelector('.nutritions')
-const dateControlForWatering = document.querySelector('.watering-calendar')
-const dateControlForNutritionizing = document.querySelector('.nutritionizing-calendar')
-
-
-
-const getPlantinfo = async () => {
+export function init () {
+    console.log(" initializing about.js module:" + new Date());
+    // const btn1 = document.getElementById("btn1");
+    // const text1 = document.getElementById("text1");
+    // btn1.addEventListener('click', (event) => {
+    //     const message = `test in about page ${Date.now()}`;
+    //     console.log(`%c ${message}`, 'color:black;background:yellow');
+    //     text1.innerText = message;
+    // });
+    
+    
+    
+    
+    const userId = sessionStorage.getItem('userID')
+    // const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
+    console.log(userId)
+    
+    
+    const watering = document.querySelector('.watering')
+    const sunlightTemp = document.querySelector('.sunlight-temp')
+    const nutritions = document.querySelector('.nutritions')
+    const dateControlForWatering = document.querySelector('.watering-calendar')
+    const dateControlForNutritionizing = document.querySelector('.nutritionizing-calendar')
+    const wateringWrapper = document.querySelector('.watering-wrapper')
+    const buttonHover = 'button:hover{background-color: unset;}'
+    
+    const getPlantinfo = async () => {
+        
 
 // Query "plant_userinfo"
 // const userQuery = query(collection(db, "plant_userinfo"), where("user_info_id", "==", userId))
@@ -46,7 +59,7 @@ plantsList.forEach( async(e, index)=>{
 
             const img = document.createElement('img')
             img.setAttribute('id', 'myplant');
-            img.src = `./images/plant_img/${plantName}.jpg`
+            img.src = `./images/plant_img/${plantName}.png`
             img.alt = plantName
             div.appendChild(img)
 
@@ -172,6 +185,7 @@ plantsList.forEach( async(e, index)=>{
 
                     } else {
                         // Update a date to today
+                        console.log('elseが走ってる！', todayString)
                         const plantsListCopy = [...plantsList]
                         plantsListCopy[index].watering_date = todayString
                         const doctoUpdate = doc(db, "plant_userinfo", userId)
@@ -183,7 +197,9 @@ plantsList.forEach( async(e, index)=>{
                         }
 
                         // Set calendar value to Today
-                        dateControlForWatering.setAttribute('value', todayString)
+                        // dateControlForWatering.setAttribute('value', todayString)
+                        dateControlForWatering.value = todayString
+                        console.log(dateControlForWatering.value)
                         // 'Do you want to update last watering date? みたいなポップアップ必要？
 
                         // Display Next Watering Date in Button Value
@@ -194,6 +210,10 @@ plantsList.forEach( async(e, index)=>{
                         // Button Condition
                         button.innerHTML = nextWateringDate + ' days to go'
                         button.disabled = true;
+                        
+                        // if (button.disabled = true) {
+                        //     button.styleSheet.cssText = buttonHover
+                        // }
                     }
                 })
 
@@ -394,7 +414,6 @@ plantsList.forEach( async(e, index)=>{
                 sunlightTemp.appendChild(divSunlight)
                 divSunlight.innerHTML = sunlightFrequency;
 
-
             }
 
 
@@ -406,7 +425,23 @@ plantsList.forEach( async(e, index)=>{
 
             // Click Plant Image
             img.addEventListener('click', () => {
-                console.log(index)
+                // console.log(index)
+
+                // Add Plant image border
+                const greenBorder = document.querySelector('.green-border')
+
+                if ( greenBorder ) {
+                    console.log('ボーダーあり！')
+                    greenBorder.classList.remove('green-border')
+                } 
+                img.classList.add('green-border')
+
+
+
+
+                // img.setAttribute('style', 'border: unset;')
+                // img.classList.add('green-border')
+                // img.setAttribute('style', 'border: 3px solid #83C992;')
 
 
                 // 上のindex == 0のコードとほとんど同じだけど、他にやり方ある？？
@@ -719,6 +754,12 @@ plantsList.forEach( async(e, index)=>{
                 sunlightTemp.appendChild(divSunlight)
                 divSunlight.innerHTML = sunlightFrequency;
 
+
+                // wateringWrapper.style.opacity = 0;
+                // setTimeout(() => {
+                //     wateringWrapper.style.opacity = 1;
+                // }, 500);
+
             })
  
         })
@@ -729,3 +770,5 @@ plantsList.forEach( async(e, index)=>{
 }
 
 getPlantinfo()
+
+}

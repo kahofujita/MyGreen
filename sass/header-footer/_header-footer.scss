@@ -152,6 +152,12 @@ cursor: pointer;
 }
 
 
+// MAIN ================================================
+#mainArea {
+  padding-bottom: 10rem;
+}
+
+
 
 
 
@@ -181,6 +187,17 @@ justify-content: center;
   margin: 1rem;
   font-family: $font-headers;
   font-size: 1.3rem;
+}
+
+body {
+  position: relative;
+}
+
+.footer {
+  position: absolute;
+  bottom: -5rem;
+  right: 0;
+  left: 0;
 }
 
 .footer ul {
