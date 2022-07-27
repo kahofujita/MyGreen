@@ -1147,6 +1147,7 @@ main.myplants .plant-image img:hover {
 }
 main.myplants .button-image {
   display: none;
+  height: 248px;
 }
 main.myplants #addplant {
   border: none;
