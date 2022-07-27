@@ -84,11 +84,11 @@ document.querySelector('.plant-id-button').addEventListener ('click', () => {
   document.querySelector('.result-message').innerHTML = `<p>We found it!</p>`;
   document.querySelector('.scientific-name-title').innerHTML = "Scientific Name:";
         // document.querySelector('.plant-name').innerHTML += data.suggestions[i].plant_name + ",";
-        document.querySelector('.plant-name').innerHTML += "Fruit Salad Plant, Swiss Chees Plant";
+        document.querySelector('.plant-name').innerHTML += "Moon Cactus";
         document.querySelector('.common-name-title').innerHTML = "Common Name:";
       // document.querySelector('.common-name').innerHTML += data.suggestions[i].plant_details.common_names[q]+ ",";
-      document.querySelector('.common-name').innerHTML += "Monstera delosioca";
-        document.querySelector('.plant-picture').innerHTML += `<img src="images/plant_img/corn plant.png" alt="" >`;
+      document.querySelector('.common-name').innerHTML += "Cactus, Robbyball";
+        document.querySelector('.plant-picture').innerHTML += `<img src="images/plant_img/Moon Cactus.png" alt="" >`;
         
         const uploadingArea = document.querySelector('.uploading-picture-form');
   uploadingArea.style.display = "none";

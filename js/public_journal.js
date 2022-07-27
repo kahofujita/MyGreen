@@ -10,7 +10,15 @@ export async function init () {
   console.log(" initializing about.js module:" + new Date());
 
 
+  let userId = sessionStorage.getItem('userID');
+  console.log(sessionStorage.getItem('userID'));
+
+  
+
+
 const journalArray = [];
+
+
 //Get JOURNAL DB
 const journal = await getDocs(collection(db, "journal"));
 let journalPost;
@@ -36,6 +44,7 @@ month_name = months[day.getMonth()];
 const date = document.getElementById("date");
 date.innerHTML = `${month_name}, ${year}`;
 console.log(year);
+
 
 
 
@@ -75,6 +84,16 @@ cmt.forEach((doc) => {
 });
 console.log(cmtArray);
 
+ // ///GETUSER INFO FOR USER NAME
+
+ let usernameArray = [];
+ const uns = await getDocs(collection(db, "user_info"));
+
+ uns.forEach((doc) => {
+  usernameArray.push(doc.data());
+ });
+
+ console.log(usernameArray); 
 
 
 
@@ -84,6 +103,8 @@ let commenty;
 // let span1;
 // let span2;
 // let span3;
+let avat;
+let article;
 //DISPLAY ALL JOURNAL
 for(let i = 0; journalArray.length > i; i++ ){
    
@@ -91,19 +112,34 @@ for(let i = 0; journalArray.length > i; i++ ){
 
   
       const infoArea = document.getElementById("post");          
-      const article = document.createElement("article");
+      article = document.createElement("article");
       const divTag = article.classList.add("journal");
       article.setAttribute('id', i );
       infoArea.appendChild(article);
      
-      // /ADDING AVATAR TO EACH JOURNAL ここがうまくいかないsrcが生成されない
-      const avat = document.createElement("img");
+      // /ADDING AVATAR TO EACH JOURNALS 
+      avat = document.createElement("img");
       avat.setAttribute('id', 'avatar');
-      // avatars (avat) ;
       console.log(avat);
-      avat.innerText;
-      article.appendChild(avat);
       
+      for(let index = 0; journalArray.length > index; index++ ){
+      
+          if(journalArray[i].user_id == usernameArray[index].user_id){
+            
+            const avanbr = usernameArray[index].avatar_img_name;
+            const haha = avanbr.match(/(\d+)/)[0];
+            console.log(haha);
+            
+            avat.setAttribute('src', `./avatar/${haha}.png`);
+            console.log(avat);
+            avat.innerText;
+            article.appendChild(avat);
+        
+          }else{
+          }
+        }
+        
+          
 
       // const click_tag = `<a href="#single_page" class = "article"  id = "${jId[i]}" onclick = "addComment(this.id)"></a>`;
     
@@ -164,7 +200,7 @@ for(let i = 0; journalArray.length > i; i++ ){
        commenty.innerHTML += `<p>Comments</p>`; 
   
        const r = click_tag.id;
-       console.log(r);
+      //  console.log(r);
        cmt_display = document.createElement("div");
        cmt_display.setAttribute('id', 'cmt_display');
        commenty.appendChild(cmt_display);
@@ -175,7 +211,7 @@ for(let i = 0; journalArray.length > i; i++ ){
      
          if( r == cmtArray[i].journal_id){
            cmt_display.innerHTML += `<div class="cmts"><p>${cmtArray[i].username} :</p><p>${cmtArray[i].comment}</p></div>`;
-         console.log(cmt_display);
+        //  console.log(cmt_display);
      
          }else{
            console.log('No comment');
@@ -190,16 +226,32 @@ for(let i = 0; journalArray.length > i; i++ ){
 
 
     }
- 
+    ////PUT AVATAR SRC In EACH JOURNAL だけど、一番最初にしかつかない　ここ必ず明日確認
+    // for (let i = 0; usernameArray.length > i; i++){
+    //   if(journalArray[i].user_id == usernameArray[i].user_id){
+        
+    //     const avanbr = usernameArray[i].avatar_img_name;
+    //     const haha = avanbr.match(/(\d+)/)[0];
+    //     console.log(haha);
+        
+    //     avat.setAttribute('src', `./avatar/${haha}.png`);
+    //     console.log(avat);
+    //     avat.innerText;
+    //     article.appendChild(avat);
+    
+    //   }else{
+    //   }
+    // }
+
+
    const hidePage = document.getElementById("result");
 
     // RESULT PAGE HIDE WHEN WHOLE PAGE OPEN//////
     const result_area = document.getElementById('result_area');
     result_area.style.display = "none";
 
-    // const comment = document.getElementById('comment');
-    // comment.style.display = "none";  
-
+   
+    /////////////
     const backBtn = document.getElementById('btn');
     backBtn.style.display = "none";
 
@@ -229,6 +281,7 @@ for(let i = 0; journalArray.length > i; i++ ){
          const hide_titles = nikki.querySelector('#inst_title');
          const dates_single = nikki.querySelector('#dates');
          const meta_single = nikki.querySelector('#meta');
+         const avat_tag = nikki.querySelector('#avatar');
         //  const spanTags = document.getElementsByTagName('span');
                   
          // const result_single = document.querySelector('#result');
@@ -246,6 +299,7 @@ for(let i = 0; journalArray.length > i; i++ ){
          hide_titles.classList.add('insttitle_single');
          dates_single.classList.add('dates_single');
          meta_single.classList.add('meta_single');
+          avat_tag.classList.add('avatar_single');
         //  span1.classList.add('tag_single');
          console.log(hide_title);
          // result_single.classList.add('result_single');
@@ -253,7 +307,7 @@ for(let i = 0; journalArray.length > i; i++ ){
       
       
       const nikkis = nikki.innerHTML;
- 
+      console.log(nikki);
       result_box_single.innerHTML = nikkis;
 
     //The ID You Clicked NOW! = Journal ID
@@ -261,7 +315,24 @@ for(let i = 0; journalArray.length > i; i++ ){
      const yourId = active.id; 
       console.log(yourId);
       // console.log(active.id);
- 
+      
+      
+      // ///GET USERNAME AND DISPLAY
+      // const avaplace = document.getElementById('username');
+      // console.log(usernameArray);
+     
+      // for (let j = 0; usernameArray.length > j; j++){
+      //   console.log(usernameArray[j].user_id);
+      //   if(yourId == usernameArray[j].user_id){
+      //     avaplace.innerHTML += usernameArray[j].username;
+      //     console.log(usernameArray[j].username);
+      //   }else{
+      //     console.log('no name');
+      //   };
+      // }
+      // console.log(usernameArray.user_id);
+      // console.log(yourId);
+
       //////CHANGE PAGE //////     
       navigateToPage();
   
@@ -269,19 +340,7 @@ for(let i = 0; journalArray.length > i; i++ ){
   })
   let yourId;
   console.log(yourId);
-  // function getCmtBtn(){
-  //   const submit_btn =document.querySelector('.items');
-  // console.log(submit_btn);
-  // }
   
-  // const input_area = document.getElementById('input_area');
-  // input_area.innerHTML = `<input type="text" id="write_cmt" placeholder="add a comment"><button id="submit" class="items" >Post</button>`; 
-  
-  
-
-  // const active = document.getElementById(b);
-  // console.log(active);
-
   window.addEventListener("hashchange", navigateToPage);
   
   const pageId = document.getElementById("post");
@@ -373,8 +432,8 @@ function displayCmt(){
 
 
 ////Get USERNAME FROM LOGIN ID///// commentの記入者を特定
-let userId = sessionStorage.getItem('userID');
-console.log(sessionStorage.getItem('userID'));
+// let userId = sessionStorage.getItem('userID');
+// console.log(sessionStorage.getItem('userID'));
 
 const un = doc(db, "user_info", userId);
 const uninfo =  await getDoc(un);
@@ -393,7 +452,7 @@ const submitBtn = document.getElementById('submiting');
 console.log(submitBtn);
 submitBtn.addEventListener('click', (e) =>{
 
-
+  console.log(nikki);
   //ADD COMMENT INTO DB
   const commentdb = collection(db, 'comment');
   addDoc(commentdb, {
@@ -414,7 +473,7 @@ console.log(nikki);
   // cmtarea.innerHTML = "";
 
 })
-
+console.log(nikki);
 
 }
   

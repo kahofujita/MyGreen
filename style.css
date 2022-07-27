@@ -303,6 +303,9 @@
     max-width: 450px;
   }
 }
+.signup-page {
+  padding-bottom: 10rem;
+}
 .signup-page h2 {
   font-size: 2rem;
 }
@@ -533,7 +536,7 @@
   }
   .signup-page .cactus-image-signup {
     display: block;
-    padding-bottom: 8rem;
+    padding-top: 8rem;
     width: 300px;
     height: auto;
   }
@@ -651,6 +654,175 @@
     height: auto;
   }
 }
+.about-us-page {
+  padding-top: 2.5rem;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about-us-page h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+.about-us-page p {
+  text-align: center;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+.about-us-page .member .member-image {
+  display: block;
+  margin-top: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about-us-page .member .member-name {
+  margin: 0;
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Righteous", cursive;
+}
+.about-us-page .member .member-position {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.about-us-page .contact-us {
+  width: 245px;
+  height: 44px;
+  margin: 3rem auto;
+}
+.about-us-page .contact-us a {
+  color: #FAFAFA;
+  background-color: #B21F51;
+  border-radius: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 12px 32px;
+  display: block;
+  letter-spacing: 1.25px;
+}
+
+@media screen and (min-width: 800px) {
+  .about-us-page {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-us-page h2 {
+    font-size: 2.2rem;
+  }
+  .about-us-page p {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+  .about-us-page .members-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  .about-us-page .member:nth-of-type(7) {
+    grid-column: 2;
+  }
+}
+.contact-us-page {
+  padding-top: 3rem;
+}
+.contact-us-page img {
+  display: none;
+}
+.contact-us-page h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+.contact-us-page form {
+  max-width: 363px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  gap: 1.5rem;
+}
+.contact-us-page .input-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.contact-us-page label, .contact-us-page input {
+  font-size: 1rem;
+}
+.contact-us-page input, .contact-us-page textarea {
+  padding: 15px 20px;
+  border: solid 2px #83C992;
+  border-radius: 8px;
+}
+.contact-us-page textarea {
+  resize: none;
+  height: 140px;
+}
+.contact-us-page button {
+  width: 126px;
+  height: 44px;
+  border: none;
+  border-radius: 15px;
+  letter-spacing: 1.25px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background-color: #B21F51;
+  color: white;
+  text-transform: uppercase;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.contact-us-page button:hover {
+  background-color: #FAFAFA;
+  border: #DD1C50 2px solid;
+  color: black;
+}
+.contact-us-page button:active {
+  color: #FAFAFA;
+  background-color: #B21F51;
+  border: 3px solid #FAFAFA;
+}
+
+@media screen and (min-width: 800px) {
+  .contact-us-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-us-page h2 {
+    font-size: 2.5rem;
+  }
+  .contact-us-page .title-image-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .contact-us-page .image-wrapper {
+    background-color: #EFEFEF;
+    border-radius: 50%;
+    height: 435px;
+    width: 435px;
+    display: flex;
+    align-items: center;
+    box-shadow: 3px 5px 10px rgb(138, 138, 138);
+  }
+  .contact-us-page img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 232px;
+    height: auto;
+    padding-bottom: 20px;
+  }
+}
 .search-wrapper {
   display: flex;
   justify-content: center;
@@ -669,13 +841,99 @@
   background: #EFD35E;
   border: 1px solid #EFD35E;
   border-radius: 0px 20px 20px 0px;
-  flex-basis: 10%;
   padding: 0.2rem;
   justify-content: center;
 }
 
 .search-icon a {
   color: black;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+  z-index: -5;
+  width: 100%;
+  margin: 0;
+  height: 50vh;
+}
+
+.container img {
+  height: 50vh;
+  width: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* MEDIA QUERY */
+@media screen and (min-width: 800px) {
+  .mySlides {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.title-slideshow {
+  text-align: center;
 }
 
 .main-navigators {
@@ -687,6 +945,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 2rem;
   margin-bottom: 5rem;
 }
 
@@ -1060,6 +1319,7 @@ main.myplants .plant-image img:hover {
 }
 main.myplants .button-image {
   display: none;
+  height: 248px;
 }
 main.myplants #addplant {
   border: none;
@@ -2092,16 +2352,19 @@ main.plant-detail .outdoor-section {
 .publicjournal_main {
   padding: 5rem 3rem;
   background-color: #FAFAFA;
+  padding-bottom: 10rem;
+}
+.publicjournal_main .journal {
   position: relative;
 }
 .publicjournal_main #avatar {
-  width: 80px;
-  min-width: 80px;
+  width: 50px;
+  min-width: 50px;
   border-radius: 50%;
   box-shadow: 1px 1px 1px rgb(200, 200, 200);
   position: absolute;
-  left: 10%;
-  top: 9%;
+  top: -20%;
+  left: -20%;
 }
 .publicjournal_main #username {
   display: none;
@@ -2127,7 +2390,6 @@ main.plant-detail .outdoor-section {
 @media screen and (min-width: 800px) {
   .publicjournal_main #post.pages {
     margin-top: 0;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 .publicjournal_main .journal img {
@@ -2151,6 +2413,12 @@ main.plant-detail .outdoor-section {
 .publicjournal_main p:nth-of-type(3) {
   font-size: 13px;
   text-align: center;
+}
+.publicjournal_main #avatar.avatar_single {
+  width: 80px;
+  min-width: 80px;
+  left: 7%;
+  top: 28%;
 }
 .publicjournal_main #submiting {
   background-color: #B21F51;
@@ -2256,10 +2524,11 @@ main.plant-detail .outdoor-section {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 100px 1fr;
+    padding: 3rem 20%;
   }
-  .publicjournal_main #avatar {
+  .publicjournal_main #avatar.avatar_single {
     left: 11%;
-    top: 20%;
+    top: 29%;
   }
   .publicjournal_main .user-info {
     grid-column: 1/-1;
@@ -2320,7 +2589,7 @@ main.plant-detail .outdoor-section {
 }
 
 .publicjournal_main-single {
-  padding: 7rem 15% 1rem 15%;
+  padding: 7rem 15% 15%;
   display: block;
 }
 
@@ -2452,7 +2721,11 @@ select {
 .header a,
 .footer a {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.header {
+  position: relative;
 }
 
 .header ul {
@@ -2460,6 +2733,9 @@ select {
   padding: 0;
   display: flex;
   flex-flow: column wrap;
+  font-family: "Righteous", cursive;
+  font-weight: 300;
+  font-size: 0.6rem;
 }
 
 .toolbar-mobile {
@@ -2469,6 +2745,10 @@ select {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .toolbar-desktop {
@@ -2481,16 +2761,29 @@ select {
 }
 
 .menu-mobile {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
   transform: translateX(100%);
-  z-index: 50;
+  z-index: 120;
   position: fixed;
+  top: 11.3rem;
   left: 0;
   transition: transform 0.5s;
-  height: 65%;
-  margin-top: 50rem;
+  height: 100vh;
   flex-basis: 100%;
+}
+
+.menu-mobile ul {
+  list-style-type: none;
+  margin-top: 3rem;
+}
+
+.menu-mobile li {
+  margin: 0.5rem;
+}
+
+.menu-mobile a {
+  text-decoration: none;
 }
 
 .show-menu {
@@ -2512,6 +2805,7 @@ select {
   display: flex;
   justify-content: center;
   margin: 1rem;
+  margin-top: 15rem;
 }
 
 .search-input {
@@ -2519,16 +2813,17 @@ select {
   border: 1px solid #EFD35E;
   border-radius: 20px 0px 0px 20px;
   padding: 0.3rem;
+  width: 280px;
 }
 
 .search-icon {
-  display: flex;
   background: #EFD35E;
   border: 1px solid #EFD35E;
   border-radius: 0px 20px 20px 0px;
-  flex-basis: 10%;
+  width: 75px;
   padding: 0.2rem;
   justify-content: center;
+  align-items: center;
 }
 
 .search-icon a {
@@ -2540,7 +2835,7 @@ select {
   width: 100%;
   transform: translateY(-100%);
   z-index: 50;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transition: transform 0.5s;
@@ -2587,6 +2882,7 @@ ul.result a {
 
 #mainArea {
   padding-bottom: 10rem;
+  padding-top: 2rem;
 }
 
 .footer {
@@ -2613,17 +2909,6 @@ ul.result a {
   margin: 1rem;
   font-family: "Righteous", cursive;
   font-size: 1.3rem;
-}
-
-body {
-  position: relative;
-}
-
-.footer {
-  position: absolute;
-  bottom: -5rem;
-  right: 0;
-  left: 0;
 }
 
 .footer ul {
@@ -2688,14 +2973,17 @@ body {
     justify-content: space-around;
   }
   .header-site-logo-desktop img {
-    height: 130px;
+    height: 110px;
     width: auto;
   }
   .menu-desktop ul a {
-    color: #FAFAFA;
+    color: black;
   }
   .header .logo-toolbar-wrapper {
     padding: 0;
+  }
+  .search-wrapper {
+    margin-top: 2rem;
   }
   .footer {
     flex-flow: row nowrap;

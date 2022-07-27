@@ -1,0 +1,111 @@
+.contact-us-page {
+
+    padding-top: 3rem;
+
+    img {
+        display: none;
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    form {
+        max-width: 363px;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .input-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    label, input {
+        font-size: 1rem;
+    }
+
+    input, textarea {
+        padding: 15px 20px;
+        border: solid 2px $color-green1;
+        border-radius: 8px;
+    }
+
+    textarea {
+        resize: none;
+        height: 140px;
+    }
+
+    button {
+        width: 126px;
+        height: 44px;
+        border: none;
+        border-radius: 15px;
+        letter-spacing: 1.25px;
+        font-size: .9rem;
+        font-weight: 700;
+        background-color: $color-red2;
+        color: white;
+        text-transform: uppercase;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+        transition: all .25s;
+    }
+
+    button:hover {
+        background-color: $color-body-light;
+        border: $color-red1 2px solid;
+        color: black;
+    }
+
+    button:active {
+        color: $color-body-light;
+        background-color: $color-red2;
+        border: 3px solid #FAFAFA;
+    }
+}
+
+@media screen and (min-width: $media-query-break) {
+    
+    .contact-us-page {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        .title-image-wrapper {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .image-wrapper {
+            background-color: #EFEFEF;
+            border-radius: 50%;
+            height: 435px;
+            width: 435px;
+            display: flex;
+            align-items: center;
+            box-shadow: 3px 5px 10px rgb(138, 138, 138);
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 232px;
+            height: auto;
+            padding-bottom: 20px;
+        }
+    }
+}
