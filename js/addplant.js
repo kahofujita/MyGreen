@@ -12,7 +12,7 @@ import {
     where
 } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
-sessionStorage.setItem('userID', 'ZbvOuGroV8bEMXeLr55apNJFCCq1')
+// sessionStorage.setItem('userID', 'ZbvOuGroV8bEMXeLr55apNJFCCq1')
 const userId = sessionStorage.getItem('userID');
 
 const colPlantUserInfo = collection(db, 'plant_userinfo')
