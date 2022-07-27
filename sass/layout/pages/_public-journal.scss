@@ -2,17 +2,22 @@
     // background-color: $color-body-light;
     @include paddingJournal();
     background-color: $color-body-light;
-    position: relative;
+    // position: relative;
+    padding-bottom: 10rem;
     
+    .journal{
+        position: relative;
+    }
     #avatar{
-        width:80px;
-        min-width:80px;
+        width:50px;
+        min-width:50px;
         border-radius: 50%;
         box-shadow: 1px 1px 1px rgb(200, 200, 200);
-       position: absolute;
-       left: 10%;
-       top:9%;
+        position: absolute;
+        top: -20%;
+        left: -20%;
     }
+    
     #username{
         display: none;
     }
@@ -42,7 +47,7 @@
 
         @media screen and (min-width:800px){
             margin-top: 0;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            // grid-template-columns: 1fr 1fr 1fr 1fr;
         }
 
     }
@@ -73,8 +78,18 @@
 
 
 //SINGLE PAGE FOR PUBLIC JOURNAL
-
-
+// #avatar.avatar_single{
+//     left: 11%;
+//    top:59%;
+// }
+#avatar.avatar_single{
+        width:80px;
+        min-width:80px;
+        left: 7%;
+        top:28%;
+        
+       
+}
 #submiting{
     background-color: $color-red2;
     color: white;
@@ -184,11 +199,12 @@
     display: grid;
     grid-template-columns: 1fr ;
    grid-template-rows: 100px 1fr; 
-    
+    padding:3rem 20%;
 
-   #avatar{
+
+   #avatar.avatar_single{
         left: 11%;
-       top:20%;
+       top:29%;
    }
    .user-info{
     grid-column: 1 / -1;
@@ -292,7 +308,7 @@
    
 }
 .publicjournal_main-single{
-    padding: 7rem 15% 1rem 15%;
+    padding: 7rem 15%  15%;
     display: block;
 }
 

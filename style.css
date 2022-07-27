@@ -2346,16 +2346,19 @@ main.plant-detail .outdoor-section {
 .publicjournal_main {
   padding: 5rem 3rem;
   background-color: #FAFAFA;
+  padding-bottom: 10rem;
+}
+.publicjournal_main .journal {
   position: relative;
 }
 .publicjournal_main #avatar {
-  width: 80px;
-  min-width: 80px;
+  width: 50px;
+  min-width: 50px;
   border-radius: 50%;
   box-shadow: 1px 1px 1px rgb(200, 200, 200);
   position: absolute;
-  left: 10%;
-  top: 9%;
+  top: -20%;
+  left: -20%;
 }
 .publicjournal_main #username {
   display: none;
@@ -2381,7 +2384,6 @@ main.plant-detail .outdoor-section {
 @media screen and (min-width: 800px) {
   .publicjournal_main #post.pages {
     margin-top: 0;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 .publicjournal_main .journal img {
@@ -2405,6 +2407,12 @@ main.plant-detail .outdoor-section {
 .publicjournal_main p:nth-of-type(3) {
   font-size: 13px;
   text-align: center;
+}
+.publicjournal_main #avatar.avatar_single {
+  width: 80px;
+  min-width: 80px;
+  left: 7%;
+  top: 28%;
 }
 .publicjournal_main #submiting {
   background-color: #B21F51;
@@ -2510,10 +2518,11 @@ main.plant-detail .outdoor-section {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 100px 1fr;
+    padding: 3rem 20%;
   }
-  .publicjournal_main #avatar {
+  .publicjournal_main #avatar.avatar_single {
     left: 11%;
-    top: 20%;
+    top: 29%;
   }
   .publicjournal_main .user-info {
     grid-column: 1/-1;
@@ -2574,7 +2583,7 @@ main.plant-detail .outdoor-section {
 }
 
 .publicjournal_main-single {
-  padding: 7rem 15% 1rem 15%;
+  padding: 7rem 15% 15%;
   display: block;
 }
 
