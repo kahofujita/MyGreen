@@ -2,6 +2,10 @@
 import {db, auth} from './firebase/firebase-config.js'
 import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
+
+export function init () {
+    console.log(" initializing about.js module:" + new Date());
+
 const userId = sessionStorage.getItem('userID')
 console.log(userId)
 
@@ -393,3 +397,5 @@ const getPlantinfo = async () => {
     }
     
     getPlantinfo()
+
+}

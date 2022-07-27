@@ -54,7 +54,10 @@ const suggestionHandler = () => {
   if (lastSuggestion.date) {
     result.innerHTML = `Our <span style="color: #EFD35E;">last</span> suggestion is: ${lastSuggestion.plant}`;
  
-    let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    // let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    // result.href = link;
+
+    let link = `?name=${lastSuggestion.plant.replace(/ /g, "%20")}#plant-detail`
     result.href = link;
 
     const imgNameWapper = document.querySelector('.plant-image-wrapper')
