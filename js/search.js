@@ -37,7 +37,8 @@ inputSearch.addEventListener('input', (e) => {//try change it will search all of
     timer = setTimeout(() => {
       plantOurinfo.map(plant => {
         if (reg(e.target.value, plant.plant_name)) {
-          let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${plant.plant_name.replace(/ /g, "%20")}`;
+          // let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${plant.plant_name.replace(/ /g, "%20")}`;
+          let link = `?name=${plant.plant_name.replace(/ /g, "%20")}#plant-detail`
           document.querySelector('.result').innerHTML += `<li>${plant.plant_name}(${plant.location}).<a href="${link}">the details</a></li>`;
         }
       })
@@ -48,7 +49,8 @@ inputSearch.addEventListener('input', (e) => {//try change it will search all of
     timer = setTimeout(() => {
       plantOurinfo.map(plant => {
         if (reg(e.target.value, plant.plant_name)) {
-          let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${plant.plant_name.replace(/ /g, "%20")}`;
+          // let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${plant.plant_name.replace(/ /g, "%20")}`;
+          let link = `?name=${plant.plant_name.replace(/ /g, "%20")}#plant-detail`
           document.querySelector('.result').innerHTML += `<li>${plant.plant_name}(${plant.location}).<a href="${link}">the details</a></li>`;
          
        
