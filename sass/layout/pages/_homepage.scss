@@ -1,79 +1,58 @@
 
 /* Position the image container (needed to position the left and right arrows) */
-.container {
-  position: relative;
-  z-index: -5;
-  width: 100%;
-  margin: 0;
-  height: 50vh;
+.flt-left{
+  float:left;
 }
-
+.carousel{
+  width:100%;
+  margin:auto;
+  display: flex;
+  align-items: center;
+}
+.row{
+  width:90%;
+  padding:0;
+  overflow:hidden;
+  margin:auto;
+}
+.row-container{
+  width:100%;
+  transition:0.5s;
+ display: flex;
+}
+.container{
+  width: 680px;
+  flex: 1 0 100%;
+  float:left;
+  display:inline;
+  margin:0 5px;
+}
 .container img {
-  height: 50vh;
-  width: auto;
+  flex-basis: 100%;
+  width: 100%;
+  display: block;
+  // margin: auto;
+}
+.clear{
+  clear:both;
+}
+.controls{
+  width:100%;
+  margin:4px;
+}
+button{
+  border:none;
+  padding:10px 20px;
+  color:white;
+  background:#21252b;
+  font-weight:bold;
+  outline:none;
+  border-radius:3px;
+  height:200px;
+  position:relative;
+  height: 50px;
 }
 
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-  cursor: pointer;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* Container for image text */
-.caption-container {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 
 
@@ -81,10 +60,14 @@
 /* MEDIA QUERY */
 
 @media screen and (min-width: 800px){
-  .mySlides {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .container{
+    flex-basis: 33.33%;
+    // width: 310px;
+   }
+   .container img {
+    width: 100%;
+   }
+    
 }
 
 // NAVIGATOR PART

@@ -25,5 +25,6 @@ Router.init('mainArea', [
   new Page('#plantid', 'plantid.html', '', 'My Green - Plant Identifier'),
   new Page('#addplant', 'addplant.html', '', 'My Green - Add a Plant'),
   new Page('#aboutus', 'about-us.html', '', 'My Green - About us'),
-  new Page('#contactus', 'contact-us.html', '', 'My Green - Contact us')
+  new Page('#contactus', 'contact-us.html', '', 'My Green - Contact us'),
+  new Page('#camera', 'camera.html', '', 'My Green - My Journal')
 ]);
