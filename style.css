@@ -669,13 +669,99 @@
   background: #EFD35E;
   border: 1px solid #EFD35E;
   border-radius: 0px 20px 20px 0px;
-  flex-basis: 10%;
   padding: 0.2rem;
   justify-content: center;
 }
 
 .search-icon a {
   color: black;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+  z-index: -5;
+  width: 100%;
+  margin: 0;
+  height: 50vh;
+}
+
+.container img {
+  height: 50vh;
+  width: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* MEDIA QUERY */
+@media screen and (min-width: 800px) {
+  .mySlides {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.title-slideshow {
+  text-align: center;
 }
 
 .main-navigators {
@@ -687,6 +773,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 2rem;
   margin-bottom: 5rem;
 }
 
@@ -2446,7 +2533,11 @@ select {
 .header a,
 .footer a {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.header {
+  position: relative;
 }
 
 .header ul {
@@ -2454,6 +2545,9 @@ select {
   padding: 0;
   display: flex;
   flex-flow: column wrap;
+  font-family: "Righteous", cursive;
+  font-weight: 300;
+  font-size: 0.6rem;
 }
 
 .toolbar-mobile {
@@ -2463,6 +2557,10 @@ select {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .toolbar-desktop {
@@ -2475,16 +2573,29 @@ select {
 }
 
 .menu-mobile {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
   transform: translateX(100%);
-  z-index: 50;
+  z-index: 120;
   position: fixed;
+  top: 11.3rem;
   left: 0;
   transition: transform 0.5s;
-  height: 65%;
-  margin-top: 50rem;
+  height: 100vh;
   flex-basis: 100%;
+}
+
+.menu-mobile ul {
+  list-style-type: none;
+  margin-top: 3rem;
+}
+
+.menu-mobile li {
+  margin: 0.5rem;
+}
+
+.menu-mobile a {
+  text-decoration: none;
 }
 
 .show-menu {
@@ -2506,6 +2617,7 @@ select {
   display: flex;
   justify-content: center;
   margin: 1rem;
+  margin-top: 15rem;
 }
 
 .search-input {
@@ -2513,16 +2625,17 @@ select {
   border: 1px solid #EFD35E;
   border-radius: 20px 0px 0px 20px;
   padding: 0.3rem;
+  width: 280px;
 }
 
 .search-icon {
-  display: flex;
   background: #EFD35E;
   border: 1px solid #EFD35E;
   border-radius: 0px 20px 20px 0px;
-  flex-basis: 10%;
+  width: 75px;
   padding: 0.2rem;
   justify-content: center;
+  align-items: center;
 }
 
 .search-icon a {
@@ -2534,7 +2647,7 @@ select {
   width: 100%;
   transform: translateY(-100%);
   z-index: 50;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transition: transform 0.5s;
@@ -2581,6 +2694,7 @@ ul.result a {
 
 #mainArea {
   padding-bottom: 10rem;
+  padding-top: 2rem;
 }
 
 .footer {
@@ -2607,17 +2721,6 @@ ul.result a {
   margin: 1rem;
   font-family: "Righteous", cursive;
   font-size: 1.3rem;
-}
-
-body {
-  position: relative;
-}
-
-.footer {
-  position: absolute;
-  bottom: -5rem;
-  right: 0;
-  left: 0;
 }
 
 .footer ul {
@@ -2682,14 +2785,17 @@ body {
     justify-content: space-around;
   }
   .header-site-logo-desktop img {
-    height: 130px;
+    height: 110px;
     width: auto;
   }
   .menu-desktop ul a {
-    color: #FAFAFA;
+    color: black;
   }
   .header .logo-toolbar-wrapper {
     padding: 0;
+  }
+  .search-wrapper {
+    margin-top: 2rem;
   }
   .footer {
     flex-flow: row nowrap;
