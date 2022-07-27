@@ -1343,6 +1343,9 @@ main.plant-detail .section-wrapper {
 main.plant-detail .section-wrapper div {
   cursor: pointer;
 }
+main.plant-detail .border-line {
+  border-bottom: none;
+}
 main.plant-detail .description {
   font-size: 1.1rem;
   padding: 0 1rem;
@@ -1424,6 +1427,9 @@ main.plant-detail .outdoor-frequent {
 main.plant-detail .outdoor-section {
     margin-left: 2rem;
     margin-right: 2rem;
+  }
+  main.plant-detail .border-line {
+    border-bottom: solid 4px #DD1C50;
   }
   main.plant-detail .mobile-view {
     display: none;

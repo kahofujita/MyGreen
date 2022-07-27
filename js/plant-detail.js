@@ -40,6 +40,9 @@ plantNamediv.classList.add('plant-name')
 imgNameWapper.appendChild(plantNamediv)
 plantNamediv.innerHTML = plantName
 
+// Border line under detail section
+detailSection.classList.add('border-line')
+
 
 const getPlantinfo = async () => {
 
@@ -116,6 +119,9 @@ const getPlantinfo = async () => {
             indoorSection.setAttribute('style', 'font-weight:700;')
             outdoorSection.setAttribute('style', 'unset;')
             detailSection.setAttribute('style', 'unset;')
+            outdoorSection.classList.remove('border-line')
+            detailSection.classList.remove('border-line')
+            
         
             description.innerHTML = ""
 
@@ -132,6 +138,9 @@ const getPlantinfo = async () => {
             // }
 
             // myMediaQuery(mediaQuery)
+                    // Add underline
+                    indoorSection.classList.add('border-line')
+ 
 
             
             
@@ -185,17 +194,15 @@ const getPlantinfo = async () => {
                 detailSection.setAttribute('style', 'font-weight:700;')
                 indoorSection.setAttribute('style', 'unset;')
                 outdoorSection.setAttribute('style', 'unset;')
+                outdoorSection.classList.remove('border-line')
+                indoorSection.classList.remove('border-line')
                 description.innerHTML = ""
                 description.innerHTML = detailInfo
 
-                function myMediaQuery(mediaQuery) {
-                    if (mediaQuery.matches) {
+
                         // Add underline
-                        detailSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
-                    }
-                }
-    
-                myMediaQuery(mediaQuery)
+                        detailSection.classList.add('border-line')
+
             })
 
             // Indoor Frequency 
@@ -214,16 +221,18 @@ const getPlantinfo = async () => {
             detailSection.setAttribute('style', 'font-weight:700;')
             outdoorSection.setAttribute('style', 'unset;')
             indoorSection.setAttribute('style', 'unset;')
+            outdoorSection.classList.remove('border-line')
+            indoorSection.classList.remove('border-line')
             description.innerHTML = detailInfo
 
-            function myMediaQuery(mediaQuery) {
-                if (mediaQuery.matches) {
-                    // Add underline
-                    detailSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
-                }
-            }
+            // function myMediaQuery(mediaQuery) {
+            //     if (mediaQuery.matches) {
+            //         // Add underline
+            //         detailSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+            //     }
+            // }
 
-            myMediaQuery(mediaQuery)
+            // myMediaQuery(mediaQuery)
 
 
 
@@ -250,6 +259,8 @@ const getPlantinfo = async () => {
                 outdoorSection.setAttribute('style', 'font-weight:700;')
                 indoorSection.setAttribute('style', 'unset;')
                 detailSection.setAttribute('style', 'unset;')
+                detailSection.classList.remove('border-line')
+                indoorSection.classList.remove('border-line')
                 description.innerHTML = ""
 
                 // function myMediaQuery(mediaQuery) {
@@ -274,6 +285,19 @@ const getPlantinfo = async () => {
                 //     description.innerHTML = doc_outdoor.data().details
                 //     description.style.setProperty('color', 'red');
                 // }
+
+                        // Add underline
+                        outdoorSection.classList.add('border-line')
+
+
+                // function myMediaQuery(mediaQuery) {
+                //     if (mediaQuery.matches) {
+                //         // Add underline
+                //         outdoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
+                //     }
+                // }
+    
+                // myMediaQuery(mediaQuery)
     
             })
 

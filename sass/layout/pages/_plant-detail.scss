@@ -88,6 +88,10 @@ main.plant-detail {
         cursor: pointer;
     }
 
+    .border-line {
+        border-bottom: none;
+    }
+
     .description {
         font-size: 1.1rem;
         padding: 0 1rem;
@@ -192,6 +196,10 @@ main.plant-detail {
         .outdoor-section {
             margin-left: 2rem;
             margin-right: 2rem;
+        }
+
+        .border-line {
+            border-bottom: solid 4px #DD1C50;
         }
 
         .mobile-view {
