@@ -1,5 +1,8 @@
 // Hamburger Menu
 
+export function init () {
+  console.log(" initializing about.js module:" + new Date());
+
 const menu = document.querySelector('.menu-mobile');
 
 menuButton.addEventListener('click', function () {
@@ -51,4 +54,6 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
 }
