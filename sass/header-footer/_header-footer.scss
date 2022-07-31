@@ -51,6 +51,7 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: 120;
 }
 
 .toolbar-desktop {
@@ -102,6 +103,10 @@ flex-basis: 100%;
   margin: 1rem;
   border-bottom: 1px solid #FAFAFA;
   display: block;
+}
+
+.current {
+  color: white;
 }
 
 
@@ -284,11 +289,16 @@ margin: 0.3rem;
     flex-flow: column wrap;
     flex-basis: 100%;
     align-items: center;
+    
   }
 
   .menu-desktop {
     background-color: #83C992;
     width: 100%;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+  z-index: 120;
   }
 
   .menu-desktop ul{

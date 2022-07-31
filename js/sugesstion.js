@@ -49,7 +49,7 @@ const suggestionHandler = () => {
   let result = document.querySelector('.suggestion-link');
 
   if (lastSuggestion.date) {
-    result.innerHTML = `Our <span style="color: #EFD35E;">last</span> suggestion is: ${lastSuggestion.plant}`;
+    result.innerHTML = `${lastSuggestion.plant}`;
  
     let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
     result.href = link;
@@ -75,7 +75,7 @@ const suggestionHandler = () => {
     result.href = link;
 
     localStorage.setItem('lastSuggestion', JSON.stringify(lastSuggestion))
-    result.innerHTML = `Our <span style="color: #83C992;">new</span> suggestion is: ${lastSuggestion.plant}.`;
+    result.innerHTML = `${lastSuggestion.plant}.`;
     const imgNameWapper = document.querySelector('.plant-image-wrapper')
     // Display Plant Image
     const img = document.createElement('img')

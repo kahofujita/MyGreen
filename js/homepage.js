@@ -1,3 +1,5 @@
+export function init () {
+
 // Hamburger Menu
 
 const menu = document.querySelector('.menu-mobile');
@@ -6,6 +8,29 @@ menuButton.addEventListener('click', function () {
 
   menu.classList.toggle('show-menu');
 })
+
+//Navigation of desktop
+
+// let cls = document.querySelector('main')
+// let arr = cls.classList
+// arr.forEach (c=> {console.log(c)})
+
+// =============================================================
+// let current_url = document.location.hash;
+// let name = 'hasan';
+// console.log(name.includes('san')
+// console.log(current_url.includes('person'), 'in baraye safe hast')
+
+// let a = document.querySelector(`a[href = ${current_url} ]`)
+// console.log(`a[href = ${current_url} ]`);
+// a.style.color = 'white'
+
+// document.querySelectorAll(".navigation").forEach(address =>{
+//   if (address.href.includes(current_url)){
+//     console.log('doroste va alan injaii', current_url);
+//   }
+//   console.log(address)
+// })
 
 
 // SEARCH BAR
@@ -22,33 +47,12 @@ searchPage.classList.remove('show-search');
 })
 
 // SLIDESHOW
-let slideIndex = 1;
-showSlides(slideIndex);
+document.querySelector('.flt-left').addEventListener('click', () => {
+  console.log('left button clicked');
+})
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("demo");
-  let captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
+
+
 }

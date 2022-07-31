@@ -1,10 +1,10 @@
-.main-suggestion{
+.suggestion{
   display: flex;
   flex-flow: column wrap;
   width: 100%;
   }
 
-.main-suggestion h2 {
+.suggestion h2 {
   font-size: 2.5rem;
   text-align: center;
   margin-top: 6rem;
@@ -23,7 +23,16 @@
   padding: .4rem;
   margin: auto;
   margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ position: relative;
+ top: 1.5rem;
 
+}
+
+.text-wrapper a {
+  font-size: 1.5rem;
 }
 
 .suggestion-link {
@@ -53,7 +62,7 @@ margin-right: auto;
 }
 
 @media screen and (min-width: 800px) {
-  .main-suggestion {
+  .suggestion {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
@@ -80,7 +89,7 @@ margin-right: auto;
   width: 70%;
   margin-top: 0;
 }
-.main-suggestion h2 {
+.suggestion h2 {
   margin-top: 0;
   margin-bottom: 4rem;
 }
