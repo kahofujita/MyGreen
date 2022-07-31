@@ -1258,7 +1258,7 @@ main.myplants {
 }
 main.myplants h2 {
   text-align: center;
-  font-size: 2.1rem;
+  font-size: 1.8rem;
 }
 main.myplants section.myplant {
   display: flex;
@@ -1320,6 +1320,9 @@ main.myplants #addplant a:focus {
   background-color: #B21F51;
   color: white;
   border: white 3px solid;
+}
+main.myplants h2.plant-schedule {
+  font-size: 1.7rem;
 }
 main.myplants .weekly-schedule {
   display: flex;
@@ -1437,7 +1440,8 @@ main.myplants button.nutritionize-today:not([disabled]):focus {
     max-width: 1100px;
     margin: auto;
   }
-  main.myplants h2 {
+  main.myplants h2,
+main.myplants h2.plant-schedule {
     font-size: 2.3rem;
   }
   main.myplants .myplant-wrapper {

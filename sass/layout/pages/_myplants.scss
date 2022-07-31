@@ -5,7 +5,7 @@ main.myplants {
 
     h2 {
         text-align: center;
-        font-size: 2.1rem;
+        font-size: 1.8rem;
     }
 
     section.myplant {
@@ -82,6 +82,10 @@ main.myplants {
 
 
     // Plant shcedule section ===============
+
+    h2.plant-schedule {
+        font-size: 1.7rem;
+    }
 
     .weekly-schedule {
         display: flex;
@@ -229,7 +233,8 @@ main.myplants {
             margin: auto;
         }
 
-        h2 {
+        h2,
+        h2.plant-schedule {
             font-size: 2.3rem;
         }
 

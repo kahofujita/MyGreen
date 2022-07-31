@@ -42,6 +42,17 @@ plantsList.forEach( async(e, index)=>{
     const plantId = e.plant_id
     console.log(plantId)
 
+    // Display nickname
+    const nickname = e.nickname
+    console.log(nickname)
+
+    const span = document.createElement('span')
+    span.classList.add('nickname')
+    span.innerHTML = nickname
+
+    const plantSchedule = document.querySelector('.plant-schedule')
+    plantSchedule.appendChild(span)
+
 
         // Query "plant_ourinfo"
         const plantQuery = query(collection(db, "plant_ourinfo"), where("plant_id", "==", plantId))
