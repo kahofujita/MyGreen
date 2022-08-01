@@ -74,8 +74,8 @@ plantsList.forEach( async(e, index)=>{
             img.alt = plantName
             div.appendChild(img)
 
-            const myplantWrapper = document.querySelector('.myplant-wrapper')
-            myplantWrapper.appendChild(div)
+            const carousel = document.querySelector('.carousel')
+            carousel.appendChild(div)
 
 
             // Fuction for Formatted Date

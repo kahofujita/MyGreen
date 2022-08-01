@@ -26,11 +26,19 @@
                 If we need scrollbar
                 <div class="swiper-scrollbar"></div>
             </div> -->
-            <div class="myplant-wrapper">
-                <div class="button-image">
-                    <a href="#addplant">
-                        <span><i class="fa-solid fa-plus"></i></span>
-                    </a>
+            <div class="carousel">
+                <button class='button-left' onclick="slideLeft(this);"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                <button class='button-right'  onclick="slideRight(this);"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                <div class="row flt-left">
+                    <div class="row-container">
+                    
+                        <div class="button-image">
+                            <a href="#addplant">
+                                <span><i class="fa-solid fa-plus"></i></span>
+                            </a>
+                        </div>
+
+                    </div>
                 </div>
             </div>
             <button id="addplant"><a href="#addplant">Add a plant</a></button>
