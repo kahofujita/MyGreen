@@ -4,16 +4,21 @@ import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, array
 
 export function init () {
     console.log(" initializing about.js module:" + new Date());
-    // const btn1 = document.getElementById("btn1");
-    // const text1 = document.getElementById("text1");
-    // btn1.addEventListener('click', (event) => {
-    //     const message = `test in about page ${Date.now()}`;
-    //     console.log(`%c ${message}`, 'color:black;background:yellow');
-    //     text1.innerText = message;
-    // });
+
+    class MyCarousel {
+        constructor(parent, slide) {
+            this.parent = document.querySelector(parent)
+            this.slide = document.querySelector(slide)
+        }
+        toNext(){
+            this.parent.scrollLeft += this.slide.clientWidth ;
+        }
     
-    
-    
+        toPrev(){
+            this.parent.scrollLeft -= this.slide.clientWidth ;
+        }
+    }
+       
     
     const userId = sessionStorage.getItem('userID')
     // const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
