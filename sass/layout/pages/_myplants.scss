@@ -5,7 +5,7 @@ main.myplants {
 
     h2 {
         text-align: center;
-        font-size: 2.1rem;
+        font-size: 1.8rem;
     }
 
     section.myplant {
@@ -21,14 +21,82 @@ main.myplants {
         flex-basis: 100%;
     }
 
+    // Carousel
+    .button-left{
+        float:left;
+      }
+      .carousel{
+        width:100%;
+        margin:auto;
+        display: flex;
+        align-items: center;
+      }
+      .row{
+        width:90%;
+        padding:0;
+        overflow:hidden;
+        margin:auto;
+      }
+      .row-container{
+        width:100%;
+        transition:0.5s;
+       display: flex;
+      }
+      .container{
+        width: 680px;
+        flex: 1 0 100%;
+        float:left;
+        display:inline;
+        margin:0 5px;
+      }
+      .container img {
+        flex-basis: 100%;
+        width: 100%;
+        display: block;
+      }
+      .clear{
+        clear:both;
+      }
+      .controls{
+        width:100%;
+        margin:4px;
+      }
+      button{
+        border:none;
+        padding:10px 20px;
+        color:white;
+        background:#21252b;
+        font-weight:bold;
+        outline:none;
+        border-radius:3px;
+        height:200px;
+        position:relative;
+        height: 50px;
+      }
+    //   .button-left i.fa.fa-angle-left {
+    //       display: none;
+    //   }
+
+    //   @media screen and (min-width:800px) {
+    //     .button-left i, 
+    //     .button-right {
+    //         display: none;
+    //     }
+    //   }
+
+
+
     .myplant-wrapper {
         flex-basis: 100%;
+        width: 90%;
+    }
+
+    .carousel {
         display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-gap: 1rem;
         border: solid 4px $color-green1;
         border-radius: 50px;
-        width: 90%;
         padding: 2rem;
     }
 
@@ -83,6 +151,10 @@ main.myplants {
 
     // Plant shcedule section ===============
 
+    h2.plant-schedule {
+        font-size: 1.7rem;
+    }
+
     .weekly-schedule {
         display: flex;
         flex-flow: column nowrap;
@@ -113,12 +185,6 @@ main.myplants {
         height: 17rem;
         margin: auto;
     }
-
-    // .watering-wrapper {
-    //     transition: opacity 2s ease-in-out;
-    //     -moz-transition: opacity 2s ease-in-out;
-    //     -webkit-transition: opacity 2s ease-in-out;
-    // }
 
     .icon-section-wrapper {
         flex-basis: 100%;
@@ -229,11 +295,16 @@ main.myplants {
             margin: auto;
         }
 
-        h2 {
+        h2,
+        h2.plant-schedule {
             font-size: 2.3rem;
         }
 
         .myplant-wrapper {
+            width: 100%;
+        }
+
+        .carousel {
             grid-template-columns: repeat(4,1fr);
             width: 100%;
         }

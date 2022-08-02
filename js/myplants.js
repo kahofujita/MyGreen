@@ -4,16 +4,21 @@ import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, array
 
 export function init () {
     console.log(" initializing about.js module:" + new Date());
-    // const btn1 = document.getElementById("btn1");
-    // const text1 = document.getElementById("text1");
-    // btn1.addEventListener('click', (event) => {
-    //     const message = `test in about page ${Date.now()}`;
-    //     console.log(`%c ${message}`, 'color:black;background:yellow');
-    //     text1.innerText = message;
-    // });
+
+    class MyCarousel {
+        constructor(parent, slide) {
+            this.parent = document.querySelector(parent)
+            this.slide = document.querySelector(slide)
+        }
+        toNext(){
+            this.parent.scrollLeft += this.slide.clientWidth ;
+        }
     
-    
-    
+        toPrev(){
+            this.parent.scrollLeft -= this.slide.clientWidth ;
+        }
+    }
+       
     
     const userId = sessionStorage.getItem('userID')
     // const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
@@ -42,6 +47,17 @@ plantsList.forEach( async(e, index)=>{
     const plantId = e.plant_id
     console.log(plantId)
 
+    // Display nickname
+    const nickname = e.nickname
+    console.log(nickname)
+
+    const span = document.createElement('span')
+    span.classList.add('nickname')
+    span.innerHTML = nickname
+
+    const plantSchedule = document.querySelector('.plant-schedule')
+    plantSchedule.appendChild(span)
+
 
         // Query "plant_ourinfo"
         const plantQuery = query(collection(db, "plant_ourinfo"), where("plant_id", "==", plantId))
@@ -63,8 +79,8 @@ plantsList.forEach( async(e, index)=>{
             img.alt = plantName
             div.appendChild(img)
 
-            const myplantWrapper = document.querySelector('.myplant-wrapper')
-            myplantWrapper.appendChild(div)
+            const carousel = document.querySelector('.carousel')
+            carousel.appendChild(div)
 
 
             // Fuction for Formatted Date

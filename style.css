@@ -859,55 +859,50 @@
   color: black;
 }
 
-/* Position the image container (needed to position the left and right arrows) */
-.flt-left {
+.homepage-main {
+  /* Position the image container (needed to position the left and right arrows) */
+  /* MEDIA QUERY */
+}
+.homepage-main .flt-left {
   float: left;
 }
-
-.carousel {
+.homepage-main .carousel {
   width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
 }
-
-.row {
+.homepage-main .row {
   width: 90%;
   padding: 0;
   overflow: hidden;
   margin: auto;
 }
-
-.row-container {
+.homepage-main .row-container {
   width: 100%;
   transition: 0.5s;
   display: flex;
 }
-
-.container {
+.homepage-main .container {
   width: 680px;
   flex: 1 0 100%;
   float: left;
   display: inline;
   margin: 0 5px;
 }
-
-.container img {
+.homepage-main .container img {
   flex-basis: 100%;
   width: 100%;
   display: block;
 }
-
-.clear {
+.homepage-main .clear {
   clear: both;
 }
-
-.controls {
+.homepage-main .controls {
   width: 100%;
   margin: 4px;
 }
-
-button {
+.homepage-main button {
   border: none;
   padding: 10px 20px;
   color: white;
@@ -919,39 +914,33 @@ button {
   position: relative;
   height: 50px;
 }
-
-/* MEDIA QUERY */
 @media screen and (min-width: 800px) {
-  .container {
+  .homepage-main .container {
     flex-basis: 33.33%;
   }
-  .container img {
+  .homepage-main .container img {
     width: 100%;
   }
 }
-.title-slideshow {
+.homepage-main .title-slideshow {
   text-align: center;
 }
-
-.main-navigators {
+.homepage-main .main-navigators {
   display: flex;
   flex-flow: column nowrap;
 }
-
-.main-single-navigator {
+.homepage-main .main-single-navigator {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
-
-.main-single-navigator img {
+.homepage-main .main-single-navigator img {
   display: block;
   margin: auto;
 }
-
-.main-single-navigator a {
+.homepage-main .main-single-navigator a {
   text-decoration: none;
   color: black;
   display: block;
@@ -960,12 +949,12 @@ button {
   font-size: 1.25;
   margin-bottom: 1rem;
 }
-
 @media screen and (min-width: 800px) {
-  .main-navigators {
+  .homepage-main .main-navigators {
     flex-flow: row nowrap;
   }
 }
+
 .main-suggestion {
   display: flex;
   flex-flow: column wrap;
@@ -1279,7 +1268,7 @@ main.myplants {
 }
 main.myplants h2 {
   text-align: center;
-  font-size: 2.1rem;
+  font-size: 1.8rem;
 }
 main.myplants section.myplant {
   display: flex;
@@ -1292,14 +1281,67 @@ main.myplants section.myplant {
 main.myplants .myplant h2 {
   flex-basis: 100%;
 }
+main.myplants .button-left {
+  float: left;
+}
+main.myplants .carousel {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+main.myplants .row {
+  width: 90%;
+  padding: 0;
+  overflow: hidden;
+  margin: auto;
+}
+main.myplants .row-container {
+  width: 100%;
+  transition: 0.5s;
+  display: flex;
+}
+main.myplants .container {
+  width: 680px;
+  flex: 1 0 100%;
+  float: left;
+  display: inline;
+  margin: 0 5px;
+}
+main.myplants .container img {
+  flex-basis: 100%;
+  width: 100%;
+  display: block;
+}
+main.myplants .clear {
+  clear: both;
+}
+main.myplants .controls {
+  width: 100%;
+  margin: 4px;
+}
+main.myplants button {
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  background: #21252b;
+  font-weight: bold;
+  outline: none;
+  border-radius: 3px;
+  height: 200px;
+  position: relative;
+  height: 50px;
+}
 main.myplants .myplant-wrapper {
   flex-basis: 100%;
+  width: 90%;
+}
+main.myplants .carousel {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
   border: solid 4px #83C992;
   border-radius: 50px;
-  width: 90%;
   padding: 2rem;
 }
 main.myplants .plant-image img {
@@ -1341,6 +1383,9 @@ main.myplants #addplant a:focus {
   background-color: #B21F51;
   color: white;
   border: white 3px solid;
+}
+main.myplants h2.plant-schedule {
+  font-size: 1.7rem;
 }
 main.myplants .weekly-schedule {
   display: flex;
@@ -1458,10 +1503,14 @@ main.myplants button.nutritionize-today:not([disabled]):focus {
     max-width: 1100px;
     margin: auto;
   }
-  main.myplants h2 {
+  main.myplants h2,
+main.myplants h2.plant-schedule {
     font-size: 2.3rem;
   }
   main.myplants .myplant-wrapper {
+    width: 100%;
+  }
+  main.myplants .carousel {
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
   }
