@@ -1,0 +1,10 @@
+{
+    "name": "My Green",
+    "short_name": "MyGreen",
+    "icons": [
+    { "src": "webappconfig/icons/app_icon_192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "webappconfig/icons/app_icon_512x512.png", "sizes": "512x512", "type": "image/png" }
+    ],
+    "start_url": "login.html",
+    "display": "standalone"
+}    
