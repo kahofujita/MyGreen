@@ -1,6 +1,6 @@
 const CACHE_NAME = 'cache';
 const urlsToCache = [
-    '/login.html', '/style.css'
+    '/login.html', '/style.css', '/js/login.js'
 ];
 
 // Install
@@ -14,7 +14,21 @@ self.addEventListener('install', function(event) {
     );
 });
 
-// // Cache load
+// Activate
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((keyList) => {
+            return Promise.all(
+                keyList.map((key) => {
+                    if (key !== CACHE_NAME) {
+                        return caches.delete(key);
+                    }
+                })
+            )}
+        ))
+    })
+
+// Cache load
 self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches
