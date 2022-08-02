@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/login.js" type="module" defer></script>
+    <script src="./js/offline.js" defer></script>
     <title>My Green - Login</title>
-    <link rel="manifest" href="./webappconfig/app.webmanifest">
+    <link rel="manifest" href="./app.webmanifest">
     <link rel="stylesheet" href="style.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous' referrerpolicy='no-referrer' />
 </head>
@@ -21,8 +22,8 @@
                     <img src="Logos_MyGreen/Logo_Black.png" alt="The black logo of the app">
                     <h1 class="visually-hidden">My Green</h1>
                 </div>
-                <div aria-label="menu button" id="menuButton" class="menu-button"><i aria-hidden='true'
-                        class="fa-solid fa-bars" title='menu button'></i></div>
+                <!-- <div aria-label="menu button" id="menuButton" class="menu-button"><i aria-hidden='true'
+                        class="fa-solid fa-bars" title='menu button'></i></div> -->
                 <div class="menu-mobile">
                 </div>
             </div>
@@ -100,7 +101,7 @@
     <script>
         if ('serviceWorker' in navigator) { //if browser supports Service worker
             // assuming sw.js is our service worker file in the same directory
-            navigator.serviceWorker.register('./webappconfig/sw.js')
+            navigator.serviceWorker.register('./sw.js')
                 .then(function (reg) {
                     console.log(`Service Worker Registration`);
                 })

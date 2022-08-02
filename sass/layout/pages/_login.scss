@@ -112,3 +112,13 @@
 .login-body footer {
     margin-top: 2rem;
 }
+
+.offline-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-top: 5rem;
+    text-align: center;
+}
