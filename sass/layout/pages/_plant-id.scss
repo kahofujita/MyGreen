@@ -1,4 +1,7 @@
 .plantid {
+
+  height: 80vh;
+
 .header-plant-id {
   text-align: center;
 }
@@ -50,13 +53,28 @@
   font-size: 2rem;
 }
 
-.show-camera {
+.camera {
   display: none;
   grid-column: 1/-1;
+  grid-row: 3;
   justify-content: center;
+  justify-items: center;
   align-items: center;
   flex-flow: column;
   order: 10;
+}
+
+.camera button {
+  border-radius: 15px;
+  background-color: $color-green1;
+  color: $color-body-light;
+  padding: .5rem;
+  margin: 0.2rem;
+  border: none;
+}
+
+.canvas-wrapper {
+  display: flex;
 }
 
 

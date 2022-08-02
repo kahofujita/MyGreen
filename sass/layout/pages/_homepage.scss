@@ -23,12 +23,15 @@
  display: flex;
   
 }
+
 .container{
   width: 680px;
   flex: 1 0 100%;
   float:left;
   display:inline;
   margin:0 5px;
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .container img {
@@ -36,6 +39,12 @@
   width: 100%;
   display: block;
   // margin: auto;
+}
+
+.date {
+  background-color: rgba(15, 13, 13, 0.668);
+  color: white;
+  display: flex;
 }
 
 .clear{

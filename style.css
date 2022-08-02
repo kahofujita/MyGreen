@@ -706,11 +706,18 @@
   float: left;
   display: inline;
   margin: 0 5px;
+  display: flex;
+  flex-flow: column wrap;
 }
 .homepage .container img {
   flex-basis: 100%;
   width: 100%;
   display: block;
+}
+.homepage .date {
+  background-color: rgba(15, 13, 13, 0.668);
+  color: white;
+  display: flex;
 }
 .homepage .clear {
   clear: both;
@@ -865,6 +872,9 @@
     width: 530px;
   }
 }
+.plantid {
+  height: 80vh;
+}
 .plantid .header-plant-id {
   text-align: center;
 }
@@ -904,13 +914,26 @@
   margin-top: -16px;
   font-size: 2rem;
 }
-.plantid .show-camera {
+.plantid .camera {
   display: none;
   grid-column: 1/-1;
+  grid-row: 3;
   justify-content: center;
+  justify-items: center;
   align-items: center;
   flex-flow: column;
   order: 10;
+}
+.plantid .camera button {
+  border-radius: 15px;
+  background-color: #83C992;
+  color: #FAFAFA;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  border: none;
+}
+.plantid .canvas-wrapper {
+  display: flex;
 }
 .plantid .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;

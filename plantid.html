@@ -25,16 +25,25 @@
         </div>
   
       
-      <div class="show-camera">
-        <video id="video" width="320" height="240" autoplay></video>
-        <button id="click-photo">Click Photo</button>
-        <canvas id="canvas" width="320" height="240"></canvas>
-      </div>
+     
 
       
       <button type="button" class="plant-id-button">OK</button>
     </form>
-    <img id="myImg" src="">
+    <div class="camera">
+
+      <div>
+          <button id="start">Start Camera</button>
+          <button id="snap">Snap Photo</button>
+          <button id="stop">Stop Camera</button>
+      </div>
+        <br />
+        <div class="canvas-wrapper">
+          <video id="video" width="320" height="240" autoplay></video>
+          <canvas id="canvas" width="320" height="240"></canvas>
+        </div>
+    </div>
+  <img id="myImg" src="">
     
   </div>
     <div class="result-message">

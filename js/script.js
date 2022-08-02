@@ -25,3 +25,6 @@ Router.init('mainArea', [
   new Page('#plantid', 'plantid.html', '', 'My Green - Plant Identifier'),
   new Page('#addplant', 'addplant.html', '', 'My Green - Add a Plant')
 ]);
+
+
+
