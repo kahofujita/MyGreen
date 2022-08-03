@@ -1408,18 +1408,127 @@ main.myplants .myplant-wrapper {
   width: 90%;
 }
 main.myplants .carousel {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
   border: solid 4px #83C992;
   border-radius: 50px;
-  padding: 2rem;
+  padding: 2rem 1rem 2rem 1rem;
+  position: relative;
+  width: 90%;
+}
+@media screen and (min-width: 600px) {
+  main.myplants .carousel {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 800px) {
+  main.myplants .carousel {
+    padding: 2rem;
+    width: 100%;
+  }
+}
+main.myplants .carousel .slide-container {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overflow-x: scroll;
+  height: 13rem;
+  display: flex;
+  align-items: center;
+  margin: 0 auto 0 auto;
+  width: 24rem;
+  padding-left: 1.5rem;
+}
+main.myplants .carousel .slide-container::-webkit-scrollbar {
+  display: none;
+}
+@media screen and (min-width: 600px) {
+  main.myplants .carousel .slide-container {
+    width: 26rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  main.myplants .carousel .slide-container {
+    padding: 0.5rem 0 0.5rem 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+main.myplants .carousel .slide-container img {
+  scroll-snap-align: start;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+  margin: auto 1rem auto 0;
+  height: 88%;
+}
+main.myplants .carousel .slide-container img:hover {
+  border: 3px solid #83C992;
+}
+@media screen and (min-width: 600px) {
+  main.myplants .carousel .slide-container img {
+    height: 80%;
+  }
+}
+@media screen and (min-width: 800px) {
+  main.myplants .carousel .slide-container img {
+    width: 22%;
+    height: 22%;
+    margin: auto 2rem auto 0;
+  }
+}
+main.myplants .carousel .slide-container .myPlant_plus {
+  scroll-snap-align: start;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+  padding: 0 4.8rem;
+  margin-left: 0.4rem;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 2rem auto 0;
+}
+main.myplants .carousel .slide-container .myPlant_plus:hover {
+  border: 3px solid #83C992;
+}
+@media screen and (min-width: 945px) {
+  main.myplants .carousel .slide-container .myPlant_plus {
+    padding: 0 5.5rem;
+    height: 190px;
+  }
+}
+main.myplants .carousel button {
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+  color: #F1D644;
+  background-color: transparent;
+  font-size: 3rem;
+}
+main.myplants .carousel .btnDisabled {
+  display: none;
+}
+main.myplants .carousel .button-left {
+  left: 0;
+}
+@media screen and (min-width: 800px) {
+  main.myplants .carousel .button-left {
+    display: none;
+  }
+}
+main.myplants .carousel .button-right {
+  right: 0;
+}
+@media screen and (min-width: 800px) {
+  main.myplants .carousel .button-right {
+    display: none;
+  }
 }
 main.myplants .plant-image img {
   border: 1px solid transparent;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
+  height: 100%;
 }
 main.myplants img.green-border {
   border: 3px solid #83C992;
@@ -1427,7 +1536,10 @@ main.myplants img.green-border {
 main.myplants .plant-image img:hover {
   border: 3px solid #83C992;
 }
-main.myplants .button-image {
+main.myplants .slide-container a[href="#addplant"] {
+  display: none;
+}
+main.myplants .myPlant_plus {
   display: none;
   height: 248px;
 }
@@ -1581,27 +1693,23 @@ main.myplants h2.plant-schedule {
   main.myplants .myplant-wrapper {
     width: 100%;
   }
-  main.myplants .carousel {
+  main.myplants .plant-carousel {
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
   }
-  main.myplants .button-image {
+  main.myplants .myPlant_plus {
     display: block;
-    order: 4;
     border-radius: 50%;
     font-size: 1.5rem;
-  }
-  main.myplants .button-image a {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: #EFEFEF;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #EFEFEF;
   }
-  main.myplants .button-image:hover {
+  main.myplants .slide-container a[href="#addplant"] {
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+  main.myplants .myPlant_plus:hover {
     border: 3px solid #83C992;
   }
   main.myplants #addplant {
