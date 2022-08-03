@@ -2,23 +2,32 @@ import {db, auth} from './firebase/firebase-config.js';
 
 import {collection, addDoc, doc, getDoc, query, where, getDocs, updateDoc, arrayUnion} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
+class MyCarousel {
+    constructor(parent, slide) {
+        this.parent = document.querySelector(parent)
+        this.slide = document.querySelector(slide)
+    }
+    toNext(){
+        this.parent.scrollLeft += this.slide.clientWidth ;
+    }
+
+    toPrev(){
+        this.parent.scrollLeft -= this.slide.clientWidth ;
+    }
+}
+
 export function init () {
     console.log(" initializing about.js module:" + new Date());
-
-    class MyCarousel {
-        constructor(parent, slide) {
-            this.parent = document.querySelector(parent)
-            this.slide = document.querySelector(slide)
-        }
-        toNext(){
-            this.parent.scrollLeft += this.slide.clientWidth ;
-        }
+    // const btn1 = document.getElementById("btn1");
+    // const text1 = document.getElementById("text1");
+    // btn1.addEventListener('click', (event) => {
+    //     const message = `test in about page ${Date.now()}`;
+    //     console.log(`%c ${message}`, 'color:black;background:yellow');
+    //     text1.innerText = message;
+    // });
     
-        toPrev(){
-            this.parent.scrollLeft -= this.slide.clientWidth ;
-        }
-    }
-       
+    
+    
     
     const userId = sessionStorage.getItem('userID')
     // const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
@@ -32,6 +41,16 @@ export function init () {
     const dateControlForNutritionizing = document.querySelector('.nutritionizing-calendar')
     const wateringWrapper = document.querySelector('.watering-wrapper')
     const buttonHover = 'button:hover{background-color: unset;}'
+
+    const slideContainer = document.querySelector('.slide-container')
+    const nextBtn = document.querySelector('.button-right')
+    const prevBtn = document.querySelector('.button-left')
+    const buttonImage = document.querySelector('.button-link')
+
+    
+
+
+
     
     const getPlantinfo = async () => {
         
@@ -42,22 +61,37 @@ const userQuery = doc(db, "plant_userinfo", userId)
 const userQuerySnapshot = await getDoc(userQuery);
 // console.log(userQuerySnapshot.data())
 const {plantsList} = userQuerySnapshot.data()
+if(plantsList.length <= 4){
+    nextBtn.classList.add('btnDisabled')
+    prevBtn.classList.add('btnDisabled')
+}
+
+if( plantsList.length == 0 ){
+    const plusBtn = document.createElement('div')
+    plusBtn.setAttribute('class', 'myPlant_plus')
+    plusBtn.innerHTML = '<i class="fa-solid fa-plus"></i>'
+
+    slideContainer.appendChild(plusBtn)
+}
+
 console.log(plantsList)
 plantsList.forEach( async(e, index)=>{
     const plantId = e.plant_id
     console.log(plantId)
 
     // Display nickname
+    if ( index == 0) {
     const nickname = e.nickname
     console.log(nickname)
 
     const span = document.createElement('span')
     span.classList.add('nickname')
-    span.innerHTML = nickname
+    span.innerHTML = ` for ${nickname}`
 
     const plantSchedule = document.querySelector('.plant-schedule')
     plantSchedule.appendChild(span)
 
+    }
 
         // Query "plant_ourinfo"
         const plantQuery = query(collection(db, "plant_ourinfo"), where("plant_id", "==", plantId))
@@ -66,6 +100,7 @@ plantsList.forEach( async(e, index)=>{
         plantQuerySnapshot.forEach((doc_plantourinfo) => {
 
             console.log(doc_plantourinfo.data())
+            console.log(doc_plantourinfo.id)
 
             // Display Plant Image
             const plantName = doc_plantourinfo.data().plant_name
@@ -79,8 +114,32 @@ plantsList.forEach( async(e, index)=>{
             img.alt = plantName
             div.appendChild(img)
 
-            const carousel = document.querySelector('.carousel')
-            carousel.appendChild(div)
+            // const carousel = document.querySelector('.carousel')
+
+            slideContainer.appendChild(img)
+
+            buttonImage.style.order = plantsList.length
+
+            // if( index == plantsList.length - 1 ){
+            //     // const plusBtn = document.createElement('div')
+            //     // plusBtn.setAttribute('class', 'myPlant_plus')
+            //     // plusBtn.innerHTML = '<i class="fa-solid fa-plus"></i>'
+        
+            //     // slideContainer.appendChild(plusBtn)
+
+            //     buttonImage.style.order = plantsList.length
+            // }
+            
+            
+            // const myCarousel = new MyCarousel('.slide-container', '#myplant')
+        
+            // nextBtn.addEventListener('click', ()=>{
+            //     myCarousel.toNext()
+            // })
+
+            // prevBtn.addEventListener('click', ()=>{
+            //     myCarousel.toPrev()
+            // })
 
 
             // Fuction for Formatted Date
@@ -256,7 +315,15 @@ plantsList.forEach( async(e, index)=>{
                 })
 
 
+            const myCarousel = new MyCarousel('.slide-container', '#myplant')
+        
+            nextBtn.addEventListener('click', ()=>{
+                myCarousel.toNext()
+            })
 
+            prevBtn.addEventListener('click', ()=>{
+                myCarousel.toPrev()
+            })
 
 
 
@@ -452,6 +519,19 @@ plantsList.forEach( async(e, index)=>{
                 } 
                 img.classList.add('green-border')
 
+                // Display nickname
+                if (document.querySelector(".nickname")) {
+                    document.querySelector(".nickname").remove()
+                }
+                const nickname = e.nickname
+                console.log(nickname)
+
+                const span = document.createElement('span')
+                span.classList.add('nickname')
+                span.innerHTML = ` for ${nickname}`
+
+                const plantSchedule = document.querySelector('.plant-schedule')
+                plantSchedule.appendChild(span)
 
 
 
