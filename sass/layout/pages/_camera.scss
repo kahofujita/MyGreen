@@ -5,27 +5,55 @@
     padding-top: 5rem;
     padding-bottom: 5rem;
 
-    position: relative;
+    
 
 .main-wrapper{
     background-color: white;
     width: 75%;
     margin: auto; 
 }
-// #avatar{
-//     width:15%;
-//     border-radius: 50%;
-//     box-shadow: 1px 1px 1px rgb(200, 200, 200);
-//     position: absolute;
-//     top: 50px;
-//     left: 20px;
-// }
-#avatar{
-    @include avatar();
-    position: absolute;
-    top: 35px;
-    left: 6%;
+
+
+
+#card{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    max-width: 100%;
+    margin: auto;
+    background-color: $color-body-light;
+    position: relative;
+
+    #avatar{
+        width:80px;
+        min-width:80px;
+        border-radius: 50%;
+        box-shadow: 1px 1px 1px rgb(200, 200, 200);
+        position: absolute;
+        top:-40px;
+        left: -40px;
+      
+    }
+    .pic_area{
+        grid-template: 1 / 2;
+        grid-row: 1 / 2;
+
+        text-align: center;
+        height:400px;
+        display: flex;
+        flex-flow:  column wrap;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        background-color: white;
+    }
+    #front{
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
 }
+
+
 #back{
     background-color: $color-green2;
 }
@@ -34,6 +62,15 @@
 label{
     display: block;
 }
+#caption,
+#date,
+#journal{
+    font-family:$font-journal;
+}
+#caption:focus{
+    outline: $color-body-light;
+    // outline: none;
+}
 .imgicon>i{
     color: $color-yellow1;
     font-size: 50px;
@@ -41,20 +78,21 @@ label{
     font-family: "Font Awesome 5 Free";
 
 }
-.pic_area{
-    text-align: center;
-    height:400px;
-    display: flex;
-    flex-flow:  column wrap;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-}
+// .pic_area{
+//     text-align: center;
+//     height:400px;
+//     display: flex;
+//     flex-flow:  column wrap;
+//     align-items: center;
+//     justify-content: center;
+//     align-content: center;
+// }
 
 #image{
     width: 98%;
     border: none;
     font-size: 10px;
+    margin: 0;
 }
 .border,
 #username{
@@ -105,6 +143,9 @@ p#username{
 .caption-header{
     padding-left: 2%;
 }
+// #form1{
+//     background-color: white;
+// }
 /* Camera page BUTTONS ===============*/
 .submit{
     background-color: $color-red2;
@@ -156,8 +197,43 @@ input#file-upload-button{
     border-radius: 15px;
     font-size: 10px;
 }
+#emoji>p:nth-of-type(1){
+    color:$color-icon-text;
+    border-top: 1px solid $color-body-dark;
+    padding: 2%;
 
-
+}
+#emo_subtitle{
+text-align: center;
+margin: 5px;
+color:$color-icon-text;
+}
+#emoji_result{
+    width: 50px;
+    display: flex;
+    flex-flow:row nowrap;
+    img{
+        margin: 4px;
+    }
+   
+}
+#emoji{
+    background-color: $color-green4;
+}
+#emoselection{
+    display: flex;
+    flex-flow:row wrap;
+    justify-content: center;
+  
+  
+    img{
+        width: 40px;
+        margin: 5px;
+    }
+    p{
+        color:$color-icon-text;
+    }
+}
 /* TAKE A PHOTO PAGE =====*/
 #picture.page{
     padding: 1rem;
@@ -215,7 +291,6 @@ background-color: $color-green4;
 #final-img img{
     width: 100%;
 }
-// position: relative;
 }
 #final-img{
     order: -1;
@@ -229,50 +304,76 @@ background-color: $color-green4;
 }
 .results{
     padding: 2%;
-    max-width:90%;
+    // max-width:90%;
 
 }
+#emospace{
+    display: flex;
+    flex-flow: row wrap;
+}
+#emospace img{
+    width: 10%;
+}
+.results>p.dates{
+    border-bottom: 1px solid $color-body-dark;
+}
 
-
+.results>p:nth-of-type(6){
+    color:$color-icon-text ;
+    border-top: 1px solid $color-body-dark;
+}
 @media screen and (min-width:800px){
     #card{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
         width: 100%;
+        
         
         .pic_area{
             grid-column: 1 / 2;
+            grid-row: 1 / -1;
             height: 100%;
         }
-        .face{
+        #front{
            grid-column: 2 / 3;
+           grid-row: 1 / -1;
+        }
+        .input-area{
+            border-top: none;
         }
     }
     #avatar{
-        width:100px;
-        left: 8%;
+        left: 62px;
     }
     #form1{
         position: relative;
+        margin-bottom: 0;
     }
     #image{
         position: absolute;
         bottom:5%;
         right: 100%;    
-        margin-bottom: .5rem;
+        
     }
     .submit{
-        position: absolute;
-        bottom: -10%;
-        right: 25%;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        height: 30px;
+       justify-content: center;
+       margin:1rem auto;
+       max-width: 200px;
+       position: absolute;
+       bottom: -70px;
+       right:30%;
+      
     }
-    #front{
-        background-color: $color-green4;   
-    }
+   
     #journal  {
-        height: 388px;
+        height: 150px;
         width: 98%;
     }
+
     #username{
         border-top: none;
     }

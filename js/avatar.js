@@ -1,5 +1,14 @@
 import { db, auth} from './firebase/firebase-config.js'
 import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
+
+
+
+
+   console.log('Yahoo');
+
+
+
+
 ////Get Personal ID /////
 let userId = sessionStorage.getItem('userID');
 console.log(sessionStorage.getItem('userID'));
@@ -12,7 +21,7 @@ avatar.forEach((doc) => {
 //  let myId = doc.data().user_id;
 //全部が入ったarray
  avaArray.push(doc.data());
-//  console.log(doc.data());
+ console.log(doc.data());
 //  console.log(avaArray);
 });
 // console.log(doc.data());
