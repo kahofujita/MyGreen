@@ -53,6 +53,7 @@ main.myplants {
         flex-basis: 100%;
         width: 100%;
         display: block;
+        // margin: auto;
       }
       .clear{
         clear:both;
@@ -73,16 +74,6 @@ main.myplants {
         position:relative;
         height: 50px;
       }
-    //   .button-left i.fa.fa-angle-left {
-    //       display: none;
-    //   }
-
-    //   @media screen and (min-width:800px) {
-    //     .button-left i, 
-    //     .button-right {
-    //         display: none;
-    //     }
-    //   }
 
 
 
@@ -92,12 +83,123 @@ main.myplants {
     }
 
     .carousel {
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-gap: 1rem;
+        // display: grid;
+        // grid-template-columns: repeat(2,1fr);
+        // grid-gap: 1rem;
         border: solid 4px $color-green1;
         border-radius: 50px;
-        padding: 2rem;
+        padding:  2rem 1rem  2rem 1rem;
+        position: relative;
+        width: 90%;
+        @media screen and (min-width: 600px){
+            width: 70%;
+        }
+        @media screen and (min-width: 800px){
+            padding:  2rem;
+            width: 100%;
+        }
+        
+        
+        
+        .slide-container {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            overflow-x: scroll;
+            height: 13rem;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            display: flex;
+            align-items: center;
+            margin: 0 auto 0 auto ;
+            width: 24rem;
+            padding-left: 1.5rem;
+            @media screen and (min-width: 600px){
+                width: 26rem;
+            }
+            @media screen and (min-width: 800px){
+                padding: 0.5rem 0 0.5rem 0;
+                height: 100%;
+                width: 100%;
+            }
+                img {
+                    scroll-snap-align: start;
+                    border-radius: 50%;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    cursor: pointer;
+                    margin: auto 1rem auto 0 ;
+                    // width: 88%;
+                    height: 88%;
+                    
+                    
+                    &:hover {
+                        border: 3px solid $color-green1;
+                    }
+
+                    @media screen and (min-width: 600px){
+                        // width: 95%;
+                        height: 80%;
+                    }
+
+                    @media screen and (min-width: 800px){
+                        width: 22%;
+                        height: 22%;
+                        margin: auto 2rem auto 0 ;
+                    }
+                }
+                
+                .myPlant_plus{
+                    // padding: 9rem;
+                    scroll-snap-align: start;
+                    border-radius: 50%;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    cursor: pointer;
+                    // width: 88%;
+                    // height: 88%;
+                    padding: 0 4.8rem;
+                    margin-left: 0.4rem;
+                    height: 170px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: auto 2rem auto 0;
+
+                    &:hover {
+                        border: 3px solid $color-green1;
+                    }
+
+                    @media screen and (min-width: 945px){
+                        padding: 0 5.5rem;
+                    height: 190px;
+                    }
+                }
+            }
+
+        button {
+            position: absolute;
+            top : 40%;
+            cursor: pointer;
+            color: $color-yellow1;
+            background-color: transparent;
+            font-size: 3rem;
+        }
+        .btnDisabled {
+            display: none;
+        }
+        
+        .button-left {
+            left: 0;
+            @media screen and (min-width: 800px) {
+                display: none;
+            }
+        }
+
+        .button-right {
+            right: 0;
+            @media screen and (min-width: 800px) {
+                display: none;
+            }
+        }
     }
 
     .plant-image img {
@@ -105,6 +207,7 @@ main.myplants {
         border-radius: 50%;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         cursor: pointer;
+        height: 100%;
     }
 
     img.green-border {
@@ -115,7 +218,11 @@ main.myplants {
         border: 3px solid $color-green1;
     }
 
-    .button-image {
+    .slide-container a[href="#addplant"] {
+        display: none;
+    }
+
+    .myPlant_plus {
         display: none;
         height: 248px;
     }
@@ -304,30 +411,39 @@ main.myplants {
             width: 100%;
         }
 
-        .carousel {
+        .plant-carousel {
             grid-template-columns: repeat(4,1fr);
             width: 100%;
+
+            
         }
 
-        .button-image {
+        .myPlant_plus {
             display: block;
-            order: 4;
+            // order: 4;
             border-radius: 50%;
             font-size: 1.5rem;
-        }
-
-        .button-image a {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: #EFEFEF;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #EFEFEF;
+            // height: 248px;
+            // width: 248px;
         }
 
-        .button-image:hover {
+        .slide-container a[href="#addplant"] {
+            display: block;
+            // width: 100%;
+            // height: 100%;
+            // border-radius: 50%;
+            // background-color: #EFEFEF;
+            // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .myPlant_plus:hover {
             border: 3px solid $color-green1;
         }
 

@@ -1,40 +1,40 @@
-<main class="plant-id-main">
+<main class="plantid">
 
-  <img class="moon-cactus-image" src="./images/pages_illustration/Bloomed-Login 1.png" alt="charactor moon cactus of logo">
-  <h2 class="header-plant-id">Identify Your Plant</h2>
+  <div class="main-content-wrapper">
+    <img class="moon-cactus-image" src="./images/Illustrations/Plant-Identifier.png" alt="charactor moon cactus of logo">
+    <h2 class="header-plant-id">Identify Your Plant</h2>
 
-
-    <form class="uploading-picture-form">
-    <!-- Take a Photo -->
-      <div class="taking-picture-wrapper">
-        <div class="camera-container">
-          <p>Take a photo</p>
-          <div class="icon-camera-container">
-            <i aria-hidden='true' class='fa-solid fa-camera' title='camera icon'></i>
+    <!-- Form -->
+      <form class="uploading-picture-form">
+      <!-- Take a Photo -->
+        <div class="taking-picture-wrapper">
+          <div class="camera-container">
+            <p>Take a photo</p>
+            <div class="icon-camera-container">
+              <i aria-hidden='true' class='fa-solid fa-camera' title='camera icon'></i>
+            </div>
+    
           </div>
+    
+              <!-- Upload a photo -->
+          <div class="file-choose-container">
+            <label for="input-plant-id">Upload a photo</label>
+            <div class="input-icon-container">
+              <input type="file" id="input-plant-id" class="custom-file-input" aria-label='image icon' multiple />
+              <i aria-hidden='true' class='fa-solid fa-image' title='image icon'></i>
+            </div>
+          </div>
+        </div>
+  
       
-        </div>
-            
-            <!-- Upload a photo -->
-        <div class="file-choose-container">
-          <label for="input-plant-id">Upload a photo</label>
-          <div class="input-icon-container">
-            <input type="file" id="input-plant-id" class="custom-file-input" aria-label='image icon' multiple />
-            <i aria-hidden='true' class='fa-solid fa-image' title='image icon'></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="show-camera">
-        <video id="video" width="320" height="240" autoplay></video>
-        <button id="click-photo">Click Photo</button>
-        <canvas id="canvas" width="320" height="240"></canvas>
-      </div>
-
+    
       
       <button type="button" class="plant-id-button">OK</button>
     </form>
-    <div class="result-message">
+
+    
+     <!-- Result -->
+     <div class="result-message">
     </div>
     <div class="names-wrapper">
       <div class="common-name-wrapper">
@@ -47,6 +47,22 @@
       </div>
     </div>
     <div class="plant-picture"></div>
+    <div class="camera">
+
+      <div>
+          <button id="snap">Snap Photo</button>
+      </div>
+        <br />
+        <div class="canvas-wrapper">
+          <video id="video" width="320" height="240" autoplay></video>
+          <canvas id="canvas" width="320" height="240"></canvas>
+        </div>
+        
+    </div>
+  <img id="myImg" src="">
+    
+  </div>
+    
 
 
   <script src="./js/plantid.js" defer></script>

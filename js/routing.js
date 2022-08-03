@@ -38,6 +38,19 @@ export class Router {
       // If no hash in URL, load the first Page as the default page
       Router.goToPage(Router.pages[0]);
     }
+
+
+    //For Header Navigation==========================================================
+    const buttons = document.querySelectorAll('.navigation');
+    buttons.forEach(button => {
+      button.style.color = "black"
+      button.style.borderBottom = "none"
+      const href = button.getAttribute('href');
+      if (urlHash === href) {
+        button.style.color = "#FAFAFA";
+        button.style.borderBottom = "4px solid #FAFAFA"
+      }
+    })
   }
 
   static async goToPage(page) {
@@ -51,7 +64,7 @@ export class Router {
       console.log('imported module :' + page.jsName);
       //and invoke its init method of module if exists
       if (module.init) {
-          module.init();
+        module.init();
       }
       // //append JS part to run.
       // const script = document.createElement('script');
@@ -62,8 +75,8 @@ export class Router {
       // Router.rootElem.appendChild(script);
       // // document.body.appendChild(script);
       document.title = page.title;
-    } catch (error) {
-      console.error(error);
+    } catch (e) {
+      console.error(e);
     }
   }
 }

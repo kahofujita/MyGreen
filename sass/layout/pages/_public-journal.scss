@@ -1,43 +1,33 @@
 .publicjournal_main{
-    // background-color: $color-body-light;
+    
     @include paddingJournal();
     background-color: $color-body-light;
-    // position: relative;
     padding-bottom: 10rem;
     
     .journal{
         position: relative;
     }
-    #avatar{
+    .avatar{
         width:50px;
         min-width:50px;
         border-radius: 50%;
         box-shadow: 1px 1px 1px rgb(200, 200, 200);
         position: absolute;
-        top: -20%;
-        left: -20%;
-    }
-    
-    #username{
-        display: none;
+        top: -22px;
+        left: -24px;
     }
      #date{
         font-size: 32px;
         font-family: $font-headers;
      }  
-    
     .user-info{
         text-align: center;
         margin-right: 1rem;
-       
-      
-       
     }
     #postNbr{
         margin-bottom: 13px;
         font-size: 18px;
     }
-    
     #post.pages{
         margin-top: 2rem;
         display: grid;
@@ -45,270 +35,213 @@
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr) );
         grid-gap: 2rem;
 
-        @media screen and (min-width:800px){
-            margin-top: 0;
-            // grid-template-columns: 1fr 1fr 1fr 1fr;
+        @media screen and (min-width:847px){
+            margin-top: 0;  
         }
-
     }
-    .journal img{
-        border-radius: 15px;
-        // width:120px;
-        // height: 120px; 
-    }
-
-    #inst_title,
-    #cap_title
-    {
-        display: none;
-    }
-    .inst{
-        display: none;
-   }
-   .cap{
-       display: none;
-   }
-    #commenty{
-       display: none;
-   }
     
+    article a{
+        width:100%;
+        height: 80%;
+        
+        img{
+            width:100%;
+            height: 80%;
+            border-radius: 15px;
+        }
+    }
+
     //ARTICLES INTO 
     @include journalBox();
 
 
 
-//SINGLE PAGE FOR PUBLIC JOURNAL
-// #avatar.avatar_single{
-//     left: 11%;
-//    top:59%;
-// }
-#avatar.avatar_single{
+//SINGLE PAGE FOR PUBLIC JOURNAL===========//
+    #result_area{
+
+        margin-top: 5rem;
+        max-width: 70%;
+        min-width:240px;
+        margin: auto;
+        position: relative;
+    }
+    #single_ava{
         width:80px;
         min-width:80px;
-        left: 7%;
-        top:28%;
-        
-       
-}
-#submiting{
-    background-color: $color-red2;
-    color: white;
-    border-radius: 15%;
-    border: none;
-    padding: 4px 3px;
-    width: 3rem;
-    border:2px solid $color-red2 ;
-}
-#submiting:hover{
-    background-color:$color-body-light;
-    color: $color-body-dark;
-    border:2px solid $color-red2 ;
-}
-.user-info.user-info-single{
-    display: none;
-}
-#input_area{
-    background-color: $color-green4;
-    padding: 2% 0 0 0;
-    display: flex;
-    justify-content: space-between;
-}
-#write_cmt{
-    background-color: #DADADA;
-    border-radius: 5px;
-    border: none;
-    // font-size: 12px;
-    padding-left: 3px;
-    flex-grow: 1;
-    padding-right: 1px;
-    color: $color-body-dark;
-}
-//COMMENT AREA
-.result_box.result_box_single{
-    background-color: $color-green4;
-}
-.single.img_single{
-    width: 100%;
-   img{
-    width: 100%;
-   } 
-}
-#meta.meta_single{
-    padding: 2%;
-}
-#inst_title.insttitle_single,
-#cap_title.captitle_single{
-    display: block;
-    font-size: 18px;
-    color: $color-icon-text;
-}
-#cap_title.captitle_single{
-    text-align-last: left;
-    
-}
-#inst_title.insttitle_single{
-    border-top: 1px solid $color-body-dark;
- }
-#dates.dates_single{
-    text-align: right;
-}
-.inst.inst_single{
-    display: block;
-    padding:  1% 5%;
-    text-align: left; 
-    font-size: 18px;
-}
-.cap.cap_single{
-    display: block;
-    text-align: left;
-    padding:  1% 5%;
-    font-size: 18px;
-}
-#commenty.comment_single{
-    display: block;
-    border-top: 1px solid $color-body-dark;
-    margin-top: 10px;
-    padding: 2%;
-}
-#commenty.comment_single>p:nth-of-type(1){
-    color: $color-icon-text;
-    text-align: left;
-    font-size: 18px;
-}   
-.cmts{
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    padding: 5px;
-    border-bottom: 1px solid $color-icon-text;
-    width: 100%;
-}
-.cmts p:nth-of-type(1){
-    font-weight: bold;
-    font-size: 15px;
-}
-.cmts p:nth-of-type(2){
-    text-align: left;
-}
-
-#write_cmt{
-    width: 80%;
-}
-
-@media screen and (min-width:800px){
-    //Multiple page
-    display: grid;
-    grid-template-columns: 1fr ;
-   grid-template-rows: 100px 1fr; 
-    padding:3rem 20%;
-
-
-   #avatar.avatar_single{
-        left: 11%;
-       top:29%;
-   }
-   .user-info{
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-   }
-   #username{
-    display: block;
-    font-size: 30px;
-    text-align: right;
-   }
-  #post{
-    grid-column: 1 / -1;
-    grid-row: 2 / -1;
-  }
-    //  #btn.item{
-    //         position: absolute;
-    //  }
-     
-     .journal{
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        // position: relative;
-     }
-     //picture  写真をhoverすると日にちが出てくる
-     a.single{
-        grid-template: 1 / -1;
-        grid-row: 1 / -1; 
-     }
-     //date
-    //  #meta{
-    //     background-color:rgba(0, 0, 0, 0.242);
-    //     border-radius: 15px;
-    //     grid-row: 1 / -1;
-    //     grid-row: 1 / -1;
-    //     position: absolute;
-    //     top: 0;
-    //     bottom: 0;
-    //     right: 0;
-    //     left: 0;
-
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    //     line-height: 1.4;
-    //     text-align: center;
-    //     color: white;
-
-    //     transform: translateY(100%);
-       
-        
-    //  }
-    // #meta:hover{
-    //     transform: translateY(0);
-    //     transition: transform  .5s ease-in-out;
-    //  }
-     
-    ///SINGLE PAGE 800PX
-    
-    .result_box.result_box_single{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: .5fr .5fr  ;
+        border-radius: 50%;
+        box-shadow: 1px 1px 1px rgb(200, 200, 200);
+        position: absolute;
+        top: -40px;
+        left: -38px;
     }
-    .single.img_single{
-        grid-column: 1/ 2;
-        grid-row: 1 / -1;
+
+    #inst_single{
+        display: block;
+        padding: 2%;
+        text-align: left;
     }
-    #meta.meta_single{
-        grid-column: 2 / 3;
-        grid-row: 1 / 2;
+    #meta_single{
+        background-color: $color-green4;
     }
-    #commenty.comment_single{
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
-        padding-bottom: 0;
-        width: 100%;
+    #username_single{
+        display: none;
+    }
+    #captitle_single,
+    #insttitle_single,
+    #emoji_title,
+    #comment_single>p{
+        color: $color-icon-text;
+        text-align: left;
+        padding:  0 2%;
+        font-size:17px ;
+    }
+    #insttitle_single,
+    p#emoji_title,
+    #comment_single>p
+    {
+        border-top: 1px solid $color-body-dark;
+        padding:0 2%;
+    }
+    #dates_single{
+        text-align: right;
+        padding:0 2%;
+    }
+    #cap_single{
+        text-align: left;
+        font-size: 18px;
+        padding:0 2%;
+    }
+    #emobox{
         display: flex;
-        flex-flow: column wrap;
+    }
+    #emobox img{
+        width: 40px;
+        margin: 5px;
+    }
+    #comment_single{
+        background-color: $color-green4;
+    }
+    .cmts{
+        display: grid;
+        grid-template-columns:25% 1fr;
+        text-align-last: left;
+        border-bottom: 1px solid $color-icon-text;
+        padding-top: 5px 2%;
+        margin: 2%;
+
+        p:nth-of-type(1){
+            font-weight: bold;
+        }
+        p:nth-of-type(2){
+            grid-column: 2 / 3;
+        }
+        }  
+    #btn{
+        text-decoration: none;
+        border: 2px solid  $color-yellow2;
+        background-color: $color-yellow2;
+        padding: 10px;
+        margin: 20px auto;
+        color:$color-body-dark;
+        max-width: 60%;
+        border-radius: 15px;
+        text-align: center;
+        font-weight: bold;
+        // max-width: 319.5px;
+        max-width: 50%;
+        min-width: 240px;
+    
+    }
+    #btn:hover{
+        background-color: $color-body-light;
+        color: $color-yellow2;
+    }    
+    .submiting{
+        background-color: $color-red2;
+        color: white;
+        border-radius: 15%;
+        border: none;
+        padding: 4px 3px;
+        width: 3rem;
+        border:2px solid $color-red2 ;
+    }
+    .submiting:hover{
+        background-color:$color-body-light;
+        color: $color-body-dark;
+        border:2px solid $color-red2 ;
+    }
+
+    #input_area{
+        background-color: $color-green4;
+        padding: 2%;
+        display: flex;
         justify-content: space-between;
     }
-    #input_area{
-        grid-column: 2 / 3;
-        grid-row: 3 / 4;
-        padding: 1%;
+
+    .write_cmt{
+        background-color: #DADADA;
+        border-radius: 5px;
+        border: none;
+        padding-left: 3px;
+        flex-grow: 1;
+        padding-right: 1px;
+        color: $color-body-dark;
+    }
+    #single_img  {
         width: 100%;
     }
-    #cmt_display{
-        display: flex;
-        flex-flow: row wrap;
-        // align-items: baseline;
-        // flex-grow: 0;
+    @media screen and (min-width:847px){
+    ///MULTIPLE PAGE
+    // padding-left: 0;
+        grid-template-columns: 150px 1fr;
+
+        #user-info{
+            margin-bottom: 2rem;
+        }
+
+        #result_area{
+            max-width: 90%;
+        }
+        .result_box{
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            grid-template-rows: .5fr .5fr;
+
+        }
+        #single_img{
+            grid-column: 1 / 2;
+            grid-row: 1 / -1;
+            object-fit:cover;
+            box-sizing: content-box;
+            max-width: 100%;
+            height: 100%;
+        }
+        #username_single{
+            display: block;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 2%;
+        }
+        #inst_single{
+            padding: 0 2% 2% 2%;
+        }
+        #btn{
+            width: 300px;
+        } 
+        #single_img{
+            object-fit:cover;
+            box-sizing: border-box;
+        }
+        // #comment_single{
+        //     display: flex;
+        //     flex-flow: column wrap;
+        //     justify-content: space-between
+        // }
     }
-    
-    }
-    
-    
-   
 }
 .publicjournal_main-single{
-    padding: 7rem 15%  15%;
     display: block;
 }
+
 

@@ -47,9 +47,9 @@ class Note {
 let userId = sessionStorage.getItem('userID');
 console.log(sessionStorage.getItem('userID'));
 
-//GET USER NAME
+//GET USER NAME & AVATAR
 const userName = document.getElementById('username');
-
+const ava = document.getElementById('avatar');
 
 
 let usernameArray = [];
@@ -61,20 +61,51 @@ un.forEach((doc) => {
 
 console.log(usernameArray); 
 let j = 0;
-const username = usernameArray[j].avatar_img_name;
+// const username = usernameArray[j].avatar_img_name;
 for(let j = 0; usernameArray.length > j; j++){
 
   if (usernameArray[j].user_id == userId){ 
         userName.innerText = usernameArray[j].username;
+        const avaNbr = usernameArray[j].avatar_img_name;
+        const ans = avaNbr.match(/(\d+)/)[0];
+        console.log(ans);
+        ava.setAttribute('src', `./avatar/${ans}.png`);
   }else{
   };
 }
+
+
+
 
 
 const docRef = doc(db, "journal", "Um2tjbRjsK917w1tjSYJ");
 
 const docSnap = await getDoc(docRef);
 
+
+///EMOJI
+const emo = document.getElementsByClassName('clickhere');
+console.log(emo);
+const emojiArray = [];
+const emoarray = emo.length;
+let yaho;
+for (let i = 0; i < emoarray; i++ ){
+emo[i].addEventListener('click', (e) => {
+                  const emoselect = emo[i];
+                  const emoNbr = emoselect.id;
+                  console.log(emoNbr); 
+                  emojiArray.push(emoNbr);
+                  console.log(emojiArray);
+
+                  const rst = document.getElementById('emoji_result');
+                  console.log(rst);
+                  const emodiv = document.createElement('img');
+                  emodiv.setAttribute ( 'src',`./emoji/${emoNbr}.svg`);
+                  rst.appendChild(emodiv);
+
+})
+                  
+}
 
 ////SUBMIT //////
 const form1 = document.getElementById("form1");
@@ -97,7 +128,20 @@ form1.addEventListener("submit", function (event) {
     const card = document.getElementById("card");
     card.style.display = "none";
 
+    
+    
+    
+    
+    ///Emoji Display
+    const emospace = document.getElementById('emospace');
+     for(let i = 0; i < emojiArray.length; i ++){
+      const emoemo = document.createElement('img');
+      emoemo.setAttribute( 'src',`./emoji/${emojiArray[i]}.svg`);
+    
       
+      emospace.appendChild(emoemo);
+      console.log(emospace);
+    }
     //ADD DATA into Firebase
     
     const colUserInfo = collection(db, 'journal');
@@ -106,7 +150,8 @@ form1.addEventListener("submit", function (event) {
             caption:form1.caption.value,
             journal_date:form1.date.value,  
             care_instruction:form1.journal.value,
-            user_id:userId      
+            user_id:userId,
+            emoji:emojiArray      
     })
 })
 
@@ -120,6 +165,8 @@ function renderDogAsHTML( note ) {
             <p class="dates">${note.date} </p>        
             <p class="titles">Care Instructions</p>
             <p>${note.journal} </p>
+            <p>Emoji</p>
+            <div id="emospace"></div>
             </div>`;
             console.log(htmlBlock);
   
@@ -129,6 +176,8 @@ function renderDogAsHTML( note ) {
         htmlBlock += `<div>No Image Provided</div>`;
     }
     return htmlBlock;
+     
+    
    
 }
 
@@ -178,22 +227,7 @@ document.getElementById("start").addEventListener("click", function () {
   videoFlame.style.display = "block";
 });
 
-////Change camera front & back
 
-  // const videos = document.querySelector("#camera");
-  // let useFront = true;     // フロントカメラ:true, バックカメラ:false
-
-
-  // document.querySelector("#btn-toggle").addEventListener("click", ()=>{
-  //   syncCamera(videos, useFront);
-  //   useFront = !useFront;      // boolean値を反転
-  // });
-
-  // function syncCamera(videos, is_front=true){
-  //   // 前後カメラの設定
-  //   let facingMode = null;
-  // facingMode = (is_front)?  "user":{ exact: "environment" };
-  // }
 const videoFlame = document.getElementById("video");
 const cameraOnBtn = document.getElementById("start");
 

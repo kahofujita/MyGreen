@@ -4,9 +4,6 @@
 // Import the functions you need from the SDKs you need
 import { db, auth, onAuthStateChanged, collection, query, where, getDocs } from './firebase/firebase-config.js';
 
-
-export function init () {
-  console.log(" initializing about.js module:" + new Date());
 //collection Ref
 const colRef = collection(db, 'plant_ourinfo');
 const userRef = collection(db, 'user_info');
@@ -16,10 +13,10 @@ const userRef = collection(db, 'user_info');
 
 // //queries
 // const userQuery = query(userRef, where('user_info_id', '==', userId));
-
+export async function init() {
 //get collection data
 let plantOurinfo = [];
-getDocs(colRef)
+await getDocs(colRef)
   .then((snapshot) => {
     console.log(snapshot.docs);
 
@@ -52,12 +49,9 @@ const suggestionHandler = () => {
   let result = document.querySelector('.suggestion-link');
 
   if (lastSuggestion.date) {
-    result.innerHTML = `Our <span style="color: #EFD35E;">last</span> suggestion is: ${lastSuggestion.plant}`;
+    result.innerHTML = `${lastSuggestion.plant}`;
  
-    // let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
-    // result.href = link;
-
-    let link = `?name=${lastSuggestion.plant.replace(/ /g, "%20")}#plant-detail`
+    let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
     result.href = link;
 
     const imgNameWapper = document.querySelector('.plant-image-wrapper')
@@ -81,7 +75,7 @@ const suggestionHandler = () => {
     result.href = link;
 
     localStorage.setItem('lastSuggestion', JSON.stringify(lastSuggestion))
-    result.innerHTML = `Our <span style="color: #83C992;">new</span> suggestion is: ${lastSuggestion.plant}.`;
+    result.innerHTML = `${lastSuggestion.plant}.`;
     const imgNameWapper = document.querySelector('.plant-image-wrapper')
     // Display Plant Image
     const img = document.createElement('img')
@@ -96,5 +90,5 @@ const suggestionHandler = () => {
 
 suggestionHandler();
 
-
 }
+
