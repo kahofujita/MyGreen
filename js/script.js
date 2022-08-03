@@ -28,3 +28,6 @@ Router.init('mainArea', [
   new Page('#contactus', 'contact-us.html', '', 'My Green - Contact us'),
   new Page('#camera', 'camera.html', '', 'My Green - My Journal')
 ]);
+
+
+

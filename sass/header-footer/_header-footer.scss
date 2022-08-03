@@ -1,13 +1,4 @@
 
-// body{
-//   display: flex;
-//   flex-flow: column;
-//   align-items: space-between;
-// }
-
-// main {
-//   margin: 10rem 0;
-// }
 
 .header .logo-toolbar-wrapper,
 .footer {
@@ -51,6 +42,7 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: 120;
 }
 
 .toolbar-desktop {
@@ -102,6 +94,10 @@ flex-basis: 100%;
   margin: 1rem;
   border-bottom: 1px solid #FAFAFA;
   display: block;
+}
+
+.current {
+  color: white;
 }
 
 
@@ -218,12 +214,14 @@ justify-content: center;
 }
 
 /* .connection-wrapper a:link, */
-.connection-wrapper a:active {
+.connection-wrapper a:active,
+.connection-wrapper a:hover {
+  color: #FAFAFA;
   border-bottom: 4px solid #FAFAFA;
 }
 
 .connection-wrapper a {
-  color: #FAFAFA;
+  color: black;
   margin: 1rem;
   font-family: $font-headers;
   font-size: 1.3rem;
@@ -284,11 +282,16 @@ margin: 0.3rem;
     flex-flow: column wrap;
     flex-basis: 100%;
     align-items: center;
+    
   }
 
   .menu-desktop {
     background-color: #83C992;
     width: 100%;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+  z-index: 120;
   }
 
   .menu-desktop ul{
