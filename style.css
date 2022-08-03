@@ -1822,7 +1822,6 @@ main.plant-detail .outdoor-section {
   background-color: #FAFAFA;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  position: relative;
   /* Camera page BUTTONS ===============*/
   /* TAKE A PHOTO PAGE =====*/
   /* SUBMIT SCREEN */
@@ -1832,13 +1831,39 @@ main.plant-detail .outdoor-section {
   width: 75%;
   margin: auto;
 }
-.camera-main #avatar {
-  width: 15%;
+.camera-main #card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  max-width: 100%;
+  margin: auto;
+  background-color: #FAFAFA;
+  position: relative;
+}
+.camera-main #card #avatar {
+  width: 80px;
+  min-width: 80px;
   border-radius: 50%;
   box-shadow: 1px 1px 1px rgb(200, 200, 200);
   position: absolute;
-  top: 35px;
-  left: 6%;
+  top: -40px;
+  left: -40px;
+}
+.camera-main #card .pic_area {
+  grid-template: 1/2;
+  grid-row: 1/2;
+  text-align: center;
+  height: 400px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-color: white;
+}
+.camera-main #card #front {
+  grid-column: 1/2;
+  grid-row: 2/3;
 }
 .camera-main #back {
   background-color: #99C6A2;
@@ -1848,25 +1873,25 @@ main.plant-detail .outdoor-section {
 .camera-main label {
   display: block;
 }
+.camera-main #caption,
+.camera-main #date,
+.camera-main #journal {
+  font-family: "Caveat", cursive;
+}
+.camera-main #caption:focus {
+  outline: #FAFAFA;
+}
 .camera-main .imgicon > i {
   color: #F1D644;
   font-size: 50px;
   font-weight: 800;
   font-family: "Font Awesome 5 Free";
 }
-.camera-main .pic_area {
-  text-align: center;
-  height: 400px;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-}
 .camera-main #image {
   width: 98%;
   border: none;
   font-size: 10px;
+  margin: 0;
 }
 .camera-main .border,
 .camera-main #username {
@@ -1963,6 +1988,39 @@ main.plant-detail .outdoor-section {
   border-radius: 15px;
   font-size: 10px;
 }
+.camera-main #emoji > p:nth-of-type(1) {
+  color: #A9A9A9;
+  border-top: 1px solid #2B2B2B;
+  padding: 2%;
+}
+.camera-main #emo_subtitle {
+  text-align: center;
+  margin: 5px;
+  color: #A9A9A9;
+}
+.camera-main #emoji_result {
+  width: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.camera-main #emoji_result img {
+  margin: 4px;
+}
+.camera-main #emoji {
+  background-color: #D5E6D9;
+}
+.camera-main #emoselection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.camera-main #emoselection img {
+  width: 40px;
+  margin: 5px;
+}
+.camera-main #emoselection p {
+  color: #A9A9A9;
+}
 .camera-main #picture.page {
   padding: 1rem;
 }
@@ -2028,44 +2086,65 @@ main.plant-detail .outdoor-section {
 }
 .camera-main .results {
   padding: 2%;
-  max-width: 90%;
+}
+.camera-main #emospace {
+  display: flex;
+  flex-flow: row wrap;
+}
+.camera-main #emospace img {
+  width: 10%;
+}
+.camera-main .results > p.dates {
+  border-bottom: 1px solid #2B2B2B;
+}
+.camera-main .results > p:nth-of-type(6) {
+  color: #A9A9A9;
+  border-top: 1px solid #2B2B2B;
 }
 @media screen and (min-width: 800px) {
   .camera-main #card {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     width: 100%;
   }
   .camera-main #card .pic_area {
     grid-column: 1/2;
+    grid-row: 1/-1;
     height: 100%;
   }
-  .camera-main #card .face {
+  .camera-main #card #front {
     grid-column: 2/3;
+    grid-row: 1/-1;
+  }
+  .camera-main #card .input-area {
+    border-top: none;
   }
   .camera-main #avatar {
-    width: 100px;
-    left: 8%;
+    left: 62px;
   }
   .camera-main #form1 {
     position: relative;
+    margin-bottom: 0;
   }
   .camera-main #image {
     position: absolute;
     bottom: 5%;
     right: 100%;
-    margin-bottom: 0.5rem;
   }
   .camera-main .submit {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    height: 30px;
+    justify-content: center;
+    margin: 1rem auto;
+    max-width: 200px;
     position: absolute;
-    bottom: -10%;
-    right: 25%;
-  }
-  .camera-main #front {
-    background-color: #D5E6D9;
+    bottom: -70px;
+    right: 30%;
   }
   .camera-main #journal {
-    height: 388px;
+    height: 150px;
     width: 98%;
   }
   .camera-main #username {
