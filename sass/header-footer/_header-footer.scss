@@ -1,13 +1,4 @@
 
-// body{
-//   display: flex;
-//   flex-flow: column;
-//   align-items: space-between;
-// }
-
-// main {
-//   margin: 10rem 0;
-// }
 
 .header .logo-toolbar-wrapper,
 .footer {
@@ -223,12 +214,14 @@ justify-content: center;
 }
 
 /* .connection-wrapper a:link, */
-.connection-wrapper a:active {
+.connection-wrapper a:active,
+.connection-wrapper a:hover {
+  color: #FAFAFA;
   border-bottom: 4px solid #FAFAFA;
 }
 
 .connection-wrapper a {
-  color: #FAFAFA;
+  color: black;
   margin: 1rem;
   font-family: $font-headers;
   font-size: 1.3rem;

@@ -73,8 +73,16 @@
   border: none;
 }
 
+.camera button:hover {
+  background: #FFFFFF;
+  border: 2px solid $color-green1;
+  color: black;
+}
+
 .canvas-wrapper {
   display: flex;
+  border: 2px solid $color-green1;
+  padding: .3rem;
 }
 
 
@@ -135,6 +143,11 @@
   margin: auto;
   display: flex;
   flex-flow: column wrap;
+}
+
+.file-choose-container label,
+.camera-container p {
+  margin-bottom: 1rem;
 }
 
 .file-choose-container label {
@@ -216,6 +229,7 @@
   width: 302px;
   height: auto;
   grid-column: 1/2;
+  margin-bottom: 7rem;
 }
 
 .main-content-wrapper {
@@ -263,6 +277,12 @@
 .plant-id-button {
   width: 197PX;
   justify-self: center;
+}
+
+.plant-id-button:hover {
+  background-color: #ffff;
+  color: black;
+  border:2px solid $color-red1;
 }
 
 .plant-picture{

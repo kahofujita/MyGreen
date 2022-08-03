@@ -60,22 +60,17 @@ export async function init() {
 
   let i = 0;
   const row_container = document.querySelector('.row-container')
-  row_container.innerHTML += `<div class="container"><img src="${links[i + 0]}" ><div class="date">${more[i + 0]}</div></div>
-`
-  row_container.innerHTML += `<div class="container"><img src="${links[i + 1]}" ><div class="date">${more[i + 1]}</div></div>`
-  row_container.innerHTML += `<div class="container"><img src="${links[i + 2]}" ><div class="date">${more[i + 2]}</div></div>
-`
+  row_container.innerHTML += `<div class="container"><img src="${links[i + 0]}" ><div class="date">${more[i + 0]}<a href="#public_journal">SEE MORE</a></div></div>`
+  row_container.innerHTML += `<div class="container"><img src="${links[i + 1]}" ><div class="date">${more[i + 1]}<a href="#public_journal">SEE MORE</a></div></div>`
+  row_container.innerHTML += `<div class="container"><img src="${links[i + 2]}" ><div class="date">${more[i + 2]}<a href="#public_journal">SEE MORE</a></div></div>`
 
   document.querySelector('.flt-right').addEventListener('click', () => {
     if (i < links.length - 11) {
       i++;
       row_container.innerHTML = ''
-      row_container.innerHTML += `<div class="container"><img src="${links[i + 0]}" ><div class="date">${more[i + 0]}</div></div>
-    `
-      row_container.innerHTML += `<div class="container"><img src="${links[i + 1]}" >
-    <div class="date">${more[i + 1]}</div></div>`
-      row_container.innerHTML += `<div class="container"><img src="${links[i + 2]}" >
-    <div class="date">${more[i + 2]}</div></div>`
+      row_container.innerHTML += `<div class="container"><img src="${links[i + 0]}" ><div class="date">${more[i + 0]}<a href="#public_journal">SEE MORE</a></div></div>`
+      row_container.innerHTML += `<div class="container"><img src="${links[i + 1]}" ><div class="date">${more[i + 1]}<a href="#public_journal">SEE MORE</a></div></div>`
+      row_container.innerHTML += `<div class="container"><img src="${links[i + 2]}" ><div class="date">${more[i + 2]}<a href="#public_journal">SEE MORE</a></div></div>`
     }
 
   });
@@ -84,12 +79,15 @@ export async function init() {
     if (i > 0) {
       i--;
       row_container.innerHTML = ''
-      row_container.innerHTML += `<div class="container"><img src="${links[i + 0]}" >
-    <div class="date">${more[i + 0]}</div></div>`
-      row_container.innerHTML += `<div class="container"><img src="${links[i + 1]}" >
-    <div class="date">${more[i + 1]}</div></div>`
-      row_container.innerHTML += `<div class="container"><img src="${links[i + 2]}" >
-    <div class="date">${more[i + 2]}</div></div>`
+      row_container.innerHTML += `<div class="container"><img src="${links[i + 0]}" ><div class="date">${more[i + 0]}<a href="#public_journal">SEE MORE</a></div></div>
+      
+      `
+      row_container.innerHTML += `<div class="container"><img src="${links[i + 1]}" ><div class="date">${more[i + 1]}<a href="#public_journal">SEE MORE</a></div></div>
+      
+      `
+      row_container.innerHTML += `<div class="container"><img src="${links[i + 2]}" ><div class="date">${more[i + 2]}<a href="#public_journal">SEE MORE</a></div></div>
+      
+      `
     }
 
   })

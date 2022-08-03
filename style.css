@@ -699,6 +699,8 @@
   width: 100%;
   transition: 0.5s;
   display: flex;
+  justify-content: center;
+  padding: 0.3rem;
 }
 .homepage .container {
   width: 680px;
@@ -708,6 +710,7 @@
   margin: 0 5px;
   display: flex;
   flex-flow: column wrap;
+  position: relative;
 }
 .homepage .container img {
   flex-basis: 100%;
@@ -718,6 +721,17 @@
   background-color: rgba(15, 13, 13, 0.668);
   color: white;
   display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.4rem;
+  height: 40px;
+}
+.homepage .date a {
+  color: #EFD35E;
+  font-weight: 600px;
 }
 .homepage .clear {
   clear: both;
@@ -740,10 +754,12 @@
 }
 .homepage .title-slideshow {
   text-align: center;
+  font-size: 35px;
 }
 .homepage .main-navigators {
   display: flex;
   flex-flow: column nowrap;
+  margin-top: 2.5rem;
 }
 .homepage .main-single-navigator {
   display: block;
@@ -755,6 +771,7 @@
 .homepage .main-single-navigator img {
   display: block;
   margin: auto;
+  width: 80%;
 }
 .homepage .main-single-navigator a {
   text-decoration: none;
@@ -762,16 +779,19 @@
   display: block;
   text-align: center;
   font-weight: 700;
-  font-size: 1.25;
+  font-size: 1.35rem;
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 800px) {
+  .homepage .title-slideshow {
+    font-size: 40px;
+  }
   .homepage .main-navigators {
     flex-flow: row nowrap;
     margin-top: 3rem;
   }
   .homepage .container {
-    flex-basis: 33.33%;
+    flex-basis: 30%;
   }
   .homepage .container img {
     width: 100%;
@@ -807,11 +827,20 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 1.5rem;
+  top: 2.8rem;
 }
 
 .text-wrapper a {
   font-size: 1.5rem;
+}
+
+.text-wrapper:hover {
+  background-color: white;
+  border: 2px solid #DD1C50;
+}
+
+.text-wrapper:hover a {
+  color: black;
 }
 
 .suggestion-link {
@@ -825,6 +854,7 @@
 
 .pointer-image {
   margin: auto;
+  padding: 1rem;
 }
 
 .plant-image-wrapper img {
@@ -870,6 +900,7 @@
   .plant-image-wrapper img {
     height: 495px;
     width: 530px;
+    margin-top: 10rem;
   }
 }
 .plantid {
@@ -932,8 +963,15 @@
   margin: 0.2rem;
   border: none;
 }
+.plantid .camera button:hover {
+  background: #FFFFFF;
+  border: 2px solid #83C992;
+  color: black;
+}
 .plantid .canvas-wrapper {
   display: flex;
+  border: 2px solid #83C992;
+  padding: 0.3rem;
 }
 .plantid .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
@@ -982,6 +1020,10 @@
   margin: auto;
   display: flex;
   flex-flow: column wrap;
+}
+.plantid .file-choose-container label,
+.plantid .camera-container p {
+  margin-bottom: 1rem;
 }
 .plantid .file-choose-container label {
   text-align: center;
@@ -1049,6 +1091,7 @@
     width: 302px;
     height: auto;
     grid-column: 1/2;
+    margin-bottom: 7rem;
   }
   .plantid .main-content-wrapper {
     display: grid;
@@ -1087,6 +1130,11 @@
   .plantid .plant-id-button {
     width: 197PX;
     justify-self: center;
+  }
+  .plantid .plant-id-button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #DD1C50;
   }
   .plantid .plant-picture {
     grid-column: 1/2;
@@ -2716,12 +2764,14 @@ ul.result a {
 }
 
 /* .connection-wrapper a:link, */
-.connection-wrapper a:active {
+.connection-wrapper a:active,
+.connection-wrapper a:hover {
+  color: #FAFAFA;
   border-bottom: 4px solid #FAFAFA;
 }
 
 .connection-wrapper a {
-  color: #FAFAFA;
+  color: black;
   margin: 1rem;
   font-family: "Righteous", cursive;
   font-size: 1.3rem;

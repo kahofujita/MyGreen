@@ -1,8 +1,10 @@
 <main class="plantid">
 
   <div class="main-content-wrapper">
-    <img class="moon-cactus-image" src="./images/pages_illustration/Bloomed-Login 1.png" alt="charactor moon cactus of logo">
+    <img class="moon-cactus-image" src="./images/Illustrations/Plant-Identifier.png" alt="charactor moon cactus of logo">
     <h2 class="header-plant-id">Identify Your Plant</h2>
+
+    <!-- Form -->
       <form class="uploading-picture-form">
       <!-- Take a Photo -->
         <div class="taking-picture-wrapper">
@@ -25,28 +27,14 @@
         </div>
   
       
-     
-
+    
       
       <button type="button" class="plant-id-button">OK</button>
     </form>
-    <div class="camera">
 
-      <div>
-          <button id="start">Start Camera</button>
-          <button id="snap">Snap Photo</button>
-          <button id="stop">Stop Camera</button>
-      </div>
-        <br />
-        <div class="canvas-wrapper">
-          <video id="video" width="320" height="240" autoplay></video>
-          <canvas id="canvas" width="320" height="240"></canvas>
-        </div>
-    </div>
-  <img id="myImg" src="">
     
-  </div>
-    <div class="result-message">
+     <!-- Result -->
+     <div class="result-message">
     </div>
     <div class="names-wrapper">
       <div class="common-name-wrapper">
@@ -59,6 +47,22 @@
       </div>
     </div>
     <div class="plant-picture"></div>
+    <div class="camera">
+
+      <div>
+          <button id="snap">Snap Photo</button>
+      </div>
+        <br />
+        <div class="canvas-wrapper">
+          <video id="video" width="320" height="240" autoplay></video>
+          <canvas id="canvas" width="320" height="240"></canvas>
+        </div>
+        
+    </div>
+  <img id="myImg" src="">
+    
+  </div>
+    
 
 
   <script src="./js/plantid.js" defer></script>

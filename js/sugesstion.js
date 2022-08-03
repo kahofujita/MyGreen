@@ -13,7 +13,7 @@ const userRef = collection(db, 'user_info');
 
 // //queries
 // const userQuery = query(userRef, where('user_info_id', '==', userId));
-
+export async function init() {
 //get collection data
 let plantOurinfo = [];
 await getDocs(colRef)
@@ -90,5 +90,5 @@ const suggestionHandler = () => {
 
 suggestionHandler();
 
-
+}
 
