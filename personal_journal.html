@@ -1,19 +1,18 @@
 
     <main class="personaljournal-main">
-        <!-- <h1>Personal Journal</h1> -->
-        <!-- user info avatar and name -->
-        <div class="user-info">
-            <img src="" alt="useravatar" id="avatar">
+       
+        <div id="user-info">
+            <img  alt="useravatar" id="avatar">
             <div class="uname-pnbr">
                 <h2 id="username"></h2>
                 <p id="postNbr"></p>
             </div>
             <div class="add-post-button"><a href="camera.html" id="go-camera">ADD A POST</a></div>
         </div>
-        <!-- <div class="add-post-button"><a href="camera.html" id="go-camera">ADD A POST</a></div> -->
         
         
-        <!-- display of all posts -->
+        
+        
         <div id="post" class = "pages">
            
 
@@ -21,32 +20,46 @@
             
         </div>
         
-        <!-- display single post after click img -->
-        <div id="result_area">
+       
+        <div id="result_area" class = "page">
            <div class="result_box">
-                
-                <!-- <div class="img_result">
+                <img  alt=""  id="ava_single">
+                <img  alt="" id="single_img"><!--    for img -->
 
-                </div> -->
-                <!-- <div id="result" class = "page">
-               
-               
-               
-                </div>  ---->
-                 <!-- <div id="comment">
-                    <p class="cmt-header">Comments</p>
-                    <div id="cmt_display">
-                    -->
-            </div> 
-                     
-                    <!-- <div id="input_area">
-                        <input type="text" id="write_cmt" placeholder="add a comment">
-                        <button id="submiting" class="item">Post</button>
-                    </div>end  .input_area div -->
+                <div id="meta_single">
+                    <p id="username_single"></p>
+                    <p id="captitle_single">Caption</p>
+                    <p id="cap_single"></p>
+
+                    <p id="dates_single"></p>
+
+                    <p id="insttitle_single">Care Instructions</p>
+                    <p id="inst_single"></p>
+
+                    <div id="emoji_single">
+                        <p id="emoji_title">Emoji</p>
+                        <div id="emobox">
+
+                        </div>
+                    </div>
+                </div>
+                <div id="comment_single">
+                   <p>Comments</p>
+                   <div id="cmt_display">
+
+                   </div>
+                   <div id="input_area">
+                      <input type="text" class="write_cmt" placeholder="Add a Comment">
+                      <input id="cmt_submit" type="submit" class="submiting "value="post">  
+                   </div>
+                </div>  
+            </div>  
         </div><!--   end #result_area div end   -->
-        <a  id="btn" class="item" href="#post" >BACK TO MY JOURNAL PAGE</a>
-    <script src ="./js/personal_journal.js" type="module" defer></script>
+        <link rel="stylesheet" href="style.css">
+        <a  id="btn" class="item" href="#post" >BACK TO MY JOURNAL</a>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <script src ="./js/personal_journal.js" type="module" defer></script>
     <script src="js/logout.js" type="module" defer></script>
-    <script src="./js/avatar.js" type="module" defer></script>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- <link rel="stylesheet" href="style.css"> -->
     </main>

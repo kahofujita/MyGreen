@@ -1,15 +1,13 @@
 
-    <main class="publicjournal_main">
+ <main class="publicjournal_main">
        
-       <!-- <h1>Public Journal</h1> -->
-       
-        <!-- user info avatar and name -->
-        <div class="user-info">
+      
+        <div id="user-info">
            <p id="date"></p>
             <p id="postNbr"></p>
         </div>
         
-        <!-- display of all user post -->
+       
         <div id="post" class = "pages">
            
 
@@ -17,39 +15,52 @@
             
         </div>
         
-                <!-- display for user's single post after click img -->
-        <div id="result_area" class = "page">
-            <img src="" alt="useravatar" id="avatar">
-            <p id="username">username</p>
-
-            <div class="result_box">
-                
-             
-            
-
-          
+               
         
-            <!-- <div id="comment">
-            <p>Comment</p>
-            <div id="cmt_display">
+            <div id="result_area" class = "page">
+                <img  alt="" id="single_ava"> 
+                <div class="result_box"> 
+                    <img  alt="" id="single_img"><!--    for img -->
 
-            </div>
-             -->
+                    <div id="meta_single">
+                        <p id="username_single"></p>
+                        <p id="captitle_single">Caption</p>
+                        <p id="cap_single"></p>
+
+                        <p id="dates_single"></p>
+
+                        <p id="insttitle_single">Care Instructions</p>
+                        <p id="inst_single"></p>
+
+                        <div id="emoji_single">
+                            <p id="emoji_title">Emoji</p>
+                            <div id="emobox">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="comment_single">
+                       <p>Comments</p>
+                       <div id="cmt_display">
+
+                       </div>
+                       <div id="input_area">
+                          <input type="text" class="write_cmt" placeholder="Add a Comment">
+                          <input id="cmt_submit" type="submit" class="submiting "value="post">  
+                       </div>
+                    </div>
             
-            </div> 
-            <!-- <div id="input_area">
-                <input type="text" id="write_cmt" placeholder="add a comment">
-                <button id="submiting" class="item">Post</button>
-            </div>end  .input_area div -->
-        </div> 
-         <a  id="btn" class="item" href="#post" >BACK TO JOURNAL PAGE</a>  
+                </div>
+            </div>
+         
+            <a  id="btn" class="item" href="#post" >BACK TO JOURNAL</a>  
          <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous' referrerpolicy='no-referrer' /><script src="public_journal.js" type="module" defer></script> 
-         <script src="./js/avatar.js" type="module" defer></script>
          <script src="./js/public_journal.js" type="module" defer></script>
          <script src="js/logout.js" type="module" defer></script>
          <link rel="stylesheet" href="style.css">
     </main>
    
 </body>
-</html>
+</html> 
 
+ 

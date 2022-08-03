@@ -1,7 +1,7 @@
 /* VARIABLES ================ */
 /* MIXINS =================== */
 /* ACCESSIBILITY ============ */
-@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Urbanist:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Urbanist:wght@400;600&family=Caveat:wght@500&display=swap");
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -1510,7 +1510,6 @@ main.plant-detail .outdoor-section {
   background-color: #FAFAFA;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  position: relative;
   /* Camera page BUTTONS ===============*/
   /* TAKE A PHOTO PAGE =====*/
   /* SUBMIT SCREEN */
@@ -1520,13 +1519,39 @@ main.plant-detail .outdoor-section {
   width: 75%;
   margin: auto;
 }
-.camera-main #avatar {
-  width: 15%;
+.camera-main #card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  max-width: 100%;
+  margin: auto;
+  background-color: #FAFAFA;
+  position: relative;
+}
+.camera-main #card #avatar {
+  width: 80px;
+  min-width: 80px;
   border-radius: 50%;
   box-shadow: 1px 1px 1px rgb(200, 200, 200);
   position: absolute;
-  top: 35px;
-  left: 6%;
+  top: -40px;
+  left: -40px;
+}
+.camera-main #card .pic_area {
+  grid-template: 1/2;
+  grid-row: 1/2;
+  text-align: center;
+  height: 400px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-color: white;
+}
+.camera-main #card #front {
+  grid-column: 1/2;
+  grid-row: 2/3;
 }
 .camera-main #back {
   background-color: #99C6A2;
@@ -1536,25 +1561,25 @@ main.plant-detail .outdoor-section {
 .camera-main label {
   display: block;
 }
+.camera-main #caption,
+.camera-main #date,
+.camera-main #journal {
+  font-family: "Caveat", cursive;
+}
+.camera-main #caption:focus {
+  outline: #FAFAFA;
+}
 .camera-main .imgicon > i {
   color: #F1D644;
   font-size: 50px;
   font-weight: 800;
   font-family: "Font Awesome 5 Free";
 }
-.camera-main .pic_area {
-  text-align: center;
-  height: 400px;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-}
 .camera-main #image {
   width: 98%;
   border: none;
   font-size: 10px;
+  margin: 0;
 }
 .camera-main .border,
 .camera-main #username {
@@ -1651,6 +1676,39 @@ main.plant-detail .outdoor-section {
   border-radius: 15px;
   font-size: 10px;
 }
+.camera-main #emoji > p:nth-of-type(1) {
+  color: #A9A9A9;
+  border-top: 1px solid #2B2B2B;
+  padding: 2%;
+}
+.camera-main #emo_subtitle {
+  text-align: center;
+  margin: 5px;
+  color: #A9A9A9;
+}
+.camera-main #emoji_result {
+  width: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.camera-main #emoji_result img {
+  margin: 4px;
+}
+.camera-main #emoji {
+  background-color: #D5E6D9;
+}
+.camera-main #emoselection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.camera-main #emoselection img {
+  width: 40px;
+  margin: 5px;
+}
+.camera-main #emoselection p {
+  color: #A9A9A9;
+}
 .camera-main #picture.page {
   padding: 1rem;
 }
@@ -1716,44 +1774,65 @@ main.plant-detail .outdoor-section {
 }
 .camera-main .results {
   padding: 2%;
-  max-width: 90%;
+}
+.camera-main #emospace {
+  display: flex;
+  flex-flow: row wrap;
+}
+.camera-main #emospace img {
+  width: 10%;
+}
+.camera-main .results > p.dates {
+  border-bottom: 1px solid #2B2B2B;
+}
+.camera-main .results > p:nth-of-type(6) {
+  color: #A9A9A9;
+  border-top: 1px solid #2B2B2B;
 }
 @media screen and (min-width: 800px) {
   .camera-main #card {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     width: 100%;
   }
   .camera-main #card .pic_area {
     grid-column: 1/2;
+    grid-row: 1/-1;
     height: 100%;
   }
-  .camera-main #card .face {
+  .camera-main #card #front {
     grid-column: 2/3;
+    grid-row: 1/-1;
+  }
+  .camera-main #card .input-area {
+    border-top: none;
   }
   .camera-main #avatar {
-    width: 100px;
-    left: 8%;
+    left: 62px;
   }
   .camera-main #form1 {
     position: relative;
+    margin-bottom: 0;
   }
   .camera-main #image {
     position: absolute;
     bottom: 5%;
     right: 100%;
-    margin-bottom: 0.5rem;
   }
   .camera-main .submit {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    height: 30px;
+    justify-content: center;
+    margin: 1rem auto;
+    max-width: 200px;
     position: absolute;
-    bottom: -10%;
-    right: 25%;
-  }
-  .camera-main #front {
-    background-color: #D5E6D9;
+    bottom: -70px;
+    right: 30%;
   }
   .camera-main #journal {
-    height: 388px;
+    height: 150px;
     width: 98%;
   }
   .camera-main #username {
@@ -1772,6 +1851,7 @@ main.plant-detail .outdoor-section {
   background-color: #FAFAFA;
   grid-gap: 1rem;
   position: relative;
+  padding-bottom: 10rem;
 }
 .personaljournal-main #avatar {
   width: 80px;
@@ -1781,17 +1861,16 @@ main.plant-detail .outdoor-section {
   margin-right: auto;
   margin-left: auto;
 }
-.personaljournal-main .user-info {
+.personaljournal-main #username {
   text-align: center;
-  margin-right: 1rem;
+  font-weight: normal;
+  font-size: 32px;
 }
-@media screen and (min-width: 800px) {
-  .personaljournal-main .user-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px 50px;
-    align-items: center;
-  }
+.personaljournal-main #user-info {
+  text-align: center;
+}
+.personaljournal-main #user-info .user-pnbr {
+  text-align: left;
 }
 .personaljournal-main #postNbr {
   margin-bottom: 13px;
@@ -1800,34 +1879,24 @@ main.plant-detail .outdoor-section {
 .personaljournal-main .add-post-button {
   display: flex;
   justify-content: center;
+  width: 160px;
+  margin: auto;
 }
-@media screen and (min-width: 800px) {
-  .personaljournal-main .add-post-button {
-    grid-column: 1/-1;
-    grid-row: 2/3;
-    display: flex;
-    align-items: center;
-  }
-}
-.personaljournal-main .add-post-button #go-camera {
+.personaljournal-main #go-camera {
   text-decoration: none;
   background-color: #B21F51;
-  color: white;
+  color: #FAFAFA;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   font-size: 10px;
-  width: 150px;
+  width: 200px;
+  border-radius: 10px;
 }
 .personaljournal-main #post.pages {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-gap: 2rem;
-}
-@media screen and (min-width: 800px) {
-  .personaljournal-main #post.pages {
-    margin-top: 0;
-  }
 }
 .personaljournal-main .journal img {
   border-radius: 15px;
@@ -1838,10 +1907,11 @@ main.plant-detail .outdoor-section {
   font-size: 13px;
   text-align: center;
 }
-.personaljournal-main #commenty {
-  display: none;
+.personaljournal-main .single img {
+  width: 100%;
+  height: 100%;
 }
-.personaljournal-main #submiting {
+.personaljournal-main .submiting {
   background-color: #B21F51;
   color: white;
   border-radius: 15%;
@@ -1850,18 +1920,18 @@ main.plant-detail .outdoor-section {
   width: 3rem;
   border: 2px solid #B21F51;
 }
-.personaljournal-main #submiting:hover {
+.personaljournal-main .submiting:hover {
   background-color: #FAFAFA;
   color: #2B2B2B;
   border: 2px solid #B21F51;
 }
 .personaljournal-main #input_area {
   background-color: #D5E6D9;
-  padding: 2% 0 0 0;
+  padding: 2%;
   display: flex;
   justify-content: space-between;
 }
-.personaljournal-main #write_cmt {
+.personaljournal-main .write_cmt {
   background-color: #DADADA;
   border-radius: 5px;
   border: none;
@@ -1870,235 +1940,183 @@ main.plant-detail .outdoor-section {
   padding-right: 1px;
   color: #2B2B2B;
 }
-.personaljournal-main .result_box.result_box_single {
-  background-color: #D5E6D9;
-}
-.personaljournal-main #result {
-  background-color: #D5E6D9;
+.personaljournal-main #result_area {
   margin-top: 5rem;
-  max-width: 319.5px;
+  max-width: 70%;
   min-width: 240px;
   margin: auto;
-}
-.personaljournal-main #inst_title,
-.personaljournal-main #cap_title {
-  display: none;
-}
-.personaljournal-main .inst {
-  display: none;
-}
-.personaljournal-main .cap {
-  display: none;
-}
-.personaljournal-main .inst_single {
-  display: block;
-  padding: 5%;
-  text-align: left;
-}
-.personaljournal-main .cap_single {
-  display: block;
-}
-.personaljournal-main #comment {
-  background-color: #D5E6D9;
-  margin: auto;
-  padding: 2%;
-  max-width: 319.5px;
-  min-width: 240px;
-}
-.personaljournal-main #comment .cmt-header {
-  border-top: 1px solid #2B2B2B;
-  color: #A9A9A9;
-  text-align: left;
-}
-.personaljournal-main #comment .cmts {
-  display: grid;
-  grid-template-columns: 25% 1fr;
-  text-align-last: left;
-  border-top: 1px solid #A9A9A9;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-.personaljournal-main #comment .cmts p:nth-of-type(2) {
-  grid-column: 2/3;
-}
-.personaljournal-main #comment .cmts:nth-of-type(1) {
-  border: none;
-}
-.personaljournal-main .item {
-  text-align: center;
-  margin-top: 5px;
-}
-.personaljournal-main #write_cmt {
-  width: 80%;
-}
-.personaljournal-main .personaljournal-main.personaljournalmain-single {
   position: relative;
 }
-.personaljournal-main .user-info.user-info-single {
-  display: flex;
-  justify-content: flex-end;
-}
-.personaljournal-main #avatar.ava_single {
-  position: absolute;
-  left: 5%;
-  top: 5%;
-}
-.personaljournal-main #username.username_single {
-  display: none;
-}
-.personaljournal-main .single.img_single {
-  width: 100%;
-}
-.personaljournal-main .single.img_single img {
-  width: 100%;
-}
-.personaljournal-main #meta.meta_single {
-  padding: 2%;
-}
-.personaljournal-main #inst_title.insttitle_single,
-.personaljournal-main #cap_title.captitle_single {
-  display: block;
-  font-size: 18px;
-  color: #A9A9A9;
-}
-.personaljournal-main #cap_title.captitle_single {
-  text-align-last: left;
-}
-.personaljournal-main #inst_title.insttitle_single {
-  border-top: 1px solid #2B2B2B;
-}
-.personaljournal-main #dates.dates_single {
-  text-align: right;
-}
-.personaljournal-main .inst.inst_single {
-  display: block;
-  padding: 1% 5%;
-  text-align: left;
-  font-size: 18px;
-}
-.personaljournal-main .cap.cap_single {
-  display: block;
-  text-align: left;
-  padding: 1% 5%;
-  font-size: 18px;
-}
-.personaljournal-main #commenty.comment_single {
-  display: block;
-  border-top: 1px solid #2B2B2B;
-  padding: 2%;
-}
-.personaljournal-main #commenty.comment_single > p:nth-of-type(1) {
-  color: #A9A9A9;
-  text-align: left;
-  font-size: 18px;
-}
-.personaljournal-main .cmts {
-  display: grid;
-  grid-template-columns: 20% 1fr;
-  grid-template-rows: 1fr;
-  padding: 5px;
-  border-bottom: 1px solid #A9A9A9;
-  width: 100%;
-}
-.personaljournal-main .cmts p:nth-of-type(1) {
-  font-weight: bold;
-  font-size: 15px;
-}
-.personaljournal-main .cmts p:nth-of-type(2) {
-  text-align: left;
-}
-.personaljournal-main #write_cmt {
-  width: 80%;
-}
-@media screen and (min-width: 800px) {
-  .personaljournal-main {
-    display: grid;
-    grid-template-columns: 30% 1fr;
-    position: relative;
-  }
-  .personaljournal-main .user-info {
-    grid-template: 1/-1;
-    grid-column: 1/2;
-  }
-  .personaljournal-main .personaljournal-main.personaljournalmain-single {
-    grid-gap: 0;
-  }
-  .personaljournal-main .user-info.user-info-single {
-    grid-column: 1/-1;
-    grid-row: 1/2;
-    display: flex;
-    margin: 0;
-  }
-  .personaljournal-main #username.username_single {
-    display: block;
-    font-size: 35px;
-  }
-  .personaljournal-main #avatar.ava_single {
-    left: 2%;
-    top: 15%;
-  }
-  .personaljournal-main main.personaljournalmain-single {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 210px 1fr;
-    position: relative;
-  }
-  .personaljournal-main .user-info.user-info-single {
-    grid-column: 1/-1;
-    grid-row: 1/2;
-    display: flex;
-  }
-  .personaljournal-main .result_area_single {
-    grid-column: 1/-1;
-    grid-row: 2/3;
-  }
-  .personaljournal-main .result_box.result_box_single {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.5fr 0.5fr;
-  }
-  .personaljournal-main .single.img_single {
-    grid-column: 1/2;
-    grid-row: 1/-1;
-  }
-  .personaljournal-main #meta.meta_single {
-    grid-column: 2/3;
-    grid-row: 1/2;
-  }
-  .personaljournal-main #commenty.comment_single {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    width: 100%;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-  }
-  .personaljournal-main #cmt_display {
-    display: flex;
-    flex-flow: row wrap;
-  }
-}
-
-.personaljournalmain-single {
-  display: block;
-}
-
-.publicjournal_main {
-  padding: 5rem 3rem;
-  background-color: #FAFAFA;
-  position: relative;
-}
-.publicjournal_main #avatar {
+.personaljournal-main #ava_single {
   width: 80px;
   min-width: 80px;
   border-radius: 50%;
   box-shadow: 1px 1px 1px rgb(200, 200, 200);
   position: absolute;
-  left: 10%;
-  top: 9%;
+  top: -40px;
+  left: -30px;
 }
-.publicjournal_main #username {
+.personaljournal-main #inst_single {
+  display: block;
+  padding: 2%;
+  text-align: left;
+}
+.personaljournal-main #meta_single {
+  background-color: #D5E6D9;
+}
+.personaljournal-main #username_single {
   display: none;
+}
+.personaljournal-main #captitle_single,
+.personaljournal-main #insttitle_single,
+.personaljournal-main #emoji_title,
+.personaljournal-main #comment_single > p {
+  color: #A9A9A9;
+  text-align: left;
+  padding: 0 2%;
+  font-size: 17px;
+}
+.personaljournal-main #insttitle_single,
+.personaljournal-main p#emoji_title,
+.personaljournal-main #comment_single > p {
+  border-top: 1px solid #2B2B2B;
+  padding: 0 2%;
+}
+.personaljournal-main #dates_single {
+  text-align: right;
+  padding: 0 2%;
+}
+.personaljournal-main #cap_single {
+  text-align: left;
+  font-size: 18px;
+  padding: 0 2%;
+}
+.personaljournal-main #emobox {
+  display: flex;
+}
+.personaljournal-main #emobox img {
+  width: 40px;
+  margin: 5px;
+}
+.personaljournal-main #comment_single {
+  background-color: #D5E6D9;
+}
+.personaljournal-main .cmts {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  text-align-last: left;
+  border-bottom: 1px solid #A9A9A9;
+  padding-top: 5px 2%;
+  margin: 2%;
+}
+.personaljournal-main .cmts p:nth-of-type(1) {
+  font-weight: bold;
+}
+.personaljournal-main .cmts p:nth-of-type(2) {
+  grid-column: 2/3;
+}
+.personaljournal-main #btn {
+  text-decoration: none;
+  border: 2px solid #EFD35E;
+  background-color: #EFD35E;
+  padding: 10px;
+  margin: 20px auto;
+  color: #2B2B2B;
+  max-width: 60%;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 50%;
+  min-width: 240px;
+}
+.personaljournal-main #btn:hover {
+  background-color: #FAFAFA;
+  color: #EFD35E;
+}
+.personaljournal-main #single_img {
+  width: 100%;
+}
+@media screen and (min-width: 847px) {
+  .personaljournal-main {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+  }
+  .personaljournal-main #user-info {
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 100px 50px;
+    grid-gap: 1rem;
+  }
+  .personaljournal-main .add-post-button {
+    margin: auto;
+  }
+  .personaljournal-main #username {
+    text-align: left;
+  }
+  .personaljournal-main #postNbr {
+    text-align: left;
+  }
+  .personaljournal-main #post.pages {
+    margin-top: 0;
+  }
+  .personaljournal-main .add-post-button {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+  }
+}
+
+@media screen and (min-width: 847px) {
+  .personaljournal-main-single {
+    display: block;
+  }
+  .personaljournal-main-single #result_area {
+    max-width: 90%;
+  }
+  .personaljournal-main-single .result_box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr;
+  }
+  .personaljournal-main-single #single_img {
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    object-fit: cover;
+    box-sizing: content-box;
+    max-width: 100%;
+    height: 100%;
+  }
+  .personaljournal-main-single #username_single {
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 2%;
+  }
+  .personaljournal-main-single #inst_single {
+    padding: 0 2% 2% 2%;
+  }
+  .personaljournal-main-single #btn {
+    width: 300px;
+  }
+}
+
+.publicjournal_main {
+  padding: 5rem 3rem;
+  background-color: #FAFAFA;
+  padding-bottom: 10rem;
+}
+.publicjournal_main .journal {
+  position: relative;
+}
+.publicjournal_main .avatar {
+  width: 50px;
+  min-width: 50px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgb(200, 200, 200);
+  position: absolute;
+  top: -22px;
+  left: -24px;
 }
 .publicjournal_main #date {
   font-size: 32px;
@@ -2118,27 +2136,19 @@ main.plant-detail .outdoor-section {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-gap: 2rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 847px) {
   .publicjournal_main #post.pages {
     margin-top: 0;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
-.publicjournal_main .journal img {
+.publicjournal_main article a {
+  width: 100%;
+  height: 80%;
+}
+.publicjournal_main article a img {
+  width: 100%;
+  height: 80%;
   border-radius: 15px;
-}
-.publicjournal_main #inst_title,
-.publicjournal_main #cap_title {
-  display: none;
-}
-.publicjournal_main .inst {
-  display: none;
-}
-.publicjournal_main .cap {
-  display: none;
-}
-.publicjournal_main #commenty {
-  display: none;
 }
 .publicjournal_main p:nth-of-type(1),
 .publicjournal_main p:nth-of-type(2),
@@ -2146,7 +2156,100 @@ main.plant-detail .outdoor-section {
   font-size: 13px;
   text-align: center;
 }
-.publicjournal_main #submiting {
+.publicjournal_main #result_area {
+  margin-top: 5rem;
+  max-width: 70%;
+  min-width: 240px;
+  margin: auto;
+  position: relative;
+}
+.publicjournal_main #single_ava {
+  width: 80px;
+  min-width: 80px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgb(200, 200, 200);
+  position: absolute;
+  top: -40px;
+  left: -38px;
+}
+.publicjournal_main #inst_single {
+  display: block;
+  padding: 2%;
+  text-align: left;
+}
+.publicjournal_main #meta_single {
+  background-color: #D5E6D9;
+}
+.publicjournal_main #username_single {
+  display: none;
+}
+.publicjournal_main #captitle_single,
+.publicjournal_main #insttitle_single,
+.publicjournal_main #emoji_title,
+.publicjournal_main #comment_single > p {
+  color: #A9A9A9;
+  text-align: left;
+  padding: 0 2%;
+  font-size: 17px;
+}
+.publicjournal_main #insttitle_single,
+.publicjournal_main p#emoji_title,
+.publicjournal_main #comment_single > p {
+  border-top: 1px solid #2B2B2B;
+  padding: 0 2%;
+}
+.publicjournal_main #dates_single {
+  text-align: right;
+  padding: 0 2%;
+}
+.publicjournal_main #cap_single {
+  text-align: left;
+  font-size: 18px;
+  padding: 0 2%;
+}
+.publicjournal_main #emobox {
+  display: flex;
+}
+.publicjournal_main #emobox img {
+  width: 40px;
+  margin: 5px;
+}
+.publicjournal_main #comment_single {
+  background-color: #D5E6D9;
+}
+.publicjournal_main .cmts {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  text-align-last: left;
+  border-bottom: 1px solid #A9A9A9;
+  padding-top: 5px 2%;
+  margin: 2%;
+}
+.publicjournal_main .cmts p:nth-of-type(1) {
+  font-weight: bold;
+}
+.publicjournal_main .cmts p:nth-of-type(2) {
+  grid-column: 2/3;
+}
+.publicjournal_main #btn {
+  text-decoration: none;
+  border: 2px solid #EFD35E;
+  background-color: #EFD35E;
+  padding: 10px;
+  margin: 20px auto;
+  color: #2B2B2B;
+  max-width: 60%;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 50%;
+  min-width: 240px;
+}
+.publicjournal_main #btn:hover {
+  background-color: #FAFAFA;
+  color: #EFD35E;
+}
+.publicjournal_main .submiting {
   background-color: #B21F51;
   color: white;
   border-radius: 15%;
@@ -2155,21 +2258,18 @@ main.plant-detail .outdoor-section {
   width: 3rem;
   border: 2px solid #B21F51;
 }
-.publicjournal_main #submiting:hover {
+.publicjournal_main .submiting:hover {
   background-color: #FAFAFA;
   color: #2B2B2B;
   border: 2px solid #B21F51;
 }
-.publicjournal_main .user-info.user-info-single {
-  display: none;
-}
 .publicjournal_main #input_area {
   background-color: #D5E6D9;
-  padding: 2% 0 0 0;
+  padding: 2%;
   display: flex;
   justify-content: space-between;
 }
-.publicjournal_main #write_cmt {
+.publicjournal_main .write_cmt {
   background-color: #DADADA;
   border-radius: 5px;
   border: none;
@@ -2178,143 +2278,52 @@ main.plant-detail .outdoor-section {
   padding-right: 1px;
   color: #2B2B2B;
 }
-.publicjournal_main .result_box.result_box_single {
-  background-color: #D5E6D9;
-}
-.publicjournal_main .single.img_single {
+.publicjournal_main #single_img {
   width: 100%;
 }
-.publicjournal_main .single.img_single img {
-  width: 100%;
-}
-.publicjournal_main #meta.meta_single {
-  padding: 2%;
-}
-.publicjournal_main #inst_title.insttitle_single,
-.publicjournal_main #cap_title.captitle_single {
-  display: block;
-  font-size: 18px;
-  color: #A9A9A9;
-}
-.publicjournal_main #cap_title.captitle_single {
-  text-align-last: left;
-}
-.publicjournal_main #inst_title.insttitle_single {
-  border-top: 1px solid #2B2B2B;
-}
-.publicjournal_main #dates.dates_single {
-  text-align: right;
-}
-.publicjournal_main .inst.inst_single {
-  display: block;
-  padding: 1% 5%;
-  text-align: left;
-  font-size: 18px;
-}
-.publicjournal_main .cap.cap_single {
-  display: block;
-  text-align: left;
-  padding: 1% 5%;
-  font-size: 18px;
-}
-.publicjournal_main #commenty.comment_single {
-  display: block;
-  border-top: 1px solid #2B2B2B;
-  margin-top: 10px;
-  padding: 2%;
-}
-.publicjournal_main #commenty.comment_single > p:nth-of-type(1) {
-  color: #A9A9A9;
-  text-align: left;
-  font-size: 18px;
-}
-.publicjournal_main .cmts {
-  display: grid;
-  grid-template-columns: 20% 1fr;
-  padding: 5px;
-  border-bottom: 1px solid #A9A9A9;
-  width: 100%;
-}
-.publicjournal_main .cmts p:nth-of-type(1) {
-  font-weight: bold;
-  font-size: 15px;
-}
-.publicjournal_main .cmts p:nth-of-type(2) {
-  text-align: left;
-}
-.publicjournal_main #write_cmt {
-  width: 80%;
-}
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 847px) {
   .publicjournal_main {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 100px 1fr;
+    grid-template-columns: 150px 1fr;
   }
-  .publicjournal_main #avatar {
-    left: 11%;
-    top: 20%;
+  .publicjournal_main #user-info {
+    margin-bottom: 2rem;
   }
-  .publicjournal_main .user-info {
-    grid-column: 1/-1;
-    grid-row: 1/2;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+  .publicjournal_main #result_area {
+    max-width: 90%;
   }
-  .publicjournal_main #username {
-    display: block;
-    font-size: 30px;
-    text-align: right;
-  }
-  .publicjournal_main #post {
-    grid-column: 1/-1;
-    grid-row: 2/-1;
-  }
-  .publicjournal_main .journal {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
-  .publicjournal_main a.single {
-    grid-template: 1/-1;
-    grid-row: 1/-1;
-  }
-  .publicjournal_main .result_box.result_box_single {
+  .publicjournal_main .result_box {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.5fr 0.5fr;
   }
-  .publicjournal_main .single.img_single {
+  .publicjournal_main #single_img {
     grid-column: 1/2;
     grid-row: 1/-1;
+    object-fit: cover;
+    box-sizing: content-box;
+    max-width: 100%;
+    height: 100%;
   }
-  .publicjournal_main #meta.meta_single {
-    grid-column: 2/3;
-    grid-row: 1/2;
+  .publicjournal_main #username_single {
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 2%;
   }
-  .publicjournal_main #commenty.comment_single {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    padding-bottom: 0;
-    width: 100%;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
+  .publicjournal_main #inst_single {
+    padding: 0 2% 2% 2%;
   }
-  .publicjournal_main #input_area {
-    grid-column: 2/3;
-    grid-row: 3/4;
-    padding: 1%;
-    width: 100%;
+  .publicjournal_main #btn {
+    width: 300px;
   }
-  .publicjournal_main #cmt_display {
-    display: flex;
-    flex-flow: row wrap;
+  .publicjournal_main #single_img {
+    object-fit: cover;
+    box-sizing: border-box;
   }
 }
 
 .publicjournal_main-single {
-  padding: 7rem 15% 1rem 15%;
   display: block;
 }
 
