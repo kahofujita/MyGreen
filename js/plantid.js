@@ -100,109 +100,109 @@ imgInp.onchange = evt => {
 
 
 // get data
-// document.querySelector('.plant-id-button').addEventListener('click', function sendIdentification() {
+document.querySelector('.plant-id-button').addEventListener('click', function sendIdentification() {
   
-//   const files = [...document.querySelector('input[type=file]').files];
+  const files = [...document.querySelector('input[type=file]').files];
 
-//   const promises = files.map((file) => {
-//     return new Promise((resolve, reject) => {
-//       const reader = new FileReader();
-//       reader.onload = (event) => {
-//         const res = event.target.result;
-//         console.log(res);
-//         resolve(res);
-//       }
-//       reader.readAsDataURL(file)
-//     })
+  const promises = files.map((file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const res = event.target.result;
+        console.log(res);
+        resolve(res);
+      }
+      reader.readAsDataURL(file)
+    })
 
-//   })
+  })
 
-//   Promise.all(promises).then((base64files) => {
-//     console.log(base64files)
+  Promise.all(promises).then((base64files) => {
+    console.log(base64files)
 
-//     const data = {
-//       api_key: "xFCXUGwXmsC3mUrFGjsu6CwofUABXyIiu9juLeAAVFbQhUv4Ml",
-//       images: base64files,
-//       modifiers: ["crops_fast", "similar_images"],
-//       plant_language: "en",
-//       plant_details: ["common_names",
-//         "url",
-//         "name_authority",
-//         "wiki_description",
-//         "taxonomy",
-//         "synonyms"],
+    const data = {
+      api_key: "xFCXUGwXmsC3mUrFGjsu6CwofUABXyIiu9juLeAAVFbQhUv4Ml",
+      images: base64files,
+      modifiers: ["crops_fast", "similar_images"],
+      plant_language: "en",
+      plant_details: ["common_names",
+        "url",
+        "name_authority",
+        "wiki_description",
+        "taxonomy",
+        "synonyms"],
 
-//     };
+    };
 
-//     getPlantApi(data)
+    getPlantApi(data)
 
-//   })
-
-
-//   const uploadingArea = document.querySelector('.uploading-picture-form');
-//   uploadingArea.style.display = "none";
-//   myImg.src = "";
-//   document.querySelector('.camera').style.display= "none"
-//   document.querySelector('.moon-cactus-image').style.display = "none";
-// });
+  })
 
 
-
-
-
-
-// function handleBlob(blob) {
-
-//   const objectURL = window.URL.createObjectURL(blob);
-
-
-//   const reader = new FileReader();
-//   reader.addEventListener('load', () => {
-//     console.log(reader.result);
-
-//     const data = {
-//       api_key: "xFCXUGwXmsC3mUrFGjsu6CwofUABXyIiu9juLeAAVFbQhUv4Ml",
-//       images: [reader.result],
-//       plant_language: "en",
-//       plant_details: ["common_names",
-//         "url",
-//         "name_authority",
-//         "wiki_description",
-//         "taxonomy",
-//         "synonyms"],
-
-//     };
-//     getPlantApi(data);
-//     const uploadingArea = document.querySelector('.uploading-picture-form');
-//     uploadingArea.style.display = "none";
-//     myImg.src = "";
-//     document.querySelector('.camera').style.display= "none"
-//     document.querySelector('.moon-cactus-image').style.display = "none";
-//   });
-//   reader.readAsDataURL(blob);
-
-
-
-// }
-
-
-// fake code
-document.querySelector('.plant-id-button').addEventListener('click', ()=> {
   const uploadingArea = document.querySelector('.uploading-picture-form');
   uploadingArea.style.display = "none";
   myImg.src = "";
   document.querySelector('.camera').style.display= "none"
   document.querySelector('.moon-cactus-image').style.display = "none";
+});
 
-  document.querySelector('.result-message').innerHTML = `<p>We found it!</p>`;
-  document.querySelector('.scientific-name-title').innerHTML = "Scientific Name:";
-        // document.querySelector('.plant-name').innerHTML += data.suggestions[i].plant_name + ",";
-        document.querySelector('.plant-name').innerHTML += "Fruit Salad Plant, Swiss Chees Plant";
-        document.querySelector('.common-name-title').innerHTML = "Common Name:";
-      // document.querySelector('.common-name').innerHTML += data.suggestions[i].plant_details.common_names[q]+ ",";
-      document.querySelector('.common-name').innerHTML += "Moon Cactus";
-        document.querySelector('.plant-picture').innerHTML += `<img src="images/plant_img/Moon Cactus.png" alt="" >`;
-})
+
+
+
+
+
+function handleBlob(blob) {
+
+  const objectURL = window.URL.createObjectURL(blob);
+
+
+  const reader = new FileReader();
+  reader.addEventListener('load', () => {
+    console.log(reader.result);
+
+    const data = {
+      api_key: "xFCXUGwXmsC3mUrFGjsu6CwofUABXyIiu9juLeAAVFbQhUv4Ml",
+      images: [reader.result],
+      plant_language: "en",
+      plant_details: ["common_names",
+        "url",
+        "name_authority",
+        "wiki_description",
+        "taxonomy",
+        "synonyms"],
+
+    };
+    getPlantApi(data);
+    const uploadingArea = document.querySelector('.uploading-picture-form');
+    uploadingArea.style.display = "none";
+    myImg.src = "";
+    document.querySelector('.camera').style.display= "none"
+    document.querySelector('.moon-cactus-image').style.display = "none";
+  });
+  reader.readAsDataURL(blob);
+
+
+
+}
+
+
+// fake code
+// document.querySelector('.plant-id-button').addEventListener('click', ()=> {
+//   const uploadingArea = document.querySelector('.uploading-picture-form');
+//   uploadingArea.style.display = "none";
+//   myImg.src = "";
+//   document.querySelector('.camera').style.display= "none"
+//   document.querySelector('.moon-cactus-image').style.display = "none";
+
+//   document.querySelector('.result-message').innerHTML = `<p>We found it!</p>`;
+//   document.querySelector('.scientific-name-title').innerHTML = "Scientific Name:";
+//         // document.querySelector('.plant-name').innerHTML += data.suggestions[i].plant_name + ",";
+//         document.querySelector('.plant-name').innerHTML += "Fruit Salad Plant, Swiss Chees Plant";
+//         document.querySelector('.common-name-title').innerHTML = "Common Name:";
+//       // document.querySelector('.common-name').innerHTML += data.suggestions[i].plant_details.common_names[q]+ ",";
+//       document.querySelector('.common-name').innerHTML += "Moon Cactus";
+//         document.querySelector('.plant-picture').innerHTML += `<img src="images/plant_img/Moon Cactus.png" alt="" >`;
+// })
 
 
 
