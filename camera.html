@@ -1,111 +1,74 @@
-
-        <main class="camera-main">
-
-            <div class="main-wrapper">
-          
-                <div class="page" id="picture" >
-                      <a class="item" href="#profile" >Back to Journal</a>
-                    <p>Please take a picture of your plant</p>
-                
-                    <div class="shot-button">
-                        <button id="start" class="item">Camera On</button>
-                       
-                        <button id="snap" class="item">Snap Photo</button>
-                      
+<main class="camera-main">
+    <div class="main-wrapper">
+        <div class="page" id="picture" >
+              <a class="item" href="#profile" >Back to Journal</a>
+            <p>Please take a picture of your plant</p>
+            <div class="shot-button">
+                <button id="start" class="item">Camera On</button>
+                <button id="snap" class="item">Snap Photo</button>
+            </div>
+              <br />
+              <video id="video" width="320" height="240" autoplay></video>
+              <br />
+              <canvas id="canvas" width="320" height="240"></canvas>
+        </div>
+        <div class="page" id="profile" >
+                <div id="card">
+                    <img id="avatar">
+                    <div class="pic_area">
+                    <span class="imgicon"><i class="fa-solid fa-image"></i></span>
+                    <p>Please Take Your Plant's Picture</p>
+                    <a class="item" href="#picture" >Take a Picture</a>
                     </div>
-                      <br />
-                      <video id="video" width="320" height="240" autoplay></video>
-                      
-                      <br />
-                      <canvas id="canvas" width="320" height="240"></canvas>
-                       
-                </div>
-            
-            
-                <div class="profilepage" id="profile" >
-                        <div id="card">
-                          
-                            <img id="avatar">
-                           
-                        
-                            <div class="pic_area">
-                           
-                            <span class="imgicon"><i class="fa-solid fa-image"></i></span>
-                            <p>Please Take Your Plant's Picture</p>
-                            <a class="item" href="#picture" >Take a Picture</a>
-                               
-                            </div>
-                            <div id="front" class="face">
-                                <form id="form1">
-                               
-                                    <img id="imageSelected"  src="" alt="XYZ" class="imageSelected">
-                                    <input type="url" id="image" size="40" required hidden />
-                                       
-                                    
-                                    
-                                       <div class="input-area">
-                                           <p id="username"></p>
-                                           <label class="caption-header">Type Your Caption Here</label>
-                                           <input type="text" id="caption" required />
-                                    
-                                           <input type="date" id="date" required />
-                                           <label class="border">Add Care Instreuctions</label>
-                                           <textarea type="text" id="journal"></textarea>
-                                       </div>
-                                       <div id="emoji">
-                                            <p>Add Emojis</p>
-                                            <div id="emoji_result">
-                                            </div>
-                                            <p  id="emo_subtitle">- Please Click Emoji -</p>
-                                            <div id="emoselection">
-                                                <img src="./emoji/1.svg" alt="emoji1" class="clickhere" id="1">
-                                                <img src="./emoji/2.svg" alt="emoji2" class="clickhere" id="2">
-                                                <img src="./emoji/3.svg" alt="emoji3" class="clickhere" id="3">
-                                                <img src="./emoji/4.svg" alt="emoji4" class="clickhere" id="4">
-                                                <img src="./emoji/5.svg" alt="emoji5" class="clickhere" id="5">
-                                                <img src="./emoji/6.svg" alt="emoji6" class="clickhere" id="6">
-                                                <img src="./emoji/7.svg" alt="emoji7" class="clickhere" id="7">
-                                                <img src="./emoji/8.svg" alt="emoji8" class="clickhere" id="8">
-                                                <img src="./emoji/9.svg" alt="emoji9" class="clickhere" id="9">
-                                                <img src="./emoji/10.svg" alt="emoji10"  class="clickhere" id="10">
-                                                <img src="./emoji/11.svg" alt="emoji11"  class="clickhere" id="11">
-                                                <img src="./emoji/12.svg" alt="emoji12"  class="clickhere" id="12">
-                                                <img src="./emoji/13.svg" alt="emoji13"  class="clickhere" id="13">
-                                                <img src="./emoji/14.svg" alt="emoji14"  class="clickhere" id="14">
-                                                <img src="./emoji/15.svg" alt="emoji15"  class="clickhere" id="15">
-                                                <img src="./emoji/16.svg" alt="emoji16"  class="clickhere" id="16">
-                                            </div>
-                                  
-                                    
-                                </div>
-                                   <input type="submit" class="submit" >
-                                </form>
-                                
-                            </div>
-                          
+                    <div id="front" class="face">
+                        <form id="form1">
+                               <input type="url" id="image" size="40" required />
+                               <div class="input-area">
+                                   <p id="username"></p>
+                                   <label class="caption-header">Type Your Caption Here</label>
+                                   <input type="text" id="caption" required />
+                                   <input type="date" id="date" required />
+                                   <label class="border">Add Care Instreuctions</label>
+                                   <textarea type="text" id="journal"></textarea>
+                               </div>
+                               <div id="emoji">
+                                    <p>Add Emojis</p>
+                                    <div id="emoji_result">
+                                    </div>
+                                    <p  id="emo_subtitle">- Please Click Emoji -</p>
+                                    <div id="emoselection">
+                                        <img src="./emoji/1.svg" alt="emoji1" class="clickhere" id="1">
+                                        <img src="./emoji/2.svg" alt="emoji2" class="clickhere" id="2">
+                                        <img src="./emoji/3.svg" alt="emoji3" class="clickhere" id="3">
+                                        <img src="./emoji/4.svg" alt="emoji4" class="clickhere" id="4">
+                                        <img src="./emoji/5.svg" alt="emoji5" class="clickhere" id="5">
+                                        <img src="./emoji/6.svg" alt="emoji6" class="clickhere" id="6">
+                                        <img src="./emoji/7.svg" alt="emoji7" class="clickhere" id="7">
+                                        <img src="./emoji/8.svg" alt="emoji8" class="clickhere" id="8">
+                                        <img src="./emoji/9.svg" alt="emoji9" class="clickhere" id="9">
+                                        <img src="./emoji/10.svg" alt="emoji10"  class="clickhere" id="10">
+                                        <img src="./emoji/11.svg" alt="emoji11"  class="clickhere" id="11">
+                                        <img src="./emoji/12.svg" alt="emoji12"  class="clickhere" id="12">
+                                        <img src="./emoji/13.svg" alt="emoji13"  class="clickhere" id="13">
+                                        <img src="./emoji/14.svg" alt="emoji14"  class="clickhere" id="14">
+                                        <img src="./emoji/15.svg" alt="emoji15"  class="clickhere" id="15">
+                                        <img src="./emoji/16.svg" alt="emoji16"  class="clickhere" id="16">
+                                    </div>
                         </div>
-                    
-                        <div id="back" class="face">
-                            
-
-
-
-                            
-                        </div>
-                        
-                    </div>
+                           <input type="submit" class="submit" >
+                        </form>
                     </div>
                 </div>
-            
-            </div><!--  end of main-wrapper -->
-           <script src="./js/camera.js" type="module" defer></script>
-           <script src="./js/camera.js" type="module" defer></script>
-           <link rel="stylesheet" href="style.css">
-           <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css' integrity='sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==' crossorigin='anonymous' />
-        </main>
-
+                <div id="back" class="face">
+                </div>
+            </div>
+            </div>
+        </div>
+    </div><!--  end of main-wrapper -->
+   <script src="./js/camera.js" type="module" defer></script>
+   <script src="./js/camera.js" type="module" defer></script>
+   <link rel="stylesheet" href="style.css">
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css' integrity='sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==' crossorigin='anonymous' />
+</main>
 </body>
 </html>
-
-
-
