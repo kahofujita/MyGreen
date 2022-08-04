@@ -66,13 +66,13 @@ if(plantsList.length <= 4){
     prevBtn.classList.add('btnDisabled')
 }
 
-if( plantsList.length == 0 ){
-    const plusBtn = document.createElement('div')
-    plusBtn.setAttribute('class', 'myPlant_plus')
-    plusBtn.innerHTML = '<i class="fa-solid fa-plus"></i>'
+// if( plantsList.length == 0 ){
+//     const plusBtn = document.createElement('div')
+//     plusBtn.setAttribute('class', 'myPlant_plus')
+//     plusBtn.innerHTML = '<i class="fa-solid fa-plus"></i>'
 
-    slideContainer.appendChild(plusBtn)
-}
+//     slideContainer.appendChild(plusBtn)
+// }
 
 console.log(plantsList)
 plantsList.forEach( async(e, index)=>{
