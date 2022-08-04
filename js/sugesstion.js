@@ -51,7 +51,9 @@ const suggestionHandler = () => {
   if (lastSuggestion.date) {
     result.innerHTML = `${lastSuggestion.plant}`;
  
-    let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    // let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    // result.href = link;
+    let link = `?name=${lastSuggestion.plant.replace(/ /g, "%20")}#plant-detail`
     result.href = link;
 
     const imgNameWapper = document.querySelector('.plant-image-wrapper')
@@ -71,7 +73,9 @@ const suggestionHandler = () => {
 
     lastSuggestion.plant = `${plantOurinfo[index].plant_name}`;
 
-    let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    // let link = window.location.protocol + "//" + window.location.host + `/plant-detail.html?name=${lastSuggestion.plant.replace(/ /g, "%20")}`;
+    // result.href = link;
+    let link = `?name=${lastSuggestion.plant.replace(/ /g, "%20")}#plant-detail`
     result.href = link;
 
     localStorage.setItem('lastSuggestion', JSON.stringify(lastSuggestion))

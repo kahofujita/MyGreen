@@ -1,22 +1,12 @@
 .camera-main{
-
-
     background-color: $color-body-light;
     padding-top: 5rem;
     padding-bottom: 5rem;
-
-    #imageSelected{
-        display: none;
-    }
-
 .main-wrapper{
     background-color: white;
     width: 75%;
-    margin: auto; 
+    margin: auto;
 }
-
-
-
 #card{
     display: grid;
     grid-template-columns: 1fr;
@@ -25,7 +15,6 @@
     margin: auto;
     background-color: $color-body-light;
     position: relative;
-
     #avatar{
         width:80px;
         min-width:80px;
@@ -34,12 +23,10 @@
         position: absolute;
         top:-40px;
         left: -40px;
-      
     }
     .pic_area{
         grid-template: 1 / 2;
         grid-row: 1 / 2;
-
         text-align: center;
         height:400px;
         display: flex;
@@ -54,8 +41,6 @@
         grid-row: 2 / 3;
     }
 }
-
-
 #back{
     background-color: $color-green2;
 }
@@ -78,7 +63,6 @@ label{
     font-size: 50px;
     font-weight: 800;
     font-family: "Font Awesome 5 Free";
-
 }
 // .pic_area{
 //     text-align: center;
@@ -89,7 +73,6 @@ label{
 //     justify-content: center;
 //     align-content: center;
 // }
-
 #image{
     width: 98%;
     border: none;
@@ -99,7 +82,6 @@ label{
 .border,
 #username{
     border-top: 1px solid $color-body-dark;
-    
 }
 .border{
     padding-top: .5rem;
@@ -156,11 +138,10 @@ p#username{
     border: none;
     font-size: 10px;
     padding: .5rem 1rem;
-    width: 50%; 
+    width: 50%;
     display: block;
     margin-right: auto;
     margin-left: auto;
-    
 }
 .submit:hover{
     background-color: white;
@@ -188,7 +169,7 @@ a.item:hover{
 //choose file button
 #target{
     width: 98%;
-    padding: 0 20% ;   
+    padding: 0 20% ;
     display: flex;
     flex-flow: column wrap;
 }
@@ -203,7 +184,6 @@ input#file-upload-button{
     color:$color-icon-text;
     border-top: 1px solid $color-body-dark;
     padding: 2%;
-
 }
 #emo_subtitle{
 text-align: center;
@@ -217,7 +197,6 @@ color:$color-icon-text;
     img{
         margin: 4px;
     }
-   
 }
 #emoji{
     background-color: $color-green4;
@@ -226,8 +205,6 @@ color:$color-icon-text;
     display: flex;
     flex-flow:row wrap;
     justify-content: center;
-  
-  
     img{
         width: 40px;
         margin: 5px;
@@ -277,19 +254,16 @@ color:$color-icon-text;
     padding: 6px 1rem;
 }
 a.item{
-    width: 32%; 
+    width: 32%;
     display: block;
     margin: 1rem auto 2rem auto;
     text-align: center;
-   
 }
-
 /* SUBMIT SCREEN */
 #back{
 display: grid;
 flex-flow: column wrap;
 background-color: $color-green4;
-
 #final-img img{
     width: 100%;
 }
@@ -307,7 +281,6 @@ background-color: $color-green4;
 .results{
     padding: 2%;
     // max-width:90%;
-
 }
 #emospace{
     display: flex;
@@ -319,7 +292,6 @@ background-color: $color-green4;
 .results>p.dates{
     border-bottom: 1px solid $color-body-dark;
 }
-
 .results>p:nth-of-type(6){
     color:$color-icon-text ;
     border-top: 1px solid $color-body-dark;
@@ -330,8 +302,6 @@ background-color: $color-green4;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         width: 100%;
-        
-        
         .pic_area{
             grid-column: 1 / 2;
             grid-row: 1 / -1;
@@ -355,8 +325,7 @@ background-color: $color-green4;
     #image{
         position: absolute;
         bottom:5%;
-        right: 100%;    
-        
+        right: 100%;
     }
     .submit{
         grid-column: 2 / 3;
@@ -368,18 +337,14 @@ background-color: $color-green4;
        position: absolute;
        bottom: -70px;
        right:30%;
-      
     }
-   
     #journal  {
         height: 150px;
         width: 98%;
     }
-
     #username{
         border-top: none;
     }
-
     ///TAKE a PICTURE PAGE
     a.item{
         max-width: 248px;
@@ -388,8 +353,5 @@ background-color: $color-green4;
         grid-template-columns: 1fr 1fr;
     }
 }
-
 //Submit area
-
-
 }
