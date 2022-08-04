@@ -2587,6 +2587,11 @@ select {
   position: relative;
 }
 
+.logo {
+  width: 20%;
+  height: auto;
+}
+
 .header ul {
   list-style-type: none;
   padding: 0;
@@ -2822,6 +2827,11 @@ ul.result a {
   .toolbar-mobile {
     display: none;
   }
+  .logo {
+    width: 80%;
+    height: auto;
+    margin: 0.5rem 0;
+  }
   .toolbar-desktop {
     display: flex;
     flex-flow: column wrap;
@@ -2841,10 +2851,6 @@ ul.result a {
     flex-flow: row nowrap;
     color: #FAFAFA;
     justify-content: space-around;
-  }
-  .header-site-logo-desktop img {
-    height: 110px;
-    width: auto;
   }
   .menu-desktop ul a {
     color: black;

@@ -21,6 +21,11 @@
   position: relative;
 }
 
+.logo {
+  width: 20%;
+  height: auto;
+}
+
 .header ul {
   list-style-type: none; 
   padding: 0;
@@ -277,6 +282,13 @@ margin: 0.3rem;
     display: none;
   }
 
+  .logo {
+    width: 80%;
+    height: auto;
+    margin: .5rem 0;
+
+  }
+
   .toolbar-desktop {
     display: flex;
     flex-flow: column wrap;
@@ -302,10 +314,6 @@ margin: 0.3rem;
 
   }
   
-  .header-site-logo-desktop img {
-    height: 110px;
-    width: auto;
-  }
 
   .menu-desktop ul a {
     color: black;
