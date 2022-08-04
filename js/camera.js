@@ -4,7 +4,7 @@ import {collection, addDoc, doc, getDoc, query, where, getDocs} from "https://ww
 
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
 
-export function init () {
+export async function init () {
   console.log(" initializing about.js module:" + new Date());
 
 class Note {
@@ -109,6 +109,7 @@ emo[i].addEventListener('click', (e) => {
 
 ////SUBMIT //////
 const form1 = document.getElementById("form1");
+const imageSelected =　form1.querySelector("#imageSelected");
 
 form1.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -116,7 +117,7 @@ form1.addEventListener("submit", function (event) {
     const captionInput = form1.querySelector("#caption");
     const journalInput = form1.querySelector("#journal");
     const imageInput = form1.querySelector("#image");
-
+    
 
     const note = new Note( imageInput.value, captionInput.value, dateInput.value,
                             journalInput.value  );
@@ -257,6 +258,7 @@ function handleBlob(blob) {
       console.log(reader.result);
     
       document.getElementById("image").value = reader.result;
+      imageSelected.src=reader.result;
     });
     reader.readAsDataURL(blob); 
    
