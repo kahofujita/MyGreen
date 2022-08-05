@@ -34,7 +34,7 @@ function getPlantApi(data) {
       // for(let j = 0; j < data.suggestions[i].similar_images.length; j++){
       // Just need the first picture
       let image = data.suggestions[0].similar_images[0].url ;
-      document.querySelector('.plant-picture').innerHTML += `<img src="${image}" alt="" >`;
+      document.querySelector('.plant-picture').innerHTML = `<img src="${image}" alt="" >`;
      
 
       }
@@ -99,7 +99,7 @@ imgInp.onchange = evt => {
 
 
 
-// get data
+// use uploading picture =====================================
 document.querySelector('.plant-id-button').addEventListener('click', function sendIdentification() {
   
   const files = [...document.querySelector('input[type=file]').files];
@@ -133,8 +133,9 @@ document.querySelector('.plant-id-button').addEventListener('click', function se
         "synonyms"],
 
     };
-
+  
     getPlantApi(data)
+  
 
   })
 
@@ -150,7 +151,7 @@ document.querySelector('.plant-id-button').addEventListener('click', function se
 
 
 
-
+// using camera====================================
 function handleBlob(blob) {
 
   const objectURL = window.URL.createObjectURL(blob);
@@ -175,18 +176,33 @@ function handleBlob(blob) {
     getPlantApi(data);
     const uploadingArea = document.querySelector('.uploading-picture-form');
     uploadingArea.style.display = "none";
-    myImg.src = "";
-    document.querySelector('.camera').style.display= "none"
-    document.querySelector('.moon-cactus-image').style.display = "none";
+    // myImg.src = "";
+    // document.querySelector('.camera').style.display= "none"
+    // document.querySelector('.moon-cactus-image').style.display = "none";
   });
+
   reader.readAsDataURL(blob);
+  myImg.src = "";
+  document.querySelector('.camera').style.display= "none"
+  document.querySelector('.moon-cactus-image').style.display = "none";
+  document.querySelector('.main-content-wrapper').style.cssText = `
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  margin-top: 11rem;
+  `
 
 
 
 }
 
 
-// fake code
+
+
+
+
+
+// // fake code
 // document.querySelector('.plant-id-button').addEventListener('click', ()=> {
 //   const uploadingArea = document.querySelector('.uploading-picture-form');
 //   uploadingArea.style.display = "none";

@@ -1,6 +1,6 @@
 .plantid {
 
-  height: 80vh;
+  height: 90vh;
 
 .header-plant-id {
   text-align: center;
@@ -178,7 +178,8 @@
   margin: auto;
   width: 200px;
   height: auto;
-  margin-bottom: 20rem;
+  position: relative;
+  bottom: 10rem;
 }
 
 //showing the result 
@@ -242,6 +243,7 @@
   height: 40vh;
   padding: .7rem;
   margin-bottom: 2rem;
+  margin-top: .3rem;
 }
 
 .uploading-picture-form {
