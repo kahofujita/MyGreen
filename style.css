@@ -1040,8 +1040,8 @@
 }
 
 .plant-image-wrapper img {
-  width: 15rem;
-  height: 14rem;
+  width: 21rem;
+  height: auto;
   border: 2px solid #83C992;
   border-radius: 20px;
   display: block;
@@ -1086,7 +1086,7 @@
   }
 }
 .plantid {
-  height: 80vh;
+  height: 90vh;
 }
 .plantid .header-plant-id {
   text-align: center;
@@ -1231,7 +1231,8 @@
   margin: auto;
   width: 200px;
   height: auto;
-  margin-bottom: 20rem;
+  position: relative;
+  bottom: 10rem;
 }
 .plantid .result-message {
   display: grid;
@@ -1285,6 +1286,7 @@
     height: 40vh;
     padding: 0.7rem;
     margin-bottom: 2rem;
+    margin-top: 0.3rem;
   }
   .plantid .uploading-picture-form {
     grid-column: 2/3;
@@ -2968,6 +2970,10 @@ select {
   height: auto;
 }
 
+.header-site-logo-mobile img {
+  width: 20%;
+}
+
 .header ul {
   list-style-type: none;
   padding: 0;
@@ -3007,7 +3013,7 @@ select {
   transform: translateX(100%);
   z-index: 120;
   position: fixed;
-  top: 11.3rem;
+  top: 4.5rem;
   left: 0;
   transition: transform 0.5s;
   height: 100vh;
@@ -3145,8 +3151,7 @@ ul.result a {
 }
 
 /* .connection-wrapper a:link, */
-.connection-wrapper a:active,
-.connection-wrapper a:hover {
+.connection-wrapper a:active {
   color: #FAFAFA;
   border-bottom: 4px solid #FAFAFA;
 }
@@ -3199,6 +3204,10 @@ ul.result a {
   justify-content: center;
 }
 
+.footer-site-logo img {
+  width: 250px;
+}
+
 @media screen and (min-width: 800px) {
   .toolbar-mobile {
     display: none;
@@ -3242,6 +3251,9 @@ ul.result a {
   }
   .socialmedia-copyright-wrapper {
     justify-content: space-around;
+  }
+  .footer-site-logo img {
+    width: 500px;
   }
 }
 
