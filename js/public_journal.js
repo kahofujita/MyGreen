@@ -69,7 +69,7 @@ console.log(cmtArray);
 
 //  // ///GETUSER INFO FOR USER NAME
 
- let userArray = [];
+ const userArray = [];
  const uns = await getDocs(collection(db, "user_info"));
  uns.forEach((doc) => {
   userArray.push(doc.data());
@@ -93,6 +93,16 @@ let article;
 let avat;
 
 
+  //     ////////
+  //     console.log(journalArray[1].user_id);
+  //     console.log(userArray[1].user_id);
+  // /////////
+  
+
+
+
+
+
 // //DISPLAY ALL JOURNAL
 for(let i = 0; journalArray.length > i; i++ ){
    
@@ -110,7 +120,7 @@ for(let i = 0; journalArray.length > i; i++ ){
   avat.setAttribute('class', 'avatar');
   
   for(let index = 0; journalArray.length > index; index++ ){
-  
+  // console.log(userArray[index].user_id);
       if(journalArray[i].user_id == userArray[index].user_id){
         
         const avanbr = userArray[index].avatar_img_name;
@@ -118,7 +128,7 @@ for(let i = 0; journalArray.length > i; i++ ){
         // console.log(haha);
         
         avat.setAttribute('src', `./avatar/${haha}.png`);
-        // console.log(avat);
+        console.log(avat);
         avat.innerText;
         article.appendChild(avat);
     
@@ -149,6 +159,10 @@ for(let i = 0; journalArray.length > i; i++ ){
       article.appendChild(date);
 
     }
+
+
+
+
 
     const hidePage = document.getElementById("result");
 

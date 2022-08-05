@@ -2003,6 +2003,7 @@ main.plant-detail .outdoor-section {
   padding-bottom: 5rem;
   /* Camera page BUTTONS ===============*/
   /* TAKE A PHOTO PAGE =====*/
+  /* BEFORE SUBMIT SCREEN */
   /* SUBMIT SCREEN */
 }
 .camera-main .main-wrapper {
@@ -2108,11 +2109,12 @@ main.plant-detail .outdoor-section {
 }
 .camera-main #journal, .camera-main #caption {
   font-family: "Caveat", cursive;
-  font-size: 19px;
+  font-size: 24px;
   background-color: #D5E6D9;
   width: 98%;
   margin-left: 2%;
   border: none;
+  outline: none;
 }
 .camera-main #journal {
   height: 100px;
@@ -2125,8 +2127,7 @@ main.plant-detail .outdoor-section {
   border-radius: 15px;
   color: #FAFAFA;
   border: none;
-  font-size: 10px;
-  padding: 0.5rem 1rem;
+  font-size: 15px;
   width: 50%;
   display: block;
   margin-right: auto;
@@ -2136,22 +2137,22 @@ main.plant-detail .outdoor-section {
   background-color: white;
   border: 2px solid #B21F51;
   color: #2B2B2B;
-  padding: 6px 1rem;
   font-weight: 200;
 }
-.camera-main a.item {
+.camera-main a.items, .camera-main a.item {
   text-decoration: none;
   background-color: #A7C6AD;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 7px 1rem;
   border-radius: 15px;
-  font-size: 10px;
+  font-size: 15px;
 }
+.camera-main a.items:hover,
 .camera-main a.item:hover {
   background-color: white;
   border: 2px solid #A7C6AD;
   color: #2B2B2B;
-  padding: 6px 1rem;
+  padding: 5px 1rem;
   font-weight: 200;
 }
 .camera-main #target {
@@ -2224,10 +2225,10 @@ main.plant-detail .outdoor-section {
   background-color: white;
   border: 1px solid #A7C6AD;
   color: #2B2B2B;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   font-weight: 200;
   border-radius: 15px;
-  font-size: 10px;
+  font-size: 15px;
   width: 123px;
 }
 .camera-main #snap {
@@ -2237,13 +2238,19 @@ main.plant-detail .outdoor-section {
 .camera-main #snap:hover {
   background-color: #A7C6AD;
   color: white;
-  padding: 6px 1rem;
+  padding: 4px 1rem;
 }
 .camera-main a.item {
   width: 32%;
   display: block;
   margin: 1rem auto 2rem auto;
   text-align: center;
+}
+.camera-main #profile {
+  background-color: #FAFAFA;
+}
+.camera-main #imageSelected {
+  margin: 5px;
 }
 .camera-main #back {
   display: grid;
@@ -2281,6 +2288,9 @@ main.plant-detail .outdoor-section {
   border-top: 1px solid #2B2B2B;
 }
 @media screen and (min-width: 800px) {
+  .camera-main .main-wrapper {
+    width: 80%;
+  }
   .camera-main #card {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2301,6 +2311,7 @@ main.plant-detail .outdoor-section {
   }
   .camera-main #avatar {
     left: 62px;
+    z-index: 1;
   }
   .camera-main #form1 {
     position: relative;
@@ -2323,7 +2334,6 @@ main.plant-detail .outdoor-section {
     right: 30%;
   }
   .camera-main #journal {
-    height: 150px;
     width: 98%;
   }
   .camera-main #username {

@@ -74,9 +74,52 @@ for(let j = 0; usernameArray.length > j; j++){
   };
 }
 
+////CHANGE PAGE AND HIDE & SEEK
+//HIDE RESULT PICTURE
+const imageSelected = document.getElementById("imageSelected");
+imageSelected.style.display = "none";
+
+const picture = document.getElementById('picture');
+console.log(picture);
+picture.style.display = "none";
+
+const items = document.querySelector('.items');
+console.log(items);
+
+///MOVE TO CAMERA PAGE
+items.addEventListener('click', ()=>{
+  const card = document.getElementById('card');
+  card.style.display = "none";
+  const picture = document.getElementById('picture');
+  picture.style.display = "block";
+
+})
+
+//BACK TO JOURNAL PAGE
+const item = document.querySelector('.item');
+console.log(item);
+item.addEventListener('click', ()=>{
+  const card = document.getElementById('card');
+  card.style.display = "grid";
+  const picture = document.getElementById('picture');
+  picture.style.display = "none";
+  imageSelected.style.display = "block";
+  console.log(imageSelected);
+
+  const imgicon = document.querySelector('.imgicon');
+  const plztag = document.querySelector('.plztag');
+  const items = document.querySelector('.items');
+  // imgicon.style.display = "none";
+  plztag.innerHTML = "Picture is successfully uploaded! ";
+  items.style.display = "none";
 
 
+  // const pic_area = document.querySelector('.pic_area');
+  // console.log(pic_area);
+  // pic_area.style.display = "none";
+  
 
+})
 
 const docRef = doc(db, "journal", "Um2tjbRjsK917w1tjSYJ");
 
@@ -109,7 +152,7 @@ emo[i].addEventListener('click', (e) => {
 
 ////SUBMIT //////
 const form1 = document.getElementById("form1");
-const imageSelected =　form1.querySelector("#imageSelected");
+// imageSelected =form1.querySelector("#imageSelected");
 
 form1.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -184,23 +227,24 @@ function renderDogAsHTML( note ) {
 
 ///Change page  ////////
 const allPages = document.querySelectorAll("div.page");
-navigateToPage();
+// navigateToPage();
 
-function navigateToPage(event) {
-    const pageId = location.hash? location.hash : '#profile';
-    for(let page of allPages) {
-        if (pageId === '#'+page.id) {
-            page.style.display = "block";
-        } else {
-            page.style.display = "none";
-        }
-    }
-    return;
-}
+// function navigateToPage(event) {
+//     const pageId = location.hash? location.hash : '#profile';
+//     for(let page of allPages) {
+//         if (pageId === '#'+page.id) {
+//             page.style.display = "block";
+//         } else {
+//             page.style.display = "none";
+//         }
+//     }
+//     return;
+// }
 
 ///camera system camera on & snap    /////////
 
-window.addEventListener("hashchange", navigateToPage);
+// window.addEventListener("hashchange", navigateToPage);
+
 
 
 const video = document.getElementById('video');
@@ -227,6 +271,8 @@ document.getElementById("start").addEventListener("click", function () {
   }
   videoFlame.style.display = "block";
 });
+
+
 
 
 const videoFlame = document.getElementById("video");

@@ -115,11 +115,12 @@ p#username{
 }
 #journal,#caption{
     font-family: $font-journal;
-    font-size: 19px;
+    font-size: 24px;
     background-color:$color-green4;
     width: 98%;
     margin-left: 2%;
     border: none;
+    outline: none;
 }
 #journal{
     height: 100px;
@@ -127,43 +128,43 @@ p#username{
 .caption-header{
     padding-left: 2%;
 }
-// #form1{
-//     background-color: white;
-// }
+
+
 /* Camera page BUTTONS ===============*/
 .submit{
     background-color: $color-red2;
     border-radius: 15px;
     color: $color-body-light;
     border: none;
-    font-size: 10px;
-    padding: .5rem 1rem;
+    font-size: 15px;
     width: 50%;
     display: block;
     margin-right: auto;
     margin-left: auto;
+    
+    
 }
 .submit:hover{
     background-color: white;
     border: 2px solid $color-red2;
     color:  $color-body-dark;
-    padding: 6px 1rem;
     font-weight: 200;
 }
 //take a pic butoon
-a.item{
+a.items,a.item{
     text-decoration: none;
     background-color: $color-green3;
     color: white;
-    padding: .5rem 1rem;
+    padding: 7px 1rem;
     border-radius: 15px;
-    font-size: 10px;
+    font-size: 15px;
 }
+a.items:hover,
 a.item:hover{
     background-color: white;
     border: 2px solid $color-green3;
     color:  $color-body-dark;
-    padding: 6px 1rem;
+    padding: 5px 1rem;
     font-weight: 200;
 }
 //choose file button
@@ -238,10 +239,10 @@ color:$color-icon-text;
     background-color: white;
     border: 1px solid $color-green3;
     color:  $color-body-dark;
-    padding: .5rem 1rem;
+    padding: .3rem 1rem;
     font-weight: 200;
     border-radius: 15px;
-    font-size: 10px;
+    font-size: 15px;
     width: 123px;
 }
 #snap{
@@ -251,7 +252,7 @@ color:$color-icon-text;
 #snap:hover{
     background-color: $color-green3;
     color: white;
-    padding: 6px 1rem;
+    padding: 4px 1rem;
 }
 a.item{
     width: 32%;
@@ -259,6 +260,16 @@ a.item{
     margin: 1rem auto 2rem auto;
     text-align: center;
 }
+
+/* BEFORE SUBMIT SCREEN */
+#profile{
+    background-color: $color-body-light;
+}
+#imageSelected{
+    // width: 100%;
+    margin: 5px;
+}
+
 /* SUBMIT SCREEN */
 #back{
 display: grid;
@@ -296,7 +307,18 @@ background-color: $color-green4;
     color:$color-icon-text ;
     border-top: 1px solid $color-body-dark;
 }
+
+
 @media screen and (min-width:800px){
+    .main-wrapper{
+        width: 80%;
+    }
+    
+    
+    
+    
+    
+    
     #card{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -317,6 +339,7 @@ background-color: $color-green4;
     }
     #avatar{
         left: 62px;
+        z-index: 1;
     }
     #form1{
         position: relative;
@@ -339,7 +362,7 @@ background-color: $color-green4;
        right:30%;
     }
     #journal  {
-        height: 150px;
+        // height: 150px;
         width: 98%;
     }
     #username{
