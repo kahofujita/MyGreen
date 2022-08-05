@@ -18,11 +18,11 @@
 }
 
 .login-main {
+  padding-top: 5rem;
   max-width: 338px;
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  padding-top: 2rem;
   margin-top: 0;
   margin-bottom: 5rem;
 }
@@ -314,7 +314,7 @@
   }
 }
 .signup-page {
-  padding-bottom: 10rem;
+  padding-top: 5rem;
 }
 .signup-page h2 {
   font-size: 2rem;
