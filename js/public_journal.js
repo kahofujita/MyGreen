@@ -36,7 +36,7 @@ month_name = months[day.getMonth()];
 
 const date = document.getElementById("date");
 date.innerHTML = `${month_name}, ${year}`;
-console.log(year);
+
 
 
 // //POST NUMBER //
@@ -54,7 +54,7 @@ const querySnapshot = await getDocs(collection(db, 'journal'));
 querySnapshot.forEach((doc) => {
   jId.push(doc.id);  
 })
-console.log(jId);
+
 
 
 //   // //COMMENT 
@@ -65,7 +65,7 @@ cmt.forEach((doc) => {
 
   cmtArray.push(doc.data());
 });
-console.log(cmtArray);
+
 
 //  // ///GETUSER INFO FOR USER NAME
 
@@ -93,14 +93,7 @@ let article;
 let avat;
 
 
-  //     ////////
-  //     console.log(journalArray[1].user_id);
-  //     console.log(userArray[1].user_id);
-  // /////////
-  
-
-
-
+ 
 
 
 // //DISPLAY ALL JOURNAL
@@ -120,12 +113,14 @@ for(let i = 0; journalArray.length > i; i++ ){
   avat.setAttribute('class', 'avatar');
   
   for(let index = 0; journalArray.length > index; index++ ){
-  // console.log(userArray[index].user_id);
+  
+  console.log(journalArray[i].user_id);
+        console.log(userArray[index].user_id);  
       if(journalArray[i].user_id == userArray[index].user_id){
-        
+      
         const avanbr = userArray[index].avatar_img_name;
         const haha = avanbr.match(/(\d+)/)[0];
-        // console.log(haha);
+     
         
         avat.setAttribute('src', `./avatar/${haha}.png`);
         console.log(avat);
@@ -181,7 +176,7 @@ for(let i = 0; journalArray.length > i; i++ ){
     ///MOVE TO SINGLE PAGE EVENTLISTENER/////
        
     const atag = document.getElementsByClassName('single'); 
-    // console.log(atag);
+   
     let b = [...atag].forEach(single_page => {
       single_page.addEventListener('click', (e)=>{
 
