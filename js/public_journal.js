@@ -166,7 +166,7 @@ for(let i = 0; journalArray.length > i; i++ ){
     result_area.style.display = "none";
 
     const backBtn = document.getElementById('btn');
-    backBtn.style.display = "none";
+    
 
   
     let z;
@@ -304,7 +304,6 @@ for(let i = 0; journalArray.length > i; i++ ){
       post.style.display = "none";
       who.style.display = "none";
       result_area.style.display = "block";
-      backBtn.style.display = "block";
     }
   
 }

@@ -135,7 +135,7 @@ export async function init () {
       result_area.style.display = "none";
     
       const backBtn = document.getElementById('btn');
-      backBtn.style.display = "none";
+      // backBtn.style.display = "none";
     
     
       let z;
@@ -260,18 +260,10 @@ export async function init () {
     post.style.display = "none";
     who.style.display = "none";
     result_area.style.display = "block";
-    backBtn.style.display = "block";
+
   }
   
-  // ///BACK TO JOURNAL BUTTON
-  backBtn.addEventListener('click', (event)=>{
-    result_area.style.display = "none";
-    backBtn.style.display = "none";
-    pageId.style.display = "block";
-    postNbr.style.display = "block";
-    add_post_btn.style.display = "block";
-    
-  })
+  
   
   
 
