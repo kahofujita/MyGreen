@@ -200,27 +200,4 @@ function handleBlob(blob) {
 
 
 
-
-
-// // fake code
-// document.querySelector('.plant-id-button').addEventListener('click', ()=> {
-//   const uploadingArea = document.querySelector('.uploading-picture-form');
-//   uploadingArea.style.display = "none";
-//   myImg.src = "";
-//   document.querySelector('.camera').style.display= "none"
-//   document.querySelector('.moon-cactus-image').style.display = "none";
-
-//   document.querySelector('.result-message').innerHTML = `<p>We found it!</p>`;
-//   document.querySelector('.scientific-name-title').innerHTML = "Scientific Name:";
-//         // document.querySelector('.plant-name').innerHTML += data.suggestions[i].plant_name + ",";
-//         document.querySelector('.plant-name').innerHTML += "Fruit Salad Plant, Swiss Chees Plant";
-//         document.querySelector('.common-name-title').innerHTML = "Common Name:";
-//       // document.querySelector('.common-name').innerHTML += data.suggestions[i].plant_details.common_names[q]+ ",";
-//       document.querySelector('.common-name').innerHTML += "Moon Cactus";
-//         document.querySelector('.plant-picture').innerHTML += `<img src="images/plant_img/Moon Cactus.png" alt="" >`;
-// })
-
-
-
-
 }
