@@ -18,19 +18,9 @@ class MyCarousel {
 
 export function init () {
     console.log(" initializing about.js module:" + new Date());
-    // const btn1 = document.getElementById("btn1");
-    // const text1 = document.getElementById("text1");
-    // btn1.addEventListener('click', (event) => {
-    //     const message = `test in about page ${Date.now()}`;
-    //     console.log(`%c ${message}`, 'color:black;background:yellow');
-    //     text1.innerText = message;
-    // });
-    
-    
-    
+   
     
     const userId = sessionStorage.getItem('userID')
-    // const userId = 'UbLI3ydleogKaaqnrWFHRUWtOWn2';
     console.log(userId)
     
     
@@ -56,23 +46,15 @@ export function init () {
         
 
 // Query "plant_userinfo"
-// const userQuery = query(collection(db, "plant_userinfo"), where("user_info_id", "==", userId))
+
 const userQuery = doc(db, "plant_userinfo", userId)
 const userQuerySnapshot = await getDoc(userQuery);
-// console.log(userQuerySnapshot.data())
+
 const {plantsList} = userQuerySnapshot.data()
 if(plantsList.length <= 4){
     nextBtn.classList.add('btnDisabled')
     prevBtn.classList.add('btnDisabled')
 }
-
-// if( plantsList.length == 0 ){
-//     const plusBtn = document.createElement('div')
-//     plusBtn.setAttribute('class', 'myPlant_plus')
-//     plusBtn.innerHTML = '<i class="fa-solid fa-plus"></i>'
-
-//     slideContainer.appendChild(plusBtn)
-// }
 
 console.log(plantsList)
 plantsList.forEach( async(e, index)=>{
@@ -114,32 +96,9 @@ plantsList.forEach( async(e, index)=>{
             img.alt = plantName
             div.appendChild(img)
 
-            // const carousel = document.querySelector('.carousel')
-
             slideContainer.appendChild(img)
 
             buttonImage.style.order = plantsList.length
-
-            // if( index == plantsList.length - 1 ){
-            //     // const plusBtn = document.createElement('div')
-            //     // plusBtn.setAttribute('class', 'myPlant_plus')
-            //     // plusBtn.innerHTML = '<i class="fa-solid fa-plus"></i>'
-        
-            //     // slideContainer.appendChild(plusBtn)
-
-            //     buttonImage.style.order = plantsList.length
-            // }
-            
-            
-            // const myCarousel = new MyCarousel('.slide-container', '#myplant')
-        
-            // nextBtn.addEventListener('click', ()=>{
-            //     myCarousel.toNext()
-            // })
-
-            // prevBtn.addEventListener('click', ()=>{
-            //     myCarousel.toPrev()
-            // })
 
 
             // Fuction for Formatted Date
@@ -162,7 +121,7 @@ plantsList.forEach( async(e, index)=>{
             if ( index == 0 ) {
 
 
-                // WATERING SECTION 🌟🌟======================================
+                // WATERING SECTION ======================================
                     
                 // Display Button
                 const button = document.createElement('button')
@@ -173,15 +132,13 @@ plantsList.forEach( async(e, index)=>{
 
                 // Calculate dates
                 // Get last watering date from firebase
-                // const wateringMap = `plant_${plantId}`
-                // console.log(wateringMap)
+
                 const lastWateringDateString = e.watering_date
                 console.log(lastWateringDateString)
 
                 // Get the day of today
                 const today = new Date()
                 const todayFormat = getFormattedDate(today)
-                // console.log(todayFormat)
                 const todayString = (`${todayFormat.split("/")[2]}-${todayFormat.split("/")[0]}-${todayFormat.split("/")[1]}`).toString()
                 console.log(todayString)
 
@@ -192,8 +149,6 @@ plantsList.forEach( async(e, index)=>{
                 let difference= Math.abs(day2-day1);
                 let days = parseInt(difference/(1000 * 3600 * 24))
                 console.log(days)
-
-                // console.log(doc_plantourinfo.data().water_frequency)
 
                 const dateDifference = doc_plantourinfo.data().water_frequency - days
                 console.log(dateDifference)
@@ -216,8 +171,7 @@ plantsList.forEach( async(e, index)=>{
                         console.log(calendarValueString)
                         // Update a date manually
                         const plantsListCopy = [...plantsList]
-                        // const wateringDatetoUpdate = e.watering_date
-                        // console.log(plantsListCopy, wateringDatetoUpdate)
+
                         plantsListCopy[index].watering_date = calendarValueString
                         const doctoUpdate = doc(db, "plant_userinfo", userId)
                         try {
@@ -226,10 +180,6 @@ plantsList.forEach( async(e, index)=>{
                         } catch (error) {
                             console.log(error)
                         }
-                        // Change the button from 'Updated' to 'Watered today'
-                        // button.innerHTML = 'Watered today';
-                        // button.disabled = true
-                        // 'Do you want to register Watered today? みたいなポップアップ必要？
 
                         // Calculate the difference between two days
                         let day1 = new Date(calendarValueString);
@@ -249,7 +199,6 @@ plantsList.forEach( async(e, index)=>{
                             console.log('Water today!')
                             button.innerHTML = 'Water today!'
 
-                            // このあと、watered today!が出たあとwatered todayのボタンが押せなくなるよ
                         } else if ( dateDifference < 0 ) {
                             console.log(-dateDifference + ' days late')
                             button.innerHTML = -dateDifference + ' days late'
@@ -272,10 +221,8 @@ plantsList.forEach( async(e, index)=>{
                         }
 
                         // Set calendar value to Today
-                        // dateControlForWatering.setAttribute('value', todayString)
                         dateControlForWatering.value = todayString
                         console.log(dateControlForWatering.value)
-                        // 'Do you want to update last watering date? みたいなポップアップ必要？
 
                         // Display Next Watering Date in Button Value
                         const nextWateringDate = doc_plantourinfo.data().water_frequency
@@ -285,10 +232,7 @@ plantsList.forEach( async(e, index)=>{
                         // Button Condition
                         button.innerHTML = nextWateringDate + ' days to go'
                         button.disabled = true;
-                        
-                        // if (button.disabled = true) {
-                        //     button.styleSheet.cssText = buttonHover
-                        // }
+
                     }
                 })
 
@@ -330,7 +274,7 @@ plantsList.forEach( async(e, index)=>{
 
 
 
-                // NUTRITIONS SECTION ✨✨======================================
+                // NUTRITIONS SECTION ======================================
 
 
                 // Display Button
@@ -343,8 +287,6 @@ plantsList.forEach( async(e, index)=>{
 
                 // Calculate dates
                 // Get last nutritionizing date from firebase
-                // const nutritionizingMap = `plant_${plantid}`
-                // console.log(nutritionizingMap)
                 const lastNutritionizingDateString = e.nutritionizing_date
                 console.log(lastNutritionizingDateString)
 
@@ -373,22 +315,16 @@ plantsList.forEach( async(e, index)=>{
                         // If users change the date of calendar
                         console.log('you changed the date!')
                         // // Set calendar value
-                        // dateControlForNutritionizing.setAttribute('value', lastNutritionizingDateString)
+
                         // Get calendar value
                         const calendarValueString = dateControlForNutritionizing.value
                         console.log(calendarValueString)
                         // Update a date manually
                         const doctoUpdate = doc(db, "plant_userinfo", userId)
-                        // const nutritionizingDatetoUpdate = doc_plantuserinfo.data().nutritionizing_date
-                        // await updateDoc(doctoUpdate, {nutritionizing_date: {
-                        //     ...nutritionizingDatetoUpdate, [nutritionizingMap]: calendarValueString
-                        // }
-                    
-                        // })
+
 
                         const plantsListCopy = [...plantsList]
-                        // const wateringDatetoUpdate = e.watering_date
-                        // console.log(plantsListCopy, wateringDatetoUpdate)
+
                         plantsListCopy[index].nutritionizing_date = calendarValueString
                         try {
                             await updateDoc(doctoUpdate, {plantsList : plantsListCopy})
@@ -397,9 +333,6 @@ plantsList.forEach( async(e, index)=>{
                             console.log(error)
                         }
 
-
-                        // Change the button from 'Updated' to 'Nutritionize today'
-                        // buttonNutritions.innerHTML = 'Nutritionize today!'
 
                         // Calculate the difference between two days
                         let day3 = new Date(calendarValueString);
@@ -422,7 +355,6 @@ plantsList.forEach( async(e, index)=>{
                             console.log(-dateDifferenceForNutritionizing + ' days late')
                             buttonNutritions.innerHTML = -dateDifferenceForNutritionizing + ' days late'
                         }
-                        // 'Do you want to register Watered today? みたいなポップアップ必要？
 
                         // Delete class update
                         buttonNutritions.classList.remove('update')
@@ -443,7 +375,6 @@ plantsList.forEach( async(e, index)=>{
 
                         // Set calendar value to Today
                         dateControlForNutritionizing.setAttribute('value', todayString)
-                        // 'Do you want to update last watering date? みたいなポップアップ必要？
 
                         // Display Next Watering Date in Button Value
                         const nextNutritionizingDate = doc_plantourinfo.data().water_frequency
@@ -482,7 +413,7 @@ plantsList.forEach( async(e, index)=>{
 
 
 
-                // SUNLIGHT SECTION 🌸🌸======================================
+                // SUNLIGHT SECTION ======================================
 
                 // Display Sunlight Frequency
                 const sunlightFrequency = doc_plantourinfo.data().sunlight_frequency
@@ -508,7 +439,6 @@ plantsList.forEach( async(e, index)=>{
 
             // Click Plant Image
             img.addEventListener('click', () => {
-                // console.log(index)
 
                 // Add Plant image border
                 const greenBorder = document.querySelector('.green-border')
@@ -534,15 +464,7 @@ plantsList.forEach( async(e, index)=>{
                 plantSchedule.appendChild(span)
 
 
-
-                // img.setAttribute('style', 'border: unset;')
-                // img.classList.add('green-border')
-                // img.setAttribute('style', 'border: 3px solid #83C992;')
-
-
-                // 上のindex == 0のコードとほとんど同じだけど、他にやり方ある？？
-
-                // WATERING SECTION 🌟🌟======================================
+                // WATERING SECTION ======================================
 
                 // Delete if a button already exists
                 if (document.querySelector('.watered-today')) {
@@ -608,10 +530,6 @@ plantsList.forEach( async(e, index)=>{
                         } catch (error) {
                             console.log(error)
                         }
-                        // Change the button from 'Updated' to 'Watered today'
-                        // button.innerHTML = 'Watered today';
-                        // button.disabled = true
-                        // 'Do you want to register Watered today? みたいなポップアップ必要？
 
                         // Calculate the difference between two days
                         let day1 = new Date(calendarValueString);
@@ -631,7 +549,6 @@ plantsList.forEach( async(e, index)=>{
                             console.log('Water today!')
                             button.innerHTML = 'Water today!'
 
-                            // このあと、watered today!が出たあとwatered todayのボタンが押せなくなるよ
                         } else if ( dateDifference < 0 ) {
                             console.log(-dateDifference + ' days late')
                             button.innerHTML = -dateDifference + ' days late'
@@ -654,7 +571,6 @@ plantsList.forEach( async(e, index)=>{
 
                         // Set calendar value to Today
                         dateControlForWatering.setAttribute('value', todayString)
-                        // 'Do you want to update last watering date? みたいなポップアップ必要？
 
                         // Display Next Watering Date in Button Value
                         const nextWateringDate = doc_plantourinfo.data().water_frequency
@@ -692,7 +608,7 @@ plantsList.forEach( async(e, index)=>{
 
 
 
-                // NUTRITIONS SECTION ✨✨======================================
+                // NUTRITIONS SECTION ======================================
 
                 // Delete if a button already exists
                 if (document.querySelector('.nutritionize-today')) {
@@ -739,15 +655,13 @@ plantsList.forEach( async(e, index)=>{
                         // If users change the date of calendar
                         console.log('you changed the date!')
                         // // Set calendar value
-                        // dateControlForNutritionizing.setAttribute('value', lastNutritionizingDateString)
                         // Get calendar value
                         const calendarValueString = dateControlForNutritionizing.value
                         console.log(calendarValueString)
                         // Update a date manually
                         const doctoUpdate = doc(db, "plant_userinfo", userId)
                         const plantsListCopy = [...plantsList]
-                        // const wateringDatetoUpdate = e.watering_date
-                        // console.log(plantsListCopy, wateringDatetoUpdate)
+
                         plantsListCopy[index].nutritionizing_date = calendarValueString
                         try {
                             await updateDoc(doctoUpdate, {plantsList : plantsListCopy})
@@ -779,7 +693,7 @@ plantsList.forEach( async(e, index)=>{
                             console.log(-dateDifferenceForNutritionizing + ' days late')
                             buttonNutritions.innerHTML = -dateDifferenceForNutritionizing + ' days late'
                         }
-                        // 'Do you want to register Watered today? みたいなポップアップ必要？
+
 
                         buttonNutritions.classList.remove('update')
                         
@@ -788,8 +702,7 @@ plantsList.forEach( async(e, index)=>{
                         // Update a date to today
                         const doctoUpdate = doc(db, "plant_userinfo", userId)
                         const plantsListCopy = [...plantsList]
-                        // const wateringDatetoUpdate = e.watering_date
-                        // console.log(plantsListCopy, wateringDatetoUpdate)
+  
                         plantsListCopy[index].nutritionizing_date = todayString
                         try {
                             await updateDoc(doctoUpdate, {plantsList : plantsListCopy})
@@ -799,7 +712,7 @@ plantsList.forEach( async(e, index)=>{
                         }
                         // Set calendar value to Today
                         dateControlForNutritionizing.setAttribute('value', todayString)
-                        // 'Do you want to update last watering date? みたいなポップアップ必要？
+
 
                         // Display Next Watering Date in Button Value
                         const nextNutritionizingDate = doc_plantourinfo.data().soil_frequency
@@ -835,7 +748,7 @@ plantsList.forEach( async(e, index)=>{
 
 
 
-                // SUNLIGHT SECTION 🌸🌸======================================
+                // SUNLIGHT SECTION ======================================
 
                 // Display Sunlight Frequency
                 const sunlightFrequency = doc_plantourinfo.data().sunlight_frequency
@@ -850,11 +763,6 @@ plantsList.forEach( async(e, index)=>{
                 sunlightTemp.appendChild(divSunlight)
                 divSunlight.innerHTML = sunlightFrequency;
 
-
-                // wateringWrapper.style.opacity = 0;
-                // setTimeout(() => {
-                //     wateringWrapper.style.opacity = 1;
-                // }, 500);
 
             })
  

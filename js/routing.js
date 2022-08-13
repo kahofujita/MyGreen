@@ -55,7 +55,6 @@ export class Router {
 
   static async goToPage(page) {
     try {
-      console.log('cccccccccc')
       const response = await fetch(page.htmlName);
       const txt = await response.text();
       Router.rootElem.innerHTML = txt;
@@ -66,14 +65,7 @@ export class Router {
       if (module.init) {
         module.init();
       }
-      // //append JS part to run.
-      // const script = document.createElement('script');
-      // console.log('dddddd', page.jsName)
-      // script.setAttribute('src', `./js/${page.jsName}`);
-      // script.setAttribute('type', 'module');
-      // script.setAttribute('defer', 'defer');
-      // Router.rootElem.appendChild(script);
-      // // document.body.appendChild(script);
+
       document.title = page.title;
     } catch (e) {
       console.error(e);

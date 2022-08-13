@@ -46,15 +46,6 @@ detailSection.classList.add('border-line')
 
 const getPlantinfo = async () => {
 
-    // // Query "plant_ourinfo" for DETAIS section =================
-    // const detailQuery = query(collection(db, "plant_ourinfo"), where("plant_name", "==", plantName))
-    // const detailQuerySnapshot = await getDocs(detailQuery);
-    // detailQuerySnapshot.forEach((doc) => {
-    //     const detailInfo = doc.data().details
-    //     const indoorSunFreqent = doc.data().sunlight_frequency
-    //     const indoorWaterFrequent = doc.data().water_frequency_string
-    //     const indoorSoilFrequent = doc.data().soil_frequency_string
-    // })
 
 
     // Query "plant_ourinfo" for INDOOR location =================
@@ -62,17 +53,6 @@ const getPlantinfo = async () => {
     const indoorQuerySnapshot = await getDocs(indoorQuery);
     indoorQuerySnapshot.forEach( async(doc_indoor) => {
 
-        // // Display Plant Image
-        // const img = document.createElement('img')
-        // img.src = `./images/plant_img/${plantName}.jpg`
-        // img.alt = plantName
-        // imgNameWapper.appendChild(img)
-
-        // // Diplay Plant Name
-        // const plantNamediv = document.createElement('div')
-        // plantNamediv.classList.add('plant-name')
-        // imgNameWapper.appendChild(plantNamediv)
-        // plantNamediv.innerHTML = plantName
 
         // Get Plant Details
         const detailInfo = doc_indoor.data().details
@@ -91,7 +71,7 @@ const getPlantinfo = async () => {
         console.log(indoorSoilFrequent)
 
 
-        // INDOOR section ✨✨==================================
+        // INDOOR section ==================================
 
         indoorSec.addEventListener('click', () => {
 
@@ -109,10 +89,6 @@ const getPlantinfo = async () => {
                 document.querySelector(".outdoor").remove()
             }
 
-            // if (mediaQuery.matches) {
-            //     description.innerHTML = ""
-            //     description.innerHTML = `<table><tr><th>Sunlight</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Fertilizer</th></tr><tr><td>${indoorSoilRequirement}</td></tr></table>`
-            // }
 
             // Display Indoor Requirement Table
 
@@ -125,25 +101,16 @@ const getPlantinfo = async () => {
         
             description.innerHTML = ""
 
-            // function myMediaQuery(mediaQuery) {
-            //     if (mediaQuery.matches) {
+
                     // If media query matches
                     description.innerHTML = `<div class="desktop-view"><table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${indoorSunTempRequirement}</td><td>${indoorWaterRequirement}</td><td>${indoorSoilRequirement}</td></tr></table></div>`
 
-                    // Add underline
-                //     indoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
-                // } else {    
+  
                     description.innerHTML += `<div class="mobile-view"><table><tr><th>Sunlight & Temperature</th></tr><tr><td>${indoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${indoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${indoorSoilRequirement}</td></tr></table></div>`
-            //     }
-            // }
 
-            // myMediaQuery(mediaQuery)
                     // Add underline
                     indoorSection.classList.add('border-line')
- 
-
-            
-            
+        
         })
 
 
@@ -167,7 +134,7 @@ const getPlantinfo = async () => {
             console.log(outdoorSoilFrequent)
 
 
-            // DETAIL section 🌟🌟 ============================
+            // DETAIL section  ============================
 
             // When Going back to Detail Section
             detailSec.addEventListener('click', () => {
@@ -225,19 +192,12 @@ const getPlantinfo = async () => {
             indoorSection.classList.remove('border-line')
             description.innerHTML = detailInfo
 
-            // function myMediaQuery(mediaQuery) {
-            //     if (mediaQuery.matches) {
-            //         // Add underline
-            //         detailSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
-            //     }
-            // }
-
-            // myMediaQuery(mediaQuery)
 
 
 
 
-            // OUTDOOR section 🌸🌸 ===========================
+
+            // OUTDOOR section ===========================
 
             outdoorSec.addEventListener('click', () => {
 
@@ -263,41 +223,16 @@ const getPlantinfo = async () => {
                 indoorSection.classList.remove('border-line')
                 description.innerHTML = ""
 
-                // function myMediaQuery(mediaQuery) {
-                //     if (mediaQuery.matches) {
                         // If media query matches
                         description.innerHTML = `<div class="desktop-view"><table><tr><th>Sunlight & Temperature</th><th>Water</th><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSunTempRequirement}</td><td>${outdoorWaterRequirement}</td><td>${outdoorSoilRequirement}</td></tr></table></div>`
 
-                        // Add underline
-                    //     outdoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
-                    // } else {    
                         description.innerHTML += `<div class="mobile-view"><table><tr><th>Sunlight & Temperature</th></tr><tr><td>${outdoorSunTempRequirement}</td></tr></table><table><tr><th>Water</th></tr><tr><td>${outdoorWaterRequirement}</td></tr></table><table><tr><th>Fertilizer & Soil</th></tr><tr><td>${outdoorSoilRequirement}</td></tr></table></div>`
-                //     }
-                // }
 
-                // myMediaQuery(mediaQuery)
-                
-
-                // Warning for Outdoor Plants
-                // if ( doc_outdoor.data().details == "Due to temperature conditions, this plant is not suitable for outdoor areas." ) {
-                //     // Display Outdoor Requirement Table
-                //     description.innerHTML = ""
-                //     description.innerHTML = doc_outdoor.data().details
-                //     description.style.setProperty('color', 'red');
-                // }
 
                         // Add underline
                         outdoorSection.classList.add('border-line')
 
 
-                // function myMediaQuery(mediaQuery) {
-                //     if (mediaQuery.matches) {
-                //         // Add underline
-                //         outdoorSection.setAttribute('style', 'border-bottom: solid 4px #DD1C50; font-weight:700;')
-                //     }
-                // }
-    
-                // myMediaQuery(mediaQuery)
     
             })
 
@@ -305,116 +240,6 @@ const getPlantinfo = async () => {
 
 
 
-        
-
-        // const outdoorInfo = doc.data().ourdoor_location
-
-        // const {indoor_location: indoor, plant_name: plantName} = doc.data()
-
-        console.log(plantName)
-        // console.log(indoorInfo)
-        // console.log(outdoorInfo)
-
-
-        // // Display Plant Image
-        // const img = document.createElement('img')
-        // img.src = `./images/plant_img/${plantName}.jpg`
-        // img.alt = plantName
-        // imgNameWapper.appendChild(img)
-
-        // // Diplay Plant Name
-        // const plantNamediv = document.createElement('div')
-        // plantNamediv.classList.add('plant-name')
-        // imgNameWapper.appendChild(plantNamediv)
-        // plantNamediv.innerHTML = plantName
-
-        
-
-        // Detail Section 🌟🌟===============================
-
-        // Frequency List
-        // For Indoor 
-        // const indoorDiv = document.createElement('div')
-        // indoorDiv.classList.add('indoor')
-        // frequentList.appendChild(indoorDiv)
-        // // indoorDiv.innerHTML = `<div>${indoorInfo.sunlight_temperature_frequency}</div><div>${indoorInfo.water_frequency}</div><div>${indoorInfo.soil_frequency}</div>`
-
-        // // For Outdoor
-        // const outdoorDiv = document.createElement('div')
-        // outdoorDiv.classList.add('outdoor')
-        // frequentList.appendChild(outdoorDiv)
-        // outdoorDiv.innerHTML = `<div>${outdoorInfo.sunlight_temperature_frequency}</div><div>${outdoorInfo.water_frequency}</div><div>${outdoorInfo.soil_frequency}</div>`
-        
-        // description.innerHTML = detailInfo
-
-        // Click each section 
-        // detailSec.addEventListener('click', () => {
-
-        //     // Indoor list
-        //     if (document.querySelector(".indoor")) {
-        //         document.querySelector(".indoor").remove()
-        //     }
-        //     const indoorDiv = document.createElement('div')
-        //     indoorDiv.classList.add('indoor')
-        //     frequentList.appendChild(indoorDiv)
-        //     indoorDiv.innerHTML = `<div>${indoorInfo.sunlight_temperature_frequency}</div><div>${indoorInfo.water_frequency}</div><div>${indoorInfo.soil_frequency}</div>`
-
-        //     // Outdoor list
-        //     if (document.querySelector(".outdoor")) {
-        //         document.querySelector(".outdoor").remove()
-        //     }
-        //     const outdoorDiv = document.createElement('div')
-        //     outdoorDiv.classList.add('outdoor')
-        //     frequentList.appendChild(outdoorDiv)
-        //     outdoorDiv.innerHTML = `<div>${outdoorInfo.sunlight_temperature_frequency}</div><div>${outdoorInfo.water_frequency}</div><div>${outdoorInfo.soil_frequency}</div>`
-
-        //     // Details
-        //     description.innerHTML = ""
-        //     description.innerHTML = detailInfo
-        // })
-
-        // indoorSec.addEventListener('click', () => {
-
-        //     // Indoor list
-        //     if (document.querySelector(".indoor")) {
-        //         document.querySelector(".indoor").remove()
-        //     }
-        //     const indoorDiv = document.createElement('div')
-        //     indoorDiv.classList.add('indoor')
-        //     frequentList.appendChild(indoorDiv)
-        //     indoorDiv.innerHTML = `<div>${indoorInfo.sunlight_temperature_frequency}</div><div>${indoorInfo.water_frequency}</div><div>${indoorInfo.soil_frequency}</div>`
-
-        //     // Outdoor list
-        //     if (document.querySelector(".outdoor")) {
-        //         document.querySelector(".outdoor").remove()
-        //     }
-
-        //     // Indoor table
-        //     description.innerHTML = ""
-        //     description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${indoorInfo.sunlight_temperature_requirement}</td><td>${indoorInfo.water_requirement}</td><td>${indoorInfo.soil_requirement}</td></tr></table>`
-        // })
-
-        // outdoorSec.addEventListener('click', () => {
-
-        //     // Indoor list
-        //     if (document.querySelector(".indoor")) {
-        //         document.querySelector(".indoor").remove()
-        //     }
-
-        //     // Outdoor list
-        //     if (document.querySelector(".outdoor")) {
-        //         document.querySelector(".outdoor").remove()
-        //     }
-        //     const outdoorDiv = document.createElement('div')
-        //     outdoorDiv.classList.add('outdoor')
-        //     frequentList.appendChild(outdoorDiv)
-        //     outdoorDiv.innerHTML = `<div>${outdoorInfo.sunlight_temperature_frequency}</div><div>${outdoorInfo.water_frequency}</div><div>${outdoorInfo.soil_frequency}</div>`
-            
-        //     // Outdoor table
-        //     description.innerHTML = ""
-        //     description.innerHTML = `<table><tr><th>Sunlight</th><th>Water</th><th>Fertilizer</th></tr><tr><td>${outdoorInfo.sunlight_temperature_requirement}</td><td>${outdoorInfo.water_requirement}</td><td>${outdoorInfo.soil_requirement}</td></tr></table>`
-
-        // })
 
     })
 
