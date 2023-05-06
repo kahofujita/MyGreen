@@ -3,10 +3,9 @@
   <br />
   <span>Integrated Project - Team Unito</span>
   <br />
-  <br />
 </p>
 
-Visit https://mygreen.netlify.app/login.html
+https://mygreen.netlify.app/login.html
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7fb7be72-7f17-454f-a64a-2d246df23a9e/deploy-status)](https://app.netlify.com/sites/my-green/deploys)
 
