@@ -28,3 +28,5 @@ My Green is a web application that helps individuals who have a passion for plan
 
 
 ## Data Model
+
+![Data Model](./images/datamodel/mygreen_datamodel.png "Data Model")
