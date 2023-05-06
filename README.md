@@ -7,7 +7,7 @@
 </p>
 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/825b8803-4ce4-40b3-ae63-7d2a00703bcb/deploy-status)](https://mygreen.netlify.app/login.html)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7fb7be72-7f17-454f-a64a-2d246df23a9e/deploy-status)](https://app.netlify.com/sites/my-green/deploys)
 
 
 My Green is a web application that helps individuals who have a passion for plants and desire to nurture their plants while sharing their experiences with a community of plant enthusiasts.
