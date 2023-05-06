@@ -21,7 +21,7 @@ My Green is a web application that helps individuals who have a passion for plan
 ## Tech Stack
 
 - HTML
-- CSS
+- SASS
 - JavaScript
 - Firebase
 - Netlify
